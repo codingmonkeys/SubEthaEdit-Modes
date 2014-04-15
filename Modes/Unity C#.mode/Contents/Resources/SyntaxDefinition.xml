@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>
+
+    <head>
+        <name>C#</name> 
+        <charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@$]]></charsintokens>
+    </head>
+
+    <states>
+    
+        <default id="Base" color="#000" background-color="#fff" font-weight="normal" font-style="normal">
+            <keywords id="Keywords" color="#00c" useforautocomplete="yes">
+                <string>abstract</string>
+                <string>event</string>
+                <string>new</string>
+                <string>struct</string>
+                <string>as</string>
+                <string>explicit</string>
+                <string>null</string>
+                <string>switch</string>
+                <string>base</string>
+                <string>extern</string>
+                <string>object</string>
+                <string>this</string>
+                <string>bool</string>
+                <string>false</string>
+                <string>operator</string>
+                <string>throw</string>
+                <string>break</string>
+                <string>finally</string>
+                <string>out</string>
+                <string>true</string>
+                <string>byte</string>
+                <string>fixed</string>
+                <string>override</string>
+                <string>try</string>
+                <string>case</string>
+                <string>float</string>
+                <string>params</string>
+                <string>typeof</string>
+                <string>catch</string>
+                <string>for</string>
+                <string>private</string>
+                <string>uint</string>
+                <string>char</string>
+                <string>foreach</string>
+                <string>protected</string>
+                <string>ulong</string>
+                <string>checked</string>
+                <string>goto</string>
+                <string>public</string>
+                <string>unchecked</string>
+                <string>class</string>
+                <string>if</string>
+                <string>readonly</string>
+                <string>unsafe</string>
+                <string>const</string>
+                <string>implicit</string>
+                <string>ref</string>
+                <string>ushort</string>
+                <string>continue</string>
+                <string>in</string>
+                <string>return</string>
+                <string>using</string>
+                <string>decimal</string>
+                <string>int</string>
+                <string>sbyte</string>
+                <string>virtual</string>
+                <string>default</string>
+                <string>interface</string>
+                <string>sealed</string>
+                <string>volatile</string>
+                <string>delegate</string>
+                <string>internal</string>
+                <string>short</string>
+                <string>void</string>
+                <string>do</string>
+                <string>is</string>
+                <string>sizeof</string>
+                <string>while</string>
+                <string>double</string>
+                <string>lock</string>
+                <string>stackalloc</string>
+                <string>else</string>
+                <string>long</string>
+                <string>static</string>
+                <string>enum</string>
+                <string>namespace</string>
+                <string>string</string>
+            </keywords>
+            <keywords id="Numbers" color="#004CCC" useforautocomplete="no">
+				<regex>(?&lt;=[^[A-Za-z0-9]]|^)((([0-9]+\.[0-9]*)|(\.[0-9]+)([eE][+\-]?[0-9]+)?[fFlL]?)|((([1-9][0-9]*)|0[0-7]*|(0[xX][0-9a-fA-F]))(([uU][lL]?)|([lL][uU]?))?))(?=[^[A-Za-z0-9]]|$)</regex>
+            </keywords>
+        </default>
+        
+        <state id="AutodocComment" color="#216D23" background-color="none" font-weight="bold" font-style="italic">
+            <begin><string>/\*"</string></begin>
+            <end><regex>"\*/</regex></end>
+        </state>
+
+        <state id="Comment" color="#216D23" background-color="none" font-weight="normal" font-style="italic">
+            <begin><string>/\*</string></begin>
+            <end><regex>\*/</regex></end>
+        </state>
+        
+        <state id="SingleComment" color="#216D23" background-color="none" font-weight="normal" font-style="italic">
+            <begin><string>//</string></begin>
+            <end><regex>[\n\r]</regex></end>
+        </state>
+        
+        <state id="Region" color="#A0A014" background-color="none" font-weight="normal" font-style="italic">
+            <begin><string>#</string></begin>
+            <end><regex>[\n\r]</regex></end>
+        </state>
+        
+        <state id="String" color="#88134F" background-color="none" font-weight="normal" font-style="normal">
+            <begin><string>"</string></begin>
+            <end><regex>(((?&lt;!\\)(\\\\)*)|^)"</regex></end>
+        </state>
+    </states>
+
+</syntax>

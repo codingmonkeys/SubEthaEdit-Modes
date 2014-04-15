@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<syntax>
+
+
+    <!-- 
+    The <head> tag encloses some global information about the mode.
+    This tag is required.
+    -->    
+
+    <head>
+
+        <!-- 
+        The <name> specifies the modes name. 
+        This tag is required and must match with the name in the plist after the SEEMode..
+        -->    
+
+        <name>z80 Syntax</name>
+
+        <!-- optional to add spelling-dicitionary autocomplete words -->
+        <autocompleteoptions use-spelling-dictionary="yes" />
+
+        <!-- 
+        The <charsintokens> and the <charsdelimitingtokens> instruct the syntax highlighter
+        where to tokenize the text for fast finding of plain strings.
+        The <charsintokens> tag specifies the characters that can occur in strings,
+        the <charsdelimitingtokens> tag specifies the tags that cannot occur in strings.
+        One of these tags has to be specified.
+        Tip: Use CDATA here.
+        -->    
+
+        <charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@]]></charsintokens> 
+        <!-- <charsdelimitingtokens><![CDATA[ -]]></charsdelimitingtokens> -->
+        
+        
+        <!--
+          the <charsincompletion> defines characters used for autocompletion. e.g. in perl
+          you want this to include the $ sign to autocomplete variables.
+          If left out the regular expression word boundaries are used.
+        -->
+        <!-- <charsincompletion><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-@$</=>!]]></charsincompletion> -->
+    </head>
+
+
+    <!-- 
+    The <states> tag encloses all syntax states.
+    States are areas of the test that begin and end with an regex like comments or strings,
+    with exception of the default state, that exists anywhere where no other state exists.
+    This tag is required.
+    -->    
+
+    <states>
+    
+        <!-- 
+        The <default> tag specifies what is colored within the default state (see above).
+        It features the following attributes, all optional if not noted otherwise:
+            id
+                Has to be a unique string. Has to be specified.
+            color
+                a html comptible color in three or six letter hexadecimal format.
+                Used for text on bright document background colors.
+            inverted-color
+                a html comptible color in three or six letter hexadecimal format.
+                Used for text if a dark document background color is set.
+            font-weight
+                normal  Normal font-weight (default)
+                bold    Bold text in popup
+            font-style
+                normal  Normal font-weight (default)
+                italic  Bold text in popup
+            usesymbolsfrommode
+                a mode name to use the symbol recognition from
+                when left out the value is inherited from the parent state
+            useautocompletefrommode
+                a mode name to use the autocomplete from - default is this mode
+                when left out the value is inherited from the parent state
+            type
+                a string description of the type. currently only the values
+                "string" and "comment" have meaning and cause bracket matching
+                and syntax highlighting to ignore these areas of text
+                
+        -->    
+    
+        <default id="Base" color="#000" inverted-color="#fff">
+
+            <!-- 
+            The <keywords> tag specifies keyword groups within the current state.
+            It features the following attributes, all optional if not noted otherwise:
+                id
+                    Has to be a unique string. Has to be specified.
+                color
+                    a html comptible color in three or six letter hexadecimal format.
+                    Used for text on bright document background colors.
+                inverted-color
+                    a html comptible color in three or six letter hexadecimal format.
+                    Used for text if a dark document background color is set.
+                font-weight
+                    normal  Normal font-weight (default)
+                    bold    Bold text in popup
+                font-style
+                    normal  Normal font-weight (default)
+                    italic  Bold text in popup
+                casesensitive
+                    yes     This group is case sensitive (default)
+                    no      Ignore case for the group
+                useforautocomplete
+                    yes     Add this group's strings to the autocomplete dictionary (default)
+                    no      Don't add to autocomplete dictionary
+            -->    
+
+            <keywords id="Keywords" color="#AC0540" casesensitive="no" useforautocomplete="yes">
+				<string>adc</string>
+				<string>add</string>
+				<string>and</string>
+                <string>bit</string>
+				<string>call</string>
+				<string>ccf</string>
+				<string>cp</string>
+                <string>cpd</string>
+				<string>cpdr</string>
+				<string>cpir</string>
+				<string>cpi</string>
+                <string>cpl</string>
+				<string>daa</string>
+				<string>dec</string>
+				<string>di</string>
+                <string>djnz</string>
+				<string>ei</string>
+				<string>ex</string>
+				<string>exx</string>
+                <string>halt</string>
+				<string>im</string>
+				<string>in</string>
+				<string>inc</string>
+                <string>ind</string>
+				<string>indr</string>
+				<string>ini</string>
+				<string>inir</string>
+                <string>jp</string>
+				<string>jr</string>
+				<string>ld</string>
+				<string>ldd</string>
+                <string>lddr</string>
+				<string>ldi</string>
+				<string>ldir</string>
+				<string>neg</string>
+                <string>nop</string>
+				<string>or</string>
+				<string>otdr</string>
+				<string>otir</string>
+                <string>out</string>
+				<string>outd</string>
+				<string>outi</string>
+				<string>pop</string>
+                <string>push</string>
+				<string>res</string>
+				<string>ret</string>
+				<string>reti</string>
+                <string>retn</string>
+				<string>rl</string>
+				<string>rla</string>
+				<string>rlc</string>
+                <string>rlca</string>
+				<string>rld</string>
+				<string>rr</string>
+				<string>rra</string>
+                <string>rrc</string>
+				<string>rrca</string>
+				<string>rrd</string>
+				<string>rst</string>
+                <string>sbc</string>
+				<string>scf</string>
+				<string>set</string>
+				<string>sla</string>
+                <string>sra</string>
+				<string>srl</string>
+				<string>sub</string>
+				<string>xor</string>
+            </keywords>
+
+            <keywords id="Registers" color="#4000A0" font-weight="bold" font-style="italic">
+              <string>a</string>
+              <string>b</string>
+              <string>c</string>
+              <string>d</string>
+              <string>e</string>
+              <string>f</string>
+              <string>h</string>
+              <string>l</string>
+              <string>af</string>
+              <string>bc</string>
+              <string>de</string>
+              <string>hl</string>              
+              <string>ix</string>
+              <string>iy</string>
+              <string>sp</string>
+            </keywords>
+
+            <keywords id="Directives" color="#CC2560" casesensitive="no" useforautocomplete="yes">
+              <string>db</string>
+              <string>ds</string>
+              <string>dw</string>
+              <string>defb</string>
+              <string>defs</string>
+              <string>defw</string>
+              <string>equ</string>
+              <string>include</string>
+              <string>org</string>
+            </keywords>
+
+            <keywords id="Numbers" color="#00f" inverted-color="#5d56ff" useforautocomplete="no">
+				<regex>(&amp;[0-9A-Fa-f]*)</regex>
+				<regex>([0-9]*)</regex>
+            </keywords>
+            
+            <keywords id="Label" color="#EE2325" font-style="italic">
+                <regex>(\.[A-Za-z][0-9A-Za-z_]*[\s;\n\r])</regex>
+                <regex>([A-Za-z][0-9A-Za-z_]*\:)</regex>    
+            </keywords>
+
+            <!-- 
+                The <state> tag specifies a state other than the default state.
+                It features the same attributes as <default>.
+                It has to contain a <begin> and a <end> tag which in turn have to 
+                contain a <regex> tag. They can contain <keywords> tags like specified above.
+                
+                For example here a states for C blockcomments, C++ singleline comments and strings.
+                The strings state handles escaped quotes with a lookbehind regular expression 
+                (see a regex tutorial) and colors "foobar" with strings.
+            -->    
+
+            
+            <state id="Comment" type="comment" color="#236E25" font-style="italic">
+                <begin><regex>;</regex></begin>
+                <end><regex>[\n\r]</regex></end>
+            </state>     
+            
+            <state id="String" type="string" color="#760f15" font-weight="normal" font-style="normal">
+                <begin><regex>"</regex></begin>
+                <end><regex>(((?&lt;!\\)(\\\\)*)|^)"</regex></end>
+            </state>
+            
+            <state id="Singlequote String" type="string" color="#760f15" font-weight="normal" font-style="normal">
+                <begin><regex>'</regex></begin>
+                <end><regex>(((?&lt;!\\)(\\\\)*)|^)'</regex></end>
+            </state>
+
+        </default>
+        
+    </states>
+
+</syntax>

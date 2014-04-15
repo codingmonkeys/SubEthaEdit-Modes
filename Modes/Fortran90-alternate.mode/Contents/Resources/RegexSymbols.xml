@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "symbol.dtd">
+<symbols>
+
+    <blocks>
+        <beginregex>{</beginregex>
+        <endregex>}</endregex>
+    </blocks>
+    
+    <symbol id="Funtions" image="SymbolF()">
+        <regex>(?i)([\w\d_\*]* +function[^\s]*)</regex>
+        <postprocess>
+            <find>\([^\)]*\)</find>
+            <replace>()</replace>
+            <find>[\n\r]</find>
+            <replace> </replace>
+            <find>[ \t]+</find>
+            <replace> </replace>
+            <find>result\(\)</find>
+            <replace></replace>
+        </postprocess>
+    </symbol>
+
+    <symbol id="Subroutines" image="SymbolS">
+        <regex>(?i)(subroutine[^\s]*)</regex>
+        <postprocess>
+            <find>\([^\)]*\)</find>
+            <replace>()</replace>
+            <find>[\n\r]</find>
+            <replace> </replace>
+            <find>[ \t]+</find>
+            <replace> </replace>
+            <find>result\(\)</find>
+            <replace></replace>
+        </postprocess>
+    </symbol>
+
+
+    <symbol id="Modules" image="SymbolM">
+        <regex>(?i)(module[^\s]*)</regex>
+        <postprocess>
+            <find>\([^\)]*\)</find>
+            <replace>()</replace>
+            <find>[\n\r]</find>
+            <replace> </replace>
+            <find>[ \t]+</find>
+            <replace> </replace>
+            <find>result\(\)</find>
+            <replace></replace>
+        </postprocess>
+    </symbol>
+
+
+    <symbol id="Programs" image="SymbolP">
+        <regex>(?i)(program[^\s]*)</regex>
+        <postprocess>
+            <find>\([^\)]*\)</find>
+            <replace>()</replace>
+            <find>[\n\r]</find>
+            <replace> </replace>
+            <find>[ \t]+</find>
+            <replace> </replace>
+            <find>result\(\)</find>
+            <replace></replace>
+        </postprocess>
+    </symbol>
+
+
+    <symbol id="Types" image="SymbolT">
+        <regex>(?i)(type[^\s]*)</regex>
+        <postprocess>
+            <find>\([^\)]*\)</find>
+            <replace>()</replace>
+            <find>[\n\r]</find>
+            <replace> </replace>
+            <find>[ \t]+</find>
+            <replace> </replace>
+            <find>result\(\)</find>
+            <replace></replace>
+        </postprocess>
+    </symbol>
+
+
+    <symbol id="Interfaces" image="Symbol#">
+        <regex>(?i)(interface[^\s]*)</regex>
+        <postprocess>
+            <find>\([^\)]*\)</find>
+            <replace>()</replace>
+            <find>[\n\r]</find>
+            <replace> </replace>
+            <find>[ \t]+</find>
+            <replace> </replace>
+            <find>result\(\)</find>
+            <replace></replace>
+        </postprocess>
+    </symbol>
+
+
+    <symbol id="CVS/SVN conflict" font-weight="bold" image="SymbolWarn" indentation="0" ignoreblocks="no">
+        <regex>^&lt;&lt;&lt;&lt;&lt;&lt;&lt;[^=]*======[^&gt;]*&gt;&gt;&gt;&gt;&gt;&gt;&gt;</regex>
+        <postprocess>
+            <find>.*</find>
+            <replace>Versioning conflict!</replace>
+        </postprocess>
+    </symbol>
+
+</symbols>

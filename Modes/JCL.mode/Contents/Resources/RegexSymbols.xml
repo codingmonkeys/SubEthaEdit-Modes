@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<symbols>
+    <!-- 
+    The <symbol> tag specifies what is being shown in the fuction popup.
+    It features the following attributes, all optional if not noted otherwise:
+        id
+            Has to be a unique string. Has to be specified.
+        image
+            Specify an image includes in the application (no extension) or
+            specify an image in this modes Resources directory (with extension)
+            SubEthaEdit comes with the following images:
+            Symbol#, SymbolC, SymbolE, SymbolF, SymbolF(), SymbolG, SymbolK,
+            SymbolL, SymbolM, SymbolP, SymbolS, SymbolT, SymbolV, SymbolWarn
+        indentation
+            0-15    The level of indentation
+        font-weight
+            normal  Normal font-weight (default)
+            bold    Bold text in popup
+        font-style
+            normal  Normal font-weight (default)
+            italic  Bold text in popup
+            
+        The example shows an symbol name "First example" with the image SymbolM
+        and an indentation of 1.
+    -->    
+    <symbol id="JOB" image="JOB.png" indentation="0">
+        <regex>^//\S+\s+JOB</regex>
+    </symbol>
+    <symbol id="COMMAND" image="COMMAND.png" indentation="1">
+        <regex>^//.*COMMAND</regex>
+    </symbol>
+    <symbol id="EXEC" image="EXEC.png" indentation="1">
+        <regex>^//.*EXEC</regex>
+    </symbol>
+    <symbol id="PROC" image="PROC.png" indentation="1">
+        <regex>^//.*PROC</regex>
+    </symbol>
+    <symbol id="DD" image="DD.png" indentation="2">
+        <regex>^//.*DD</regex>
+    </symbol>
+</symbols>

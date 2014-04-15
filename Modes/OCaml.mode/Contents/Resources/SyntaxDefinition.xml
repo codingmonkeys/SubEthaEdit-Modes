@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>
+    <head>
+        <name>Objective CAML</name>
+        <charsintokens>
+            <![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@]]>
+        </charsintokens>
+    </head>
+    
+    <states>
+
+    <default id="Base" color="#000" inverted-color="#fff">
+    <keywords id="Keywords" color="#6C0540" casesensitive="yes" 
+        useforautocomplete="yes">
+        <string>=</string>
+        <string>-&gt;</string>
+        <string>&lt;-</string>
+        <string>==</string>
+        <string>!=</string>
+        <string>&lt;&gt;</string>
+        <string>\^</string>
+        <string>&amp;&amp;</string>
+        <string>\|</string>
+        <string>and</string>
+        <string>as</string>
+        <string>assert</string>
+        <string>asr</string>
+        <string>begin</string>
+        <string>class</string>
+        <string>closed</string>
+        <string>constraint</string>
+        <string>do</string>
+        <string>done</string>
+        <string>downto</string>
+        <string>else</string>
+        <string>end</string>
+        <string>exception</string>
+        <string>external</string>
+        <string>false</string>
+        <string>for</string>
+        <string>fun</string>
+        <string>function</string>
+        <string>functor</string>
+        <string>if</string>
+        <string>in</string>
+        <string>include</string>
+        <string>inherit</string>
+        <string>land</string>
+        <string>lazy</string>
+        <string>let</string>
+        <string>lor</string>
+        <string>lsl</string>
+        <string>lsr</string>
+        <string>lxor</string>
+        <string>match</string>
+        <string>method</string>
+        <string>mod</string>
+        <string>module</string>
+        <string>mutable</string>
+        <string>new</string>
+        <string>of</string>
+        <string>open</string>
+        <string>or</string>
+        <string>parser</string>
+        <string>private</string>
+        <string>rec</string>
+        <string>sig</string>
+        <string>struct</string>
+        <string>then</string>
+        <string>to</string>
+        <string>true</string>
+        <string>try</string>
+        <string>type</string>
+        <string>val</string>
+        <string>value</string>
+        <string>virtual</string>
+        <string>when</string>
+        <string>while</string>
+        <string>with</string>        
+    </keywords>
+
+    <keywords id="Constructors" color="#646419" casesensitive="yes" useforautocomplete="yes">
+        <regex>[^a-z0-9]([A-Z][a-zA-Z0-9_]*)</regex>
+        <regex>^([A-Z][a-zA-Z0-9_]*)</regex>
+    </keywords>
+
+    <keywords id="Numbers" color="#196464" casesensitive="no" useforautocomplete="no">
+        <regex>[^a-zA-Z_0-9]([0-9]+(\.[0-9]*)?)</regex>
+        <regex>^([0-9]+(\.[0-9]*)?)</regex>
+    </keywords>
+
+    </default>
+
+    <state id="Comment" color="#236E25" font-style="italic">
+        <begin><regex>\(\*</regex></begin>
+        <end><regex>\*\)</regex></end>>
+    </state>
+
+    <state id="String" color="#191980">
+        <begin><regex>"</regex></begin>
+        <end><regex>(((?&lt;!\\)(\\\\)*)|^)"</regex></end>
+    </state>
+
+    </states>
+   
+</syntax>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "symbol.dtd">
+<symbols>
+	<symbol id="Function" image="SymbolF1" indentation="0" ignoreblocks="yes">
+        <regex>[\n\r][ \t]*(?i)function[ \t]*([\w\d]*)</regex>
+  </symbol>
+    
+    <symbol id="Function2" image="SymbolF2" indentation="0" ignoreblocks="yes">
+        <regex>[\n\r][ \t]*(?i)private function[ \t]*([\w\d]*)</regex>
+	</symbol>
+
+    <symbol id="Handler" image="SymbolH" indentation="0" ignoreblocks="yes">
+        <regex>[\n\r][ \t]*(?i)on[ \t]*([\w\d]*)</regex>
+	</symbol>
+
+    <symbol id="Handler2" image="SymbolH1" indentation="0" ignoreblocks="yes">
+        <regex>[\n\r][ \t]*(?i)private command[ \t]*([\w\d]*)</regex>
+	</symbol>
+	
+	<symbol id="globalVar" image="SymbolVg" indentation="1" ignoreblocks="yes">
+      <regex>[\n\r][ \t]*(?i)global[ \t]*([\w\d]*)</regex>
+  </symbol>
+
+  <symbol id="globalVarL" image="SymbolVl" indentation="1" ignoreblocks="yes">
+         <regex>[\n\r][ \t]*(?i)local[ \t]*([\w\d]*)</regex>
+  </symbol>
+</symbols>

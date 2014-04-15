@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>
+
+    <head>
+        <name>ARB_vp</name> <!-- The definitions title -->
+        <charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@!.]]></charsintokens> 
+    </head>
+
+    <states>
+    
+        <default id="Base" color="#000" background-color="#fff" font-weight="normal" font-style="normal">
+            <keywords id="Opcodes" color="#00f" useforautocomplete="yes">
+				<string>ABS</string>
+				<string>ADD</string>
+				<string>ARL</string>
+				<string>DP3</string>
+				<string>DP4</string>
+				<string>DPH</string>
+				<string>DST</string>
+				<string>EX2</string>
+				<string>EXP</string>
+				<string>FLR</string>
+				<string>FRC</string>
+				<string>LG2</string>
+				<string>LIT</string>
+				<string>LOG</string>
+				<string>MAD</string>
+				<string>MAX</string>
+				<string>MIN</string>
+				<string>MOV</string>
+				<string>MUL</string>
+				<string>POW</string>
+				<string>RCP</string>
+				<string>RSQ</string>
+				<string>SGE</string>
+				<string>SLT</string>
+				<string>SUB</string>
+				<string>SWZ</string>
+				<string>XPD</string>
+            </keywords>
+            <keywords id="Attributes, Parameters, State and Results" color="#003F00" useforautocomplete="yes">
+                <string>vertex.position</string>
+                <string>vertex.normal</string>
+                <string>vertex.color</string>
+                <string>vertex.color.primary</string>
+                <string>vertex.color.secondary</string>
+                <string>vertex.fogcoord</string>
+                <string>state.material.ambient</string>
+                <string>state.material.diffuse</string>
+				<string>state.material.specular</string>
+				<string>state.material.emission</string>
+				<string>state.material.shininess</string>
+				<string>state.material.front.ambient</string>
+                <string>state.material.front.diffuse</string>
+				<string>state.material.front.specular</string>
+				<string>state.material.front.emission</string>
+				<string>state.material.front.shininess</string>
+				<string>state.material.back.ambient</string>
+                <string>state.material.back.diffuse</string>
+				<string>state.material.back.specular</string>
+				<string>state.material.back.emission</string>
+				<string>state.material.back.shininess</string>
+				<string>state.lightmodel.ambient</string>
+				<string>state.lightmodel.scenecolor</string>
+				<string>state.lightmodel.front.scenecolor</string>
+				<string>state.lightmodel.back.scenecolor</string>
+				<string>state.fog.color</string>
+				<string>state.fog.params</string>
+				<string>state.point.size</string>
+				<string>state.point.attenuation</string>
+				<string>result.position</string>
+				<string>result.color</string>
+				<string>result.color.primary</string>
+				<string>result.color.secondary</string>
+				<string>result.color.front</string>
+				<string>result.color.front.primary</string>
+				<string>result.color.front.secondary</string>
+				<string>result.color.back</string>
+				<string>result.color.back.primary</string>
+				<string>result.color.back.secondary</string>
+				<string>result.fogcoord</string>
+				<string>result.pointsize</string>
+				<regex>(vertex\.weight(\[[0-9]+\]){0,1})</regex>
+				<regex>(vertex\.texcoord(\[[0-9]+\]){0,1})</regex>
+				<regex>(vertex\.matrixindex(\[[0-9]+\]){0,1})</regex>
+				<regex>(vertex\.attrib\[[0-9]+\])</regex>
+				<regex>(program\.env\[[0-9]+\])</regex>
+				<regex>(program\.local\[[0-9]+\])</regex>
+				<regex>(state\.light\[[0-9]+\]\.ambient)</regex>
+				<regex>(state\.light\[[0-9]+\]\.diffuse)</regex>
+				<regex>(state\.light\[[0-9]+\]\.specular)</regex>
+				<regex>(state\.light\[[0-9]+\]\.position)</regex>
+				<regex>(state\.light\[[0-9]+\]\.attenuation)</regex>
+				<regex>(state\.light\[[0-9]+\]\.spot\.direction)</regex>
+				<regex>(state\.light\[[0-9]+\]\.half)</regex>
+				<regex>(state\.lightprod\[[0-9]+\]\.ambient)</regex>
+				<regex>(state\.lightprod\[[0-9]+\]\.diffuse)</regex>
+				<regex>(state\.lightprod\[[0-9]+\]\.specular)</regex>
+				<regex>(state\.lightprod\[[0-9]+\]\.front\.ambient)</regex>
+				<regex>(state\.lightprod\[[0-9]+\]\.front\.diffuse)</regex>
+				<regex>(state\.lightprod\[[0-9]+\]\.front\.specular)</regex>
+				<regex>(state\.lightprod\[[0-9]+\]\.back\.ambient)</regex>
+				<regex>(state\.lightprod\[[0-9]+\]\.back\.diffuse)</regex>
+				<regex>(state\.lightprod\[[0-9]+\]\.back\.specular)</regex>
+				<regex>(state\.texgen\[[0-9]+\]\.eye\.s)</regex>
+				<regex>(state\.texgen\[[0-9]+\]\.eye\.t)</regex>
+				<regex>(state\.texgen\[[0-9]+\]\.eye\.r)</regex>
+				<regex>(state\.texgen\[[0-9]+\]\.eye\.q)</regex>
+				<regex>(state\.texgen\[[0-9]+\]\.object\.s)</regex>
+				<regex>(state\.texgen\[[0-9]+\]\.object\.t)</regex>
+				<regex>(state\.texgen\[[0-9]+\]\.object\.r)</regex>
+				<regex>(state\.texgen\[[0-9]+\]\.object\.q)</regex>
+				<regex>(state\.clip\[[0-9]+\]\.plane)</regex>
+				<regex>(state\.matrix\.modelview(\[[0-9]+\]){0,1}(\.((inverse)|(transpose)|(invtrans))){0,1})</regex>
+				<regex>(state\.matrix\.projection(\.((inverse)|(transpose)|(invtrans))){0,1})</regex>
+				<regex>(state\.matrix\.mvp(\.((inverse)|(transpose)|(invtrans))){0,1})</regex>
+				<regex>(state\.matrix\.texture(\[[0-9]+\]){0,1}(\.((inverse)|(transpose)|(invtrans))){0,1})</regex>
+				<regex>(state\.matrix\.palette\[[0-9]+\](\.((inverse)|(transpose)|(invtrans))){0,1})</regex>
+				<regex>(state\.matrix\.program\[[0-9]+\](\.((inverse)|(transpose)|(invtrans))){0,1})</regex>
+				<regex>(result\.texcoord(\[[0-9]+\]){0,1})</regex>
+            </keywords>
+            <keywords id="Types" color="#7F0000" useforautocomplete="yes">
+				<string>ADDRESS</string>
+				<string>ALIAS</string>
+				<string>ATTRIB</string>
+				<string>OUTPUT</string>
+				<string>PARAM</string>
+				<string>TEMP</string>
+            </keywords>
+            <keywords id="Version Strings and Options" color="#00007F" useforautocomplete="yes">
+			    <string>OPTION</string>
+				<string>!!ARBvp1.0</string>
+				<string>END</string>
+				<string>ARB_position_invariant</string>
+            </keywords>
+        </default>
+        
+        <state id="Singleline Comment" color="#7F4C7F" font-style="italic">
+            <begin><string>#</string></begin>
+            <end><regex>[\n\r]</regex></end>
+        </state>
+    </states>
+
+</syntax>

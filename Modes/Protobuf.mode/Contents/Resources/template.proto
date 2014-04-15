@@ -1,0 +1,13 @@
+package p;
+
+enum E {
+    YES = 0;
+    NO = 1;
+    MAYBE = 2;
+}
+
+message M {
+    required int32 foo = 1;
+    required bool bar = 2;
+    optional E baz = 3 [default = YES];
+}

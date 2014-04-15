@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "symbol.dtd">
+<symbols>
+
+    <symbol id="Classes" image="SymbolC" indentation="0">
+        <regex>Class +([\w\d_]+)</regex>
+    </symbol>
+
+
+    <symbol id="CVS/SVN conflict" font-weight="bold" image="SymbolWarn" indentation="0" ignoreblocks="no">
+        <regex>^&lt;&lt;&lt;&lt;&lt;&lt;&lt;[^=]*======[^&gt;]*&gt;&gt;&gt;&gt;&gt;&gt;&gt;</regex>
+        <postprocess>
+            <find>.*</find>
+            <replace>Versioning conflict!</replace>
+        </postprocess>
+    </symbol>
+
+</symbols>

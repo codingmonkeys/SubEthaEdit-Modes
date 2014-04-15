@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "symbol.dtd">
+<symbols>
+    <blocks>
+        <beginregex>begin</beginregex>
+        <endregex>end</endregex>
+    </blocks>
+    <symbol id="Procedures" image="SymbolP">
+        <regex>(?i)[\n\r][ \t]*procedure[ \t]*([\w\d]*)[ \t\;\(]</regex>
+        <postprocess>
+            <find>[\n\r]</find>
+            <replace> </replace>
+            <find>[ \t]+</find>
+            <replace> </replace>
+        </postprocess>
+    </symbol>    
+    <symbol id="Functions" image="SymbolF">
+        <regex>(?i)[\n\r][ \t]*function[ \t]*([\w\d]*)[ \t\;\(]</regex>
+        <postprocess>
+            <find>[\n\r]</find>
+            <replace> </replace>
+            <find>[ \t]+</find>
+            <replace> </replace>
+        </postprocess>
+    </symbol>
+    <symbol id="TaskBodies" image="SymbolP">
+        <regex>(?i)[\n\r][ \t]*task body[ \t]*([\w\d]*)[ \t\;\(]</regex>
+        <postprocess>
+            <find>[\n\r]</find>
+            <replace> </replace>
+            <find>[ \t]+</find>
+            <replace> </replace>
+            <find>(.*)</find>
+            <replace>\1 Task Body</replace>
+        </postprocess>
+    </symbol>
+    <symbol id="Tasks" image="SymbolP">
+        <regex>(?i)[\n\r][ \t]*task[ \t]*([\w\d]*)[ \t]*is</regex>
+        <postprocess>
+            <find>[\n\r]</find>
+            <replace> </replace>
+            <find>[ \t]+</find>
+            <replace> </replace>
+            <find>(.*)</find>
+            <replace>\1 Task</replace>
+        </postprocess>
+    </symbol>
+    <symbol id="Entries" image="SymbolP" indentation="1">
+        <regex>(?i)[\n\r][ \t]*entry[ \t]*([\w\d]*)[ \t\;\(]</regex>
+        <postprocess>
+            <find>[\n\r]</find>
+            <replace> </replace>
+            <find>[ \t]+</find>
+            <replace> </replace>
+            <find>(.*)</find>
+            <replace>\1 Entry</replace>
+        </postprocess>
+    </symbol>    
+    <symbol id="Accepts" image="SymbolP" indentation="1">
+        <regex>(?i)[\n\r][ \t]*accept[ \t]*([\w\d]*)[ \t\;\(]</regex>
+        <postprocess>
+            <find>[\n\r]</find>
+            <replace> </replace>
+            <find>[ \t]+</find>
+            <replace> </replace>
+            <find>(.*)</find>
+            <replace>\1 Entry Accept</replace>
+        </postprocess>
+    </symbol>    
+    <symbol id="Types" image="SymbolT">
+        <regex>(?i)[\n\r][ \t]*type[ \t]*([\w\d]*)[ \n\r\t\;\(]</regex>
+        <postprocess>
+            <find>[\n\r]</find>
+            <replace> </replace>
+            <find>[ \t]+</find>
+            <replace> </replace>
+        </postprocess>
+    </symbol>
+    <symbol id="ProtectedTypes" image="SymbolT">
+        <regex>(?i)[\n\r][ \t]*protected[ \t]*type[ \t]*([\w\d]*)[ \n\r\t\;\(]</regex>
+        <postprocess>
+            <find>[\n\r]</find>
+            <replace> </replace>
+            <find>[ \t]+</find>
+            <replace> </replace>
+            <find>(.*)</find>
+            <replace>\1 Protected Type</replace>
+        </postprocess>
+    </symbol>
+    <symbol id="GenericPackageInstance" image="SymbolG">
+        <regex>(?i)[\n\r][ \t]*package[ \t]*([\w\d]*)[ \t]*is</regex>
+        <postprocess>
+            <find>[\n\r]</find>
+            <replace> </replace>
+            <find>[ \t]+</find>
+            <replace> </replace>
+        </postprocess>
+    </symbol>
+    <symbol id="SubTypes" image="SymbolS">
+        <regex>(?i)[\n\r][ \t]*subtype[ \t]*([\w\d]*)[ \n\r\t\;\(]</regex>
+        <postprocess>
+            <find>[\n\r]</find>
+            <replace> </replace>
+            <find>[ \t]+</find>
+            <replace> </replace>
+        </postprocess>
+    </symbol>
+    <symbol id="CVS/SVN conflict" font-weight="bold" image="SymbolWarn" indentation="0" ignoreblocks="no">
+        <regex>^&lt;&lt;&lt;&lt;&lt;&lt;&lt;[^=]*======[^&gt;]*&gt;&gt;&gt;&gt;&gt;&gt;&gt;</regex>
+        <postprocess>
+            <find>.*</find>
+            <replace>Versioning conflict!</replace>
+        </postprocess>
+    </symbol>
+</symbols>

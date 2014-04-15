@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>
+    <head>
+        <name>Wikipedia</name>
+        <charsintokens>
+            <![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@]]>
+        </charsintokens> 
+    </head>
+
+    <states>
+    
+        <default id="Base" color="#000" inverted-color="#fff">
+
+            <!-- HTML-like Tags -->
+            <keywords id="Tags" color="#881280" useforautocomplete="no">
+                <regex>(&lt;[^&gt;]*&gt;)</regex>
+            </keywords>
+ 
+            <!-- Character entities -->
+            <keywords id="Entities" color="#881280" useforautocomplete="no">
+                <regex>(&amp;\w{1,8};)</regex>
+            </keywords>
+
+            <!-- A naked URL. Other external linking is handled in a state
+                 below 
+                 -->
+            <keywords id="BareExtLink" color="#881280">
+                <regex>(http:\S+)</regex>
+            </keywords>
+
+            <!-- Other Wiki-isms -->
+            <keywords id="RandomThingies" color="#00B2B2">
+                <regex>(-{4})</regex>
+                <regex>(~{3,5})</regex>
+                <regex>(ISBN [0-9]\S+)</regex>
+            </keywords>
+
+        </default>
+
+        <state id="VariableOrTemplate" color="#339900" font-style="italic">
+            <begin><regex>{{</regex></begin>
+            <end><regex>}}</regex></end>
+        </state>
+
+        <state id="Section" color="#00F" font-weight="blod" font-style="italic">
+            <begin><regex>(?&lt;!=)={2}(?=[^=]+={2})</regex></begin>
+            <end><regex>={2}</regex></end>
+        </state>
+
+        <state id="Subsection" color="#00F" font-weight="blod" font-style="normal">
+            <begin><regex>(?&lt;!=)={3}(?=[^=]+={3})</regex></begin>
+            <end><regex>={3}</regex></end>
+        </state>
+
+        <state id="SubSubsection" color="#00F" font-weight="normal" font-style="italic">
+            <begin><regex>(?&lt;!=)={4}(?=[^=]+={4})</regex></begin>
+            <end><regex>={4}</regex></end>
+        </state>
+
+        <!-- Syntactical emphases -->        
+        <state id="Emph" color="#000" inverted-color="#fff" font-weight="normal" font-style="italic">
+            <begin><regex>'{2}(?=[^'])</regex></begin>
+            <end><regex>'{2}(?=[^'])</regex></end>
+        </state>
+        <state id="Strong" color="#000" inverted-color="#fff" font-weight="bold" font-style="normal">
+            <begin><regex>'{3}(?=[^'])</regex></begin>
+            <end><regex>'{3}(?=[^'])</regex></end>
+        </state>
+        <state id="VStrong" color="#000" inverted-color="#fff" font-weight="bold" font-style="italic">
+            <begin><regex>'{5}</regex></begin>
+            <end><regex>'{5}</regex></end>
+        </state>
+
+        <!-- Small hack in WikiLink to get around the '^' match problem 
+             for state begins. We gobble a trailing space, semicolon, 
+             or colon so it can't be matched by other states below (like
+             "Lists"). This will happen for other states as well (like the
+             emph ones above), but it seems to be more commonly used
+             after a WikiLink. Including it in all the states is pretty ugly.
+             I'm hoping to think of another work-around or perhaps there
+             will be a fix down the road. 
+
+             All the styling is done in keyword matches inside this state. 
+             I'd like to omit the color tag on the state, but SEE doesn't
+             seem to like that right now (v 2.1.1).
+
+             Note that image links are handled in a separate state below.
+             -->
+             
+        <state id="WikiLink" color="#000" casesensitive="no">
+            <begin><regex>\[\[(?![Ii]mage:)</regex></begin>
+            <end><regex>\]\][\w']*[ ;:]*</regex></end>
+    
+            <!-- Handles most basic links including the visible part of
+                 namespace and disambiguated hidden links.
+                 -->
+            <keywords id="Simple" color="#760f15">
+                <regex>\[\[(?:[^:]+:)*([^|\](]+)</regex>
+            </keywords>
+            
+            <!-- Captures the text outside of link brackets that
+                 appears inside the linked text when rendered by Wikipedia
+                 -->
+            <keywords id="Trailing" color="#760f15">
+                <regex>\]\]([\w']+)</regex>
+            </keywords>
+
+            <!-- Section sub-linking -->
+            <keywords id="Section" color="#00F" font-style="italic">
+                <regex>(#[^|\]]*)</regex>
+            </keywords>
+
+            <!-- When alt text is specified, grays out the link portion... -->
+            <keywords id="HideFullLink" color="#8A8A8A">
+                <regex>\[\[([^|]+\|)[^\]]+</regex>
+            </keywords>
+            
+            <!-- ...and highlights the alt text -->
+            <keywords id="ShowAltText" color="#760f15">
+                <regex>\|([^|\]]+)\]\]</regex>
+            </keywords>
+
+            <!-- Gray out the parenthetical part of a link, if asked for
+                 by a trailing | -->
+            <keywords id="HideDisambiguation" color="#8A8A8A">
+                <regex>(\([^(]+\)\s*\|)\]\]</regex>
+            </keywords>
+
+            <!-- Ditto for a namespace -->
+            <keywords id="HideNameSpace" color="#8A8A8A">
+                <regex>\[\[([^:]+:)(?=[^\]|]+\|\]\])</regex>
+            </keywords>
+            
+            <!-- Special style for Category links -->
+            <keywords id="Category" color="#800080" font-weight="bold">
+                <regex>(Category:\w+)</regex>
+            </keywords>
+
+            <!-- No link should have a line break in it! Word wrapping
+                with hard line breaks can cause this problem (say, by filling
+                in (x)emacs -->
+            <keywords id="BadLink" color="#F00" font-weight="bold">
+                <regex>(.*[\n\r].*)</regex>
+            </keywords>
+
+        </state>
+
+        <!-- Same trailing hack as for WikiLink... see above for more -->
+        <state id="Image" color="#400080" casesensitive="no">
+            <begin><regex>\[\[[Ii]mage:</regex></begin>
+            <end><regex>\]\][ ;:]*</regex></end>
+
+            <keywords id="Filename" color="#FF8000">
+                <regex>(?&lt;=:)([^|]+)(?=\|)</regex>
+            </keywords>
+            
+            <keywords id="Options" color="#FF6666">
+                <regex>(?&lt;=\|)([^|]+)(?=\|)</regex>
+            </keywords>
+            
+            <keywords id="AltText" color="#008040">
+                <regex>(?&lt;=\|)([^|]+)(?=\]\])</regex>
+            </keywords>
+            
+        </state>
+
+        <!-- The preferred form for external links is handled here.
+             Same trailing hack as for WikiLink... see above for more
+             -->
+        <state id="ExtLink" color="#000">
+            <begin><regex>(?&lt;!\[)\[(?!\[)</regex></begin>
+            <end><regex>(?&lt;!\])\](?!\])[ ;:]*</regex></end>
+            
+            <keywords id="SimpleURL" color="#881280">
+                <regex>\[*(\S+)\]</regex>
+            </keywords>
+            
+            <keywords id="HideURL" color="#8A8A8A" useforautocomplete="no">
+                <regex>\[(\S+) </regex>
+            </keywords>
+            
+            <keywords id="BadExtLink" color="#F00" font-weight="bold">
+                <regex>(.*[\n\r].*)</regex>
+            </keywords>
+
+        </state>
+        
+        <!-- These whole-line styles (lists for the most part) are very
+             basic for now. I may try adding some basic keywords to 
+             highlight links, but I can't replace the full WikiLink state
+             behavior with keywords (yet?). SEE doesn't let us nest states
+             for now...
+             -->
+        <state id="Lists" color="#004488">
+            <begin><regex>^[#*]</regex></begin>
+            <end><regex>[\n\r]</regex></end>
+        </state>
+        
+        <state id="DefList" color="#004488">
+            <begin><regex>^;</regex></begin>
+            <end><regex>[\n\r]</regex></end>
+            
+            <keywords id="Item" color="#004488" font-weight="bold" useforautocomplete="no">
+                <regex>^;([^:\n\r]*)</regex>
+            </keywords>
+        </state>
+       
+        <state id="IndentOrDef" color="#004488">
+            <begin><regex>^:</regex></begin>
+            <end><regex>[\n\r]</regex></end>
+        </state>
+
+        <!-- Pre-formatted styles -->
+        <state id="NoWiki" color="#884400">
+           <begin><regex>&lt;nowiki&gt;</regex></begin>
+           <end><regex>&lt;/nowiki&gt;</regex></end>
+        </state>
+
+        <state id="Preform" color="#884400">
+            <begin><regex>(?&lt;=[\n\r]) </regex></begin>
+            <end><regex>[\n\r]</regex></end>
+        </state>
+
+        <!-- Comments -->
+        <state id="Comment" color="#236E25" background-color="none" font-weight="normal" font-style="italic">
+            <begin><regex>&lt;!--</regex></begin>
+            <end><regex>--&gt;</regex></end>
+        </state>
+    </states>
+
+</syntax>

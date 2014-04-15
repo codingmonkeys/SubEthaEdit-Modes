@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>
+
+    <head>
+        <name>IceBreak</name> 
+        <charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@<string>]]></charsintokens>
+    </head>
+
+    <states>
+    
+        <default id="Base" color="#000" background-color="#fff" font-weight="normal" font-style="normal">
+            <keywords id="Keywords" color="#00c" useforautocomplete="yes">
+<string>when</string> 
+<string>exsr</string>
+<string>ELSE</string>
+<string>ELSEIF</string> 
+<string>ACQ</string>
+<string>ADD</string>
+<string>ADDDUR</string> 
+<string>ALLOC</string>
+<string>AND</string>
+<string>BITOFF</string> 
+<string>BITON</string>
+<string>CAB</string>
+<string>CALL</string>
+<string>CALLB</string>
+<string>CALLP</string>
+<string>CAS</string>
+<string>CAT</string>
+<string>CHAIN</string> 
+<string>CHECK</string>
+<string>CHECKR</string> 
+<string>CLEAR</string>
+<string>CLOSE</string>
+<string>COMMIT</string> 
+<string>COMP</string>
+<string>DEALLOC</string> 
+<string>DEFINE</string>
+<string>DELETE</string> 
+<string>DIV</string> 
+<string>DSPLY</string> 
+<string>DUMP</string>
+<string>EVAL</string>
+<string>EVALR</string> 
+<string>EXCEPT</string> 
+<string>EXFMT</string>
+<string>EXSR</string>
+<string>EXTRCT</string> 
+<string>FEOD</string>
+<string>FORCE</string> 
+<string>GOTO</string>
+<string>IN</string>
+<string>ITER</string> 
+<string>KFLD</string>
+<string>KLIST</string> 
+<string>LEAVE</string>
+<string>LEAVESR</string> 
+<string>LOOKUP</string>
+<string>MHHZO</string>
+<string>MHLZO</string>
+<string>MLHZO</string>
+<string>MLLZO</string>
+<string>MONITOR</string> 
+<string>MOVE</string>
+<string>MOVEA</string> 
+<string>MOVEL</string> 
+<string>MULT</string> 
+<string>MVR</string> 
+<string>NEXT</string> 
+<string>OCCUR</string> 
+<string>ON</string>
+<string>OPEN</string> 
+<string>OR</string>
+<string>OTHER</string> 
+<string>OUT</string>
+<string>PARM</string> 
+<string>PLIST</string> 
+<string>POST</string>
+<string>READ</string>
+<string>READC</string> 
+<string>READE</string>
+<string>READP</string>
+<string>READPE</string> 
+<string>REALLOC</string> 
+<string>REL</string>
+<string>RESET</string> 
+<string>RETURN</string> 
+<string>ROLBK</string> 
+<string>SCAN</string>
+<string>SETGT</string> 
+<string>SETLL</string>
+<string>SETOFF</string> 
+<string>SETON</string>
+<string>SHTDN</string>
+<string>SORTA</string>
+<string>SQRT</string>
+<string>SUB</string>
+<string>SUBDUR</string> 
+<string>SUBST</string>
+<string>TAG</string>
+<string>TEST</string> 
+<string>TESTB</string> 
+<string>TESTN</string>
+<string>TESTZ</string>
+<string>TIME</string>
+<string>UNLOCK</string> 
+<string>UPDATE</string>
+<string>WRITE</string>
+<string>XFOOT</string>
+<string>XLATE</string>
+<string>Z-ADD</string>
+<string>Z-SUB</string>
+            </keywords>
+            <keywords id="Numbers" color="#004CCC" useforautocomplete="no">
+				<regex>(?&lt;=[^[A-Za-z0-9]]|^)((([0-9]+\.[0-9]*)|(\.[0-9]+)([eE][+\-]?[0-9]+)?[fFlL]?)|((([1-9][0-9]*)|0[0-7]*|(0[xX][0-9a-fA-F]))(([uU][lL]?)|([lL][uU]?))?))(?=[^[A-Za-z0-9]]|<string>)</regex>
+            </keywords>
+        </default>
+        
+        <state id="AutodocComment" color="#216D23" background-color="none" font-weight="bold" font-style="italic">
+            <begin><string>/\*"</string></begin>
+            <end><regex>"\*/</regex></end>
+        </state>
+
+        <state id="Comment" color="#216D23" background-color="none" font-weight="normal" font-style="italic">
+            <begin><string>/\*</string></begin>
+            <end><regex>\*/</regex></end>
+        </state>
+        
+        <state id="SingleComment" color="#216D23" background-color="none" font-weight="normal" font-style="italic">
+            <begin><string>//</string></begin>
+            <end><regex>[\n\r]</regex></end>
+        </state>
+        
+        <state id="Region" color="#A0A014" background-color="none" font-weight="normal" font-style="italic">
+            <begin><string>#</string></begin>
+            <end><regex>[\n\r]</regex></end>
+        </state>
+        
+        <state id="String" color="#88134F" background-color="none" font-weight="normal" font-style="normal">
+            <begin><string>"</string></begin>
+            <end><regex>(((?&lt;!\\)(\\\\)*)|^)"</regex></end>
+        </state>
+    </states>
+
+</syntax>
+

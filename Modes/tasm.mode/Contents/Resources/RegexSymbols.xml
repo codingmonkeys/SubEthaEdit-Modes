@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "symbol.dtd">
+<symbols>
+
+    <symbol id="Labels" image="SymbolID" indentation="1">
+        <regex>^[\ \t]*([@a-zA-Z_$][a-zA-Z0-9_$@]*) *:</regex>
+        <postprocess>
+            <find>[\n\r]</find>
+            <replace> </replace>
+            <find> +</find>
+            <replace> </replace>
+        </postprocess>
+    </symbol>
+
+    <symbol id="Procs" image="SymbolF()" indentation="1">
+        <regex>^[\ \t]*([@a-zA-Z_$]+)[\ \t]+PROC</regex>
+        <postprocess>
+            <find>[\n\r]</find>
+            <replace> </replace>
+            <find> +</find>
+            <replace> </replace>
+        </postprocess>
+    </symbol>
+
+    <symbol id="CVS/SVN conflict" font-weight="bold" image="SymbolWarn" indentation="0" ignoreblocks="no">
+        <regex>^&lt;&lt;&lt;&lt;&lt;&lt;&lt;[^=]*======[^&gt;]*&gt;&gt;&gt;&gt;&gt;&gt;&gt;</regex>
+        <postprocess>
+            <find>.*</find>
+            <replace>Versioning conflict!</replace>
+        </postprocess>
+    </symbol>
+
+</symbols>

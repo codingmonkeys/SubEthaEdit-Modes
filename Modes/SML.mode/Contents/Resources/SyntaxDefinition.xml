@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>
+
+    <head>
+        <name>Standard ML</name> <!-- The definitions title -->
+        <charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@]]></charsintokens> <!-- Valid Characters for Variables -->
+    </head>
+
+    <states>
+    
+        <default id="Base" color="#000">
+            <keywords id="Built-in Constants" color="#881350" useforautocomplete="yes">
+				<string>nil</string>
+				<string>true</string>
+				<string>false</string>
+            </keywords>
+            <keywords id="Types" color="#E8D717" useforautocomplete="yes">
+				<string>int</string>
+				<string>real</string>
+				<string>bool</string>
+				<string>string</string>
+				<string>char</string>
+				<string>unit</string>
+				<string>exn</string>
+				<string>instream</string>
+				<string>outstream</string>
+				<string>fn</string>
+				<string>list</string>
+				<string>option</string>
+				<string>order</string>
+				<string>substring</string>
+            </keywords>
+            <keywords id="Exceptions" color="#F79600" useforautocomplete="yes">
+				<string>Bind</string>
+				<string>Match</string>
+				<string>Chr</string>
+				<string>Div</string>
+				<string>Domain</string>
+				<string>Overflow</string>
+				<string>Size</string>
+				<string>Subscript</string>
+            </keywords>
+            <keywords id="Built-In Functions" color="#408" useforautocomplete="yes">
+				<string>hd</string>
+				<string>tl</string>
+				<string>null</string>
+            </keywords>
+            <keywords id="Keywords" color="#94132E" useforautocomplete="yes">
+				<string>if</string>
+				<string>then</string>
+				<string>else</string>
+				<string>fun</string>
+				<string>type</string>
+				<string>eqtype</string>
+				<string>end</string>
+				<string>structure</string>
+				<string>datatype</string>
+				<string>signature</string>
+				<string>sig</string>
+				<string>val</string>
+				<string>of</string>
+				<string>andalso</string>
+				<string>orelse</string>
+				<string>and</string>
+				<string>let</string>
+				<string>in</string>
+				<string>rec</string>
+				<string>exception</string>
+				<string>ref</string>
+				<string>sharing</string>
+				<string>struct</string>
+				<string>functor</string>
+				<string>raise</string>
+				<string>handle</string>
+				<string>while</string>
+				<string>do</string>
+            </keywords>
+            <keywords id="Standard Basis Modules" color="#3EC50F" useforautocomplete="yes">
+                <string>Int</string>
+                <string>LargeInt</string>
+                <string>Word</string>
+                <string>Real</string>
+                <string>Math</string>
+                <string>Char</string>
+                <string>String</string>
+                <string>Substring</string>
+                <string>List</string>
+                <string>Vector</string>
+                <string>OS</string>
+                <string>Time</string>
+                <string>Timer</string>
+                <string>General</string>
+            </keywords>
+            <keywords id="Numbers" color="#00f" useforautocomplete="no">
+				<regex>(?&lt;=[^[A-Za-z0-9]]|^)((([0-9]+\.[0-9]*)|(\.[0-9]+)([eE][+\-]?[0-9]+)?[fFlL]?)|((([1-9][0-9]*)|0[0-7]*|(0[xX][0-9a-fA-F]))(([uU][lL]?)|([lL][uU]?))?))(?=[^[A-Za-z0-9]]|$)</regex>
+            </keywords>
+        </default>
+        
+        <state id="Comment" color="#236E25" font-style="italic">
+            <begin><string>\(\*</string></begin>
+            <end><regex>\*\)</regex></end>
+        </state>
+        
+        <state id="String with double quotes" color="#888888">
+            <begin><string>"</string></begin>
+            <end><regex>(((?&lt;!\\)(\\\\)*)|^)"</regex></end>
+        </state>
+
+    </states>
+
+</syntax>

@@ -1,0 +1,48 @@
+// reqtCount.dxl --- counts number of objects of Object Type "Requirement"
+
+/*
+Example for 'Getting Started with DXL'
+DXL for DOORS 5
+Ian Alexander
+3 Sept 2001
+
+http://easyweb.easynet.co.uk/~iany/consultancy/dxl_start/getting_started_with_dxl.htm
+*/
+
+/////////////////////////// constant declarations ///////////////////////
+
+const string AobjectType = "Object Kind" // enumeration attribute ...
+const string Chead = "Heading"	 // ... and its values ...
+const string Creqt = "Project Execution"
+const string Ccomm = "Comment"
+
+////////////////////////// variable declarations /////////////////////////
+
+Module m = current
+Object o = null
+string mName = m."Name"
+string oot = ""
+int reqtCount = 0
+int oCount = 0
+
+///////////////////////////// pre-flight checks /////////////////////////
+
+if type m != "Formal" then
+error "Module is not Formal"
+if !exists attribute AobjectType then
+error "Attribute '" AobjectType "' not found"
+filtering off
+level 0
+
+/////////////////////////////// main program ////////////////////////////
+
+for o in m do {
+   oCount ++
+   oot = o.AobjectType
+   if oot == Creqt then reqtCount ++
+}
+
+infoBox "There are " reqtCount " " Creqt "s\n" //-
+"out of " oCount " Objects in Module '" mName "'\n"
+
+/////////////////////////// end of reqtCount.dxl ///////////////////////

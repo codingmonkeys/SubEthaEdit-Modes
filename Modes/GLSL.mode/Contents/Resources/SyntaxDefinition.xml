@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>
+    <head>
+        <name>GLSL Shader</name>
+        <charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ]]></charsintokens>
+    </head>
+    <states>    
+        <default id="Base" color="#000" background-color="#fff" font-weight="normal" font-style="normal">
+            <keywords id="GLSL Keywords" color="#881350" inverted-color="#ec77b4" useforautocomplete="yes">
+                <string>attribute</string>
+                <string>const</string>
+                <string>bool</string>
+                <string>float</string>
+                <string>int</string>
+                <string>break</string>
+                <string>continue</string>
+                <string>do</string>
+                <string>else</string>
+                <string>for</string>
+                <string>if</string>
+                <string>discard</string>
+                <string>return</string>
+                <string>bvec2</string>
+                <string>bvec3</string>
+                <string>bvec4</string>
+                <string>ivec2</string>
+                <string>ivec3</string>
+                <string>ivec4</string>
+                <string>vec2</string>
+                <string>vec3</string>
+                <string>vec4</string>
+                <string>mat2</string>
+                <string>mat3</string>
+                <string>mat4</string>
+                <string>in</string>
+                <string>out</string>
+                <string>inout</string>
+                <string>uniform</string>
+                <string>varying</string>
+                <string>sampler1D</string>
+                <string>sampler2D</string>
+                <string>sampler3D</string>
+                <string>samplerCUBE</string>
+                <string>sampler1DShadow</string>
+                <string>sampler2DShadow</string>
+                <string>struct</string>
+                <string>void</string>
+                <string>while</string>
+                <regex>\.(([w-z]|[st]|[argb])+)</regex>
+            </keywords>
+            
+            <keywords id="Misc Keywords" color="#003369" inverted-color="#96c9ff" casesensitive="yes" useforautocomplete="yes">
+                <string>radians</string>
+                <string>degrees</string>
+                <string>sin</string>
+                <string>cos</string>
+                <string>tan</string>
+                <string>asin</string>
+                <string>acos</string>
+                <string>atan</string>
+                <string>pow</string>
+                <string>exp</string>
+                <string>log</string>
+                <string>exp2</string>
+                <string>log2</string>
+                <string>sqrt</string>
+                <string>inversesqrt</string>
+                <string>abs</string>
+                <string>sign</string>
+                <string>floor</string>
+                <string>ceil</string>
+                <string>fract</string>
+                <string>mod</string>
+                <string>min</string>
+                <string>max</string>
+                <string>clamp</string>
+                <string>mix</string>
+                <string>step</string>
+                <string>smoothstep</string>
+                <string>length</string>
+                <string>distance</string>
+                <string>dot</string>
+                <string>cross</string>
+                <string>normalize</string>
+                <string>ftransform</string>
+                <string>faceforward</string>
+                <string>reflect</string>
+                <string>refract</string>
+                <string>matrixCompMult</string>
+                <string>lessThan</string>
+                <string>lessThanEqual</string>
+                <string>greaterThan</string>
+                <string>greaterThanEqual</string>
+                <string>equal</string>
+                <string>notEqual</string>
+                <string>any</string>
+                <string>all</string>
+                <string>not</string>
+                <string>texture1D</string>
+                <string>texture1DProj</string>
+                <string>texture1DLod</string>
+                <string>texture1DProjLod</string>
+                <string>texture2D</string>
+                <string>texture2DProj</string>
+                <string>texture2DLod</string>
+                <string>texture2DProjLod</string>
+                <string>texture3D</string>
+                <string>texture3DProj</string>
+                <string>texture3DLod</string>
+                <string>texture3DProjLod</string>
+                <string>textureCube</string>
+                <string>textureCubeLod</string>
+                <string>shadow1D</string>
+                <string>shadow2D</string>
+                <string>shadow1DProj</string>
+                <string>shadow2DProj</string>
+                <string>shadow1DLod</string>
+                <string>shadow2DLod</string>
+                <string>shadow1DProjLod</string>
+                <string>shadow2DProjLod</string>
+                <string>dFdx</string>
+                <string>dFdy</string>
+                <string>fwidth</string>
+                <string>noise1</string>
+                <string>noise2</string>
+                <string>noise3</string>
+                <string>noise4</string>
+                <string>__LINE__</string>
+                <string>__FILE__</string>
+                <string>__VERSION__</string>
+                <regex>(gl_\w+)</regex>
+            </keywords>
+            <state id="Preprocessor" color="#683821" inverted-color="#deae97">
+                <begin><regex>#</regex></begin>
+                <end><regex>[\n\r]</regex></end>
+            </state>    
+    
+            <state id="Comment" color="#236E25" font-style="italic">
+                <begin><regex>/\*</regex></begin>
+                <end><regex>\*/</regex></end>
+            </state>
+            
+            <state id="SingleComment" color="#236E25" font-style="italic">
+                <begin><regex>//</regex></begin>
+                <end><regex>[\n\r]</regex></end>
+            </state>
+        </default>
+    </states>
+</syntax>

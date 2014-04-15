@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<syntax>
+
+
+    <!-- 
+    The <head> tag encloses some global information about the mode.
+    This tag is required.
+    -->    
+
+    <head>
+
+        <!-- 
+        The <name> specifies the modes name. 
+        This tag is required and must match with the name in the plist after the SEEMode..
+        -->    
+
+        <name>TclTk</name>
+
+        <!-- optional to add spelling-dicitionary autocomplete words -->
+        <autocompleteoptions use-spelling-dictionary="yes" />
+
+        <!-- 
+        The <charsintokens> and the <charsdelimitingtokens> instruct the syntax highlighter
+        where to tokenize the text for fast finding of plain strings.
+        The <charsintokens> tag specifies the characters that can occur in strings,
+        the <charsdelimitingtokens> tag specifies the tags that cannot occur in strings.
+        One of these tags has to be specified.
+        Tip: Use CDATA here.
+        -->    
+
+        <charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@]]></charsintokens> 
+        <!-- <charsdelimitingtokens><![CDATA[ -]]></charsdelimitingtokens> -->
+        
+        
+        <!--
+          the <charsincompletion> defines characters used for autocompletion. e.g. in perl
+          you want this to include the $ sign to autocomplete variables.
+          If left out the regular expression word boundaries are used.
+        -->
+        <!-- <charsincompletion><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-@$</=>!]]></charsincompletion> -->
+    </head>
+
+
+    <!-- 
+    The <states> tag encloses all syntax states.
+    States are areas of the test that begin and end with an regex like comments or strings,
+    with exception of the default state, that exists anywhere where no other state exists.
+    This tag is required.
+    -->    
+
+    <states>
+    
+        <!-- 
+        The <default> tag specifies what is colored within the default state (see above).
+        It features the following attributes, all optional if not noted otherwise:
+            id
+                Has to be a unique string. Has to be specified.
+            color
+                a html comptible color in three or six letter hexadecimal format.
+                Used for text on bright document background colors.
+            inverted-color
+                a html comptible color in three or six letter hexadecimal format.
+                Used for text if a dark document background color is set.
+            font-weight
+                normal  Normal font-weight (default)
+                bold    Bold text in popup
+            font-style
+                normal  Normal font-weight (default)
+                italic  Bold text in popup
+            usesymbolsfrommode
+                a mode name to use the symbol recognition from
+                when left out the value is inherited from the parent state
+            useautocompletefrommode
+                a mode name to use the autocomplete from - default is this mode
+                when left out the value is inherited from the parent state
+            type
+                a string description of the type. currently only the values
+                "string" and "comment" have meaning and cause bracket matching
+                and syntax highlighting to ignore these areas of text
+                
+        -->    
+    
+        <default id="Base" color="#000" inverted-color="#fff">
+
+            <!-- 
+            The <keywords> tag specifies keyword groups within the current state.
+            It features the following attributes, all optional if not noted otherwise:
+                id
+                    Has to be a unique string. Has to be specified.
+                color
+                    a html comptible color in three or six letter hexadecimal format.
+                    Used for text on bright document background colors.
+                inverted-color
+                    a html comptible color in three or six letter hexadecimal format.
+                    Used for text if a dark document background color is set.
+                font-weight
+                    normal  Normal font-weight (default)
+                    bold    Bold text in popup
+                font-style
+                    normal  Normal font-weight (default)
+                    italic  Bold text in popup
+                casesensitive
+                    yes     This group is case sensitive (default)
+                    no      Ignore case for the group
+                useforautocomplete
+                    yes     Add this group's strings to the autocomplete dictionary (default)
+                    no      Don't add to autocomplete dictionary
+            -->    
+
+            <keywords id="Keywords" color="#D2691E" casesensitive="no" useforautocomplete="yes">
+            
+                <!-- 
+                    <string> tags specify plain text to be colored. If your tag does not
+                    get colored, check in <charsintokens> if you are tokenizing correctly.             
+                -->    
+            
+				<string>encoding</string>
+                <string>if</string>
+                <string>pid</string>
+                <string>switch</string>
+                <string>eof</string>
+                <string>incr</string>
+                <string>pkg::create</string>
+                <string>tcl_endOfWord</string>
+                <string>after</string>
+                <string>error</string>
+                <string>info</string>
+                <string>pkg_mkIndex</string>
+                <string>tcl_findLibrary</string>
+                <string>append</string>
+                <string>eval</string>
+                <string>interp</string>
+                <string>proc</string>
+                <string>tcl_startOfNextWord</string>
+                <string>array</string>
+                <string>exec</string>
+                <string>join</string>
+                <string>puts</string>
+                <string>tcl_startOfPreviousWord</string>
+                <string>auto_execok</string>
+                <string>exit</string>
+                <string>lappend</string>
+                <string>pwd</string>
+                <string>tcl_wordBreakAfter</string>
+                <string>auto_import</string>
+                <string>expr</string>
+                <string>lindex</string>
+                <string>re_syntax</string>
+                <string>tcl_wordBreakBefore</string>
+                <string>auto_load</string>
+                <string>fblocked</string>
+                <string>linsert</string>
+                <string>read</string>
+                <string>tcltest</string>
+                <string>auto_mkindex</string>
+                <string>fconfigure</string>
+                <string>list</string>
+                <string>regexp</string>
+                <string>tclvars</string>
+                <string>auto_mkindex_old</string>
+                <string>fcopy</string>
+                <string>llength</string>
+                <string>registry</string>
+                <string>tell</string>
+                <string>auto_qualify</string>
+                <string>file</string>
+                <string>load</string>
+                <string>regsub</string>
+                <string>time</string>
+                <string>auto_reset</string>
+                <string>fileevent</string>
+                <string>lrange</string>
+                <string>rename</string>
+                <string>trace</string>
+                <string>bgerror</string>
+                <string>filename</string>
+                <string>lreplace</string>
+                <string>resource</string>
+                <string>unknown</string>
+                <string>binary</string>
+                <string>flush</string>
+                <string>lsearch</string>
+                <string>return</string>
+                <string>unset</string>
+                <string>break</string>
+                <string>for</string>
+                <string>lset</string>
+                <string>scan</string>
+                <string>update</string>
+                <string>catch</string>
+                <string>foreach</string>
+                <string>lsort</string>
+                <string>seek</string>
+                <string>uplevel</string>
+                <string>cd</string>
+                <string>format</string>
+                <string>memory</string>
+                <string>set</string>
+                <string>upvar</string>
+                <string>clock</string>
+                <string>gets</string>
+                <string>msgcat</string>
+                <string>socket</string>
+                <string>variable</string>
+                <string>close</string>
+                <string>glob</string>
+                <string>namespace</string>
+                <string>source</string>
+                <string>vwait</string>
+                <string>concat</string>
+                <string>global</string>
+                <string>open</string>
+                <string>split</string>
+                <string>while</string>
+                <string>continue</string>
+                <string>history</string>
+                <string>package</string>
+                <string>string</string>
+                <string>dde</string>
+                <string>http</string>
+                <string>parray</string>
+                <string>subst</string>
+                <string>bell</string>
+                <string>entry</string>
+                <string>loadTk</string>
+                <string>raise</string>
+                <string>tk_focusFollowsMouse</string>
+                <string>tk_textPaste</string>
+                <string>bind</string>
+                <string>event</string>
+                <string>lower</string>
+                <string>scale</string>
+                <string>tk_focusNext</string>
+                <string>tkerror</string>
+                <string>bindtags</string>
+                <string>focus</string>
+                <string>menu</string>
+                <string>scrollbar</string>
+                <string>tk_focusPrev</string>
+                <string>tkvars</string>
+                <string>bitmap</string>
+                <string>font</string>
+                <string>menubutton</string>
+                <string>selection</string>
+                <string>tk_getOpenFile</string>
+                <string>tkwait</string>
+                <string>button</string>
+                <string>frame</string>
+                <string>message</string>
+                <string>send</string>
+                <string>tk_getSaveFile</string>
+                <string>toplevel</string>
+                <string>canvas</string>
+                <string>grab</string>
+                <string>option</string>
+                <string>spinbox</string>
+                <string>tk_menuSetFocus</string>
+                <string>winfo</string>
+                <string>checkbutton</string>
+                <string>grid</string>
+                <string>options</string>
+                <string>text</string>
+                <string>tk_messageBox</string>
+                <string>wm</string>
+                <string>clipboard</string>
+                <string>image</string>
+                <string>pack</string>
+                <string>tk</string>
+                <string>tk_optionMenu</string>
+                <string>colors</string>
+                <string>keysyms</string>
+                <string>panedwindow</string>
+                <string>tk_bisque</string>
+                <string>tk_popup</string>
+                <string>console</string>
+                <string>label</string>
+                <string>photo</string>
+                <string>tk_chooseColor</string>
+                <string>tk_setPalette</string>
+                <string>cursors</string>
+                <string>labelframe</string>
+                <string>place</string>
+                <string>tk_chooseDirectory</string>
+                <string>tk_textCopy</string>
+                <string>destroy</string>
+                <string>listbox</string>
+                <string>radiobutton</string>
+                <string>tk_dialog</string>
+                <string>tk_textCut</string>
+
+                <!-- 
+                    <regex> tags specify regular expression to be colored. 
+                    Only the first group will be colored, so enclose the part to color
+                    with parens.
+                    
+                    The example colors digits prefixed by foo. (only the digits)             
+                -->  
+
+            </keywords>
+             
+          <keywords id="Var" color="#9966cc" useforautocomplete="no">
+             <!-- <regex>(\$([.]|[^ ;\n\r\[\]\)\(\.=\+\-\|])+)</regex> -->
+	      <regex>(\$([A-Za-z][A-Za-z0-9]+|[^ ;\n\r\[\]\)\(\.=\+\-\|]))</regex>
+            </keywords>
+
+
+            <!-- 
+                The <state> tag specifies a state other than the default state.
+                It features the same attributes as <default>.
+                It has to contain a <begin> and a <end> tag which in turn have to 
+                contain a <regex> tag. They can contain <keywords> tags like specified above.
+                
+                For example here a states for C blockcomments, C++ singleline comments and strings.
+                The strings state handles escaped quotes with a lookbehind regular expression 
+                (see a regex tutorial) and colors "foobar" with strings.
+            -->    
+    
+    
+            <state id="Comment" color="#7BA05B" font-style="italic">
+                <begin><regex>#</regex></begin>
+                <end><regex>[\n\r]</regex></end>
+            </state>
+
+	    <!-- <state id="Variable" color="#825900" >
+                <begin><regex>\$</regex></begin>
+                <end><regex>[ \n\r]</regex></end>
+            </state> -->
+            
+          
+            
+            <state id="String" color="#960018">
+                <begin><regex>"</regex></begin>
+                <end><regex>(((?&lt;!\\)(\\\\)*)|^)"</regex></end>
+                 <keywords id="Other keywords" color="#400080" font-style="italic">
+                  <string>foobar</string>
+          		 </keywords>
+            </state>
+
+            <!-- 
+                The <import> tag lets you import substates and keywords from other modes.
+                It features the following attributes, all optional if not noted otherwise:
+
+                  mode
+                      the mode to import from if left out it will import from this mode
+                      
+                  state
+                      the state to import - if left out the content of the 
+                      default state will be imported
+                      
+                  keywords-only
+                      'yes' if you only want to import the keywords and not the substates
+                      of that state
+                  
+            -->    
+
+            <state id="Inline Javascript" color="#000" usesymbolsfrommode="Javascript" useautocompletefrommode="Javascript">
+                <begin><regex>&lt;(?=script)</regex></begin>
+                <end><regex>/script&gt;</regex></end>
+    
+                <import mode="Javascript" />
+
+                <keywords id="Script Tags"  color="#881280" font-style="italic">
+                    <regex>(\A&lt;\Z)</regex>
+                    <regex>(&lt;/script[^&gt;]*&gt;)</regex>
+                </keywords>
+
+                <state id="Opening Script Tag" color="#881280" font-style="italic" usesymbolsfrommode="HTML" useautocompletefrommode="HTML">
+                    <begin><regex>\Ascript</regex></begin>
+                    <end><regex>&gt;</regex></end>
+        
+                    <import mode="XML" state="Tags" />
+                </state>
+                
+            </state>
+
+            <!-- 
+                The <state-link> tag lets you reuse complete states including the
+                begin and end regex as well as the attributes on the linked .
+                It features the following attributes, all optional if not noted otherwise:
+
+                  state
+                      the state to link - not optional
+                      
+                  mode
+                      the mode to import from if left out it will import from this mode
+                      
+                  
+            -->    
+            <state-link state="PHP" mode="PHP-HTML" />
+
+        </default>
+        
+    </states>
+
+</syntax>

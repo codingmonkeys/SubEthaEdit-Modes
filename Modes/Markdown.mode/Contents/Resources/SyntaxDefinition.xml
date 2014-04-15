@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<syntax>
+    <head>
+        <name>Markdown</name>
+        <charsintokens>
+            <![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@]]>
+        </charsintokens> 
+    </head>
+    <states>
+        <default id="Base" color="#000000" inverted-color="#ffffff"  font-style="normal" font-weight="normal" background-color="#ffffff" inverted-background-color="#000000">
+            <keywords id="Titles" color="#008080" inverted-color="#cc66ff"  font-style="normal" font-weight="normal">
+                <regex>([=]{3,}?(?=\n))</regex>
+                <regex>([-]{3,}?(?=\n))</regex>
+                <regex>(^#{1,6}\s*[^#]*\s*#*)$\n?</regex>
+            </keywords>
+            <keywords id="Link Text" color="#236e25" inverted-color="#91dc93"  font-style="normal" font-weight="normal">
+                <regex>(?&lt;=\[)([^\]]*)(?=\]\s*[\(:\[])</regex>
+            </keywords>
+            <keywords id="Link" color="#254466" inverted-color="#99b8da"  font-style="normal" font-weight="normal">
+                <regex>(?&lt;=\])\s*(?:\()([^\)]*)(?=\)\s*)</regex>
+                <regex>(?&lt;=\])\s*\[(\S+)(?=\]{1})</regex>
+                <regex>(?&lt;=\])\s*:\s*(\S+)(?=\s*)</regex>
+            </keywords>
+            <keywords id="Blockquotes" color="#004080" inverted-color="#00ff00"  font-style="italic" font-weight="normal">
+                <regex>^(>.*)$</regex>
+            </keywords>
+            <keywords id="Code Block" color="#008040" inverted-color="#ffff00"  font-style="normal" font-weight="normal">
+                <regex>^(?:\s{4,}?|\t{1,}?)(?![*+-]\s{1})(.*)$</regex>
+            </keywords>            
+            <keywords id="Smarty Pants" color="#008040" inverted-color="#ffff00"  font-style="normal" font-weight="normal">
+                <regex>\s+([-]{2})\s+</regex>
+                <regex>([.]{3})</regex>
+            </keywords>            
+            <keywords id="List" color="#0000ff" inverted-color="#ff8000"  font-style="normal" font-weight="normal">
+                <regex>^(?:\s{2}){0,3}([*+-])(?=\s)</regex>
+                <regex>^(?:\s{2}){0,3}([0-9]+\.{1})(?=\s)</regex>
+            </keywords> 
+                       
+            <!--import mode="HTML"/-->
+        </default>     
+ 
+        <state id="Bold" color="#236e25" inverted-color="#91dc93"  font-style="normal" font-weight="bold">
+            <begin><regex>[\s]*\*\*[^\s]</regex></begin>
+            <end><regex>[^\s]\*\*[\s\n\r.:,;!?]+</regex></end>
+        </state>
+        <state id="Italic" color="#808000" inverted-color="#91dc93"  font-style="italic" font-weight="normal">
+            <begin><regex>[\s]*\*[^\s]</regex></begin>
+            <end><regex>[^\s]\*[\s\n\r.:,;!?]+</regex></end>
+        </state>        
+        <state id="Code" color="#008040" inverted-color="#ffff00"  font-style="normal" font-weight="normal">
+            <begin><regex>`</regex></begin>
+            <end><regex>`</regex></end>
+        </state>
+        <state id="String" color="#ff00ff" inverted-color="#f0898f"  font-style="normal" font-weight="normal">
+            <begin><regex>"</regex></begin>
+            <end><regex>(((?&lt;!\\)(\\\\)*)|^)"</regex></end>
+        </state> 
+    </states>
+</syntax>

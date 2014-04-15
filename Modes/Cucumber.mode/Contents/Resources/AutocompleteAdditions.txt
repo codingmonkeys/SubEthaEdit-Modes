@@ -1,0 +1,12 @@
+Feature
+Background
+Scenario
+Scenarios
+Examples
+Scenario Outline
+Scenario Template
+Given
+When
+Then
+But
+And

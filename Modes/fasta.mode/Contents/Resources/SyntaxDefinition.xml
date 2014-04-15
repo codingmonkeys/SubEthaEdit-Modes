@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>
+
+    <head>
+
+        <name>Fasta</name>
+  
+        <charsintokens>
+            <![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@]]>
+        </charsintokens> 
+        <!-- <charsdelimitingtokens>[CDATA[ -]]></charsdelimitingtokens> -->
+    </head>
+
+    <states>
+
+        <default id="Base" color="#000" inverted-color="#fff">
+            
+            <keywords id="Title" color="#ee011d">
+
+                <regex>(>.*[\n\r])</regex>    
+                   
+            </keywords>
+             
+        </default>      
+        
+    </states>
+
+</syntax>

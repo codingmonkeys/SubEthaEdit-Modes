@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="483"
+   name=""
+   committed-date="2004-05-11T14:46:35.780999Z"
+   url="https://www.codingmonkeys.de/repositories/svn/subethaedit/trunk/subethaedit/Modes/Perl.mode/Contents/Resources"
+   last-author="map"
+   kind="dir"
+   uuid="9406b0ca-74c7-0310-838a-fa454b26ff3a"
+   revision="642"/>
+<entry
+   committed-rev="475"
+   name="RegexSymbols.xml"
+   text-time="2004-05-10T19:15:03.000000Z"
+   committed-date="2004-05-10T19:16:22.248291Z"
+   checksum="ace5103fa66b4da45b3d21fb398f60fe"
+   last-author="map"
+   kind="file"/>
+<entry
+   name="English.lproj"
+   kind="dir"/>
+<entry
+   committed-rev="483"
+   name="SyntaxDefinition.xml"
+   text-time="2004-05-11T11:41:11.000000Z"
+   committed-date="2004-05-11T14:46:35.780999Z"
+   checksum="e7ff951adf3b07107cfe66b97fd54ff1"
+   last-author="map"
+   kind="file"/>
+</wc-entries>

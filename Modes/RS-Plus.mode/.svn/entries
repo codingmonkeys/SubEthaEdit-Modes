@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="483"
+   name=""
+   committed-date="2004-05-11T14:46:35.780999Z"
+   url="https://www.codingmonkeys.de/repositories/svn/subethaedit/trunk/subethaedit/Modes/Perl.mode"
+   last-author="map"
+   kind="dir"
+   uuid="9406b0ca-74c7-0310-838a-fa454b26ff3a"
+   revision="642"/>
+<entry
+   name="Contents"
+   kind="dir"/>
+</wc-entries>

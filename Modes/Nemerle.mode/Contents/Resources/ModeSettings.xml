@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "settings.dtd">
+<settings>
+    <recognition>
+        <extension>n</extension>                   <!-- Add file extensions -->
+        <filename></filename>                      <!-- Add filenames -->
+        <regex></regex>                            <!-- Add regex of content -->
+    </recognition>
+</settings>

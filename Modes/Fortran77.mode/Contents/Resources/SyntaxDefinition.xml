@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>
+
+    <head>
+        <name>Fortran77</name> <!-- The definitions title -->
+        <charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@*.$]]></charsintokens> <!-- Valid Characters for Variables -->
+        <!-- <charsdelimitingtokens></charsdelimitingtokens> -->
+    </head>
+
+    <states>
+
+        <default id="Base" color="#000" background-color="#fff" font-weight="normal" font-style="normal">
+            <keywords id="Types" color="#408" casesensitive="no" useforautocomplete="yes">
+                <string>character</string>
+                <string>character*8</string>
+                <string>character*16</string>
+                <string>complex</string>
+                <string>double</string>
+                <string>precision</string>
+                <string>real</string>
+                <string>real*8</string>
+                <string>integer</string>
+                <string>common</string>
+                <string>logical</string>
+                <string>implicit</string>
+                <string>dimension</string>
+                <string>external</string>
+                <string>parameter</string>
+		        <string>save</string>
+                <string>data</string>
+            </keywords>
+            <keywords id="Keywords" color="#881350" casesensitive="no" useforautocomplete="yes">
+                <string>break</string>
+                <string>continue</string>
+                <string>date</string>
+                <string>default</string>
+                <string>dimension</string>
+                <string>do</string>
+                <string>else</string>
+                <string>enddo</string>
+                <string>endif</string>
+                <string>for</string>
+                <string>goto</string>
+                <string>go</string>
+                <string>to</string>
+                <string>if</string>
+                <string>then</string>
+                <string>return</string>
+                <string>stop</string>
+                <string>end</string>
+                <string>format</string>
+                <string>write</string>
+                <string>read</string>
+                <string>subroutine</string>
+                <string>function</string>
+                <string>switch</string>
+                <string>program</string>
+                <string>call</string>
+                <string>while</string>
+                <string>.gt.</string>
+                <string>.lt.</string>
+                <string>.ge.</string>
+                <string>.le.</string>
+                <string>.eq.</string>
+                <string>.ne.</string>
+                <string>.false.</string>
+                <string>.true.</string>
+                <string>open</string>
+                <string>close</string>
+<!--                <regex>(\.[a-z][a-z]\.)</regex> -->
+
+            </keywords>
+            <keywords id="Numbers" color="#00f" useforautocomplete="no">
+				<regex>(?&lt;=[^[A-Za-z0-9]]|^)(-{0,1}(([0-9]+(\.[0-9]*)?)([eEdD][+\-]?[0-9]+)?[fFlL]?)|((([1-9][0-9]*)|0[0-7]*|(0[xX][0-9a-fA-F]))(([uU][lL]?)|([lL][uU]?))?))(?=[^[A-Za-z0-9]]|$)</regex>
+            </keywords>
+
+            <keywords id="Titles" color="#048" casesensitive="no" useforautocomplete="no">
+                <regex>program (\w+)</regex>
+                <regex>call (\w+)</regex>
+                <regex>subroutine (\w+)</regex>
+                <regex>function (\w+)</regex>
+                <regex>^     (.)</regex>
+            </keywords>
+
+            <keywords id="Labels" color="#f00" casesensitive="no" useforautocomplete="no">
+                <regex>^ ([ 0123456789]{1,4})</regex>
+            </keywords>
+
+            <keywords id="Declarations" color="#888" casesensitive="no" useforautocomplete="no">
+                <regex>character (.*)</regex>
+                <regex>character\*[0-9]+ (.*)</regex>
+                <regex>complex (.*)</regex>
+                <regex>double precision (.*)</regex>
+                <regex>precision (.*)</regex>
+                <regex>real (.*)</regex>
+                <regex>real\*[0-9]+ (.*)</regex>
+                <regex>integer (.*)</regex>
+                <regex>logical (.*)</regex>
+                <regex>implicit (.*)</regex>
+                <regex>dimension (.*)</regex>
+                <regex>external (.*)</regex>
+                <regex>parameter {0,1}(.*)</regex>
+                <regex>data (.*)</regex>
+                <regex>save {0,1}/(.*)/</regex>
+                <regex>common {0,1}/(.*)/ (.*)</regex>
+            </keywords>
+
+        </default>
+
+
+		<state id="Preprocessor" color="#683821" background-color="none" font-weight="normal" font-style="normal">
+            <begin><regex>^[ \t]*#</regex></begin>
+            <end><regex>[\n\r]</regex></end>
+		</state>
+		
+        <state id="Comment" color="#236E25" background-color="none" font-weight="normal" font-style="italic">
+            <begin><string>^[cC!]</string></begin>
+            <end><regex>[\n\r]</regex></end>
+        </state>
+
+<!--        <state id="String" color="#760f15" background-color="none" font-weight="normal" font-style="normal"> -->
+        <state id="String" color="#800" background-color="none" font-weight="normal" font-style="normal">
+            <begin><string>'</string></begin>
+            <end><regex>(((?&lt;!\\)(\\\\)*)|^)'</regex></end>
+        </state>
+    </states>
+
+</syntax>

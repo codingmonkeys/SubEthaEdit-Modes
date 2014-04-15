@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>
+
+    <head>
+        <name>C</name> <!-- The definitions title -->
+        <charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@*-=+]]></charsintokens> <!-- Valid Characters for Variables -->
+        <!-- <charsdelimitingtokens></charsdelimitingtokens> -->
+    </head>
+
+    <states>
+    
+        <default id="Base" color="#000" background-color="#fff" font-weight="normal" font-style="normal">
+            <keywords id="Special Forms in Lisp" color="#7F00BF" useforautocomplete="yes">
+				<string>block</string>
+				<string>catch</string>
+				<string>compiler-let</string>
+				<string>declare</string>
+				<string>eval-when</string>
+				<string>flet</string>
+				<string>function</string>
+				<string>generic-flet</string>
+				<string>generic-labels</string>
+				<string>go</string>
+				<string>if</string>
+				<string>load-time-value</string>
+				<string>locally</string>
+				<string>multiple-value-call</string>
+				<string>multiple-value-prog1</string>
+				<string>prog[1nv]</string>
+				<string>quote</string>
+				<string>return-from</string>
+				<string>symbol-macrolet</string>
+				<string>tagbody</string>
+				<string>the</string>
+				<string>throw</string>
+				<string>unwind-protect</string>
+				<string>with-added-methods</string>
+            </keywords>
+            <keywords id="Keywords" color="#003FBF" useforautocomplete="yes">
+ 				<string>*</string>
+				<string>+</string>
+				<string>-</string>
+				<string>@</string>
+				<string>/</string>
+				<string>&gt;=</string>
+				<string>&lt;=</string>
+				<string>&gt;</string>
+				<string>&lt;</string>
+				<string>=</string>
+				<string>1-</string>
+				<string>1+</string>
+				<string>and</string>
+				<string>append</string>
+				<string>apply</string>
+				<string>aref</string>
+				<string>assoc</string>
+				<string>rassoc</string>
+				<string>atom</string>
+				<string>car</string>
+				<string>cdr</string>
+				<string>cond</string>
+				<string>acons</string>
+				<string>cons</string>
+				<string>do</string>
+				<string>do*</string>
+				<string>dolist</string>
+				<string>dotimes</string>
+				<string>elt</string>
+				<string>eqv</string>
+				<string>eql</string>
+				<string>equal</string>
+				<string>flet</string>
+				<string>for</string>
+				<string>format</string>
+				<string>funcall</string>
+				<string>if</string>
+				<string>import</string>
+				<string>incf</string>
+				<string>lambda</string>
+				<string>labels</string>
+				<string>let*</string>
+				<string>let</string>
+				<string>list</string>
+				<string>list*</string>
+				<string>make-hash-table</string>
+				<string>mapc</string>
+				<string>mapl</string>
+				<string>map-fn</string>
+				<string>map-into</string>
+				<string>mapcar</string>
+				<string>mapcan</string>
+				<string>mapcon</string>
+				<string>mapc</string>
+				<string>maphash</string>
+				<string>maplist</string>
+				<string>member</string>
+				<regex>multiple-value-[^() ]+</regex>
+				<string>not</string>
+				<string>null</string>
+				<string>numberp</string>
+				<string>or</string>
+				<string>setf</string>
+				<string>setq</string>
+				<string>slot-value</string>
+				<string>unless</string>
+				<string>use</string>
+				<string>values</string>
+				<string>when</string>
+				<regex>with-[^() ]+</regex>
+                <regex>def[^() ]+</regex>
+            </keywords>
+            <keywords id="Constants" color="#007F7F" useforautocomplete="yes">
+				<string>t</string>
+				<string>nil</string>
+				<regex>&amp;[^() ]+</regex>
+            </keywords>
+            <keywords id="Numbers" color="#00f" useforautocomplete="no">
+				<regex>(?&lt;=[^[A-Za-z0-9]]|^)((([0-9]+\.[0-9]*)|(\.[0-9]+)([eE][+\-]?[0-9]+)?[fFlL]?)|((([1-9][0-9]*)|0[0-7]*|(0[xX][0-9a-fA-F]))(([uU][lL]?)|([lL][uU]?))?))(?=[^[A-Za-z0-9]]|$)</regex>
+            </keywords>
+            <keywords id="Characters" color="#00f" useforautocomplete="no">
+				<regex>('.')</regex>
+            </keywords>
+            <keywords id="FunctionRegex" color="#003369" useforautocomplete="no">
+				<regex>\(def[^() ]+ +([^() ]+)</regex>
+            </keywords>
+            <keywords id="Atoms, functions, and quotes" color="#750E15" useforautocomplete="no">
+				<regex>:[^() ]+</regex>
+				<regex>'[^() ]+</regex>
+				<regex>(\|[^|]*\|)</regex>
+				<regex>(#&apos;[^ ()]+)</regex>
+            </keywords>
+            <keywords id="(quasi)-quotes" color="#226D24" useforautocomplete="no">
+				<regex>`</regex>
+				<regex>,@?</regex>
+            </keywords>
+            <keywords id="Comments" color="#236E25" useforautocomplete="no">
+				<regex>(#[+-]\([^()]*\))</regex>				<regex>(#[+-]\(([^()]|\(([^()]|\([^()]\))*\))*\))</regex>            </keywords>
+
+        </default>
+        
+        <state id="Comment" color="#236E25" background-color="none" font-weight="normal" font-style="italic">
+            <begin><regex>#\|</regex></begin>
+            <end><regex>\|#</regex></end>
+        </state>
+                
+        <state id="String" color="#760f15" background-color="none" font-weight="normal" font-style="normal">
+            <begin><string>"</string></begin>
+            <end><regex>(((?&lt;!\\)(\\\\)*)|^)"</regex></end>
+        </state>
+    </states>
+
+</syntax>

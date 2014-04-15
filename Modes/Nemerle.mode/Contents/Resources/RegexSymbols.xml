@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "symbol.dtd">
+<symbols> 
+    <symbol id="Interfaces" font-weight="bold" image="SymbolC" indentation="0">
+        <regex>(variant [a-zA-Z0-9_]+)</regex>
+    </symbol>
+    
+    <symbol id="Classes" image="SymbolC" indentation="0">
+        <regex>(class [a-zA-Z0-9_]+)</regex>            
+    </symbol>
+    <symbol id="Macros" image="SymbolC" indentation="0">
+        <regex>(macro [a-zA-Z0-9_]+)</regex>            
+    </symbol>
+    <symbol id="Modules" font-style="italic" image="SymbolC" indentation="0">
+        <regex>(module [a-zA-Z0-9_]+)</regex>            
+    </symbol>
+    <symbol id="Structs" image="SymbolC" indentation="0">
+        <regex>(struct [a-zA-Z0-9_]+)</regex>            
+    </symbol>
+
+    <symbol id="Public Methods" image="SymbolM" indentation="1">
+        <regex>([a-zA-Z0-9_]+)\(.*\)\:</regex>
+    </symbol>
+    
+    <symbol id="Enums" image="SymbolV" indentation="0">
+        <regex>(enum [a-zA-Z0-9_]+)</regex>
+    </symbol>
+    <symbol id="Variants" image="SymbolV" indentation="0">
+        <regex>(variant [a-zA-Z0-9_]+)</regex>
+    </symbol>
+    <symbol id="Types" font-style="italic" image="SymbolV" indentation="0">
+        <regex>(type [a-zA-Z0-9_]+)</regex>            
+    </symbol>
+</symbols>

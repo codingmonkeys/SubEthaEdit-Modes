@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>
+
+
+    <!-- 
+    The <head> tag encloses some global information about the mode.
+    This tag is required.
+    -->    
+
+    <head>
+
+        <!-- 
+        The <name> specifies the modes name. It is currently not used in the application,
+        as the mode name is loaded from Info.plist, however it is a good idea to specify
+        this tag to don't get confused if the definitions is outside a bundle during
+        development.
+        This tag is optional.
+        -->    
+
+        <name>Sieve Syntax</name>
+
+        <!-- 
+        The <charsintokens> and the <charsdelimitingtokens> instruct the syntax highlighter
+        where to tokenize the text for fast finding of plain strings.
+        The <charsintokens> tag specifies the characters that can occur in strings,
+        the <charsdelimitingtokens> tag specifies the tags that cannot occur in strings.
+        One of these tags has to be specified.
+        Tip: Use CDATA here.
+        -->    
+
+        <charsintokens>
+            <![CDATA[:_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@]]>
+        </charsintokens> 
+        <!-- <charsdelimitingtokens>[CDATA[ -]]></charsdelimitingtokens> -->
+    </head>
+
+
+    <!-- 
+    The <states> tag encloses all syntax states.
+    States are areas of the test that begin and end with an regex like comments or strings,
+    with exception of the default state, that exists anywhere where no other state exists.
+    This tag is required.
+    -->    
+
+    <states>
+    
+        <!-- 
+        The <default> tag specifies what is colored within the default state (see above).
+        It features the following attributes, all optional if not noted otherwise:
+            id
+                Has to be a unique string. Has to be specified.
+            color
+                a html comptible color in three or six letter hexadecimal format.
+                Used for text on bright document background colors.
+            inverted-color
+                a html comptible color in three or six letter hexadecimal format.
+                Used for text if a dark document background color is set.
+            font-weight
+                normal  Normal font-weight (default)
+                bold    Bold text in popup
+            font-style
+                normal  Normal font-weight (default)
+                italic  Bold text in popup
+                
+        -->    
+    
+        <default id="Base" color="#000" inverted-color="#fff">
+
+            <!-- 
+            The <keywords> tag specifies keyword groups within the current state.
+            It features the following attributes, all optional if not noted otherwise:
+                id
+                    Has to be a unique string. Has to be specified.
+                color
+                    a html comptible color in three or six letter hexadecimal format.
+                    Used for text on bright document background colors.
+                inverted-color
+                    a html comptible color in three or six letter hexadecimal format.
+                    Used for text if a dark document background color is set.
+                font-weight
+                    normal  Normal font-weight (default)
+                    bold    Bold text in popup
+                font-style
+                    normal  Normal font-weight (default)
+                    italic  Bold text in popup
+                casesensitive
+                    yes     This group is case sensitive (default)
+                    no      Ignore case for the group
+                useforautocomplete
+                    yes     Add this group's strings to the autocomplete dictionary (default)
+                    no      Don't add to autocomplete dictionary
+            -->    
+
+            <keywords id="Match Types" color="#BF7F3F" casesensitive="no" useforautocomplete="yes">
+				<string>:is</string>
+				<string>:contains</string>
+				<string>:matches</string>
+            </keywords>
+
+            <keywords id="Test Commands" color="#114F87" casesensitive="no" useforautocomplete="yes">
+				<string>address</string>
+				<string>allof</string>
+				<string>anyof</string>
+				<string>envelope</string>
+				<string>exists</string>
+				<string>false</string>
+				<string>header</string>
+				<string>not</string>
+				<string>size</string>
+				<string>true</string>
+            </keywords>
+
+            <keywords id="Action Commands" color="#BF0000" casesensitive="no" useforautocomplete="yes">
+				<string>reject</string>
+				<string>fileinto</string>
+				<string>redirect</string>
+				<string>keep</string>
+				<string>discard</string>
+            </keywords>
+
+            <keywords id="Control Commands" color="#87114F" casesensitive="no" useforautocomplete="yes">
+				<string>if</string>
+				<string>elseif</string>
+				<string>else</string>
+				<string>require</string>
+				<string>stop</string>
+            </keywords>
+
+
+        </default>
+        
+        <!-- 
+            The <state> tag specifies a state other than the default state.
+            It features the same attributes as <default>.
+            It has to contain a <begin> and a <end> tag which in turn have to 
+            contain a <regex> tag. They can contain <keywords> tags like specified above.
+        -->    
+        <state id="Comment" color="#236E25" font-style="italic">
+            <begin><regex>#</regex></begin>
+            <end><regex>[\n\r]</regex></end>
+        </state>
+
+    </states>
+
+</syntax>

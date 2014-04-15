@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "symbol.dtd">
+<symbols>
+   <symbol id="Functions" image="SymbolF()" indentation="0">
+       <regex>\(defn[ \r\n\t]+([^() \r\n\t]+)</regex>
+       <postprocess>
+           <find>[ \r\n\t]+</find>
+           <replace></replace>
+       </postprocess>
+   </symbol>
+</symbols>

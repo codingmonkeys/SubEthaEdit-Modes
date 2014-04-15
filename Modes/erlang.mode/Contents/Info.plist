@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIdentifier</key>
+	<string>SEEMode.Erlang</string> <!-- Change bundle identifier. Must start with "SEEMode." -->
+	<key>CFBundleName</key>
+	<string>Erlang</string> <!-- Change bundle name. -->
+    <key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+    <key>CFBundleGetInfoString</key>
+	<string>1.0, Copyright Olivier Sambourg 2004</string> <!-- Change author. -->
+	<key>CFBundlePackageType</key>
+	<string>BNDL</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>TCMModeExtensions</key>
+	<array>
+	   <string>erl</string> <!-- Put your extensions here -->
+	   <string>hrl</string>
+	</array>
+</dict>
+</plist>

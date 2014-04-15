@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>
+
+    <head>
+        <name>VB.Net</name> 
+        <charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@$]]></charsintokens>
+    </head>
+
+    <states>
+    
+        <default id="Base" color="#000" background-color="#fff" font-weight="normal" font-style="normal">
+            <keywords id="Keywords" color="#00c" useforautocomplete="yes">
+                <string>Class</string>
+                <string>Namespace</string>
+                <string>If</string>
+                <string>Then</string>
+                <string>End</string>
+                <string>Else</string>
+                <string>Protected</string>
+                <string>Sub</string>
+                <string>Function</string>
+                <string>VBNull</string>
+                <string>Partial</string>
+                <string>Case</string>
+                <string>Inherits</string>
+                <string>Protected</string>
+                <string>As</string>
+                <string>Dim</string>
+                <string>Try</string>
+                <string>Catch</string>
+                <string>Finally</string>
+                <string>ByVal</string>
+                <string>True</string>
+                <string>Byte</string>
+                <string>ByRef</string>
+                <string>ElseIf</string>
+                <string>String</string>
+                <string>Imports</string>
+                <string>Public</string>
+                <string>Structure</string>
+                <string>ReDim</string>
+                <string>Public</string>
+				<string>Private</string>
+				<string>Const</string>
+				<string>New</string>
+				<string>Property</string>
+				<string>Get</string>
+				<string>Set</string>
+				<string>Let</string>
+				<string>Category</string>
+				<string>While</string>
+                <string>Return</string>
+                <string>Continue</string>
+                <string>Next</string>
+                <string>For</string>
+                <string>To</string>
+                <string>Enum</string>
+                <string>Handles</string>
+                <string>Not</string>
+                <string>Is</string>
+				<string>Of</string>
+				<string>Overloads</string>
+				<string>Shared</string>
+				<string>ReadOnly</string>
+				<string>Select</string>
+				<string>Case</string>
+				<string>Do</string>
+				<string>Each</string>
+				<string>Of</string>
+				<string>Of</string>
+				<string>Of</string>
+				</keywords>
+			<keywords id="Classes" color="#88134F" useforautocomplete="yes">
+                <string>False</string>
+                <string>Boolean</string>
+                <string>True</string>
+                <string>Byte</string>
+				<string>SByte</string>
+				<string>String</string>
+                <string>Decimal</string>
+                <string>String</string>
+                <string>Integer</string>
+				<string>UInteger</string>
+				<string>Long</string>
+				<string>ULong</string>
+				<string>Date</string>
+                <string>Double</string>
+                <string>Short</string>
+				<string>UShort</string>
+				<string>Now</string>
+                <string>Nothing</string>
+			</keywords>
+			<keywords id="Numbers" color="#004CCC" useforautocomplete="no">
+				<regex>(?&lt;=[^[A-Za-z0-9]]|^)((([0-9]+\.[0-9]*)|(\.[0-9]+)([eE][+\-]?[0-9]+)?[fFlL]?)|((([1-9][0-9]*)|0[0-7]*|(0[xX][0-9a-fA-F]))(([uU][lL]?)|([lL][uU]?))?))(?=[^[A-Za-z0-9]]|$)</regex>
+            </keywords>
+        </default>
+        
+
+        <state id="SingleComment" color="#216D23" background-color="none" font-weight="normal" font-style="italic">
+            <begin><string>'</string></begin>
+            <end><regex>[\n\r]</regex></end>
+        </state>
+        
+        <state id="Region" color="#A0A014" background-color="none" font-weight="normal" font-style="italic">
+            <begin><string>#</string></begin>
+            <end><regex>[\n\r]</regex></end>
+        </state>
+        
+        <state id="String" color="#ff0000" background-color="none" font-weight="normal" font-style="normal">
+            <begin><string>"</string></begin>
+            <end><regex>(((?&lt;!\\)(\\\\)*)|^)"</regex></end>
+        </state>
+    </states>
+
+</syntax>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Rowan Simms  code@rowansimms.com -->
+<!-- project homepage: https://code.google.com/p/arduino-syntax-for-coda/  -->
+
+<settings>
+  <template>mytemplate.txt</template>   <!-- Provide a template for File->new -->
+  <recognition>
+    <extension>ino</extension>                   <!-- Add file extensions -->
+    <extension>pde</extension>                   <!-- Add file extensions -->
+  </recognition>
+</settings>

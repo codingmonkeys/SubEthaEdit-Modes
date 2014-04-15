@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+  <template>mytemplate.vb</template>   <!-- Provide a template for File->new -->
+  <recognition>
+    <extension casesensitive="no">vb</extension>                   <!-- Add file extensions -->
+    <filename></filename>                <!-- Add filenames -->
+    <regex></regex>      <!-- Add regex of content -->
+  </recognition>
+</settings>

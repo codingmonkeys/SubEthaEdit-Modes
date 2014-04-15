@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+    <recognition>
+        <extension>sppr</extension>
+        <extension>sppi</extension>
+    </recognition>
+</settings>

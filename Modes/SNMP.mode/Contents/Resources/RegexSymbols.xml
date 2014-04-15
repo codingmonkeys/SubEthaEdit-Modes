@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "symbol.dtd">
+<symbols>
+    <symbol id="Module" image="SymbolM" indentation="0">
+        <regex>\s*^\w+\s+MODULE-IDENTITY</regex>
+        <postprocess>
+            <find>\s+MODULE-IDENTITY</find>
+            <replace></replace>
+        </postprocess>
+    </symbol>
+    <symbol id="ObjectType" image="SymbolT" indentation="2">
+        <regex>\w+\s+OBJECT-TYPE</regex>
+        <postprocess>
+            <find>\s*OBJECT-TYPE</find>
+            <replace></replace>
+        </postprocess>
+    </symbol>
+
+    <symbol id="ObjectIdentifier" image="SymbolC" indentation="1">
+        <regex>\w+\s*OBJECT IDENTIFIER\s+::=</regex>
+        <postprocess>
+            <find>\s*OBJECT IDENTIFIER\s+::=</find>
+            <replace></replace>
+        </postprocess>
+    </symbol>
+    
+    <symbol id="Textual-Convention" image="SymbolS" indentation="1">
+        <regex>\w+\s*::=\s*TEXTUAL-CONVENTION</regex>
+        <postprocess>
+            <find>\s*::=\s*TEXTUAL-CONVENTION</find>
+            <replace></replace>
+        </postprocess>
+    </symbol>
+    
+    <symbol id="Sequence" image="SymbolS" indentation="1">
+        <regex>\w+\s*::=\s*SEQUENCE</regex>
+        <postprocess>
+            <find>\s*::=\s*SEQUENCE</find>
+            <replace></replace>
+        </postprocess>
+    </symbol>
+    
+</symbols>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>
+
+    <head>
+        <name>JSP</name> <!-- The definitions title -->
+        <charsintokens><![CDATA[$_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ<>]]></charsintokens> <!-- Valid Characters for Variables -->
+        <!-- <charsdelimitingtokens></charsdelimitingtokens> -->
+    </head>
+
+    <states>
+    
+        <default id="Base" color="#FFF" background-color="#000" font-weight="normal" font-style="normal">
+            <keywords id="Tags" color="#0000FF" useforautocomplete="no">
+                <regex>(&lt;[^&gt;]*&gt;)</regex>
+            </keywords>
+            
+            <keywords id="Strings in Tags" color="#990099" useforautocomplete="no">
+                <regex>("[^"&gt;&lt;]*")(?=[^&lt;]*&gt;)</regex>
+            </keywords>
+            
+            <keywords id="Attributes in Tags" color="#CC6600" useforautocomplete="no">
+                <regex>([\w-]*)[ \t]*=[ \t]*"[^"&gt;&lt;]*"(?=[^&lt;]*&gt;)</regex>
+            </keywords>
+
+            <keywords id="Entities" color="#FFF" useforautocomplete="no">
+                <regex>(&amp;\w{1,8};)</regex>
+            </keywords>
+        </default>
+        
+        <state id="Multi-line Comment" color="#236E25" background-color="none" font-weight="normal" font-style="italic">
+            <begin><regex>/\*</regex></begin>
+            <end><regex>\*/</regex></end>
+        </state>
+        
+        <state id="HTML Comment" color="#236E25" background-color="none" font-weight="normal" font-style="italic">
+            <begin><regex>&lt;!--</regex></begin>
+            <end><regex>--&gt;</regex></end>
+        </state>
+        
+        <state id="JSP Comment" color="#236E25" background-color="none" font-weight="normal" font-style="italic">
+            <begin><regex>&lt;\%--</regex></begin>
+            <end><regex>--\%&gt;</regex></end>
+        </state>
+
+	<state id="JSP" color="#666666" background-color="none" font-weight="normal" font-style="normal">
+		<begin><regex>(?:&lt;\%\@)|(?:&lt;\%)|(?:&lt;\%\=)</regex></begin>
+		<end><regex>(?:\%&gt;)</regex></end>
+		<keywords id="JSP Delimiter" color="#FF0033" font-weight="bold" useforautocomplete="no">
+			<regex>(&lt;\%)</regex>
+			<regex>(&lt;\%\@)</regex>
+                	<regex>(&lt;\%\=)</regex>
+                	<regex>(\%&gt;)</regex>
+		</keywords>
+            <keywords id="JSP Strings" color="#990099" useforautocomplete="no">
+                <regex>("[^"&gt;&lt;]*")(?=[^&lt;]*&gt;)</regex>
+            </keywords>
+            <keywords id="Java Keywords" color="#003399" useforautocomplete="yes">
+                <string>abstract</string>
+                <string>break</string>
+                <string>case</string>
+                <string>catch</string>
+                <string>class</string>
+                <string>continue</string>
+                <string>default</string>
+                <string>do</string>
+                <string>else</string>
+                <string>extends</string>
+                <string>false</string>
+                <string>finally</string>
+                <string>for</string>
+                <string>goto</string>
+                <string>if</string>
+                <string>implements</string>
+                <string>import</string>
+                <string>instanceof</string>
+                <string>interface</string>
+                <string>native</string>
+                <string>new</string>
+                <string>null</string>
+                <string>page</string>
+                <string>package</string>
+                <string>private</string>
+                <string>protected</string>
+                <string>public</string>
+                <string>return</string>
+                <string>super</string>
+                <string>strictfp</string>
+                <string>switch</string>
+                <string>synchronized</string>
+                <string>this</string>
+                <string>throws</string>
+                <string>throw</string>
+                <string>transient</string>
+                <string>true</string>
+                <string>try</string>
+                <string>volatile</string>
+                <string>while</string>
+                <string>boolean</string>
+                <string>byte</string>
+                <string>char</string>
+                <string>const</string>
+                <string>double</string>
+                <string>final</string>
+                <string>float</string>
+                <string>int</string>
+                <string>long</string>
+                <string>short</string>
+                <string>static</string>
+                <string>void</string>
+            </keywords>
+	</state>
+
+
+        
+    </states>
+
+</syntax>

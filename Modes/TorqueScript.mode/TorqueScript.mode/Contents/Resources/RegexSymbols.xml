@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "symbol.dtd">
+<symbols>
+
+	<!-- local procedures -->
+    <symbol id="Functions" image="SymbolF">
+        <regex>^function +[\w\d_\s\[\]]+ *\([^\)]*\)</regex>
+        <postprocess>
+        	<find>function</find>
+			<replace></replace>
+        </postprocess>
+    </symbol>
+
+</symbols>

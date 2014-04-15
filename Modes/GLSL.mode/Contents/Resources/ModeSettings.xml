@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+  <template>template.glsl</template>   <!-- Provide a template for File->new -->
+  <recognition>
+    <extension casesensitive="yes">glsl</extension>                   <!-- Add file extensions -->
+    <extension casesensitive="yes">frag</extension> <!-- Add case sensitive file extensions -->
+    <extension casesensitive="yes">vert</extension>
+  </recognition>
+</settings>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>
+
+    <head>
+        <name>C</name> <!-- The definitions title -->
+        <charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@*-=+<>%!#$^@,]]></charsintokens> <!-- Valid Characters for Variables -->
+        <!-- <charsdelimitingtokens></charsdelimitingtokens> -->
+    </head>
+
+    <states>
+    
+        <default id="Base" color="#000" background-color="#fff" font-weight="normal" font-style="normal">
+            <keywords id="Reserved Keywords" color="#7F00BF" useforautocomplete="yes">
+                <string>else</string>
+                <string>unquote</string>
+                <string>unquote-splicing</string>
+                <string>quote</string>
+                <string>lambda</string>
+                <string>if</string>
+                <string>set!</string>
+                <string>begin</string>
+                <string>cond</string>
+                <string>and</string>
+                <string>or</string>
+                <string>case</string>
+                <string>let</string>
+                <string>let*</string>
+                <string>letrec</string>
+                <string>do</string>
+                <string>delay</string>
+                <string>quasiquote</string>
+                <string>#t</string>
+                <string>#f</string>         
+				<string>define</string>
+				<string>eval</string>
+				<string>if</string>
+            </keywords>
+            <keywords id="Constants" color="#007F7F" useforautocomplete="yes">
+				<string>#t</string>
+				<string>#f</string>
+				<string>null</string>
+				<regex>&amp;[^() ]+</regex>
+            </keywords>
+            <keywords id="Numbers" color="#00f" useforautocomplete="no">
+				<regex>(?&lt;=[^[A-Za-z0-9]]|^)((([0-9]+\.[0-9]*)|(\.[0-9]+)([eE][+\-]?[0-9]+)?[fFlL]?)|((([1-9][0-9]*)|0[0-7]*|(0[xX][0-9a-fA-F]))(([uU][lL]?)|([lL][uU]?))?))(?=[^[A-Za-z0-9]]|$)</regex>
+            </keywords>
+            <keywords id="Characters" color="#00f" useforautocomplete="no">
+				<regex>('.')</regex>
+            </keywords>
+            <keywords id="Atoms, functions, and quotes" color="#750E15" useforautocomplete="no">
+				<regex>:[^() ]+</regex>
+				<regex>'[^() ]+</regex>
+				<regex>(\|[^|]*\|)</regex>
+				<regex>(#&apos;[^ ()]+)</regex>
+            </keywords>
+            <keywords id="(quasi)-quotes" color="#226D24" useforautocomplete="no">
+				<regex>`</regex>
+				<regex>,@?</regex>
+            </keywords>
+            <keywords id="Comments" color="#272" useforautocomplete="no">
+                <regex>(;.*$)</regex>
+            </keywords>
+        </default>
+
+        <state id="Shell Preamble" color="#227" background-color="none" font-weight="normal" font-style="italic">
+            <begin><regex>^#!</regex></begin>
+            <end><regex>^[!|]#</regex></end>
+        </state>
+        <state id="String" color="#760f15" background-color="none" font-weight="normal" font-style="normal">
+            <begin><string>"</string></begin>
+            <end><regex>(((?&lt;!\\)(\\\\)*)|^)"</regex></end>
+        </state>
+    </states>
+</syntax>

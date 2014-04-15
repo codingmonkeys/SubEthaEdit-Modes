@@ -1,0 +1,5 @@
+please e-mail me at pvrbik@csd.uwo.ca with comments. I would appreciate any feedback and will do my best to maintain this package.
+
+Version 1.0
+Known bugs:
+The call to the list element LIST[name] where "name" is greater then three characters will cause the expression to become highlighted as if LIST was a "name" was a command in "LIST".

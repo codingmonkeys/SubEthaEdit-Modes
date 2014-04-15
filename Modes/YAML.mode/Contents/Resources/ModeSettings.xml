@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+  <template>untitled.yml</template>   <!-- Provide a template for File->new -->
+  <recognition>
+    <extension>yml</extension>                   <!-- Add file extensions -->
+    <extension>yaml</extension>
+    <extension casesensitive="yes">C</extension> <!-- Add case sensitive file extensions -->
+  </recognition>
+</settings>

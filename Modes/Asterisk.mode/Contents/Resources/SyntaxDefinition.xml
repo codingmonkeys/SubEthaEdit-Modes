@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>
+
+
+    <!-- 
+    The <head> tag encloses some global information about the mode.
+    This tag is required.
+    -->    
+
+    <head>
+        <name>Asterisk config file syntax</name>
+        <charsintokens>
+            <![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@-]]>
+        </charsintokens> 
+        <!-- <charsdelimitingtokens>[CDATA[ -]]></charsdelimitingtokens> -->
+    </head>
+    <states>
+        <default id="Base" color="#000" inverted-color="#fff">
+            <keywords id="Keywords" color="#881280" casesensitive="yes" useforautocomplete="no">
+		    </keywords>
+        </default>
+             
+        <state id="Comment" color="#236E25" font-style="italic">
+            <begin><regex>;</regex></begin>
+            <end><regex>[\n\r]</regex></end>
+        </state>
+        
+        <state id="Section Heading" color="#1A1AA6">
+             <begin><regex>^\[</regex></begin>
+             <end><regex>\].*[\n\r]</regex></end>
+        </state>
+
+        <state id="Variable Name" color="#CC0000">
+             <begin><regex>^\w+</regex></begin>
+	     <end><regex>.?</regex></end>
+        </state>   
+        
+        <state id="Variable Value" color="#CC0099">
+             <begin><regex>[=>|=]</regex></begin>
+	     <end><regex>\s</regex></end>
+        </state>   
+        
+   </states>
+
+</syntax>

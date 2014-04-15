@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "symbol.dtd">
+<symbols>
+
+    <blocks>
+        <beginregex>&lt;!--</beginregex>
+        <endregex>--&gt;</endregex>
+    </blocks>
+
+        
+    <symbol id="Templates Name" font-weight="normal" font-style="normal" image="SymbolTempName.png" indentation="0" ignoreblocks="no">
+        <regex>&lt;xsl:template *name *= *"([^"]*)"&gt;</regex>
+    </symbol>
+    
+    <symbol id="Templates Match" font-weight="normal" font-style="normal" image="SymbolTempMatch.png" indentation="0" ignoreblocks="no">
+        <regex>&lt;xsl:template *match *= *"([^"]*)"&gt;</regex>
+    </symbol>
+
+</symbols>

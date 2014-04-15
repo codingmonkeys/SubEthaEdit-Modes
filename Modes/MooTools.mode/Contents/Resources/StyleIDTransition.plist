@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>/MooTools/AutodocComment</key>
+	<string>AutodocComment</string>
+	<key>/MooTools/Characters</key>
+	<string>_Default.Characters</string>
+	<key>/MooTools/Comment</key>
+	<string>Comment</string>
+	<key>/MooTools/FunctionRegex</key>
+	<string>_Default.FunctionRegex</string>
+	<key>/MooTools/Keywords</key>
+	<string>_Default.Keywords</string>
+	<key>/MooTools/Numbers</key>
+	<string>_Default.Numbers</string>
+	<key>/MooTools/Regular Expressions</key>
+	<string>/Regular Expressions/</string>
+	<key>/MooTools/SingleComment</key>
+	<string>SingleComment</string>
+	<key>/MooTools/SingleString</key>
+	<string>SingleString</string>
+	<key>/MooTools/String</key>
+	<string>String</string>
+	<key>_Default</key>
+	<string>_Default</string>
+</dict>
+</plist>

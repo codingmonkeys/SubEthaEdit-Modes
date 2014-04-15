@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Rowan Simms  code@rowansimms.com -->
+<!-- project homepage: https://code.google.com/p/arduino-syntax-for-coda/  -->
+
+<symbols>
+	
+    <blocks>
+        <begin><regex>{</regex></begin>
+        <end><regex>}</regex></end>
+    </blocks>
+
+	<symbol id="Include and Define" image="Symbol#" indentation="0" ignoreblocks="yes" font-weight="normal">
+		<regex>^#\w+\s+\w+.\w+</regex>
+	</symbol>
+		
+    <symbol id="Program" image="SymbolP" indentation="0" ignoreblocks="yes" font-weight="bold">
+        <regex>(((void)\s+)+(setup|loop)\s+?*\([^\)^;]*\))</regex>
+    </symbol>
+
+    <symbol id="Functions" image="SymbolF" indentation="1" ignoreblocks="yes">
+		<regex>(((void|boolean|char|bool)\s+)+(\w+\s+)?(((?!.*(setup|loop)).*?))\w+\s*\([^\)^;]*\))</regex>
+
+        <postprocess>
+            <find>\([^\)]*\)</find>
+            <replace></replace>
+        </postprocess>
+    </symbol>
+    
+</symbols>

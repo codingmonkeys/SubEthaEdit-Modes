@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>
+
+    <head>
+        <name>DTD</name>
+        <autocompleteoptions use-spelling-dictionary="yes" />
+		<charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@]]></charsintokens> 
+        <!-- <charsdelimitingtokens><![CDATA[ -]]></charsdelimitingtokens> -->
+    </head>
+
+	<states>
+		
+		<default id="Base" color="#fff" background-color="#141414" font-style="normal" usespellchecking="yes">
+    
+    		<keywords id="Entities" color="#d5a865" useforautocomplete="no">
+                <regex>(&amp;\w{1,8};)</regex>
+                <regex>(&amp;#[0-9]+;)</regex>
+                <regex>(&amp;#x[A-Fa-f0-9]+;)</regex>
+            </keywords>
+
+        <state id="Comment" type="comment" color="#605a60" font-style="italic">
+            <begin><regex>&lt;!--</regex></begin>
+            <end><regex>--&gt;</regex></end>
+                        
+            <keywords id="SGML Double Dash" color="#dba7a0" font-weight="italic" useforautocomplete="no">
+                <regex>(?&lt;!\!)(--)(?!&gt;)</regex>
+            </keywords>
+            
+        </state>
+
+        <state id="Escape" color="#605a60" font-style="italic">
+            <begin><regex>&lt;\?</regex></begin>
+            <end><regex>\?&gt;</regex></end>
+        </state>
+    
+        <state id="Element" color="#b48858" font-style="normal">
+            <begin><regex>&lt;!ELEMENT</regex></begin>
+            <end><regex>&gt;</regex></end>
+
+            <state id="Content Model" type="string" color="#8a9e69" useforautocomplete="no">
+                <begin><regex>\(</regex></begin>
+                <end><regex>\)</regex></end>
+            </state>
+            
+            <state id="Element Type" type="string" color="#fbef94" useforautocomplete="yes">
+                <begin><regex>[A-Z]</regex></begin>
+                <end><regex>[A-Z]\b</regex></end>
+            </state>
+            
+            <state id="Element Name" type="string" color="#7187a7" useforautocomplete="no">
+                <begin><regex>\s\w+</regex></begin>
+                <end><regex>\s</regex></end>
+            </state>
+
+        </state>
+        
+        <state id="Attribute List" color="#b48858" font-style="normal">
+            <begin><regex>&lt;!ATTLIST</regex></begin>
+            <end><regex>&gt;</regex></end>
+
+           	<state id="Attribute Value" type="string" color="#a1849d" useforautocomplete="yes">
+                <begin><regex>#</regex></begin>
+                <end><regex>[A-Z]\b|[a-z]|\s|\W</regex></end>
+            </state>
+            
+            <state id="Attribute List Item" type="string" color="#7187a7" useforautocomplete="no">
+                <begin><regex>\s\w+</regex></begin>
+                <end><regex>\s</regex></end>
+            </state>
+
+        </state>
+        
+        </default>
+
+    </states>
+
+</syntax>

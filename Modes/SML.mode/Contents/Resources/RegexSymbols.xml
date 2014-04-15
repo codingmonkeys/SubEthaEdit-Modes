@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "symbol.dtd">
+<symbols>
+
+    <blocks>
+        <beginregex>let</beginregex>
+        <endregex>in</endregex>
+    </blocks>
+    
+    <symbol id="Funs" image="SymbolF()" indentation="1" ignoreblocks="yes">
+        <regex>fun[ \t]+([a-zA-Z][a-zA-Z0-9_]*)</regex>
+    </symbol>
+
+    <symbol id="Structures" image="SymbolC" indentation="1" ignoreblocks="yes">
+        <regex>structure[ \t]+([a-zA-Z][a-zA-Z0-9_]*)</regex>
+    </symbol>
+    
+   <symbol id="Functors" image="SymbolC" indentation="1" ignoreblocks="yes">
+        <regex>functor[ \t]+([a-zA-Z][a-zA-Z0-9_]*)</regex>
+   </symbol>
+
+    <symbol id="CVS/SVN conflict" font-weight="bold" image="SymbolWarn" indentation="0" ignoreblocks="no">
+        <regex>^&lt;&lt;&lt;&lt;&lt;&lt;&lt;[^=]*======[^&gt;]*&gt;&gt;&gt;&gt;&gt;&gt;&gt;</regex>
+        <postprocess>
+            <find>.*</find>
+            <replace>Versioning conflict!</replace>
+        </postprocess>
+    </symbol>
+
+</symbols>

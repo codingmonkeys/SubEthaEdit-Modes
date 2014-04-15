@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "symbol.dtd">
+<symbols>
+    <blocks>
+        <beginregex>{</beginregex>
+        <endregex>}</endregex>
+    </blocks>
+
+ 	<symbol id="HTML Headers" font-weight="normal" font-style="normal" image="SymbolH" indentation="0" ignoreblocks="yes">
+		 <!--<regex>&lt;[hH][1-6]&gt;([^&lt;]+)&lt;/[hH][1-6]&gt;</regex>-->
+        <regex>&lt;[hH][1-6][^&gt;\n\r]*[&gt;](.*?)&lt;/[hH][1-6]&gt;</regex>
+        <postprocess>
+            <find>^[ \n\r\t]+</find>
+            <replace></replace>
+            <find>[ \n\r\t]+$</find>
+            <replace></replace>
+        </postprocess>
+    </symbol>
+
+    <symbol id="Divs with IDs" font-weight="normal" font-style="normal" image="SymbolD" indentation="0" ignoreblocks="yes">
+        <regex>&lt;div[^&gt;]*id *= *"([^"]*)"[^&gt;]*&gt;</regex>
+    </symbol>
+
+    <symbol id="Named anchors HTML" font-weight="normal" font-style="normal" image="Symbola" indentation="0" ignoreblocks="yes">
+        <regex>&lt;a[^&gt;]*name *= *"([^"]*)"[^&gt;]*&gt;</regex>
+        <postprocess>
+            <find>(?i)%20</find>
+            <replace> </replace>
+            <find>(?i)%3f</find>
+            <replace>\?</replace>
+            <find>%24</find>
+            <replace>\$</replace>
+            <find>%26</find>
+            <replace>\+</replace>
+            <find>(?i)%2c</find>
+            <replace>,</replace>
+            <find>(?i)%2f</find>
+            <replace>/</replace>
+            <find>(?i)%3a</find>
+            <replace>:</replace>
+            <find>(?i)%3b</find>
+            <replace>;</replace>
+            <find>(?i)%3d</find>
+            <replace>=</replace>
+            <find>(?i)%40</find>
+            <replace>@</replace>
+        </postprocess>
+    </symbol> 
+
+
+    <symbol id="PHP functions" font-weight="normal" font-style="normal" image="SymbolF()" indentation="0" ignoreblocks="no"> 
+		<!--studio added space support after amp and static/abstract and force start of line-->
+        <regex>^(?:(?:final|static|abstract)[ \t]+)?(?:(?:private|public|protected|abstract)[ \t]+)?(?:static[ \t]+)?function[ \t]+&amp;?\s*([a-zA-Z0-9_]+[ \t]*\([^)]*\))[^{}]*{</regex>
+        <postprocess>
+            <find>[\n\r]</find>
+            <replace> </replace>
+            <find>[ \t]+</find>
+            <replace> </replace>
+        </postprocess>
+    </symbol>
+
+    <symbol id="PHP functions indented" font-weight="normal" font-style="normal" image="SymbolF()" indentation="1" ignoreblocks="no">
+        <!-- studio added space support after amp and static/abstract and added support for one space and tab and force space or tab not whitespace at the beginning -->
+		<regex>^[ \t]+(?:(?:final|static|abstract)[ \t]+)?(?:(?:private|public|protected|abstract)[ \t]+)?(?:static[ \t]+)?function[ \t]+&amp;?\s*([a-zA-Z0-9_]+[ \t]*\([^)]*\))[^{}]*{</regex>
+       <postprocess>
+            <find>[\n\r]</find>
+            <replace> </replace>
+            <find>[ \t]+</find>
+            <replace> </replace>
+        </postprocess>
+    </symbol>
+
+    <symbol id="PHP classes" font-weight="bold" font-style="normal" image="SymbolC" indentation="0" ignoreblocks="yes">
+       <!--studio added space support for static/abstract -->
+        <regex>^[ \t]*(?:(?:final|static|abstract)[ \t]+)?class[ \t]+([a-zA-Z0-9_]+([ \t]+extends[ \t]+[a-zA-Z0-9_]+)?)[ \t]*[^{}]*{</regex>
+        <postprocess>
+            <find>[\n\r]</find>
+            <replace> </replace>
+            <find>[ \t]+</find>
+            <replace> </replace>
+        </postprocess>
+    </symbol>
+
+	<!-- STUDIO added image SymbolMark -->
+    <symbol id="Comment Marks" font-weight="bold" indentation="0" image="SymbolMark" ignoreblocks="yes" show-in-comments="yes">
+        <regex>//- mark[\t ]*(?:-(?=[\n\r]))?([^\n\r]*)</regex>
+    </symbol>
+            
+     <symbol id="EE Channel Entries" font-weight="normal" font-style="normal" image="SymbolEE" indentation="0" ignoreblocks="yes">
+        <regex>\{exp:channel:entries[^\}]*channel *= *"([^"]*)"[^\}]*\}</regex>  
+		<!--
+		<postprocess>
+            <find>^</find>
+            <replace>^Channel: </replace>
+        </postprocess>
+		   -->
+    </symbol>
+
+	<symbol id="EE Comments"  image="SymbolMark" ignoreblocks="yes">
+		<regex>\{!--\s*(.+?)\s*--}</regex>                 
+	</symbol>
+</symbols>

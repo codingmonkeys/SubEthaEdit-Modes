@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>
+
+    <head>
+        <name>Verilog</name> <!-- The definitions title -->
+        <charsintokens><![CDATA[`$_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@?!+-*/=~|]]></charsintokens> <!-- Valid Characters for Variables -->
+    </head>
+
+    <states>
+    
+        <default id="Base" color="#000" background-color="#fff" font-weight="normal" font-style="normal">
+            <keywords id="Blocks" color="#00008B" useforautocomplete="yes" font-weight="bold" casesensitive="yes">
+                            <string>always</string>
+                            <string>assign</string>
+                            <string>deassign</string>
+                            <string>defparam</string>
+                            <string>endattribute</string>
+                            <string>endmodule</string>
+                            <string>endfunction</string>
+                            <string>endprimitive</string>
+                            <string>endspecify</string>
+                            <string>endtask</string>
+                            <string>function</string>
+                            <string>initial</string>
+                            <string>macromodule</string>
+                            <string>module</string>
+                            <string>parameter</string>
+                            <string>primitive</string>
+                            <string>specify</string>
+                            <string>specparam</string>
+                            <string>task</string>
+            </keywords>
+
+            <keywords id="Edges" color="#A08080" useforautocomplete="yes" font-weight="normal" casesensitive="yes">
+                            <string>edge</string>
+                            <string>negedge</string>
+                            <string>posedge</string>
+            </keywords>
+
+            <keywords id="Components" color="#0000A0" useforautocomplete="yes" font-weight="normal" casesensitive="yes">
+                            <string>and</string>
+                            <string>buf</string>
+                            <string>bufif0</string>
+                            <string>bufif1</string>
+                            <string>cmos</string>
+                            <string>highz0</string>
+                            <string>highz1</string>
+                            <string>nand</string>
+                            <string>nmos</string>
+                            <string>nor</string>
+                            <string>not</string>
+                            <string>notif0</string>
+                            <string>notif1</string>
+                            <string>pmos</string>
+                            <string>pull0</string>
+                            <string>pull1</string>
+                            <string>pullup</string>
+                            <string>pulldown</string>
+                            <string>rcmos</string>
+                            <string>rnmos</string>
+                            <string>rpmos</string>
+                            <string>rtran</string>
+                            <string>rtranif0</string>
+                            <string>rtranif1</string>
+                            <string>strong0</string>
+                            <string>strong1</string>
+                            <string>supply0</string>
+                            <string>supply1</string>
+                            <string>tran</string>
+                            <string>tranif0</string>
+                            <string>tranif1</string>
+                            <string>tri</string>
+                            <string>tri0</string>
+                            <string>tri1</string>
+                            <string>triand</string>
+                            <string>trior</string>
+                            <string>trireg</string>
+                            <string>wand</string>
+                            <string>weak0</string>
+                            <string>weak1</string>
+                            <string>wor</string>
+                            <string>xnor</string>
+                            <string>xor</string> 
+            </keywords>
+                            
+            <keywords id="Unidirection Ports" color="#606060" useforautocomplete="yes" font-weight="bold" casesensitive="yes">
+                            <string>input</string>
+                            <string>output</string>
+            </keywords>
+
+            <keywords id="Bidirection Ports" color="#A06060" useforautocomplete="yes" font-weight="bold" casesensitive="yes">
+                            <string>inout</string>
+            </keywords>
+            
+            <keywords id="Variables" color="#806040" useforautocomplete="yes" font-weight="bold" casesensitive="yes">
+                            <string>integer</string>
+                            <string>medium</string>
+                            <string>large</string>
+                            <string>real</string>
+                            <string>reg</string>
+                            <string>signed</string>
+                            <string>small</string>
+                            <string>unsigned</string>
+                            <string>wire</string>
+            </keywords>
+                            
+            <keywords id="Flow Controls" color="#0000B0" useforautocomplete="yes" font-weight="normal" casesensitive="yes">
+                            <string>begin</string>
+                            <string>case</string>
+                            <string>casex</string>
+                            <string>casez</string>
+                            <string>default</string>
+                            <string>disable</string>
+                            <string>else</string>
+                            <string>end</string>
+                            <string>endcase</string>
+                            <string>endtable</string>
+                            <string>event</string>
+                            <string>for</string>
+                            <string>force</string>
+                            <string>forever</string>
+                            <string>fork</string>
+                            <string>if</string>
+                            <string>ifnone</string>
+                            <string>join</string>
+                            <string>or</string>
+                            <string>realtime</string>
+                            <string>release</string>
+                            <string>repeat</string>
+                            <string>scalared</string>
+                            <string>strength</string>
+                            <string>table</string>
+                            <string>time</string>
+                            <string>vectored</string>
+                            <string>wait</string>
+                            <string>while</string>
+            </keywords>
+            
+            
+            <keywords id="Tasks" color="#B22222" useforautocomplete="yes" font-weight="bold" font-style="normal" casesensitive="yes">
+                            <string>$display</string>
+                            <string>$displayb</string>
+                            <string>$displayh</string>
+                            <string>$displayo</string>
+                            <string>$monitor</string>
+                            <string>$monitorb</string>
+                            <string>$monitorh</string>
+                            <string>$monitoro</string>
+                            <string>$monitoron</string>
+                            <string>$monitoroff</string>
+                            <string>$strobe</string>
+                            <string>$strobeb</string>
+                            <string>$strobeh</string>
+                            <string>$strobeo</string>
+                            <string>$write</string>
+                            <string>$writeb</string>
+                            <string>$writeh</string>
+                            <string>$writeo</string>
+                            <string>$fclose</string>
+                            <string>$fdisplay</string>
+                            <string>$fdisplayb</string>
+                            <string>$fdisplayh</string>
+                            <string>$fdisplayo</string>
+                            <string>$fmonitor</string>
+                            <string>$fmonitorb</string>
+                            <string>$fmonitorh</string>
+                            <string>$fmonitoro</string>
+                            <string>$readmemb</string>
+                            <string>$fopen</string>
+                            <string>$fstrobe</string>
+                            <string>$fstrobeb</string>
+                            <string>$fstrobeh</string>
+                            <string>$fstrobeo</string>
+                            <string>$fwrite</string>
+                            <string>$fwriteb</string>
+                            <string>$fwriteh</string>
+                            <string>$fwriteo</string>
+                            <string>$readmemh</string>
+                            <string>$fseek</string>
+                            <string>$ftell</string>
+                            <string>$fgetc</string>
+                            <string>$fgets</string>
+                            <string>$fflush</string>
+                            <string>$printtimescale</string>
+                            <string>$timeformat</string>
+                            <string>$finish</string>
+                            <string>$stop</string>
+                            <string>$hold</string>
+                            <string>$period</string>
+                            <string>$setup</string>
+                            <string>$skew</string>
+                            <string>$nochange</string>
+                            <string>$recovery</string>
+                            <string>$setuphold</string>
+                            <string>$width</string>
+                            <string>$async</string>
+                            <string>$sync</string>
+                            <string>$and</string>
+                            <string>$nand</string>
+                            <string>$or</string>
+                            <string>$nor</string>
+                            <string>$array</string>
+                            <string>$plane</string>
+                            <string>$q_initialize</string>
+                            <string>$q_remove</string>
+                            <string>$q_exam</string>
+                            <string>$q_add</string>
+                            <string>$q_full</string>
+                            <string>$q_random</string>
+                            <string>$realtime</string>
+                            <string>$time</string>
+                            <string>$stime</string>
+                            <string>$bitstoreal</string>
+                            <string>$itor</string>
+                            <string>$readtobits</string>
+                            <string>$rtoi</string>
+                            <string>$random</string>
+                            <string>$dist_chi_square</string>
+                            <string>$dist_exponential</string>
+                            <string>$dist_poisson</string>
+                            <string>$dist_uniform</string>
+                            <string>$dist_erlang</string>
+                            <string>$dist_nornal</string>
+                            <string>$dist_t</string>
+                            <string>$comment</string>
+                            <string>$date</string>
+                            <string>$enddefinitions</string>
+                            <string>$scope</string>
+                            <string>$timescale</string>
+                            <string>$upscope</string>
+                            <string>$var</string>
+                            <string>$version</string>
+                            <string>$dumpall</string>
+                            <string>$dumpoff</string>
+                            <string>$dumpon</string>
+                            <string>$dumpvars</string>
+            </keywords>
+
+            <keywords id="Preprocessors" color="#8B2222" useforautocomplete="yes" casesensitive="yes">
+                            <string>`resetall</string>
+                            <string>`define</string>
+                            <string>`undef</string>
+                            <string>`timescale</string>
+                            <string>`ifdef</string>
+                            <string>`else</string>
+                            <string>`endif</string>
+                            <string>`include</string>
+                            <string>`celldefine</string>
+                            <string>`endcelldefine</string>
+                            <string>`default_nettype</string>
+                            <string>`unconnected_drive</string>
+                            <string>`nounconnected_drive</string>
+            </keywords>
+
+            <keywords id="Module Initiation" color="#006060" useforautocomplete="no" casesensitive="yes" font-weight="bold">
+				<regex>([^.][A-Za-z0-9_]+ *)\(</regex>
+            </keywords>
+            
+        </default>
+        
+        <state id="Comment" color="#808080" background-color="none" font-weight="normal" font-style="italic">
+            <begin><regex>\/\/</regex></begin>
+            <end><regex>[\n\r]</regex></end>
+        </state>
+        <state id="Comment2" color="#808080" background-color="none" font-weight="normal" font-style="italic">
+            <begin><regex>\/\*</regex></begin>
+            <end><regex>\*\/</regex></end>
+        </state>
+
+        
+        <state id="String" color="#008000" background-color="none" font-weight="normal" font-style="normal">
+            <begin><string>'</string></begin>
+            <end><regex>(((?&lt;!\\)(\\\\)*)|^)'</regex></end>
+            <begin><string>"</string></begin>
+            <end><regex>(((?&lt;!\\)(\\\\)*)|^)"</regex></end>
+        </state>
+        <state id="Value" color="#801010" background-color="none" font-weight="normal" font-style="normal">
+            <begin><regex>[0-9]*\'[bhod]</regex></begin>
+            <end><regex>[0-9a-zA-Z_]+</regex></end>
+        </state>
+        
+        <state id="Array" color="#1010CC" background-color="none" font-weight="normal" font-style="normal">
+            <begin><regex>\[</regex></begin>
+            <end><regex>\]</regex></end>
+        </state>
+
+        <state id="Delay" color="#808080" background-color="none" font-weight="normal" font-style="normal">
+            <begin><regex>#[ ]*[^ ]</regex></begin>
+            <end><regex>[ ]*</regex></end>
+        </state>
+
+    </states>
+
+</syntax>

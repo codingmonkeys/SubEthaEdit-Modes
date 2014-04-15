@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "symbol.dtd">
+<symbols>
+   <symbol id="Functions" image="SymbolF()" indentation="0">
+       <regex>\(define[ \r\n\t]+\(([^()]+)\)</regex>
+       <postprocess>
+           <find>[ \r\n\t]+</find>
+           <replace> </replace>
+           <find>\..*$</find>
+           <replace>...</replace>
+       </postprocess>
+   </symbol>
+
+   <!-- Stklos and GOOPS style class and method expressions -->
+   <symbol id="Methods" image="SymbolM" indentation="0">
+       <regex>\(define-method[ \r\n\t]+\(([^() ]+((([\r\n\t ]+[^() ]+)|([\r\n\t ]*\([^()]+\))))*)\)</regex>
+       <postprocess>
+           <find>[ \r\n\t]+</find>
+           <replace> </replace>
+           <find>\..*$</find>
+           <replace>...</replace>
+           <!-- This clause hides the type specifiers. Since GOOPS uses 
+                multimethod dispatch, this can be undesirable.
+               <find>\(([^() ]+)[\r\n\t ]+[^()]+\)</find>
+               <replace>\1</replace>
+            -->
+       </postprocess>
+   </symbol>
+
+   <symbol id="Classes" image="SymbolC" indentation="0">
+       <regex>\(define-class[ \r\n\t]+([^() ]+)</regex>
+       <postprocess>
+       </postprocess>
+   </symbol>
+
+   <symbol id="Classes" image="SymbolC" indentation="0">
+       <regex>\(define[ \r\n\t]+([^() ]+)[ \r\n\t]*\(class</regex>
+   </symbol>
+</symbols>

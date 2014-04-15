@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>
+
+    <head>
+        <name>TorqueDTSConfig</name>
+
+        <charsintokens>
+            <![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@]]>
+        </charsintokens> 
+        <!-- <charsdelimitingtokens>[CDATA[ -]]></charsdelimitingtokens> -->
+    </head>
+
+
+    <states>
+    
+    
+        <default id="Base" color="#000" inverted-color="#fff">
+
+
+            <keywords id="Type" color="#039" useforautocomplete="yes">
+				<string>Dump</string>
+				<string>Error</string>
+				<string>Param</string>
+				<string>Sequence</string>
+				<string>Params</string>
+				<string>SequenceObject</string>
+            </keywords>
+            
+            <keywords id="Variable" color="#666" useforautocomplete="yes">
+            	<string>NodeCollection</string>
+				<string>ShapeConstruction</string>
+				<string>NodeCulling</string>
+				<string>NodeStates</string>
+				<string>NodeStateDetails</string>
+				<string>ObjectStates</string>
+				<string>ObjectStateDetails</string>
+				<string>ObjectOffsets</string>
+				<string>SequenceDetails</string>
+				<string>ShapeHierarchy</string>
+				<string>AllowEmptySubtrees</string>
+				<string>AllowCrossedDetails</string>
+				<string>AllowUnusedMeshes</string>
+				<string>AllowOldSequences</string>
+				<string>RequireViconNode</string>
+				<string>EnableTwoSidedMaterials</string>
+				<string>CollapseTransforms</string>
+				<string>SequenceExport</string>
+				<string>defaultCyclic</string>
+				<string>defaultBlend</string>
+				<string>defaultFirstLastFrameSame</string>
+				<string>defaultUseFrameRate</string>
+				<string>defaultIgnoreGroundTransform</string>
+				<string>defaultUseGroundFrameRate</string>
+				<string>defaultEnableMorphAnimation</string>
+				<string>defaultEnableVisAnimation</string>
+				<string>defaultEnableTransformAnimation</string>
+				<string>defaultForceMorphAnimation</string>
+				<string>defaultForceVisAnimation</string>
+				<string>defaultForceTransformAnimation</string>
+				<string>defaultOverrideDuration</string>
+				<string>AnimationDelta</string>
+				<string>MaxFrameRate</string>
+				<string>defaultFrameRate</string>
+				<string>defaultGroundFrameRate</string>
+				<string>SkinWeightThreshhold</string>
+				<string>defaultDuration</string>
+				<string>defaultNumFrames</string>
+				<string>defaultNumGroundFrames</string>
+				<string>defaultDefaultSequencePriority</string>
+				<string>weightsPerVertex</string>
+				<string>T2AutoDetail</string>
+				<string>baseTexturePath</string>
+            </keywords>
+
+			<keywords id="Numbers" color="#F03" useforautocomplete="no">
+				<regex>(?&lt;=[^[A-Za-z0-9]]|^)((([0-9]+\.[0-9]*)|(\.[0-9]+)([eE][+\-]?[0-9]+)?[fFlL]?)|((([1-9][0-9]*)|0[0-7]*|(0[xX][0-9a-fA-F]))(([uU][lL]?)|([lL][uU]?))?))(?=[^[A-Za-z0-9]]|$)</regex>
+			</keywords>
+
+            <keywords id="Operators" color="#F00" useforautocomplete="no">
+	            	<regex>([\+\-\=\*\:])</regex>
+            </keywords>
+            
+            <keywords id="Lists" color="#039" useforautocomplete="yes">
+            		<string>AlwaysExport</string>
+				<string>NeverExport</string>
+				<string>NeverAnimate</string>
+            </keywords>
+
+		</default>
+		
+        <state id="Comment" color="#666" font-style="italic">
+            <begin><regex>//</regex></begin>
+            <end><regex>[\n\r]</regex></end>
+        </state>
+        
+        <state id="String" color="#F0C">
+            <begin><regex>"</regex></begin>
+            <end><regex>(((?&lt;!\\)(\\\\)*)|^)"</regex></end>
+        </state>
+
+    </states>
+
+</syntax>

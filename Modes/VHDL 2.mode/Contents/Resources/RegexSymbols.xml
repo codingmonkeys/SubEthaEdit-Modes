@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "symbol.dtd">
+<symbols>
+
+    <symbol id="C Funtions" image="SymbolF()" indentation="1"">
+        <regex> *= *[A-Za-z0-9_]+ *(\([^\)]*\))</regex>
+        <postprocess>
+            <find>\([^\)]*\)</find>
+            <replace>()</replace>
+            <find>[\n\r]</find>
+            <replace> </replace>
+            <find> *= *</find>
+            <replace></replace>
+        </postprocess>
+    </symbol>
+
+    <symbol id="CVS/SVN conflict" font-weight="bold" image="SymbolWarn" indentation="0" ignoreblocks="no">
+        <regex>^&lt;&lt;&lt;&lt;&lt;&lt;&lt;[^=]*======[^&gt;]*&gt;&gt;&gt;&gt;&gt;&gt;&gt;</regex>
+        <postprocess>
+            <find>.*</find>
+            <replace>Versioning conflict!</replace>
+        </postprocess>
+    </symbol>
+
+</symbols>

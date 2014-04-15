@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+  <template>template.todo</template> 
+  <recognition>
+    <extension>taskpaper</extension>                   
+    <extension>task</extension>
+    <extension>tasks</extension>
+    <extension>todo</extension>
+    <extension>todolist</extension>
+    <extension>todos</extension>
+  </recognition>
+</settings>

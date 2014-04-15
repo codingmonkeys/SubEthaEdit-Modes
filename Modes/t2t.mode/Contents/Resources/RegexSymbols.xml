@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "symbol.dtd">
+<symbols>
+
+
+    <symbol id="numTitle L1" font-weight="bold" image="SymbolC" indentation="0">
+            <regex>^=([^=]+)=(\[.*\]){0,}[\n\r]</regex>
+    </symbol>
+   
+    <symbol id="numTitle L2" font-weight="bold" image="SymbolP" indentation="1">
+            <regex>^==([^=]+)==(\[.*\]){0,}[\n\r]</regex> 
+    </symbol>
+
+    <symbol id="numTitle L3" font-weight="bold" image="SymbolF" indentation="2">
+            <regex>^===([^=]+)===(\[.*\]){0,}[\n\r]</regex>   
+    </symbol>
+
+
+    <symbol id="Title L1" font-weight="bold" image="SymbolC" indentation="0">
+            <regex>^\+([^\+]+)\+(\[.*\]){0,}[\n\r]</regex> 
+    </symbol>
+   
+    <symbol id="Title L2" font-weight="bold" image="SymbolP" indentation="1">
+            <regex>^\+\+([^\+]+)\+\+(\[.*\]){0,}[\n\r]</regex>  
+    </symbol>
+
+    <symbol id="Title L3" font-weight="bold" image="SymbolF" indentation="2">
+            <regex>^\+\+\+([^\+]+)\+\+\+(\[.*\]){0,}[\n\r]</regex> 
+    </symbol>
+    
+        
+</symbols>

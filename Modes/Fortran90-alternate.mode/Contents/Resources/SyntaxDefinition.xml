@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>
+
+    <head>
+        <name>Fortran90</name> <!-- The definitions title -->
+        <charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@*.]]></charsintokens> <!-- Valid Characters for Variables -->
+        <!-- <charsdelimitingtokens></charsdelimitingtokens> -->
+    </head>
+
+    <states>
+    
+        <default id="Base" color="#000" background-color="#fff" font-weight="normal" font-style="normal">
+            <keywords id="Types" color="#408" casesensitive="no" useforautocomplete="yes">
+                <string>character</string>
+                <string>complex</string>
+                <string>double</string>
+                <string>precision</string>
+                <string>real</string>
+                <string>real*8</string>
+                <string>integer</string>
+                <string>common</string>
+                <string>logical</string>
+                <string>implicit</string>
+                <string>dimension</string>
+                <string>external</string>
+                <string>parameter</string>
+            </keywords>
+            <keywords id="Keywords" color="#881350" casesensitive="no" useforautocomplete="yes">
+                <string>break</string>
+                <string>common</string>
+                <string>continue</string>
+                <string>date</string>
+                <string>default</string>
+                <string>dimension</string>
+                <string>do</string>
+                <string>else</string>
+                <string>enddo</string>
+                <string>endif</string>
+                <string>for</string>
+                <string>goto</string>
+                <string>go</string>
+                <string>to</string>
+                <string>if</string>
+                <string>then</string>
+                <string>return</string>
+                <string>end</string>
+                <string>format</string>
+                <string>write</string>
+                <string>read</string>
+                <string>subroutine</string>
+                <string>function</string>
+                <string>switch</string>
+                <string>program</string>
+                <string>call</string>
+                <string>while</string>
+                <string>.gt.</string>
+                <string>.lt.</string>
+                <string>.ge.</string>
+                <string>.le.</string>
+                <string>.eq.</string>
+                <string>.ne.</string>
+                <string>.false.</string>
+                <string>.true.</string>
+            </keywords>
+            <keywords id="Specifier" color="#226D24" casesensitive="no" useforautocomplete="yes">
+				<string>access</string>
+				<string>action</string>
+				<string>advance</string>
+				<string>blank</string>
+				<string>delim</string>
+				<string>direct</string>
+				<string>end</string>
+				<string>eor</string>
+				<string>err</string>
+				<string>exist</string>
+				<string>file</string>
+				<string>fmt</string>
+				<string>form</string>
+				<string>formatted</string>
+				<string>iostat</string>
+				<string>name</string>
+				<string>named</string>
+				<string>nextrec</string>
+				<string>nml</string>
+				<string>number</string>
+				<string>opened</string>
+				<string>pad</string>
+				<string>position</string>
+				<string>read</string>
+				<string>readwrite</string>
+				<string>rec</string>
+				<string>recl</string>
+				<string>sequential</string>
+				<string>size</string>
+				<string>stat</string>
+				<string>status</string>
+				<string>unformatted</string>
+				<string>unit</string>
+				<string>write</string>
+            </keywords>
+            <keywords id="Functions" color="#87114F" casesensitive="no" useforautocomplete="yes">
+				<string>abs</string>
+				<string>achar</string>
+				<string>acos</string>
+				<string>adjustl</string>
+				<string>adjustr</string>
+				<string>aimag</string>
+				<string>aint</string>
+				<string>all</string>
+				<string>allocated</string>
+				<string>anint</string>
+				<string>any</string>
+				<string>asin</string>
+				<string>associated</string>
+				<string>atan</string>
+				<string>atan2</string>
+				<string>bit_size</string>
+				<string>btest</string>
+				<string>ceiling *</string>
+				<string>char</string>
+				<string>cmplx</string>
+				<string>conjg</string>
+				<string>cos</string>
+				<string>cosh</string>
+				<string>count</string>
+				<string>cshift</string>
+				<string>date_and_time</string>
+				<string>dble</string>
+				<string>digits</string>
+				<string>dim</string>
+				<string>dot_product</string>
+				<string>dprod</string>
+				<string>eoshift</string>
+				<string>epsilon</string>
+				<string>exp</string>
+				<string>exponent</string>
+				<string>floor</string>
+				<string>fraction</string>
+				<string>huge</string>
+				<string>iachar</string>
+				<string>iand</string>
+				<string>ibclr</string>
+				<string>ibits</string>
+				<string>ibset</string>
+				<string>ichar</string>
+				<string>ieor</string>
+				<string>index</string>
+				<string>int</string>
+				<string>ior</string>
+				<string>ishft</string>
+				<string>ishftc</string>
+				<string>kind</string>
+				<string>lbound</string>
+				<string>len</string>
+				<string>len_trim</string>
+				<string>lge</string>
+				<string>lgt</string>
+				<string>lle</string>
+				<string>llt</string>
+				<string>log</string>
+				<string>log10</string>
+				<string>logical</string>
+				<string>matmul</string>
+				<string>max</string>
+				<string>maxexponent</string>
+				<string>maxloc</string>
+				<string>maxval</string>
+				<string>merge</string>
+				<string>min</string>
+				<string>minexponent</string>
+				<string>minloc</string>
+				<string>minval</string>
+				<string>mod</string>
+				<string>modulo</string>
+				<string>mvbits</string>
+				<string>nearest</string>
+				<string>nint</string>
+				<string>not</string>
+				<string>null</string>
+				<string>pack</string>
+				<string>precision</string>
+				<string>present</string>
+				<string>product</string>
+				<string>radix</string>
+				<string>random_number</string>
+				<string>random_seed</string>
+				<string>range</string>
+				<string>real</string>
+				<string>repeat</string>
+				<string>reshape</string>
+				<string>rrspacing</string>
+				<string>scale</string>
+				<string>scan</string>
+				<string>selected_int_kind</string>
+				<string>selected_real_kind</string>
+				<string>set_exponent</string>
+				<string>shape</string>
+				<string>sign</string>
+				<string>sin</string>
+				<string>sinh</string>
+				<string>size</string>
+				<string>spacing</string>
+				<string>spread</string>
+				<string>sqrt</string>
+				<string>sum</string>
+				<string>system_clock</string>
+				<string>tan</string>
+				<string>tanh</string>
+				<string>tiny</string>
+				<string>transfer</string>
+				<string>transpose</string>
+				<string>trim</string>
+				<string>ubound</string>
+				<string>unpack</string>
+				<string>verify</string>
+            </keywords>
+            <keywords id="Numbers" color="#226D24" useforautocomplete="no">
+				<regex>(?&lt;=[^[A-Za-z0-9]]|^)((([0-9]+\.[0-9]*)|(\.[0-9]+)([eE][+\-]?[0-9]+)?[fFlL]?)|((([1-9][0-9]*)|0[0-7]*|(0[xX][0-9a-fA-F]))(([uU][lL]?)|([lL][uU]?))?))(?=[^[A-Za-z0-9]]|$)</regex>
+            </keywords>
+            <keywords id="Symbols" color="#362" useforautocomplete="no">
+				<regex>[-:+/*,]</regex>
+            </keywords>
+            <keywords id="FunctionRegex" color="#87114F" useforautocomplete="no">
+				<regex>([A-Za-z0-9_]+ *)\(</regex>
+            </keywords>
+        </default>
+        
+        
+        <state id="Comment" color="#236E25" background-color="none" font-weight="normal" font-style="italic">
+            <begin><string>^!</string></begin>
+            <end><regex>[\n\r]</regex></end>
+        </state>
+        
+        <state id="String double" color="#760f15" background-color="none" font-weight="normal" font-style="normal">
+            <begin><string>"</string></begin>
+            <end><regex>(((?&lt;!\\)(\\\\)*)|^)"</regex></end>
+        </state>
+        <state id="String single" color="#760f15" background-color="none" font-weight="normal" font-style="normal">
+            <begin><string>'</string></begin>
+            <end><regex>(((?&lt;!\\)(\\\\)*)|^)'</regex></end>
+        </state>
+    </states>
+
+</syntax>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+  <template>template.proto</template>
+  <recognition>
+    <extension>proto</extension>
+    <regex>package\s+\S+\s*;</regex>
+  </recognition>
+</settings>

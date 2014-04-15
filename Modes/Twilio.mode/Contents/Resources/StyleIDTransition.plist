@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>/CSS/Attribute state</key>
+	<string>Inline CSS.CSS Attributes</string>
+	<key>/CSS/AutodocComment</key>
+	<string>/CSS/AutodocComment</string>
+	<key>/CSS/CSS Attributes</key>
+	<string>Inline CSS.CSS Attributes</string>
+	<key>/CSS/CSS Colors</key>
+	<string>Inline CSS.CSS Colors</string>
+	<key>/CSS/CSS Digits</key>
+	<string>Inline CSS.CSS Digits</string>
+	<key>/CSS/CSS Keywords</key>
+	<string>Inline CSS.CSS Keywords</string>
+	<key>/CSS/Comment</key>
+	<string>/CSS/Comment</string>
+	<key>/CSS/Inside curly brackets</key>
+	<string>/CSS/Inside curly brackets</string>
+	<key>/CSS/Round bracket</key>
+	<string>/CSS/Round bracket</string>
+	<key>/CSS/SingleString</key>
+	<string>Inline CSS.CSS Strings in Tags</string>
+	<key>/CSS/String</key>
+	<string>Inline CSS.CSS Strings in Tags</string>
+	<key>/HTML/Inline CSS</key>
+	<string>Inline CSS</string>
+	<key>/HTML/Inline Javascript</key>
+	<string>Inline Javascript</string>
+	<key>/HTML/Opening Script Tag</key>
+	<string>/HTML/Opening Script Tag</string>
+	<key>/HTML/Opening Style Tag</key>
+	<string>/HTML/Opening Style Tag</string>
+	<key>/HTML/Script Tags</key>
+	<string>/HTML/Script Tags</string>
+	<key>/HTML/Style Tags</key>
+	<string>/HTML/Style Tags</string>
+	<key>/Javascript/AutodocComment</key>
+	<string>/Javascript/AutodocComment</string>
+	<key>/Javascript/Characters</key>
+	<string>/Javascript/Characters</string>
+	<key>/Javascript/Comment</key>
+	<string>Inline Javascript.Javascript Single Comments</string>
+	<key>/Javascript/FunctionRegex</key>
+	<string>Inline Javascript.Javascript FunctionRegex</string>
+	<key>/Javascript/Keywords</key>
+	<string>Inline Javascript.Javascript Keywords</string>
+	<key>/Javascript/Numbers</key>
+	<string>Inline Javascript.Javascript Numbers</string>
+	<key>/Javascript/Regular Expressions</key>
+	<string>Inline Javascript.Javascript FunctionRegex</string>
+	<key>/Javascript/SingleComment</key>
+	<string>Inline Javascript.Javascript Single Comments</string>
+	<key>/Javascript/SingleString</key>
+	<string>Inline Javascript.Javascript String</string>
+	<key>/Javascript/String</key>
+	<string>Inline Javascript.Javascript String</string>
+	<key>/XML/Attributes in Tags</key>
+	<string>_Default.Attributes in Tags</string>
+	<key>/XML/CDATA</key>
+	<string>/XML/CDATA</string>
+	<key>/XML/Comment</key>
+	<string>Comment</string>
+	<key>/XML/Doctype</key>
+	<string>/XML/Doctype</string>
+	<key>/XML/Entities</key>
+	<string>_Default.Entities</string>
+	<key>/XML/Escape</key>
+	<string>Escape</string>
+	<key>/XML/Strings in Tags</key>
+	<string>_Default.Strings in Tags</string>
+	<key>/XML/Tags</key>
+	<string>_Default.Tags</string>
+	<key>_Default</key>
+	<string>_Default</string>
+</dict>
+</plist>

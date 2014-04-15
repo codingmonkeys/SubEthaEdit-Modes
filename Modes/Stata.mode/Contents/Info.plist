@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIdentifier</key>
+	<string>SEEMode.Stata</string> <!-- Change bundle identifier. Must start with "SEEMode." -->
+	<key>CFBundleName</key>
+	<string>Stata</string> <!-- Change bundle name. -->
+    <key>CFBundleShortVersionString</key>
+	<string>0.2</string>
+	<key>CFBundleVersion</key>
+	<string>0.2</string>
+    <key>CFBundleGetInfoString</key>
+	<string>0.2, Copyright Fredrik Wallenberg and Ben Hulley 2004</string> <!-- Change author. -->
+	<key>CFBundlePackageType</key>
+	<string>BNDL</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>TCMModeExtensions</key>
+	<array>
+	   <string>do</string> <!-- Put your extensions here -->
+	   <string>ado</string>
+	</array>
+</dict>
+</plist>

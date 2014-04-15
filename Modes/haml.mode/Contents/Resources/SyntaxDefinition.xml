@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<syntax>
+    <head>
+        <name>HAML Syntax</name>
+
+        <autocompleteoptions use-spelling-dictionary="no" />
+
+        <charsintokens>
+            <![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@#%.]]>
+        </charsintokens>
+    </head>
+
+    <states>
+        <default id="Base" color="#000" inverted-color="#fff">
+            <state id="HTML Comment" color="#236E25" font-style="italic">
+                <begin><regex>/</regex></begin>
+                <end><regex>[\n\r]</regex></end>
+            </state>
+
+            <state id="HAML Comment" color="#236E25" font-style="italic">
+                <begin><regex>-#</regex></begin>
+                <end><regex>[\n\r]</regex></end>
+            </state>
+
+            <!-- Red #FE1A1A -->
+            <state id="HTML Element" color="#881280" inverted-color="#fac586"  font-style="normal" font-weight="normal" useforautocomplete="no">  <!-- color="#d6771c" -->
+              <begin><regex>^\s*[%\.#](?=[\w_-])</regex></begin>
+              <end><regex>.(?=[&amp;={\[\s\r\n!])</regex></end>
+            </state>
+
+            <state id="interpolated ruby" type="string" color="#760f15" inverted-color="#f48700"  font-style="italic" font-weight="normal" usespellchecking="yes">
+                <begin><regex>(?&lt;===)(?:.)</regex></begin>
+                <end><regex>[\r\n]</regex></end>
+                <import mode="Ruby" state="String with double quotes"/>
+            </state>
+
+            <state id="Inline Ruby" color="#000" usesymbolsfrommode="Ruby" useautocompletefrommode="Ruby">
+                <begin><regex>(?:[&amp;!]?(?&lt;!=)=|-(?!#))(?=[\s\w])</regex></begin>
+                <end><regex>[\n\r]</regex></end>
+
+                <import mode="Ruby" />
+            </state>
+
+            <state id="Ruby Hash Attribute" color="#000" usesymbolsfrommode="Ruby" useautocompletefrommode="Ruby">
+                <begin><regex>{</regex></begin>
+                <end><regex>[}\n\r]</regex></end>
+
+                <import mode="Ruby" />
+            </state>
+        </default>
+    </states>
+</syntax>

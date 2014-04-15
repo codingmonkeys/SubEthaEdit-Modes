@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>
+	<head>
+		<name>Tinyfugue</name>
+		<charsintokens>
+			<![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@]]>
+		</charsintokens>
+	</head>
+	<states>   
+		<default id="Base" color="#000" inverted-color="#fff">
+			<keywords id="Commands" color="#0000CC" useforautocomplete="no">
+				<regex>((?&lt;!/)(//)*/@?[A-Za-z0-9_]+)</regex>
+			</keywords>
+			<keywords id="Variables" color="#891350" useforautocomplete="no">
+				<regex>(%[A-Za-z0-9_#*?-]+)</regex>
+				<regex>(%?\{[A-Za-z0-9_#*?-]+\})</regex>
+			</keywords>
+			<keywords id="MacroSubstitution" color="#AA5522" useforautocomplete="no">
+				<regex>(%\{[A-Za-z0-9_]\})</regex>
+			</keywords>
+		</default>
+		<state id="Comments" color="#CC0000">
+			<begin><regex>^[ \t]*;</regex></begin>
+			<end><regex>[\r\n]</regex></end>
+		</state>
+		<state id="Strings" color="#FF3399" useforautocomplete="no">
+			<begin><string>"</string></begin>
+            <end><regex>(((?&lt;!\\)(\\\\)*)|^)"</regex></end>
+		</state>
+		<!--<state id="Subexpression" color="#22CC22" useforautocomplete="no">
+			<begin><regex>\$\[</regex></begin>
+			<end><regex>\]</regex></end>
+		</state>-->
+	</states>
+</syntax>

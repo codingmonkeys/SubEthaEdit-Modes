@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>
+    <head>
+        <name>GNU MathProg</name>
+        <charsintokens>
+            <![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@]]>
+        </charsintokens> 
+    </head>
+
+    <states>    
+        <default id="Base" color="#000" inverted-color="#fff">
+            <keywords id="Statements" color="#6C0540" font-weight="bold" useforautocomplete="yes">
+  				<string>set</string>
+				<string>param</string>
+				<string>var</string>
+				<regex>(subject to)</regex>
+				<regex>(s\.t\.)</regex>
+				<string>minimize</string>
+				<string>maximize</string>
+				<string>check</string>
+				<string>display</string>
+				<string>set</string>
+				<string>data;</string>
+				<string>end;</string>		
+            </keywords>
+
+            <keywords id="Keywords" color="#400080" useforautocomplete="yes">
+				<string>and</string>
+				<string>by</string>
+				<string>cross</string>
+				<string>diff</string>
+				<string>div</string>
+				<string>else</string>
+				<string>if</string>
+				<string>in</string>
+				<string>inter</string>
+				<string>less</string>
+				<string>mod</string>
+				<string>not</string>
+				<string>or</string>
+				<string>symdiff</string>
+				<string>then</string>
+				<string>union</string>
+				<string>within</string>
+				<string>abs</string>
+				<string>ceil</string>
+				<string>floor</string>
+				<string>exp</string>
+				<string>log</string>
+				<string>log10</string>
+				<string>max</string>
+				<string>min</string>
+				<string>sqrt</string>
+				<string>sum</string>
+				<string>prod</string>
+				<string>setof</string>
+				<string>forall</string>
+				<string>exists</string>
+				<string>dimen</string>
+				<string>within</string>
+				<string>:=</string>
+				<string>default</string>
+				<string>integer</string>
+				<string>binary</string>
+				<string>symbolic</string>
+				<string>\(tr\)</string>
+            </keywords>
+
+            <keywords id="Numbers" color="#AA0000">
+				<regex>(([\d]*\.?[\d]+)((e|E)(\+|-)[\d]+)?)</regex>
+            </keywords>
+        </default>
+        
+        <state id="Comment" color="#236E25" font-style="italic">
+            <begin><regex>/\*</regex></begin>
+            <end><regex>\*/</regex></end>
+        </state>
+        
+        <state id="SingleComment" color="#236E25" font-style="italic">
+            <begin><regex>#</regex></begin>
+            <end><regex>[\n\r]</regex></end>
+        </state>
+        
+        <state id="String" color="#760f15">
+            <begin><regex>"</regex></begin>
+            <end><regex>(((?&lt;!\\)(\\\\)*)|^)"</regex></end>
+        </state>
+    </states>
+</syntax>

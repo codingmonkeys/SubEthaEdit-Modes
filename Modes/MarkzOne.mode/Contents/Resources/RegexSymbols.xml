@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "symbol.dtd">
+<symbols>
+
+    <symbol id="Proc" font-weight="normal" font-style="normal" image="SymbolP" indentation="1" ignoreblocks="yes">
+        <regex>^proc[ \t]*([^\n\r]*)[\n\r]</regex>
+        <postprocess>
+            <find>\([^\)]*\)</find>
+            <replace>()</replace>
+            <find>[\n\r]</find>
+            <replace> </replace>
+            <find>[ \t]+</find>
+            <replace> </replace>
+        </postprocess>
+    </symbol>
+
+    
+</symbols>

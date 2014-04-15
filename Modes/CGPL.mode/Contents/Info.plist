@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleGetInfoString</key>
+	<string>1.0, Copyright Terra Virtual 2007</string>
+	<key>CFBundleIdentifier</key>
+	<string>SEEMode.CGPL</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>CGPL</string>
+	<key>CFBundlePackageType</key>
+	<string>BNDL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>© 2007 Terra Virtual
+http://www.codingmonkeys.de</string>
+	<key>TCMModeExtensions</key>
+	<array>
+		<string>sppr</string>
+		<string>sppi</string>
+	</array>
+</dict>
+</plist>

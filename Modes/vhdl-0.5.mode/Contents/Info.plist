@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIdentifier</key>
+	<string>SEEMode.VHDL</string> <!-- Bundle identifier. Must start with "SEEMode." -->
+	<key>CFBundleName</key>
+	<string>VHDL</string> <!-- Bundle name. -->
+    <key>CFBundleShortVersionString</key>
+	<string>0.5</string>
+	<key>CFBundleVersion</key>
+	<string>0.5</string>
+    <key>CFBundleGetInfoString</key>
+	<string>0.5, Copyright Preston A. Jackson 2004</string> <!-- Author. -->
+	<key>CFBundlePackageType</key>
+	<string>BNDL</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>TCMModeExtensions</key>
+	<array>
+	   <string>vhd</string> <!-- Put your extensions here -->
+	   <string>vhdl</string>
+	</array>
+</dict>
+</plist>

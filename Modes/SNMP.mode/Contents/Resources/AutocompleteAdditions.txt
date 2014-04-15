@@ -1,0 +1,6 @@
+Counter32
+Integer32
+TimeTicks
+RowStatus
+RowPointer
+DisplayString

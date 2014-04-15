@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+    <recognition>
+        <extension>r</extension>
+        <extension>R</extension>
+        <extension>s</extension>
+        <extension>S</extension>
+    </recognition>
+</settings>

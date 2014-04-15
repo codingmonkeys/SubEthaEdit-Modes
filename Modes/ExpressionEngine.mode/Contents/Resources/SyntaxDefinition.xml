@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>
+
+    <head>
+        <name>ExpressionEngine</name> <!-- The definitions title -->
+        <charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-@$"{}]]></charsintokens>  <!-- -->
+        <!--<charsincompletion><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-@$</=>!{]]></charsincompletion> -->
+    </head>
+
+   <states>
+        <default id="Base" color="#000" background-color="#fff" font-weight="normal" font-style="normal" usespellchecking="yes">
+			<state id="ExpressionEngine" color="#dd0000" inverted-color="#dd0000" font-weight="normal" font-style="normal">
+				
+				<begin><regex>\{\w|\{\/</regex></begin>
+                <end><regex>\}</regex></end>
+                
+				<keywords id="EE Tag Parameters" color="#881350" inverted-color="#ec77b4" useforautocomplete="no">
+	                <regex>(?&lt;!\{)\b([\w-]*)(?=[ \t]*=)</regex>   
+	            </keywords>
+			   
+				<state id="EE Parameter Value" type="string" color="#EB7300" inverted-color="#ff8714" font-weight="normal" font-style="normal" usespellchecking="yes">
+					<begin><regex>"</regex></begin>
+					<end><regex>(((?&lt;!\\)(\\\\)*)|^)"</regex></end>    
+					              
+                    <state-link state="PHP" mode="PHP-HTML"/>
+				</state>      
+			</state> 
+			        
+		 	<state id="EE Comments" type="string" color="#236E25" font-weight="normal" font-style="italic">
+				<begin><regex>\{!--</regex></begin>
+				<end><regex>--\}</regex></end>    
+			</state>           
+			                                        
+            <state id="Inline Javascript" color="#000" usesymbolsfrommode="Javascript" useautocompletefrommode="Javascript">
+                <begin><regex>&lt;(?=(?i)script.+?javascript.*&gt;)</regex></begin> 
+                <end><regex>(?i)/script&gt;</regex></end>
+
+                <import mode="Javascript" />
+
+                <keywords id="Script Tags"  color="#881280" font-style="normal">
+                    <regex>(\A&lt;\Z)</regex>
+                    <regex>(&lt;(?i)/script[^&gt;]*&gt;)</regex>
+                </keywords>
+
+                <state id="Opening Script Tag" color="#881280" font-style="normal" usesymbolsfrommode="HTML" useautocompletefrommode="HTML">
+                    <begin><regex>\A(?i)script</regex></begin>
+                    <end><regex>&gt;</regex></end>
+      
+	  	            <state id="Strings in Tags" type="string" color="#1A1AA6" useforautocomplete="no">
+	   	                <begin><regex>"</regex></begin>
+		                <end><regex>"</regex></end>
+		            </state>
+
+		            <!-- STUDIO support for single quote strings -->
+		            <state id="Single Strings in Tags" type="string" color="#1A1AA6" useforautocomplete="no">
+		            	<begin><regex>'</regex></begin>
+		                <end><regex>'</regex></end>
+		            </state>
+
+		            <keywords id="Attributes in Tags" color="#994500" useforautocomplete="no">
+		                <regex>([\w-]*)(?=[ \t]*=)</regex>
+		            </keywords>   
+                               
+                </state>
+
+            </state>
+            
+			<state id="Inline CSS" color="#000" font-style="normal" usesymbolsfrommode="CSS" useautocompletefrommode="CSS">
+                <begin><regex>&lt;(?=(?i)style.+text/css.*&gt;)</regex></begin>    
+                <end><regex>(?i)/style&gt;</regex></end>
+                
+                <import mode="CSS"/>
+
+                <keywords id="Style Tags"  color="#881280" font-style="normal">
+                    <regex>(\A&lt;\Z)</regex>
+                    <regex>(&lt;(?i)/style[^&gt;]*&gt;)</regex>
+                </keywords>
+
+                <state id="Opening Style Tag" color="#881280" font-style="normal" usesymbolsfrommode="HTML" useautocompletefrommode="HTML">
+                    <begin><regex>\A(?i)style</regex></begin>
+                    <end><regex>&gt;</regex></end>
+                                                              
+					<state id="Strings in Tags" type="string" color="#1A1AA6" useforautocomplete="no">
+	   	                <begin><regex>"</regex></begin>
+		                <end><regex>"</regex></end>
+		            </state>
+
+		            <!-- STUDIO support for single quote strings -->
+		            <state id="Single Strings in Tags" type="string" color="#1A1AA6" useforautocomplete="no">
+		            	<begin><regex>'</regex></begin>
+		                <end><regex>'</regex></end>
+		            </state>
+
+		            <keywords id="Attributes in Tags" color="#994500" useforautocomplete="no">
+		                <regex>([\w-]*)(?=[ \t]*=)</regex>
+		            </keywords>
+                </state>
+                
+            </state>
+
+			<state-link state="PHP" mode="PHP-HTML"/> 
+			<import mode="XML"/>          
+			         
+        </default>
+
+    </states>
+
+</syntax>

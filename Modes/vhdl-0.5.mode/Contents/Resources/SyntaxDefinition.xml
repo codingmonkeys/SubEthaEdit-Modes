@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>
+
+
+    <!-- 
+    The <head> tag encloses some global information about the mode.
+    This tag is required.
+    -->    
+
+    <head>
+
+        <!-- 
+        The <name> specifies the modes name. It is currently not used in the application,
+        as the mode name is loaded from Info.plist, however it is a good idea to specify
+        this tag to don't get confused if the definitions is outside a bundle during
+        development.
+        This tag is optional.
+        -->    
+
+        <name>VHDL</name>
+
+        <!-- 
+        The <charsintokens> and the <charsdelimitingtokens> instruct the syntax highlighter
+        where to tokenize the text for fast finding of plain strings.
+        The <charsintokens> tag specifies the characters that can occur in strings,
+        the <charsdelimitingtokens> tag specifies the tags that cannot occur in strings.
+        One of these tags has to be specified.
+        Tip: Use CDATA here.
+        -->    
+
+        <charsintokens>
+            <![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ]]>
+        </charsintokens> 
+        <!-- <charsdelimitingtokens>[CDATA[ -]]></charsdelimitingtokens> -->
+    </head>
+
+
+    <!-- 
+    The <states> tag encloses all syntax states.
+    States are areas of the test that begin and end with an regex like comments or strings,
+    with exception of the default state, that exists anywhere where no other state exists.
+    This tag is required.
+    -->    
+
+    <states>
+    
+        <!-- 
+        The <default> tag specifies what is colored within the default state (see above).
+        It features the following attributes, all optional if not noted otherwise:
+            id
+                Has to be a unique string. Has to be specified.
+            color
+                a html comptible color in three or six letter hexadecimal format.
+                Used for text on bright document background colors.
+            inverted-color
+                a html comptible color in three or six letter hexadecimal format.
+                Used for text if a dark document background color is set.
+            font-weight
+                normal  Normal font-weight (default)
+                bold    Bold text in popup
+            font-style
+                normal  Normal font-weight (default)
+                italic  Bold text in popup
+                
+        -->    
+    
+        <default id="Base" color="#000" inverted-color="#fff">
+
+            <!-- 
+            The <keywords> tag specifies keyword groups within the current state.
+            It features the following attributes, all optional if not noted otherwise:
+                id
+                    Has to be a unique string. Has to be specified.
+                color
+                    a html comptible color in three or six letter hexadecimal format.
+                    Used for text on bright document background colors.
+                inverted-color
+                    a html comptible color in three or six letter hexadecimal format.
+                    Used for text if a dark document background color is set.
+                font-weight
+                    normal  Normal font-weight (default)
+                    bold    Bold text in popup
+                font-style
+                    normal  Normal font-weight (default)
+                    italic  Bold text in popup
+                casesensitive
+                    yes     This group is case sensitive (default)
+                    no      Ignore case for the group
+                useforautocomplete
+                    yes     Add this group's strings to the autocomplete dictionary (default)
+                    no      Don't add to autocomplete dictionary
+            -->    
+
+            <keywords id="Alert" color="#f00" casesensitive="no" useforautocomplete="yes">
+				<string>assert</string> 
+				<string>report</string>
+				<string>severity</string>
+            </keywords>
+
+            <keywords id="Signal States" color="#f00" casesensitive="no">
+				<regex>('[a-z]+)</regex> 
+            </keywords>
+
+            <keywords id="Numbers" color="#00f" casesensitive="no">
+        <!-- numbers are actually kind of tricky -->
+        <regex>((^|[^a-zA-Z])[0-9]*\.*[0-9]+([e|E][-\+]?[0-9]+)?)</regex>
+				<regex>([0-9]+\#[0-9a-fA-F]+\#([e|E][-\+]?[0-9]+)?)</regex>
+
+				</keywords>
+
+            <keywords id="Top Level Keywords" color="#400080" casesensitive="no" useforautocomplete="yes">
+				<string>entity</string> 
+				<string>architecture</string>
+				<string>library</string>
+				<string>configuration</string>
+				<string>package</string>
+            </keywords>
+    
+            <keywords id="Declarations" color="#881350" casesensitive="no" useforautocomplete="yes">
+                <string>type</string> 
+				<string>signal</string>
+				<string>constant</string> 
+				<string>component</string>
+				<string>alias</string>
+				<string>attribute</string> 
+				<string>variable</string>
+				<string>use</string> 
+				<string>all</string>
+				<string>subtype</string>  
+            </keywords>
+
+            
+            
+            <keywords id="Keywords" color="#881350" casesensitive="no" useforautocomplete="yes">
+				<string>downto</string> 
+				<string>to</string>
+				<string>is</string> 
+				<string>in</string>
+				<string>out</string>
+				<string>inout</string> 
+				<string>others</string>
+				<string>of</string> 
+				<string>generic</string>
+				<string>port</string>
+				<string>map</string> 
+				<string>begin</string> 
+				<string>end</string>
+				<string>if</string> 
+				<string>then</string>
+				<string>else</string>
+				<string>with</string> 
+				<string>select</string>
+				<string>when</string> 
+				<string>wait</string>
+				<string>until</string>
+				<string>case</string> 
+				<string>loop</string> 
+				<string>process</string>
+				<string>generate</string>
+				<string>elsif</string>
+				<string>while</string> 
+				<string>for</string>
+				<string>after</string>
+				<string>and</string> 
+				<string>or</string>
+				<string>xor</string> 
+				<string>nor</string>
+				<string>nand</string> 
+				<string>not</string>
+				<string>xnor</string> 
+				<string>sll</string>
+				<string>slr</string> 
+				<string>sla</string>
+				<string>sra</string> 
+				<string>rol</string>
+				<string>ror</string> 
+				<string>abs</string>
+				<string>mod</string> 
+				<string>rem</string> 
+            </keywords>
+
+        </default>
+        
+        <!-- 
+            The <state> tag specifies a state other than the default state.
+            It features the same attributes as <default>.
+            It has to contain a <begin> and a <end> tag which in turn have to 
+            contain a <regex> tag. They can contain <keywords> tags like specified above.
+            
+            For example here a states for C blockcomments, C++ singleline comments and strings.
+            The strings state handles escaped quotes with a lookbehind regular expression 
+            (see a regex tutorial) and colors "foobar" with strings.
+        -->    
+        
+        <state id="Comment" color="#236E25" background-color="none" font-weight="normal" font-style="italic">
+            <begin><regex>--</regex></begin>
+            <end><regex>[\n\r]</regex></end>
+        </state>
+        
+        <state id="String" color="#760f15" background-color="none" font-weight="normal" font-style="normal">
+            <begin><regex>"</regex></begin>
+            <end><regex>(((?&lt;!\\)(\\\\)*)|^)"</regex></end>
+         </state>
+
+    </states>
+
+</syntax>

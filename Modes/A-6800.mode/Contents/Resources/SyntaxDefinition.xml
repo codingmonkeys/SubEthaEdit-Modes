@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>   
+
+    <head>   
+
+        <name>A-6800</name>
+        <charsintokens>
+            <![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@]]>
+        </charsintokens> 
+        <!-- <charsdelimitingtokens>[CDATA[ -]]></charsdelimitingtokens> -->
+    </head>
+
+
+    <states>
+    
+        <default id="Base" color="#000" inverted-color="#fff">
+
+            <!-- 
+            The <keywords> tag specifies keyword groups within the current state.
+            It features the following attributes, all optional if not noted otherwise:
+                id
+                    Has to be a unique string. Has to be specified.
+                color
+                    a html comptible color in three or six letter hexadecimal format.
+                    Used for text on bright document background colors.
+                inverted-color
+                    a html comptible color in three or six letter hexadecimal format.
+                    Used for text if a dark document background color is set.
+                font-weight
+                    normal  Normal font-weight (default)
+                    bold    Bold text in popup
+                font-style
+                    normal  Normal font-weight (default)
+                    italic  Bold text in popup
+                casesensitive
+                    yes     This group is case sensitive (default)
+                    no      Ignore case for the group
+                useforautocomplete
+                    yes     Add this group's strings to the autocomplete dictionary (default)
+                    no      Don't add to autocomplete dictionary
+            -->    
+
+            <keywords id="Keywords" color="#00f" useforautocomplete="yes">
+            
+                <!-- 
+                    <string> tags specify plain text to be colored. If your tag does not
+                    get colored, check in <charsintokens> if you are tokenizing correctly.             
+                -->    
+            
+                <string>ABA</string>                <string>ABX</string>                <string>ABY</string>                <string>ABCD</string>                <string>ADD</string>                <string>ADDA</string>                <string>ANDB</string>                <string>ADDI</string>                <string>ADDQ</string>                <string>ADDX</string>                <string>AND</string>                <string>ANDI</string>                <string>ASL</string>                <string>ASR</string>                <string>BCC</string>                <string>BCS</string>                <string>BNE</string>                <string>BEQ</string>                <string>BPL</string>                <string>BMI</string>                <string>BHI</string>                <string>BLS</string>                <string>BGT</string>                <string>BLT</string>                <string>BGE</string>                <string>BLE</string>                <string>BVC</string>                <string>BVS</string>                <string>BCHG</string>                <string>BCLR</string>                <string>BSET</string>                <string>BTST</string>                <string>BRA</string>                <string>BSR</string>                <string>CHK</string>                <string>CLR</string>                <string>CLRA</string>                <string>CLRB</string>                <string>CLV</string>                <string>CMPA</string>                <string>CMPB</string>                <string>CMP</string>                <string>CMPI</string>                <string>CMPM</string>                <string>COMA</string>                <string>COMB</string>                <string>DBCC</string>                <string>DBCS</string>                <string>DBNE</string>                <string>DBEQ</string>                <string>DBPL</string>                <string>DBMI</string>                <string>DBHI</string>                <string>DBLS</string>                <string>DBGT</string>                <string>DBLT</string>                <string>DBGE</string>                <string>DBLE</string>                <string>DBVC</string>                <string>DBVS</string>                <string>DBT</string>                <string>DBF</string>                <string>DEC</string>                <string>DECA</string>                <string>DECB</string>                <string>DES</string>                <string>DEX</string>                <string>DEY</string>                <string>DIVS</string>                <string>DIVU</string>                <string>DC</string>                <string>DS</string>                <string>EQU</string>                <string>EOR</string>                <string>EORA</string>                <string>EORB</string>                <string>EORI</string>                <string>EXG</string>                <string>EXT</string>                <string>FDIV</string>                <string>IDIV</string>                <string>INC</string>                <string>INCA</string>                <string>INCB</string>                <string>INS</string>                <string>INX</string>                <string>INY</string>                <string>JMP</string>                <string>JSR</string>                <string>LSL</string>                <string>LSR</string>                <string>LDAA</string>                <string>LDAB</string>                <string>LDD</string>                <string>LDS</string>                <string>LDX</string>                <string>LDY</string>                <string>LDL</string>                <string>LSLA</string>                <string>LSLB</string>                <string>LSLD</string>                <string>LSRA</string>                <string>LSRD</string>                <string>LEA</string>                <string>LINK</string>                <string>MUL</string>                <string>MULS</string>                <string>MULU</string>                <string>MOVE</string>                <string>MOVEA</string>                <string>MOVEM</string>                <string>MOVEP</string>                <string>MOVEQ</string>                <string>NBCD</string>                <string>NEG</string>                <string>NEGA</string>                <string>NEGB</string>                <string>NEGX</string>                <string>NOP</string>                <string>NOT</string>                <string>OR</string>                <string>ORAA</string>                <string>ORAB</string>                <string>ORI</string>                <string>PEA</string>                <string>PSHA</string>                <string>PSHB</string>                <string>PSHX</string>                <string>PSHY</string>                <string>PULA</string>                <string>PULB</string>                <string>PULX</string>                <string>PULY</string>                <string>RESET</string>                <string>RTE</string>                <string>RTR</string>                <string>RTS</string>                <string>ROL</string>                <string>ROLA</string>                <string>ROLB</string>                <string>ROR</string>                <string>RORA</string>                <string>RORB</string>                <string>ROXL</string>                <string>ROXR</string>                <string>RTI</string>                <string>RTS</string>                <string>SBA</string>                <string>SBCA</string>                <string>SBCB</string>                <string>SBCD</string>                <string>SEC</string>                <string>SEI</string>                <string>SEV</string>                <string>STAA</string>                <string>STAB</string>                <string>STD</string>                <string>STOP</string>                <string>STS</string>                <string>STX</string>                <string>STY</string>                <string>SUB</string>                <string>SUBA</string>                <string>SUBB</string>                <string>SUBD</string>                <string>SUBI</string>                <string>SUBQ</string>                <string>SUBX</string>                <string>SWAP</string>                <string>SWI</string>                <string>TAB</string>                <string>TAP</string>                <string>TBA</string>                <string>TEST</string>                <string>TPA</string>                <string>TSX</string>                <string>TSY</string>                <string>WAI</string>                <string>TAS</string>                <string>TRAP</string>                <string>TRAPV</string>                <string>TST</string>                <string>UNLK</string>                <string>XGDX</string>                <string>SGDY</string>
+                
+            </keywords>
+
+            <keywords id="Other keywords" color="#FF00FF" useforautocomplete="no">
+				<string>A0</string>                <string>A1</string>                <string>A2</string>                <string>A3</string>                <string>A4</string>                <string>A5</string>                <string>A6</string>                <string>A7</string>                <string>D0</string>                <string>D1</string>                <string>D2</string>                <string>D3</string>                <string>D4</string>                <string>D5</string>                <string>D6</string>                <string>D7</string>                <string>SR</string>                <string>SSP</string>                <string>USP</string>                <string>EXTERN</string>                <string>EXTERNAL</string>                <string>GLOBAL</string>
+				
+            </keywords>
+ <!-- This section is used to make delimiters red:  I could not get it working and decided to give up for now.
+           
+            <keywords id="Delimiters" color="#FF0000" font-weight="bold" useforautocomplete="no">
+				<regex>.=.</regex>                <regex>.\+.</regex>                <regex>\-</regex>                <regex>/</regex>                <regex>\$</regex>                <regex>\(</regex>                <regex>\)</regex>                <regex>\#</regex>                <regex>,</regex>                <string>colorred</string>
+                <regex>\.</regex>
+            </keywords>
+            -->
+        </default>
+        
+        <!-- 
+            The <state> tag specifies a state other than the default state.
+            It features the same attributes as <default>.
+            It has to contain a <begin> and a <end> tag which in turn have to 
+            contain a <regex> tag. They can contain <keywords> tags like specified above.
+            
+            For example here a states for C blockcomments, C++ singleline comments and strings.
+            The strings state handles escaped quotes with a lookbehind regular expression 
+            (see a regex tutorial) and colors "foobar" with strings.
+        -->    
+
+        
+        <state id="SingleComment" color="#236E25" background-color="none" font-weight="normal" font-style="italic">
+            <begin><regex>\;</regex></begin>
+            <end><regex>[\n\r]</regex></end>
+        </state>
+                
+        <state id="Hex" color="#663300">
+				<begin><regex>\$[0-9a-fA-F]+\b</regex></begin>
+				<end><regex>\s</regex></end>
+        </state>
+        
+        <state id="Binary" color="#FF9933">
+				<begin><regex>%[0-1]+\b</regex></begin>
+				<end><regex>\s</regex></end>
+    
+
+        </state>
+
+    </states>
+
+</syntax>

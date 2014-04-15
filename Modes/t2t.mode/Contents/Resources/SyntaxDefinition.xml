@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>
+
+    <head>
+
+        <name>text2tags</name>
+  
+        <charsintokens>
+            <![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@]]>
+        </charsintokens> 
+        <!-- <charsdelimitingtokens>[CDATA[ -]]></charsdelimitingtokens> -->
+    </head>
+
+    <states>
+
+        <default id="Base" color="#000" inverted-color="#fff">
+             
+            
+            <keywords id="italic" color="#116180" font-style="italic">
+
+                <regex>(\/\/[^\/\/]*\/\/)</regex>    
+                   
+            </keywords>
+            
+            <keywords id="bold" color="#3e2a88" font-weight="bold">
+ 					
+                <regex>(\*\*[^\*\*]*\*\*)</regex> 
+                           
+            </keywords>
+            
+            <keywords id="underline" color="#793280" font-style="italic" font-weight="bold">
+ 				
+                <regex>(__[^__]*__)</regex>   
+                          
+            </keywords>
+            
+            <keywords id="monospaced" color="#406080">
+ 				
+                <regex>(``[^``]*``)</regex>   
+                          
+            </keywords>
+               
+            <keywords id="array" color="#ee011d">
+ 				
+				<regex>(\|{1,2} .*)</regex>       
+				     
+            </keywords>
+
+            <keywords id="link" color="#0200a2" font-weight="bold">
+ 				
+                <regex>(\[[^\]]*\])</regex> 	
+            
+            </keywords>
+             
+            <keywords id="verbatim_Line" color="#0a8026" font-weight="bold">
+ 				
+                <regex>(^```*[\n\r])</regex> 	
+            
+            </keywords>   
+            
+            <keywords id="Raw_Line" color="#468056" font-style="italic"  font-weight="bold">
+ 				
+                <regex>(^"""*[\n\r])</regex> 	
+            
+            </keywords>             
+            
+            <keywords id="bar" color="#678024" font-weight="bold">
+ 				
+                <regex>(^-{20,}[\n\r])</regex> 	
+            
+            </keywords>
+            
+            <keywords id="bigbar" color="#618015" font-weight="bold">
+ 				
+                <regex>(^={20,}[\n\r])</regex> 	
+            
+            </keywords>            
+            
+            <keywords id="Title" color="#a70973" font-weight="bold">
+ 				
+                <regex>(=[^=]+=)(\[.*\]){0,}[\n\r]</regex>	
+                <regex>(==[^=]+==)(\[.*\]){0,}[\n\r]</regex>
+                <regex>(===[^=]+===)(\[.*\]){0,}[\n\r]</regex> 
+                <regex>(\+[^\+]+\+)(\[.*\]){0,}[\n\r]</regex>
+                <regex>(\+\+[^\+]+\+\+)(\[.*\]){0,}[\n\r]</regex> 
+                <regex>(\+\+\+[^\+]+\+\+\+)(\[.*\]){0,}[\n\r]</regex>
+                
+            </keywords> 
+             
+        </default>
+                  
+        <state id="numListe" color="#6c5104" casesensitive="no" useforautocomplete="no">
+           
+            <begin><regex>^\s{0,}\+ </regex></begin>
+            <end><regex>[\n\r]</regex></end>
+            
+        </state>
+
+        <state id="Liste" color="#6c2a00" casesensitive="no" useforautocomplete="no">                                  
+            <begin><regex>^\s{0,}- </regex></begin>
+            <end><regex>[\n\r]</regex></end>
+            		
+        </state>
+        
+        <state id="Definition" color="#6c2f1d" casesensitive="no" useforautocomplete="no">
+           
+            <begin><regex>^\+ </regex></begin>
+            <end><regex>[\n\r]</regex></end>
+            
+        </state>        
+
+        <state id="Comment" color="#555555" font-style="italic">
+            <begin><regex> \%</regex></begin>
+            <end><regex>[\n\r]</regex></end>
+            	
+        </state>
+
+        <state id="verbatim" color="#476e5c" font-weight="bold">
+            <begin><regex>```[\n\r]</regex></begin>
+            <end><regex>```[\n\r]</regex></end>	
+            
+        </state>
+
+        <state id="Raw" color="#236e25" font-style="italic" font-weight="bold">
+            <begin><regex>"""[\n\r]</regex></begin>
+            <end><regex>"""[\n\r]</regex></end>	
+            
+        </state>        
+        
+    </states>
+
+</syntax>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "symbol.dtd">
+<symbols>
+
+    <blocks>
+        <beginregex>{</beginregex>
+        <endregex>}</endregex>
+    </blocks>
+
+    <symbol id="ProcedureDeclarations" image="SymbolD" indentation="0" ignoreblocks="yes">
+        <regex>^procedure[ \t]+([\w]+)[ \t]*\([^\)]*\)[ \t]*(forward|external);</regex>
+    </symbol>
+
+    <symbol id="FunctionDeclarations" image="SymbolD" indentation="0" ignoreblocks="yes">
+        <regex>^function[ \t]+([\w]+)[ \t]*\([^\)]*\)[ \t]*(forward|external);</regex>
+    </symbol>
+
+    <symbol id="Entries" image="SymbolE" indentation="0" ignoreblocks="yes">
+        <regex>entry[ \t]+([\w]+)[ \t]*(is)</regex>
+    </symbol>
+
+    <symbol id="Procedures" image="SymbolP" indentation="0" ignoreblocks="yes">
+        <regex>^procedure[ \t]+([\w]+)[ \t]*\([^\)]*\)[ \t]*(is)</regex>
+    </symbol>
+    
+    <symbol id="Functions" image="SymbolF" indentation="0" ignoreblocks="yes">
+        <regex>^function[ \t]+([\w]+)[ \t]*\([^\)]*\)[ \t]*(is)</regex>
+    </symbol>
+    
+    <symbol id="CVS/SVN conflict" font-weight="bold" font-style="normal" image="SymbolWarn" indentation="0" ignoreblocks="no">
+        <regex>^&lt;&lt;&lt;&lt;&lt;&lt;&lt;[^=]*======[^&gt;]*&gt;&gt;&gt;&gt;&gt;&gt;&gt;</regex>
+        <postprocess>
+            <find>.*</find>
+            <replace>Versioning conflict!</replace>
+        </postprocess>
+    </symbol>
+
+</symbols>

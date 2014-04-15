@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "symbol.dtd">
+<symbols>
+
+    <symbol id="LabelType1" image="SymbolF" indentation="0" ignoreblocks="yes">
+        <regex>^[\ \t]*([A-Za-z][0-9A-Za-z_]*\:)</regex>    
+    </symbol>
+    
+    <symbol id="LabelType2" image="SymbolF" indentation="0" ignoreblocks="yes">
+        <regex>^[\ \t]*(\.[A-Za-z][0-9A-Za-z_]*[\s;\n\r])</regex>
+    </symbol>    
+    
+</symbols>

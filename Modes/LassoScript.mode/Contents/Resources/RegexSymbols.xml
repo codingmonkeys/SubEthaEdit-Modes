@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "symbol.dtd">
+<symbols>
+	<symbol id="CTag" font-weight="normal" font-style="normal" image="SymbolF()" indentation="0" ignoreblocks="no">
+		<regex>[Dd]efine_[Tt]ag:[ ]*?["']([^'"]+)["']</regex>
+		<postprocess>
+			<find>(.*)</find>
+			<replace>Tag: \1</replace>
+		</postprocess>
+	</symbol>
+	<symbol id="CType" font-weight="normal" font-style="normal" image="SymbolT" indentation="0" ignoreblocks="no">
+		<regex>[Dd]efine_[Tt]ype:[ ]*?["']([^'"]+)["']</regex>
+		<postprocess>
+			<find>(.*)</find>
+			<replace>Type: \1</replace>
+		</postprocess>
+	</symbol>
+	<symbol id="H#" font-weight="normal" font-style="normal" image="SymbolH.png" indentation="0" ignoreblocks="no">
+		<regex>&lt;[Hh][0-9][^&gt;]*&gt;[^&lt;]*&lt;/[Hh][0-9]&gt;</regex>
+		<postprocess>
+			<find>&lt;([hH][0-9])[^&gt;]*&gt;([^&lt;]*)&lt;.*</find>
+			<replace>\1: \2</replace>
+		</postprocess>
+	</symbol>
+</symbols>

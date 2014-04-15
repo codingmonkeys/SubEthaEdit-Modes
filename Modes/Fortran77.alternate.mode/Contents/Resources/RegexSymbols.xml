@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "symbol.dtd">
+<symbols>
+
+    <blocks>
+        <beginregex>{</beginregex>
+        <endregex>}</endregex>
+    </blocks>
+    
+    <symbol id="Functions" image="SymbolF()">
+        <regex>(?i)(^[\t ]*[\w\d_\*]* +function[^\n]*)</regex>
+        <postprocess>
+            <find>(?i)(^[\t ]*[\w\d_\*]* +function)</find>
+            <replace></replace>
+            <find>\([^\)]*\)</find>
+            <replace>()</replace>
+            <find>[\n\r]</find>
+            <replace> </replace>
+            <find>[ \t]+</find>
+            <replace> </replace>
+        </postprocess>
+    </symbol>
+
+    <symbol id="Main" image="SymbolM">
+        <regex>(?i)(^[\t ]*program[^\n]*)</regex>
+        <postprocess>
+            <find>(?i)(^[\t ]*program)</find>
+            <replace></replace>
+            <find>\([^\)]*\)</find>
+            <replace>()</replace>
+            <find>[\n\r]</find>
+            <replace> </replace>
+            <find>[ \t]+</find>
+            <replace> </replace>
+        </postprocess>
+    </symbol>
+
+    <symbol id="Subroutines" image="SymbolS">
+        <regex>(?i)(^[\t ]*subroutine[^\n]*)</regex>
+        <postprocess>
+            <find>(?i)(^[\t ]*subroutine)</find>
+            <replace></replace>
+            <find>\([^\)]*\)</find>
+            <replace>()</replace>
+            <find>[\n\r]</find>
+            <replace> </replace>
+            <find>[ \t]+</find>
+            <replace> </replace>
+        </postprocess>
+    </symbol>
+
+
+    <symbol id="CVS/SVN conflict" font-weight="bold" image="SymbolWarn" indentation="0" ignoreblocks="no">
+        <regex>^&lt;&lt;&lt;&lt;&lt;&lt;&lt;[^=]*======[^&gt;]*&gt;&gt;&gt;&gt;&gt;&gt;&gt;</regex>
+        <postprocess>
+            <find>.*</find>
+            <replace>Versioning conflict!</replace>
+        </postprocess>
+    </symbol>
+
+</symbols>

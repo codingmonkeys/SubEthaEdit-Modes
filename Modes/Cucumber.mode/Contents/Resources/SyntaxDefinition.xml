@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<syntax>
+  <head>
+    <name>Cucumber Syntax</name>
+    <autocompleteoptions use-spelling-dictionary="yes" />
+    <charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@:|]]></charsintokens> 
+  </head>
+  <states>
+    <default id="Base" color="#bebebe" background-color="#2b2b2b">
+      <keywords id="Keywords" color="#e37498" casesensitive="no">
+				<regex>^\W*(Feature:)</regex>
+				<regex>^\W*(Background:)</regex>
+				<regex>^\W*(Scenario:)</regex>
+				<regex>^\W*(Scenarios:)</regex>
+				<regex>^\W*(Examples:)</regex>
+				<regex>^\W*(Scenario Outline:)</regex>
+				<regex>^\W*(Scenario Template:)</regex>
+      </keywords>
+      
+      <keywords id="But" color="#600" casesensitive="no">
+        <regex>^\W*(But)</regex>
+      </keywords>
+      
+      <keywords id="And" color="#600" casesensitive="no">
+        <regex>^\W*(And)</regex>
+      </keywords>
+      
+      <state id="Comment" color="#666666" font-style="italic">
+        <begin><regex>"""</regex></begin>
+        <end><regex>"""</regex></end>
+      </state>
+      
+      <state id="SingleComment" color="#666666" font-style="italic">
+        <begin><regex>#</regex></begin>
+        <end><regex>[\n\r]</regex></end>
+      </state>
+      
+      <state id="Tag" color="#76eaaf" font-style="italic">
+        <begin><regex>^\W*@</regex></begin>
+        <end><regex>[\n\r]</regex></end>
+      </state>
+      
+      <state id="Table" color="#f66e4c" font-style="italic">
+        <begin><regex>^\W*\|</regex></begin>
+        <end><regex>[\n\r]</regex></end>
+          
+        <keywords id="TableSpacer" color="#a0c25f" casesensitive="no">
+          <regex>(\|)</regex>
+        </keywords>
+      </state>
+      
+      <state id="TableReplacement" color="#f66e4c">
+        <begin><regex>&lt;</regex></begin>
+        <end><regex>&gt;</regex></end>
+      </state>
+      
+      <state id="String" color="#a0c25f">
+        <begin><regex>"</regex></begin>
+        <end><regex>"</regex></end>
+      </state>
+      
+      <state id="Regex" color="#b480ab">
+        <begin><regex>/</regex></begin>
+        <end><regex>/</regex></end>
+      </state>
+      
+      <state id="GivenState" color="#bebebe">
+        <begin><regex>^\W*Given</regex></begin>
+        <end><regex>^\W*(?=Given|When|Then|Feature:|Background:|Scenario:|Scenarios:|Examples:|Scenario Outline:|Scenario Template:)</regex></end>
+    
+        <keywords id="GivenStateKeywords" color="#ead980" casesensitive="no">
+          <regex>^\W*(Given)</regex>
+          <regex>^\W*(But)</regex>
+          <regex>^\W*(And)</regex>
+        </keywords>
+        
+        <state-link state="Comment" />
+        <state-link state="SingleComment" />
+        <state-link state="Tag" />
+        <state-link state="Table" />
+        <state-link state="TableReplacement" />
+        <state-link state="String" />
+        <state-link state="Regex" />
+      </state>
+      
+      <state id="WhenState" color="#bebebe">
+        <begin><regex>^\W*When</regex></begin>
+        <end><regex>^\W*(?=Given|When|Then|Feature:|Background:|Scenario:|Scenarios:|Examples:|Scenario Outline:|Scenario Template:)</regex></end>
+    
+        <keywords id="WhenStateKeywords" color="#72cbeb" casesensitive="no">
+          <regex>^\W*(When)</regex>
+          <regex>^\W*(But)</regex>
+          <regex>^\W*(And)</regex>
+        </keywords>
+        
+        <state-link state="Comment" />
+        <state-link state="SingleComment" />
+        <state-link state="Tag" />
+        <state-link state="Table" />
+        <state-link state="TableReplacement" />
+        <state-link state="String" />
+        <state-link state="Regex" />
+      </state>
+      
+      <state id="ThenState" color="#bebebe">
+        <begin><regex>^\W*Then</regex></begin>
+        <end><regex>^\W*(?=Given|When|Then|Feature:|Background:|Scenario:|Scenarios:|Examples:|Scenario Outline:|Scenario Template:)</regex></end>
+    
+        <keywords id="ThenStateKeywords" color="#ee9b4c" casesensitive="no">
+          <regex>^\W*(Then)</regex>
+          <regex>^\W*(But)</regex>
+          <regex>^\W*(And)</regex>
+        </keywords>
+        
+        <state-link state="Comment" />
+        <state-link state="SingleComment" />
+        <state-link state="Tag" />
+        <state-link state="Table" />
+        <state-link state="TableReplacement" />
+        <state-link state="String" />
+        <state-link state="Regex" />
+      </state>
+    </default>
+  </states>
+</syntax>

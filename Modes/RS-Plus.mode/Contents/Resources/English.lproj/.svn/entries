@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="464"
+   name=""
+   committed-date="2004-05-10T15:35:53.925573Z"
+   url="https://www.codingmonkeys.de/repositories/svn/subethaedit/trunk/subethaedit/Modes/Perl.mode/Contents/Resources/English.lproj"
+   last-author="map"
+   kind="dir"
+   revision="642"/>
+<entry
+   committed-rev="464"
+   name="InfoPlist.strings"
+   text-time="2004-05-07T18:51:45.000000Z"
+   committed-date="2004-05-10T15:35:53.925573Z"
+   checksum="4df5e5da1a37e3042a733c41b428547b"
+   last-author="map"
+   kind="file"
+   prop-time="2004-05-10T15:32:29.000000Z"/>
+</wc-entries>

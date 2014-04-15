@@ -1,0 +1,885 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>
+	<!-- This is the Matlab syntax definition file for SubEthaEdit.
+		Felix Grasser (fgrasser at gmx dot net), 10th April 2006
+		
+		Change Log:
+		2006.12.25, v.1.3
+			- No changes to SyntaxDefinition.xml.
+		2006.04.10, v.1.2.1
+			- Corrected string detection introduced in v.1.2. If 
+				several strings were on the same line, the string
+				would be continuously highlighted from the start
+				of the first to the end of the last string. Thanks
+				to Jussi Markkanen for pointing out the problem.
+		2006.02.08, v.1.2
+			- Added additional keywords "true", "syms", "isdir", 
+				"cell2mat", "regexprep", "isnumeric", "isempty".
+			- Corrected multiline comment (open: "%{", close: "%}").
+				Note that nested multiline comments are supported
+				by Matlab, but will not be colored correctly with
+				this syntax definition.
+			- Changed end of string detection to allow for escaped "'"
+				characters.
+          		Matlab allows escaping a "'" in a string by putting "''".
+          		Therefore, two consecutive "'"s are acceptable in a string
+          		and do not denote the closing of the string.
+          		A closing of the string therefore has to be denoted by any
+          		uneven number of "'"s.
+		2005.12.28, v.1.1.1
+			- Added additional keywords "not", "isnan", "isempty".
+		2005.04.19 v.1.1
+			- Initial release.	
+	-->
+    <head>
+        <name>Matlab</name> <!-- The definitions title -->
+        <charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@]]></charsintokens> <!-- Valid Characters for Variables -->
+    </head>
+
+    <states>
+    
+        <default id="Base" color="#000" background-color="#fff" font-weight="normal" font-style="normal">
+            <keywords id="Keywords" color="#0000b2" useforautocomplete="yes">
+            				<regex>(\.\.\.)</regex>
+                            <string>all</string>
+							<string>any</string>
+							<string>exist</string>
+							<string>find</string>
+							<string>is</string>
+							<string>isa</string>
+							<string>logical</string>
+							<string>mislocked</string>
+							<string>builtin</string>
+							<string>eval</string>
+							<string>evalc</string>
+							<string>evalin</string>
+							<string>feval</string>
+							<string>function</string>
+							<string>global</string>
+							<string>nargchk</string>
+							<string>persistent</string>
+							<string>script</string>
+							<string>break</string>
+							<string>case</string>
+							<string>catch</string>
+							<string>else</string>
+							<string>elseif</string>
+							<string>end</string>
+							<string>error</string>
+							<string>for</string>
+							<string>if</string>
+							<string>otherwise</string>
+							<string>return</string>
+							<string>switch</string>
+							<string>try</string>
+							<string>warning</string>
+							<string>while</string>
+							<string>input</string>
+							<string>keyboard</string>
+							<string>menu</string>
+							<string>pause</string>
+							<string>class</string>
+							<string>double</string>
+							<string>inferiorto</string>
+							<string>inline</string>
+							<string>int8</string>
+							<string>int16</string>
+							<string>int32</string>
+							<string>isa</string>
+							<string>loadobj</string>
+							<string>saveobj</string>
+							<string>single</string>
+							<string>superiorto</string>
+							<string>uint8</string>
+							<string>int16</string>
+							<string>uint32</string>
+							<string>dbclear</string>
+							<string>dbcont</string>
+							<string>dbdown</string>
+							<string>dbmex</string>
+							<string>dbquit</string>
+							<string>dbstack</string>
+							<string>dbstatus</string>
+							<string>dbstep</string>
+							<string>dbstop</string>
+							<string>dbtype</string>
+							<string>dbup</string>
+							<string>blkdiag</string>
+							<string>eye</string>
+							<string>linspace</string>
+							<string>logspace</string>
+							<string>ones</string>
+							<string>rand</string>
+							<string>randn</string>
+							<string>zeros</string>
+							<string>ans</string>
+							<string>computer</string>
+							<string>eps</string>
+							<string>flops</string>
+							<string>i</string>
+							<string>Inf</string>
+							<string>inputname</string>
+							<string>j</string>
+							<string>NaN</string>
+							<string>nargin</string>
+							<string>nargout</string>
+							<string>pi</string>
+							<string>realmax</string>
+							<string>realmin</string>
+							<string>varargin</string>
+							<string>varargout</string>
+							<string>calendar</string>
+							<string>clock</string>
+							<string>cputime</string>
+							<string>date</string>
+							<string>datenum</string>
+							<string>datestr</string>
+							<string>datevec</string>
+							<string>eomday</string>
+							<string>etime</string>
+							<string>now</string>
+							<string>tic</string>
+							<string>toc</string>
+							<string>weekday</string>
+							<string>cat</string>
+							<string>diag</string>
+							<string>fliplr</string>
+							<string>flipud</string>
+							<string>repmat</string>
+							<string>reshape</string>
+							<string>rot90</string>
+							<string>tril</string>
+							<string>triu</string>
+							<string>compan</string>
+							<string>gallery</string>
+							<string>hadamard</string>
+							<string>hankel</string>
+							<string>hilb</string>
+							<string>invhilb</string>
+							<string>magic</string>
+							<string>pascal</string>
+							<string>toeplitz</string>
+							<string>wilkinson</string>
+							<string>abs</string>
+							<string>acos</string>
+							<string>acosh</string>
+							<string>acot</string>
+							<string>acoth</string>
+							<string>acsc</string>
+							<string>acsch</string>
+							<string>angle</string>
+							<string>asec</string>
+							<string>asech</string>
+							<string>asin</string>
+							<string>asinh</string>
+							<string>atan</string>
+							<string>atanh</string>
+							<string>atan2</string>
+							<string>ceil</string>
+							<string>complex</string>
+							<string>conj</string>
+							<string>cos</string>
+							<string>cosh</string>
+							<string>cot</string>
+							<string>coth</string>
+							<string>csc</string>
+							<string>csch</string>
+							<string>exp</string>
+							<string>fix</string>
+							<string>floor</string>
+							<string>gcd</string>
+							<string>imag</string>
+							<string>lcm</string>
+							<string>log</string>
+							<string>log2</string>
+							<string>log10</string>
+							<string>mod</string>
+							<string>nchoosek</string>
+							<string>real</string>
+							<string>rem</string>
+							<string>round</string>
+							<string>sec</string>
+							<string>sech</string>
+							<string>sign</string>
+							<string>sin</string>
+							<string>sinh</string>
+							<string>sqrt</string>
+							<string>tan</string>
+							<string>tanh</string>
+							<string>airy</string>
+							<string>besselh</string>
+							<string>besseli</string>
+							<string>besselk</string>
+							<string>besselj</string>
+							<string>Bessely</string>
+							<string>beta</string>
+							<string>betainc</string>
+							<string>betaln</string>
+							<string>ellipj</string>
+							<string>ellipke</string>
+							<string>erf</string>
+							<string>erfc</string>
+							<string>erfcx</string>
+							<string>erfiny</string>
+							<string>expint</string>
+							<string>factorial</string>
+							<string>gamma</string>
+							<string>gammainc</string>
+							<string>gammaln</string>
+							<string>legendre</string>
+							<string>pow2</string>
+							<string>rat</string>
+							<string>rats</string>
+							<string>cart2pol</string>
+							<string>cart2sph</string>
+							<string>pol2cart</string>
+							<string>sph2cart</string>
+							<string>abs</string>
+							<string>eval</string>
+							<string>real</string>
+							<string>strings</string>
+							<string>deblank</string>
+							<string>findstr</string>
+							<string>lower</string>
+							<string>strcat</string>
+							<string>strcmp</string>
+							<string>strcmpi</string>
+							<string>strjust</string>
+							<string>strmatch</string>
+							<string>strncmp</string>
+							<string>strrep</string>
+							<string>strtok</string>
+							<string>strvcat</string>
+							<string>symvar</string>
+							<string>texlabel</string>
+							<string>upper</string>
+							<string>char</string>
+							<string>int2str</string>
+							<string>mat2str</string>
+							<string>num2str</string>
+							<string>sprintf</string>
+							<string>sscanf</string>
+							<string>str2double</string>
+							<string>str2num</string>
+							<string>bin2dec</string>
+							<string>dec2bin</string>
+							<string>dec2hex</string>
+							<string>hex2dec</string>
+							<string>hex2num</string>
+							<string>fclose</string>
+							<string>fopen</string>
+							<string>fread</string>
+							<string>fwrite</string>
+							<string>fgetl</string>
+							<string>fgets</string>
+							<string>fprintf</string>
+							<string>fscanf</string>
+							<string>feof</string>
+							<string>ferror</string>
+							<string>frewind</string>
+							<string>fseek</string>
+							<string>ftell</string>
+							<string>sprintf</string>
+							<string>sscanf</string>
+							<string>dlmread</string>
+							<string>dlmwrite</string>
+							<string>hdf</string>
+							<string>imfinfo</string>
+							<string>imread</string>
+							<string>imwrite</string>
+							<string>textread</string>
+							<string>wk1read</string>
+							<string>wk1write</string>
+							<string>bitand</string>
+							<string>bitcmp</string>
+							<string>bitor</string>
+							<string>bitmax</string>
+							<string>bitset</string>
+							<string>bitshift</string>
+							<string>bitget</string>
+							<string>bitxor</string>
+							<string>fieldnames</string>
+							<string>getfield</string>
+							<string>rmfield</string>
+							<string>setfield</string>
+							<string>struct</string>
+							<string>struct2cell</string>
+							<string>class</string>
+							<string>isa</string>
+							<string>cell</string>
+							<string>cellfun</string>
+							<string>cellstr</string>
+							<string>cell2struct</string>
+							<string>celldisp</string>
+							<string>cellplot</string>
+							<string>num2cell</string>
+							<string>cat</string>
+							<string>flipdim</string>
+							<string>ind2sub</string>
+							<string>ipermute</string>
+							<string>ndgrid</string>
+							<string>ndims</string>
+							<string>permute</string>
+							<string>reshape</string>
+							<string>shiftdim</string>
+							<string>squeeze</string>
+							<string>sub2ind</string>
+							<string>cond</string>
+							<string>condeig</string>
+							<string>det</string>
+							<string>norm</string>
+							<string>null</string>
+							<string>orth</string>
+							<string>rank</string>
+							<string>rcond</string>
+							<string>rref</string>
+							<string>rrefmovie</string>
+							<string>subspace</string>
+							<string>trace</string>
+							<string>chol</string>
+							<string>inv</string>
+							<string>lscov</string>
+							<string>lu</string>
+							<string>nnls</string>
+							<string>pinv</string>
+							<string>qr</string>
+							<string>balance</string>
+							<string>cdf2rdf</string>
+							<string>eig</string>
+							<string>gsvd</string>
+							<string>hess</string>
+							<string>poly</string>
+							<string>qz</string>
+							<string>rsf2csf</string>
+							<string>schur</string>
+							<string>svd</string>
+							<string>expm</string>
+							<string>funm</string>
+							<string>logm</string>
+							<string>sqrtm</string>
+							<string>qrdelete</string>
+							<string>qrinsert</string>
+							<string>bar</string>
+							<string>barh</string>
+							<string>hist</string>
+							<string>hold</string>
+							<string>loglog</string>
+							<string>pie</string>
+							<string>plot</string>
+							<string>polar</string>
+							<string>semilogx</string>
+							<string>semilogy</string>
+							<string>subplot</string>
+							<string>bar3</string>
+							<string>bar3h</string>
+							<string>comet3</string>
+							<string>cylinder</string>
+							<string>fill3</string>
+							<string>plot3</string>
+							<string>quiver3</string>
+							<string>slice</string>
+							<string>sphere</string>
+							<string>stem3</string>
+							<string>waterfall</string>
+							<string>clabel</string>
+							<string>datetick</string>
+							<string>grid</string>
+							<string>gtext</string>
+							<string>legend</string>
+							<string>plotyy</string>
+							<string>title</string>
+							<string>xlabel</string>
+							<string>ylabel</string>
+							<string>zlabel</string>
+							<string>contour</string>
+							<string>contourc</string>
+							<string>contourf</string>
+							<string>hidden</string>
+							<string>meshc</string>
+							<string>mesh</string>
+							<string>peaks</string>
+							<string>surf</string>
+							<string>surface</string>
+							<string>surfc</string>
+							<string>surfl</string>
+							<string>trimesh</string>
+							<string>trisurf</string>
+							<string>coneplot</string>
+							<string>contourslice</string>
+							<string>isocaps</string>
+							<string>isonormals</string>
+							<string>isosurface</string>
+							<string>reducepatch</string>
+							<string>reducevolume</string>
+							<string>shrinkfaces</string>
+							<string>smooth3</string>
+							<string>stream2</string>
+							<string>stream3</string>
+							<string>streamline</string>
+							<string>surf2patch</string>
+							<string>subvolume</string>
+							<string>griddata</string>
+							<string>meshgrid</string>
+							<string>area</string>
+							<string>box</string>
+							<string>comet</string>
+							<string>compass</string>
+							<string>errorbar</string>
+							<string>ezcontour</string>
+							<string>ezcontourf</string>
+							<string>ezmesh</string>
+							<string>ezmeshc</string>
+							<string>ezplot</string>
+							<string>ezplot3</string>
+							<string>ezpolar</string>
+							<string>ezsurf</string>
+							<string>ezsurfc</string>
+							<string>feather</string>
+							<string>fill</string>
+							<string>fplot</string>
+							<string>pareto</string>
+							<string>pie3</string>
+							<string>plotmatrix</string>
+							<string>pcolor</string>
+							<string>rose</string>
+							<string>quiver</string>
+							<string>ribbon</string>
+							<string>stairs</string>
+							<string>scatter</string>
+							<string>scatter3</string>
+							<string>stem</string>
+							<string>convhull</string>
+							<string>delaunay</string>
+							<string>dsearch</string>
+							<string>inpolygon</string>
+							<string>polyarea</string>
+							<string>tsearch</string>
+							<string>voronoi</string>
+							<string>camdolly</string>
+							<string>camlookat</string>
+							<string>camorbit</string>
+							<string>campan</string>
+							<string>campos</string>
+							<string>camproj</string>
+							<string>camroll</string>
+							<string>camtarget</string>
+							<string>camup</string>
+							<string>camva</string>
+							<string>camzoom</string>
+							<string>daspect</string>
+							<string>pbaspect</string>
+							<string>view</string>
+							<string>viewmtx</string>
+							<string>xlim</string>
+							<string>ylim</string>
+							<string>zlim</string>
+							<string>camlight</string>
+							<string>diffuse</string>
+							<string>lighting</string>
+							<string>lightingangle</string>
+							<string>material</string>
+							<string>specular</string>
+							<string>brighten</string>
+							<string>bwcontr</string>
+							<string>caxis</string>
+							<string>colorbar</string>
+							<string>colorcube</string>
+							<string>colordef</string>
+							<string>colormap</string>
+							<string>graymon</string>
+							<string>hsv2rgb</string>
+							<string>rgb2hsv</string>
+							<string>rgbplot</string>
+							<string>shading</string>
+							<string>spinmap</string>
+							<string>surfnorm</string>
+							<string>whitebg</string>
+							<string>autumn</string>
+							<string>bone</string>
+							<string>contrast</string>
+							<string>cool</string>
+							<string>copper</string>
+							<string>flag</string>
+							<string>gray</string>
+							<string>hot</string>
+							<string>hsv</string>
+							<string>jet</string>
+							<string>lines</string>
+							<string>prism</string>
+							<string>spring</string>
+							<string>summer</string>
+							<string>winter</string>
+							<string>orient</string>
+							<string>print</string>
+							<string>printopt</string>
+							<string>saveas</string>
+							<string>copyobj</string>
+							<string>findobj</string>
+							<string>gcbo</string>
+							<string>gco</string>
+							<string>get</string>
+							<string>rotate</string>
+							<string>ishandle</string>
+							<string>set</string>
+							<string>axes</string>
+							<string>figure</string>
+							<string>image</string>
+							<string>light</string>
+							<string>line</string>
+							<string>patch</string>
+							<string>rectangle</string>
+							<string>surface</string>
+							<string>text Create</string>
+							<string>uicontext Create</string>
+							<string>capture</string>
+							<string>clc</string>
+							<string>clf</string>
+							<string>clg</string>
+							<string>close</string>
+							<string>gcf</string>
+							<string>newplot</string>
+							<string>refresh</string>
+							<string>saveas</string>
+							<string>axis</string>
+							<string>cla</string>
+							<string>gca</string>
+							<string>propedit</string>
+							<string>reset</string>
+							<string>rotate3d</string>
+							<string>selectmoveresize</string>
+							<string>shg</string>
+							<string>ginput</string>
+							<string>zoom</string>
+							<string>dragrect</string>
+							<string>drawnow</string>
+							<string>rbbox</string>
+							<string>dialog</string>
+							<string>errordlg</string>
+							<string>helpdlg</string>
+							<string>inputdlg</string>
+							<string>listdlg</string>
+							<string>msgbox</string>
+							<string>pagedlg</string>
+							<string>printdlg</string>
+							<string>questdlg</string>
+							<string>uigetfile</string>
+							<string>uiputfile</string>
+							<string>uisetcolor</string>
+							<string>uisetfont</string>
+							<string>warndlg</string>
+							<string>menu</string>
+							<string>menuedit</string>
+							<string>uicontextmenu</string>
+							<string>uicontrol</string>
+							<string>uimenu</string>
+							<string>dragrect</string>
+							<string>findfigs</string>
+							<string>gcbo</string>
+							<string>rbbox</string>
+							<string>selectmoveresize</string>
+							<string>textwrap</string>
+							<string>uiresume</string>
+							<string>uiwait Used</string>
+							<string>waitbar</string>
+							<string>waitforbuttonpress</string>
+							<string>convhull</string>
+							<string>cumprod</string>
+							<string>cumsum</string>
+							<string>cumtrapz</string>
+							<string>delaunay</string>
+							<string>dsearch</string>
+							<string>factor</string>
+							<string>inpolygon</string>
+							<string>max</string>
+							<string>mean</string>
+							<string>median</string>
+							<string>min</string>
+							<string>perms</string>
+							<string>polyarea</string>
+							<string>primes</string>
+							<string>prod</string>
+							<string>sort</string>
+							<string>sortrows</string>
+							<string>std</string>
+							<string>sum</string>
+							<string>trapz</string>
+							<string>tsearch</string>
+							<string>var</string>
+							<string>voronoi</string>
+							<string>del2</string>
+							<string>diff</string>
+							<string>gradient</string>
+							<string>corrcoef</string>
+							<string>cov</string>
+							<string>conv</string>
+							<string>conv2</string>
+							<string>deconv</string>
+							<string>filter</string>
+							<string>filter2</string>
+							<string>abs</string>
+							<string>angle</string>
+							<string>cplxpair</string>
+							<string>fft</string>
+							<string>fft2</string>
+							<string>fftshift</string>
+							<string>ifft</string>
+							<string>ifft2</string>
+							<string>ifftn</string>
+							<string>ifftshift</string>
+							<string>nextpow2</string>
+							<string>unwrap</string>
+							<string>cross</string>
+							<string>intersect</string>
+							<string>ismember</string>
+							<string>setdiff</string>
+							<string>setxor</string>
+							<string>union</string>
+							<string>unique</string>
+							<string>conv</string>
+							<string>deconv</string>
+							<string>poly</string>
+							<string>polyder</string>
+							<string>polyeig</string>
+							<string>polyfit</string>
+							<string>polyval</string>
+							<string>polyvalm</string>
+							<string>residue</string>
+							<string>roots</string>
+							<string>griddata</string>
+							<string>interp1</string>
+							<string>interp2</string>
+							<string>interp3</string>
+							<string>interpft</string>
+							<string>interpn</string>
+							<string>meshgrid</string>
+							<string>ndgrid</string>
+							<string>spline</string>
+							<string>dblquad</string>
+							<string>fmin</string>
+							<string>fmins</string>
+							<string>fzero</string>
+							<string>ode45,</string>
+							<string>ode113,</string>
+							<string>ode15s,</string>
+							<string>ode23s,</string>
+							<string>ode23t,</string>
+							<string>ode23tb</string>
+							<string>odefile</string>
+							<string>odeget</string>
+							<string>odeset</string>
+							<string>quad,</string>
+							<string>vectorize</string>
+							<string>spdiags</string>
+							<string>speye</string>
+							<string>sprand</string>
+							<string>sprandn</string>
+							<string>sprandsym</string>
+							<string>find</string>
+							<string>full</string>
+							<string>sparse</string>
+							<string>spconvert</string>
+							<string>nnz</string>
+							<string>nonzeros</string>
+							<string>nzmax</string>
+							<string>spalloc</string>
+							<string>spfun</string>
+							<string>spones</string>
+							<string>colmmd</string>
+							<string>colperm</string>
+							<string>dmperm</string>
+							<string>randperm</string>
+							<string>symmmd</string>
+							<string>symrcm</string>
+							<string>condest</string>
+							<string>normest</string>
+							<string>bicg</string>
+							<string>bicgstab</string>
+							<string>cgs</string>
+							<string>cholinc</string>
+							<string>cholupdate</string>
+							<string>gmres</string>
+							<string>luinc</string>
+							<string>pcg</string>
+							<string>qmr</string>
+							<string>qr</string>
+							<string>qrdelete</string>
+							<string>qrinsert</string>
+							<string>qrupdate</string>
+							<string>eigs</string>
+							<string>svds</string>
+							<string>spparms</string>
+							<string>lin2mu</string>
+							<string>mu2lin</string>
+							<string>sound</string>
+							<string>soundsc</string>
+							<string>auread</string>
+							<string>auwrite</string>
+							<string>wavread</string>
+							<string>wavwrite</string>
+							<string>[Keywords 6]</string>
+							<string>addpath</string>
+							<string>doc</string>
+							<string>docopt</string>
+							<string>help</string>
+							<string>helpdesk</string>
+							<string>helpwin</string>
+							<string>lasterr</string>
+							<string>lastwarn</string>
+							<string>lookfor</string>
+							<string>partialpath</string>
+							<string>path</string>
+							<string>pathtool</string>
+							<string>profile</string>
+							<string>profreport</string>
+							<string>rmpath</string>
+							<string>type</string>
+							<string>ver</string>
+							<string>version</string>
+							<string>web</string>
+							<string>what</string>
+							<string>whatsnew</string>
+							<string>which</string>
+							<string>clear</string>
+							<string>disp</string>
+							<string>length</string>
+							<string>load</string>
+							<string>mlock</string>
+							<string>munlock</string>
+							<string>openvar</string>
+							<string>pack</string>
+							<string>save</string>
+							<string>saveas</string>
+							<string>size</string>
+							<string>who</string>
+							<string>whos</string>
+							<string>workspace</string>
+							<string>clc</string>
+							<string>echo</string>
+							<string>format</string>
+							<string>home</string>
+							<string>more</string>
+							<string>cd</string>
+							<string>copyfile</string>
+							<string>delete</string>
+							<string>diary</string>
+							<string>dir</string>
+							<string>edit</string>
+							<string>fileparts</string>
+							<string>fullfile</string>
+							<string>inmem</string>
+							<string>ls</string>
+							<string>matlabroot</string>
+							<string>mkdir</string>
+							<string>open</string>
+							<string>pwd</string>
+							<string>tempdir</string>
+							<string>tempname</string>
+							<string>matlabrc</string>
+							<string>quit</string> 
+							<!-- new keywords in v.1.1.1, 2005.12.28 -->
+							<string>not</string>
+							<string>isnan</string>
+							<string>isempt</string> 
+							<!-- new keywords in v.1.2, 2006.02.08 -->  
+							<string>true</string>
+							<string>syms</string>
+							<string>isdir</string>
+							<string>cell2mat</string>
+							<string>regexprep</string>
+							<string>isnumeric</string>
+							<string>isempty </string>                       
+            </keywords>
+            <keywords id="Operators" color="#7600b2" useforautocomplete="no">
+                        	<regex>(=)</regex>
+							<!-- comparison #6b6bb2-->
+							<regex>(==)</regex>
+							<regex>(~=)</regex>
+							<regex>(&gt;)</regex>
+							<regex>(&lt;)</regex>
+							<regex>(&gt;=)</regex>
+							<regex>(&lt;=)</regex>
+							<!-- arithmetic -->
+							<regex>(\+)</regex>
+							<regex>(-)</regex>
+							<regex>(/)</regex>
+							<regex>(\./)</regex>
+							<regex>(\\)</regex>
+							<regex>(\.\\)</regex>
+							<regex>(\*)</regex>
+							<regex>(\.\*)</regex>
+							<regex>(\^)</regex>
+							<regex>(\.\^)</regex>
+							<!-- The positive lookbehind expression is required
+								to make the difference between a transpose operator
+								and a string -->
+							<regex>(?&lt;=[A-Za-z_0-9\])}])(')</regex>
+							<regex>(?&lt;=[A-Za-z_0-9\])}])(\.')</regex>
+							<!-- logical -->
+							<regex>(&amp;)</regex>
+							<regex>(\|)</regex>
+							<regex>(~)</regex>
+							<!-- misc -->
+							<regex>(:)</regex>    
+            </keywords>
+        </default>
+        
+        <state id="MultilineComment" color="#236E25" background-color="none" font-weight="normal" font-style="italic">
+            <!-- Matlab supports nested multiline comments - the opening and closing
+            	tags (i.e. %{ and %}) need to be on seperate lines without any other text.
+            	(i.e. %{ this is a comment %{ containing another comment %}%}).
+            	Nested multiline comments are not supported by the syntax 
+            	coloring regex below. -->
+            <begin><regex>%\{</regex></begin>
+            <end><regex>(.*)\%}</regex></end>
+        </state> 
+
+        <state id="ContinuationComment" color="#236E25" background-color="none" font-weight="normal" font-style="italic">
+            <!-- In the Matlab editor, the continuation character is colored
+            	like a keyword. With the below syntax, the opening ... is 
+            	associated with the comment and therefore colored in green. -->
+            <begin><regex>\.\.\.</regex></begin>
+            <end><regex>[^\n\r]*[\n\r]</regex></end>
+        </state>
+        
+        <state id="SingleComment" color="#236E25" background-color="none" font-weight="normal" font-style="italic">
+        	<!-- A matlab comments starts with a "%" character and continues to
+        		the next newline character. -->
+            <begin><string>%</string></begin>
+            <end><regex>[\n\r]</regex></end>
+        </state>
+        
+        <state id="CellHeader" color="#236E25" background-color="none" font-weight="bold" font-style="italic">
+            <begin><regex>^%%</regex></begin>
+            <end><regex>[^\n\r]*[\n\r]</regex></end>
+        </state>
+        
+        <state id="String" color="#c00600" background-color="none" font-weight="normal" font-style="normal">
+            <!--Note that a "'" character also denotes the transpose
+            	of a vector or matrix in Matlab.
+            	Therefore the "'" denotes the start of the string only if it 
+            	is not preceded by what is potentially the name of a matrix, 
+            	the closing brackets of one or an invalid character to 
+            	precede a string in Matlab (such as ").-->
+            <begin><regex>(?&lt;![A-Za-z_0-9"\])}])'</regex></begin>
+            <!-- Because the above regular expression already checked for the
+            	correct opening "'", the next following "'" is the closing one.
+            	This is specified by selecting everything except
+          		"'" followed by "'". This is achieved by the following
+          		regular expression:  <end><regex>(^')*'</regex></end>
+          	-->
+          	<!-- Changed end of string detection, 2006.04.10
+          		Matlab allows escaping a "'" in a string by putting "''".
+          		Therefore, two consecutive "'"s are acceptable in a string
+          		and do not denote the closing of the string.
+          		The below regular expression checks for zero or more chars 
+          		that are neither single quotes or newlines. A non-captured
+          		group then checks for any (repeated) occurrence of an 
+          		escaped quote (i.e. two subsequent quotes) followed by 
+          		non-quote or non-newline characters. The closing single
+          		quote ends the string. -->
+          	<end><regex>([^'\n\r]*(?:''[^'\n\r]*)*')</regex></end>
+        </state>
+    </states>
+
+</syntax>

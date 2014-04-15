@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "symbol.dtd">
+<symbols>
+
+	<!-- local procedures -->
+    <symbol id="procs" image="SymbolP">
+        <regex>^proc +[\w\d_\s\[\]]+ *\([^\)]*\)</regex>
+        <postprocess>
+        	<find>proc</find>
+			<replace></replace>
+        </postprocess>
+    </symbol>
+
+    <!-- global procedure -->
+    <symbol id="global procs" image="SymbolG">
+        <regex>^global proc +[\w\d_\s\[\]]+ *\([^\)]*\)</regex>
+        <postprocess>
+        	<find>global proc</find>
+			<replace></replace>
+        </postprocess>
+    </symbol>
+
+    <symbol id="CVS/SVN conflict" font-weight="bold" image="SymbolWarn" indentation="0" ignoreblocks="no">
+        <regex>^&lt;&lt;&lt;&lt;&lt;&lt;&lt;[^=]*======[^&gt;]*&gt;&gt;&gt;&gt;&gt;&gt;&gt;</regex>
+        <postprocess>
+            <find>.*</find>
+            <replace>Versioning conflict!</replace>
+        </postprocess>
+    </symbol>
+
+</symbols>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "symbol.dtd">
+<symbols>
+
+    <!-- Find IDL Procedures and Functions for dropdown list -->
+    
+    <symbol id="IDL procedures" image="SymbolIDL" indentation="1" casesensitive="no">
+        
+<regex>(^pro [^[:cntrl:]]*|^PRO [^[:cntrl:]]*|^Pro [^[:cntrl:]]*|^function [^[:cntrl:]]*|^Function [^[:cntrl:]]*|^FUNCTION [^[:cntrl:]]*)</regex>
+
+        <postprocess>
+            <find></find>
+            <replace></replace>
+        </postprocess>
+    </symbol>
+    
+</symbols>

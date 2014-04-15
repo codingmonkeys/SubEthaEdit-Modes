@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>
+    <head>
+        <name>Promela</name>
+        <charsintokens>
+            <![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ]]>
+        </charsintokens> 
+        <!-- <charsdelimitingtokens>[CDATA[ -]]></charsdelimitingtokens> -->
+    </head>
+
+    <states>
+        <default id="Base" color="#000" inverted-color="#fff">
+            <keywords id="Keywords" color="#881280" casesensitive="yes" useforautocomplete="yes">
+				<string>active</string>
+				<string>assert</string>
+				<string>atomic</string>
+				<string>bit</string>
+				<string>bool</string>
+				<string>byte</string>
+				<string>break</string>
+				<string>chan</string>
+				<string>d_step</string>
+				<string>progress</string>
+				<string>do</string>
+				<string>else</string>
+				<string>empty</string>
+				<string>enabled</string>
+				<string>fi</string>
+				<string>full</string>
+				<string>goto</string>
+				<string>hidden</string>
+				<string>if</string>
+				<string>init</string>
+				<string>int</string>
+				<string>len</string>
+				<string>accept</string>
+				<string>mtype</string>
+				<string>nempty</string>
+				<string>never</string>
+				<string>nfull</string>
+				<string>od</string>
+				<string>of</string>
+				<string>pc_value</string>
+				<string>printf</string>
+				<string>proctype</string>
+				<string>run</string>
+				<string>short</string>
+				<string>skip</string>
+				<string>timeout</string>
+				<string>typedef</string>
+				<string>unless</string>
+				<string>xr</string>
+				<string>xs</string>
+				<string>priority</string>
+             </keywords>
+            <keywords id="Numbers" color="#00f" useforautocomplete="no">
+				<regex>(?&lt;=[^\w\d]|^)(((([0-9]+\.[0-9]*)|(\.[0-9]+))([eE][+\-]?[0-9]+)?[fFlL]?)|((([1-9][0-9]*)|0[0-7]*|(0[xX][0-9a-fA-F]+))(([uU][lL]?)|([lL][uU]?))?))(?=[^\w\d]|$)</regex>
+            </keywords>
+            <keywords id="Characters" color="#00f" useforautocomplete="no">
+				<regex>('.')</regex>
+            </keywords>
+            <keywords id="FunctionRegex" color="#003369" useforautocomplete="no">
+				<regex>([A-Za-z0-9_]+ *)\(</regex>
+            </keywords>
+        </default>
+        
+        <state id="Preprocessor" color="#683821" background-color="none">
+            <begin><regex>#</regex></begin>
+            <end><regex>((?&lt;=[^\\])[\n\r])|.(?=//)</regex></end>
+            <keywords id="Numbers" color="#00f" useforautocomplete="no">
+				<regex>(?&lt;=[^\w\d]|^)(((([0-9]+\.[0-9]*)|(\.[0-9]+))([eE][+\-]?[0-9]+)?[fFlL]?)|((([1-9][0-9]*)|0[0-7]*|(0[xX][0-9a-fA-F]+))(([uU][lL]?)|([lL][uU]?))?))(?=[^\w\d]|$)</regex>
+            </keywords>
+        </state>
+
+        <state id="Comment" color="#236E25" font-style="italic">
+            <begin><regex>/\*</regex></begin>
+            <end><regex>\*/</regex></end>
+        </state>
+
+        <state id="SingleComment" color="#236E25" background-color="none" font-weight="normal" font-style="italic">
+            <begin><regex>//</regex></begin>
+            <end><regex>[\n\r]</regex></end>
+        </state>
+        
+        <state id="String" color="#760f15" background-color="none" font-weight="normal" font-style="normal">
+            <begin><string>"</string></begin>
+            <end><regex>(((?&lt;!\\)(\\\\)*)|^)"</regex></end>
+        </state>
+
+    </states>
+
+</syntax>

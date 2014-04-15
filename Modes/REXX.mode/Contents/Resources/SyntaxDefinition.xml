@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>
+
+    <head>
+        <name>REXX</name> <!-- The definitions title -->
+        <charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@\\]]></charsintokens> <!-- Valid Characters for Variables -->
+        <!-- <charsdelimitingtokens></charsdelimitingtokens> -->
+    </head>
+
+    <states>
+    
+        <default id="Base" color="#000" background-color="#fff" font-weight="normal" font-style="normal">
+            <keywords id="Keywords" color="#000" font-weight="bold" useforautocomplete="yes" casesensitive="no">
+                <string>address</string>
+                <string>arg</string>
+                <string>call</string>
+                <string>do</string>
+                <string>to</string>
+                <string>by</string>
+                <string>for</string>
+                <string>end</string>
+                <string>forever</string>
+                <string>drop</string>
+                <string>exit</string>
+                <string>if</string>
+                <string>then</string>
+                <string>else</string>
+                <string>interpret</string>
+                <string>iterate</string>
+                <string>leave</string>
+                <string>nop</string>
+                <string>numeric</string>
+                <string>digits</string>
+                <string>form</string>
+                <string>scientific</string>
+                <string>engineering</string>
+                <string>value</string>
+                <string>fuzz</string>
+                <string>options</string>
+                <string>etmode</string>
+                <string>noetmode</string>
+                <string>exmode</string>
+                <string>noexmode</string>
+                <string>parse</string>
+                <string>upper</string>
+                <string>arg</string>
+                <string>linei</string>
+                <string>pull</string>
+                <string>source</string>
+                <string>value</string>
+                <string>with</string>
+                <string>var</string>
+                <string>version</string>
+                <string>procedure</string>
+                <string>push</string>
+                <string>queue</string>
+                <string>return</string>
+                <string>say</string>
+                <string>select</string>
+                <string>when</string>
+                <string>otherwise</string>
+                <string>signal</string>
+                <string>on</string>
+                <string>off</string>
+                <string>error</string>
+                <string>failure</string>
+                <string>halt</string>
+                <string>notready</string>
+                <string>novalue</string>
+                <string>syntax</string>
+                <string>trace</string>
+            </keywords>
+            
+            <keywords id="Keywords for Variables" color="#881350" useforautocomplete="yes" casesensitive="no">
+                <string>expose</string>
+            </keywords>
+
+            <keywords id="Builtin functions" color="#0033FF" useforautocomplete="yes" casesensitive="no">
+                <string>abbrev</string>
+                <string>abs</string>
+                <string>arg</string>
+                <string>beep</string>
+                <string>bitand</string>
+                <string>bitor</string>
+                <string>bixor</string>
+                <string>b2x</string>
+                <string>center</string>
+                <string>centre</string>
+                <string>charin</string>
+                <string>charout</string>
+                <string>chars</string>
+                <string>compare</string>
+                <string>condition</string>
+                <string>copies</string>
+                <string>c2d</string>
+                <string>c2x</string>
+                <string>datatype</string>
+                <string>date</string>
+                <string>dbcs</string>
+                <string>delstr</string>
+                <string>delword</string>
+                <string>digits</string>
+                <string>directory</string>
+                <string>d2c</string>
+                <string>d2x</string>
+                <string>endlocal</string>
+                <string>errortext</string>
+                <string>filespec</string>
+                <string>form</string>
+                <string>format</string>
+                <string>fuzz</string>
+                <string>insert</string>
+                <string>lastpos</string>
+                <string>left</string>
+                <string>length</string>
+                <string>linein</string>
+                <string>lineout</string>
+                <string>lines</string>
+                <string>max</string>
+                <string>min</string>
+                <string>overlay</string>
+                <string>pos</string>
+                <string>queued</string>
+                <string>random</string>
+                <string>reverse</string>
+                <string>right</string>
+                <string>setlocal</string>
+                <string>sign</string>
+                <string>sourceline</string>
+                <string>space</string>
+                <string>stream</string>
+                <string>strip</string>
+                <string>substr</string>
+                <string>subword</string>
+                <string>symbol</string>
+                <string>time</string>
+                <string>trace</string>
+                <string>translate</string>
+                <string>trunc</string>
+                <string>value</string>
+                <string>verify</string>
+                <string>word</string>
+                <string>wordindex</string>
+                <string>wordlength</string>
+                <string>wordpos</string>
+                <string>words</string>
+                <string>xrange</string>
+                <string>x2b</string>
+                <string>x2c</string>
+                <string>x2d</string>
+                <string>if</string>
+            </keywords>
+
+            <keywords id="OS/2 Specific Functions" color="#808" useforautocomplete="yes" casesensitive="no">
+                <string>rxfuncadd</string>
+                <string>rxfuncdrop</string>
+                <string>rxfuncquery</string>
+                <string>rxqueue</string>
+            </keywords>
+
+            <keywords id="Rx Utilities" color="#808" useforautocomplete="yes" casesensitive="no">
+                <string>rxmessagebox</string>
+                <string>syscls</string>
+                <string>syscreateobject</string>
+                <string>syscurpos</string>
+                <string>syscurstate</string>
+                <string>sysderegisterobjectclass</string>
+                <string>sysdriveinfo</string>
+                <string>sysdrivemap</string>
+                <string>sysdropfuncs</string>
+                <string>sysfiledelete</string>
+                <string>sysfiletree</string>
+                <string>sysfilesearch</string>
+                <string>sysgetea</string>
+                <string>sysgetkey</string>
+                <string>sysgetmessage</string>
+                <string>sysini</string>
+                <string>sysmkdir</string>
+                <string>sysos2ver</string>
+                <string>sysputea</string>
+                <string>sysqueryclasslist</string>
+                <string>sysregisterobjectclass</string>
+                <string>sysrmdir</string>
+                <string>syssearchpath</string>
+                <string>sysseticon</string>
+                <string>syssleep</string>
+                <string>systempfilename</string>
+                <string>systextscreenread</string>
+                <string>systextscreensize</string>
+                <string>syswaitnamedpipe</string>
+            </keywords>
+
+            <keywords id="Numbers" color="#FF0099" useforautocomplete="no">
+				<regex>(?&lt;=[^[A-Za-z0-9]]|^)((([0-9]+\.[0-9]*)|(\.[0-9]+)([eE][+\-]?[0-9]+)?[fFlL]?)|((([1-9][0-9]*)|0[0-7]*|(0[xX][0-9a-fA-F]))(([uU][lL]?)|([lL][uU]?))?))(?=[^[A-Za-z0-9]]|$)</regex>
+            </keywords>
+
+            <keywords id="FunctionRegex" color="#003369" useforautocomplete="no">
+				<regex>([A-Za-z0-9_]+ *)\(</regex>
+            </keywords>
+            
+            <keywords id="ProcedureRegex" color="#003369" useforautocomplete="no">
+				<regex>^ *([A-Za-z0-9_]+ *):</regex>
+            </keywords>
+
+            <keywords id="Punct Symbols" color="#FF0000" font-weight="bold" useforautocomplete="no">
+                <regex>([-+:/\\().,;|&amp;&gt;&lt;=!])</regex>
+            </keywords>
+
+        </default>
+        
+        <state id="Comment" color="#666666" background-color="#fff" font-weight="normal" font-style="normal">
+            <begin><regex>/\*</regex></begin>
+            <end><regex>\*/</regex></end>
+        </state>
+        
+        <state id="String with double quotes" color="#003366">
+            <begin><string>"</string></begin>
+            <end><regex>[^"]*"</regex></end>
+        </state>
+
+        <state id="String with single quotes" color="#006699">
+            <begin><string>'</string></begin>
+            <end><regex>[^']*'</regex></end>
+        </state>
+    </states>
+
+</syntax>

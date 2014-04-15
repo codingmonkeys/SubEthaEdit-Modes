@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "symbol.dtd">
+<symbols>
+    
+    <symbol id="Interfaces" image="SymbolF()" indentation="0" ignoreblocks="yes">
+        <regex>interface\s*([\w\d_\*]+)\s*\{</regex>
+    </symbol>
+
+    <symbol id="Structs" image="SymbolS" indentation="0" ignoreblocks="yes">
+        <regex>struct\s*([\w\d_\*]+)\s*\{</regex>
+    </symbol>
+
+    <symbol id="Defines" image="Symbol#" indentation="0" ignoreblocks="yes">
+        <regex>#define +[A-Za-z0-9_]+ +\([^\)]*\)</regex>
+        <postprocess>
+            <find>\([^\)]*\)</find>
+            <replace>()</replace>
+            <find>).*</find>
+            <replace>)</replace>
+        </postprocess>
+    </symbol>
+
+    <symbol id="CVS/SVN conflict" font-weight="bold" image="SymbolWarn" indentation="0" ignoreblocks="no">
+        <regex>^&lt;&lt;&lt;&lt;&lt;&lt;&lt;[^=]*======[^&gt;]*&gt;&gt;&gt;&gt;&gt;&gt;&gt;</regex>
+        <postprocess>
+            <find>.*</find>
+            <replace>Versioning conflict!</replace>
+        </postprocess>
+    </symbol>
+
+</symbols>

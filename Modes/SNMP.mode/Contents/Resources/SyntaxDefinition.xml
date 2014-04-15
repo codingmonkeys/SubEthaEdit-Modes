@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>
+
+
+    <!-- 
+    The <head> tag encloses some global information about the mode.
+    This tag is required.
+    -->    
+
+    <head>
+        <name>SNMP Syntax</name>
+        <charsintokens>
+            <![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@-]]>
+        </charsintokens> 
+        <!-- <charsdelimitingtokens>[CDATA[ -]]></charsdelimitingtokens> -->
+    </head>
+    <states>
+        <default id="Base" color="#000" inverted-color="#fff">
+            <keywords id="Keywords" color="#881280" casesensitive="yes" useforautocomplete="yes">
+				<string>DEFINITIONS</string>
+				<string>BEGIN</string>
+				<string>END</string>
+				<string>IMPORTS</string>
+				<string>FROM</string>
+				<string>INDEX</string>
+				<string>ORGANIZATION</string>
+				<string>DESCRIPTION</string>
+				<string>REVISION</string>
+				<string>STATUS</string>
+				<string>SYNTAX</string>
+				<string>SEQUENCE</string>
+				<string>INTEGER</string>
+				<string>REFERENCE</string>
+				<string>OBJECT-TYPE</string>
+				<string>MAX-ACCESS</string>
+				<string>MODULE-IDENTITY</string>
+				<string>LAST-UPDATED</string>
+				<string>CONTACT-INFO</string>
+				<string>TEXTUAL-CONVENTION</string>
+				<string>DISPLAY-HINT</string>
+				<string>NOTIFICATION-TYPE</string>
+				<string>NOTIFICATIONS</string>
+				<string>OBJECT</string> <!-- Cannot define the space in object identifiers -->
+				<string>IDENTIFIER</string>
+				<string>OBJECT-GROUP</string>
+				<string>OBJECTS</string>
+				<string>MODULE-COMPLIANCE</string>
+				<string>MODULE</string>
+				<string>GROUP</string>
+		    </keywords>
+        </default>
+             
+        <state id="Comment" color="#236E25" font-style="italic">
+            <begin><regex>--</regex></begin>
+            <end><regex>[\n\r]</regex></end>
+        </state>
+        
+        <state id="String" color="#1A1AA6">
+             <begin><regex>&quot;</regex></begin>
+             <end><regex>&quot;</regex></end>
+        </state>
+        
+        <state id="OID" color="#994500">
+             <begin><regex>(?&lt;=(?:\:\:=\s))\{</regex></begin>
+             <end><regex>\}</regex></end>
+        </state>        
+        
+        
+   </states>
+
+</syntax>

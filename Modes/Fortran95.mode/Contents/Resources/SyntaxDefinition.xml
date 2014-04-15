@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>
+
+    <head>
+        <name>Fortran95</name> <!-- The definitions title -->
+        <charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@*._]]></charsintokens> <!-- Valid Characters for Variables -->
+        <!-- <charsdelimitingtokens></charsdelimitingtokens> -->
+    </head>
+
+    <states>
+    
+        <default id="Base" color="#000" background-color="#fff" font-weight="normal" font-style="normal">
+            <keywords id="Types" color="#408" casesensitive="no" useforautocomplete="yes">
+                <string>character</string>
+                <string>complex</string>
+                <string>double</string>
+                <string>precision</string>
+                <string>real</string>
+                <string>real*8</string>
+                <string>integer</string>
+                <string>common</string>
+                <string>logical</string>
+                <string>implicit</string>
+                <string>dimension</string>
+                <string>external</string>
+                <string>parameter</string>
+            </keywords>
+            <keywords id="Keywords" color="#881350" casesensitive="no" useforautocomplete="yes">
+				<string>ALLOCATABLE</string>				<string>ALLOCATE</string>				<string>ASSIGN</string>				<string>BACKSPACE</string>				<string>BREAK</string>				<string>CALL</string>				<string>CASE</string>				<string>CLOSE</string>				<string>COMMON</string>				<string>CONTAINS</string>				<string>CONTINUE</string>				<string>CYCLE</string>				<string>DATA</string>				<string>DEALLOCATE</string>				<string>DO</string>				<string>ELSE</string>
+				<string>ELEMENTAL</string>				<string>ELSEWHERE</string>				<string>END</string>
+				<string>ENDDO</string>				<string>ENDFILE</string>				<string>ENDIF</string>
+				<string>ENDWHERE</string>				<string>ENTRY</string>				<string>EQUIVALENCE</string>				<string>EXIT</string>				<string>FOR</string>
+				<string>FORALL</string>				<string>FORMAT</string>				<string>FUNCTION</string>				<string>GO TO</string>				<string>GOTO</string>				<string>IF</string>				<string>INCLUDE</string>				<string>INQUIRE</string>				<string>NAMELIST</string>				<string>NULLIFY</string>				<string>ONLY</string>				<string>OPEN</string>
+				<string>PAUSE</string>				<string>PRINT</string>				<string>READ</string>				<string>RESULT</string>				<string>RETURN</string>				<string>REWIND</string>				<string>SELECT</string>				<string>STOP</string>
+				<string>THEN</string>				<string>WHERE</string>				<string>WRITE</string>				<string>SUBROUTINE</string>				<string>PROGRAM</string>				<string>WHILE</string>                <string>.gt.</string>
+                <string>.lt.</string>
+                <string>.ge.</string>
+                <string>.le.</string>
+                <string>.eq.</string>
+                <string>.ne.</string>
+                <string>.false.</string>
+                <string>.true.</string>
+            </keywords>
+            <keywords id="Specifier" color="#226D24" casesensitive="no" useforautocomplete="yes">
+				<string>access</string>
+				<string>action</string>
+				<string>advance</string>
+				<string>blank</string>
+				<string>delim</string>
+				<string>direct</string>
+				<string>end</string>
+				<string>eor</string>
+				<string>err</string>
+				<string>exist</string>
+				<string>file</string>
+				<string>fmt</string>
+				<string>form</string>
+				<string>formatted</string>
+				<string>iostat</string>
+				<string>name</string>
+				<string>named</string>
+				<string>nextrec</string>
+				<string>nml</string>
+				<string>number</string>
+				<string>opened</string>
+				<string>pad</string>
+				<string>position</string>
+				<string>read</string>
+				<string>readwrite</string>
+				<string>rec</string>
+				<string>recl</string>
+				<string>sequential</string>
+				<string>size</string>
+				<string>stat</string>
+				<string>status</string>
+				<string>unformatted</string>
+				<string>unit</string>
+				<string>write</string>
+            </keywords>
+            <keywords id="Functions" color="#87114F" casesensitive="no" useforautocomplete="yes">
+				<string>ABS</string>				<string>ACHAR</string>				<string>ACOS</string>				<string>ADJUSTL</string>				<string>ADJUSTR</string>				<string>AIMAG</string>				<string>AINT</string>				<string>ALL</string>				<string>ALLOCATED</string>				<string>ANINT</string>				<string>ANY</string>				<string>ASIN</string>				<string>ASSOCIATED</string>				<string>ATAN</string>				<string>ATAN2</string>				<string>BIT_SIZE</string>				<string>BTEST</string>				<string>CEILING</string>				<string>CHAR</string>				<string>CMPLX</string>				<string>CONJG</string>				<string>COS</string>				<string>COSH</string>				<string>COUNT</string>				<string>CSHIFT</string>				<string>DATE_AND_TIME</string>				<string>DBLE</string>				<string>DIGITS</string>				<string>DIM</string>				<string>DOT_PRODUCT</string>				<string>DPROD</string>				<string>EOSHIFT</string>				<string>EPSILON</string>				<string>EXP</string>				<string>EXPONENT</string>				<string>FLOOR</string>				<string>FRACTION</string>				<string>HUGE</string>				<string>IACHAR</string>				<string>IAND</string>				<string>IBCLR</string>				<string>IBITS</string>				<string>IBSET</string>				<string>ICHAR</string>				<string>IEOR</string>				<string>INDEX</string>				<string>INT</string>				<string>IOR</string>				<string>ISHFT</string>				<string>ISHFTC</string>				<string>KIND</string>				<string>LBOUND</string>				<string>LEN</string>				<string>LEN_TRIM</string>				<string>LGE</string>				<string>LGT</string>				<string>LLE</string>				<string>LLT</string>				<string>LOG</string>				<string>LOG10</string>				<string>MATMUL</string>				<string>MAX</string>				<string>MAXEXPONENT</string>				<string>MAXLOC</string>				<string>MAXVAL</string>				<string>MERGE</string>				<string>MIN</string>				<string>MINEXPONENT</string>				<string>MINLOC</string>				<string>MINVAL</string>				<string>MOD</string>				<string>MODULO</string>				<string>MVBITS</string>				<string>NEAREST</string>				<string>NINT</string>				<string>NOT</string>				<string>NULL</string>				<string>PACK</string>				<string>PRECISION</string>				<string>PRESENT</string>				<string>PRODUCT</string>				<string>RADIX</string>				<string>RANDOM_NUMBER</string>				<string>RANDOM_SEED</string>				<string>RANGE</string>				<string>REAL</string>				<string>REPEAT</string>				<string>RESHAPE</string>				<string>RRSPACING</string>				<string>SCALE</string>				<string>SCAN</string>				<string>SELECTED_INT_KIND</string>				<string>SELECTED_REAL_KIND</string>				<string>SET_EXPONENT</string>				<string>SHAPE</string>				<string>SIGN</string>				<string>SIN</string>				<string>SINH</string>				<string>SIZE</string>				<string>SPACING</string>				<string>SPREAD</string>				<string>SQRT</string>				<string>SUM</string>				<string>SYSTEM_CLOCK</string>				<string>TAN</string>				<string>TANH</string>				<string>TINY</string>				<string>TRANSFER</string>				<string>TRANSPOSE</string>				<string>TRIM</string>				<string>UBOUND</string>				<string>UNPACK</string>				<string>VERIFY</string>            </keywords>
+            <keywords id="Numbers" color="#226D24" useforautocomplete="no">
+				<regex>(?&lt;=[^[A-Za-z0-9]]|^)((([0-9]+\.[0-9]*)|(\.[0-9]+)([eE][+\-]?[0-9]+)?[fFlL]?)|((([1-9][0-9]*)|0[0-7]*|(0[xX][0-9a-fA-F]))(([uU][lL]?)|([lL][uU]?))?))(?=[^[A-Za-z0-9]]|$)</regex>
+            </keywords>
+            <keywords id="Symbols" color="#362" useforautocomplete="no">
+				<regex>[-:+/*,=%]</regex>
+            </keywords>
+            <keywords id="FunctionRegex" color="#87114F" useforautocomplete="no">
+				<regex>([A-Za-z0-9_]+ *)\(</regex>
+            </keywords>
+            <keywords id="CPP" color="#683821" useforautocomplete="no">
+				<regex>(^#([^\n\r])*)</regex>
+            </keywords>
+        </default>
+        
+        
+        <state id="Comment" color="#4C4C4C" background-color="none" font-weight="normal" font-style="italic">
+            <begin><string>^!</string></begin>
+            <end><regex>[\n\r]</regex></end>
+        </state>
+        
+        <state id="HPF Comment" color="#66667F" background-color="none" font-weight="normal" font-style="italic">
+            <begin><string>^!HPF\$</string></begin>
+            <end><regex>[\n\r]</regex></end>
+        </state>
+        
+        <state id="String double" color="#760f15" background-color="none" font-weight="normal" font-style="normal">
+            <begin><string>"</string></begin>
+            <end><regex>(((?&lt;!\\)(\\\\)*)|^)"</regex></end>
+        </state>
+        <state id="String single" color="#760f15" background-color="none" font-weight="normal" font-style="normal">
+            <begin><string>'</string></begin>
+            <end><regex>(((?&lt;!\\)(\\\\)*)|^)'</regex></end>
+        </state>
+    </states>
+
+</syntax>

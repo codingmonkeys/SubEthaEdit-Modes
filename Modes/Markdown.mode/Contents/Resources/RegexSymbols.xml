@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<symbols>
+    <symbol id="Title 1" font-weight="bold" image="SymbolM" indentation="0">
+        <regex>^(?:#{1,1}\s*)([^#]*)(?=\s*[#]*$\n?)</regex>
+    </symbol>   
+    
+    <symbol id="Title 2" image="SymbolF" indentation="1">
+        <regex>^(?:#{2,2}\s*)([^#]*)(?=\s*[#]*$\n?)</regex>
+    </symbol>   
+
+    <symbol id="Title 3" image="SymbolF" indentation="2">
+        <regex>^(?:#{3,3}\s*)([^#]*)(?=\s*[#]*$\n?)</regex>
+    </symbol>   
+
+    <symbol id="Title 4" image="SymbolF" indentation="3">
+        <regex>^(?:#{4,4}\s*)([^#]*)(?=\s*[#]*$\n?)</regex>
+    </symbol>   
+    
+    <symbol id="Title 5" image="SymbolF" indentation="4">
+        <regex>^(?:#{5,5}\s*)([^#]*)(?=\s*[#]*$\n?)</regex>
+    </symbol>
+       
+    <symbol id="Title 6" image="SymbolF" indentation="5">
+        <regex>^(?:#{6,6}\s*)([^#]*)(?=\s*[#]*$\n?)</regex>
+    </symbol>   
+    
+    <symbol id="Title 1" font-weight="bold" image="SymbolM" indentation="0">
+        <regex>^(?:([^\n]*)(?:\n===)+?)</regex>
+    </symbol>
+
+    <symbol id="Title 2" image="SymbolF" indentation="1">
+        <regex>^(?:([^\n]*)(?:\n---)+?)</regex>
+    </symbol>   
+</symbols>

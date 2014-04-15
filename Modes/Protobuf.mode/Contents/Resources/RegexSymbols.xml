@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<symbols>
+    <symbol id="Package" font-weight="bold" image="SymbolP" indentation="0">
+        <regex>package\s+\S+\s*;</regex>
+        <postprocess>
+            <find>\s*;</find>
+            <replace></replace>
+        </postprocess>
+    </symbol>
+    <symbol id="Option" font-weight="bold" image="Symbol#" indentation="1">
+        <regex>option\s+\S+\s*=\s*"?\S+"?\s*;</regex>
+        <postprocess>
+            <find>\s*;</find>
+            <replace></replace>
+        </postprocess>
+    </symbol>
+    <symbol id="Message" image="SymbolM" indentation="1">
+        <regex>message\s+\w+\s*{</regex>
+        <postprocess>
+            <find>\s*{</find>
+            <replace></replace>
+        </postprocess>
+    </symbol>
+</symbols>

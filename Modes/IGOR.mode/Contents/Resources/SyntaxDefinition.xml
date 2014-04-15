@@ -1,0 +1,867 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>
+
+
+    <!-- 
+    The <head> tag encloses some global information about the mode.
+    This tag is required.
+    -->    
+
+    <head>
+
+        <!-- 
+        The <name> specifies the modes name. It is currently not used in the application,
+        as the mode name is loaded from Info.plist, however it is a good idea to specify
+        this tag to don't get confused if the definitions is outside a bundle during
+        development.
+        This tag is optional.
+        -->    
+
+        <name>IGOR</name>
+
+        <!-- 
+        The <charsintokens> and the <charsdelimitingtokens> instruct the syntax highlighter
+        where to tokenize the text for fast finding of plain strings.
+        The <charsintokens> tag specifies the characters that can occur in strings,
+        the <charsdelimitingtokens> tag specifies the tags that cannot occur in strings.
+        One of these tags has to be specified.
+        Tip: Use CDATA here.
+        -->    
+
+        <charsintokens>
+            <![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ]]>
+        </charsintokens> 
+        <!-- <charsdelimitingtokens>[CDATA[ -]]></charsdelimitingtokens> -->
+    </head>
+
+
+    <!-- 
+    The <states> tag encloses all syntax states.
+    States are areas of the test that begin and end with an regex like comments or strings,
+    with exception of the default state, that exists anywhere where no other state exists.
+    This tag is required.
+    -->    
+
+    <states>
+    
+        <!-- 
+        The <default> tag specifies what is colored within the default state (see above).
+        It features the following attributes, all optional if not noted otherwise:
+            id
+                Has to be a unique string. Has to be specified.
+            color
+                a html comptible color in three or six letter hexadecimal format.
+                Used for text on bright document background colors.
+            inverted-color
+                a html comptible color in three or six letter hexadecimal format.
+                Used for text if a dark document background color is set.
+            font-weight
+                normal  Normal font-weight (default)
+                bold    Bold text in popup
+            font-style
+                normal  Normal font-weight (default)
+                italic  Bold text in popup
+                
+        -->    
+    
+        <default id="Base" color="#000" inverted-color="#fff">
+
+            <!-- 
+            The <keywords> tag specifies keyword groups within the current state.
+            It features the following attributes, all optional if not noted otherwise:
+                id
+                    Has to be a unique string. Has to be specified.
+                color
+                    a html comptible color in three or six letter hexadecimal format.
+                    Used for text on bright document background colors.
+                inverted-color
+                    a html comptible color in three or six letter hexadecimal format.
+                    Used for text if a dark document background color is set.
+                font-weight
+                    normal  Normal font-weight (default)
+                    bold    Bold text in popup
+                font-style
+                    normal  Normal font-weight (default)
+                    italic  Bold text in popup
+                casesensitive
+                    yes     This group is case sensitive (default)
+                    no      Ignore case for the group
+                useforautocomplete
+                    yes     Add this group's strings to the autocomplete dictionary (default)
+                    no      Don't add to autocomplete dictionary
+            -->    
+
+            <keywords id="Keywords" color="#0000ff" casesensitive="no" useforautocomplete="yes">
+            
+                <!-- 
+                    <string> tags specify plain text to be colored. If your tag does not
+                    get colored, check in <charsintokens> if you are tokenizing correctly.             
+                -->    
+                <string>End</string>
+                <string>EndMacro</string>
+                <string>EndStructure</string>
+                <string>Function</string>
+                <string>Macro</string>
+                <string>Picture</string>
+                <string>Proc</string>
+                <string>Structure</string>
+                <string>Window</string>
+                <string>ButtonControl</string>
+                <string>CheckBoxControl</string>
+                <string>CursorStyle</string>
+                <string>FitFunc</string>
+                <string>Graph</string>
+                <string>GraphMarquee</string>
+                <string>GraphStyle</string>
+                <string>Layout</string>
+                <string>LayoutMarquee</string>
+                <string>LayoutStyle</string>
+                <string>Panel</string>
+                <string>PopupMenuControl</string>
+                <string>SetVariableControl</string>
+                <string>Table</string>
+                <string>TableStyle</string>
+                <string>FUNCREF</string>
+                <string>NVAR</string>
+                <string>STRUCT</string>
+                <string>SVAR</string>
+                <string>WAVE</string>
+                <string>AbortOnRTE</string>
+                <string>AbortOnValue</string>
+                <string>break</string>
+                <string>catch</string>
+                <string>continue</string>
+                <string>default</string>
+                <string>do</string>
+                <string>while</string>
+                <string>endtry</string>
+                <string>for</string>
+                <string>endfor</string>
+                <string>if</string>
+                <string>else</string>
+                <string>elseif</string>
+                <string>endif</string>
+                <string>return</string>
+                <string>strswitch</string>
+                <string>switch</string>
+                <string>case</string>
+                <string>endswitch</string>
+                <string>try</string>
+                <string>catch</string>
+                <string>endtry</string>
+                <string>#include</string>
+                <string>#pragma</string>
+                <string>Constant</string>
+                <string>DoPrompt</string>
+                <string>IgorVersion</string>
+                <string>Menu</string>
+                <string>ModuleName</string>
+                <string>Override</string>
+                <string>popup</string>
+                <string>ProcGlobal</string>
+                <string>Prompt</string>
+                <string>root</string>
+                <string>rtGlobals</string>
+                <string>Static</string>
+                <string>Strconstant</string>
+                <string>String</string>
+                <string>Submenu</string>
+                <string>Variable</string>
+                <string>version</string>
+                <!-- 
+                    <regex> tags specify regular expression to be colored. 
+                    Only the first group will be colored, so enclose the part to color
+                    with parens.
+                    
+                    The example colors digits prefixed by foo. (only the digits)             
+                -->    
+
+            </keywords>
+
+            <keywords id="Functions" color="#c34e00" font-weight="bold" font-style="italic">
+				<string>abs</string>
+				<string>acos</string>
+				<string>acosh</string>
+				<string>AddListItem</string>
+				<string>airyA</string>
+				<string>airyAD</string>
+				<string>airyB</string>
+				<string>airyBD</string>
+				<string>alog</string>
+				<string>AnnotationInfo</string>
+				<string>AnnotationList</string>
+				<string>area</string>
+				<string>areaXY</string>
+				<string>asin</string>
+				<string>asinh</string>
+				<string>atan</string>
+				<string>atan2</string>
+				<string>atanh</string>
+				<string>AxisInfo</string>
+				<string>AxisList</string>
+				<string>AxisValFromPixel</string>
+				<string>bessI</string>
+				<string>bessJ</string>
+				<string>bessK</string>
+				<string>bessY</string>
+				<string>betai</string>
+				<string>BinarySearch</string>
+				<string>BinarySearchInterp</string>
+				<string>binomial</string>
+				<string>cabs</string>
+				<string>ceil</string>
+				<string>char2num</string>
+				<string>chebyshev</string>
+				<string>CheckName</string>
+				<string>ChildWindowList</string>
+				<string>CleanupName</string>
+				<string>cmplx</string>
+				<string>cmpstr</string>
+				<string>conj</string>
+				<string>ContourInfo</string>
+				<string>ContourNameList</string>
+				<string>ContourNameToWaveRef</string>
+				<string>ContourZ</string>
+				<string>ControlNameList</string>
+				<string>cos</string>
+				<string>cosh</string>
+				<string>CountObjects</string>
+				<string>cpowi</string>
+				<string>CreationDate</string>
+				<string>CsrInfo</string>
+				<string>CsrWave</string>
+				<string>CsrWaveRef</string>
+				<string>CsrXWave</string>
+				<string>CsrXWaveRef</string>
+				<string>CTabList</string>
+				<string>DataFolderDir</string>
+				<string>DataFolderExists</string>
+				<string>date</string>
+				<string>date2secs</string>
+				<string>DateTime</string>
+				<string>dateToJulian</string>
+				<string>dawson</string>
+				<string>DDEExecute</string>
+				<string>DDEInitiate</string>
+				<string>DDEPokeString</string>
+				<string>DDEPokeWave</string>
+				<string>DDERequestString</string>
+				<string>DDERequestWave</string>
+				<string>DDEStatus</string>
+				<string>DDETerminate</string>
+				<string>deltax</string>
+				<string>digamma</string>
+				<string>DimDelta</string>
+				<string>DimOffset</string>
+				<string>DimSize</string>
+				<string>DunnettP</string>
+				<string>DunnettQ</string>
+				<string>e</string>
+				<string>ei</string>
+				<string>enoise</string>
+				<string>equalWaves</string>
+				<string>erf</string>
+				<string>erfc</string>
+				<string>ExamplesExperimentLoader</string>
+				<string>exists</string>
+				<string>exp</string>
+				<string>expInt</string>
+				<string>factorial</string>
+				<string>FakeData</string>
+				<string>faverage</string>
+				<string>faverageXY</string>
+				<string>FindDimLabel</string>
+				<string>FindListItem</string>
+				<string>floor</string>
+				<string>FontList</string>
+				<string>FontSizeHeight</string>
+				<string>FontSizeStringWidth</string>
+				<string>fresnelCos</string>
+				<string>fresnelSin</string>
+				<string>FunctionInfo</string>
+				<string>FunctionList</string>
+				<string>FunctionPath</string>
+				<string>gamma</string>
+				<string>gammaInc</string>
+				<string>gammln</string>
+				<string>gammp</string>
+				<string>gammq</string>
+				<string>Gauss</string>
+				<string>gcd</string>
+				<string>GetBrowserLine</string>
+				<string>GetBrowserSelection</string>
+				<string>GetDataFolder</string>
+				<string>GetDefaultFont</string>
+				<string>GetDefaultFontSize</string>
+				<string>GetDefaultFontStyle</string>
+				<string>GetDimLabel</string>
+				<string>GetFormula</string>
+				<string>GetHelpMenuUpdateItem</string>
+				<string>GetHelpMenuUpdateURL</string>
+				<string>GetIndexedObjName</string>
+				<string>GetKeyState</string>
+				<string>GetRTErrMessage</string>
+				<string>GetRTError</string>
+				<string>GetRTStackInfo</string>
+				<string>GetScrapText</string>
+				<string>GetUserData</string>
+				<string>GetWavesDataFolder</string>
+				<string>GizmoInfo</string>
+				<string>gnoise</string>
+				<string>hcsr</string>
+				<string>hermite</string>
+				<string>hermiteGauss</string>
+				<string>i</string>
+				<string>IgorInfo</string>
+				<string>ilim</string>
+				<string>imag</string>
+				<string>ImageInfo</string>
+				<string>ImageNameList</string>
+				<string>ImageNameToWaveRef</string>
+				<string>IndexedDir</string>
+				<string>IndexedFile</string>
+				<string>Inf</string>
+				<string>InstallHDF5Package</string>
+				<string>Integrate1D</string>
+				<string>interp</string>
+				<string>Interp2D</string>
+				<string>Interp3d</string>
+				<string>ItemsInList</string>
+				<string>j</string>
+				<string>jlim</string>
+				<string>JulianToDate</string>
+				<string>LayoutInfo</string>
+				<string>leftx</string>
+				<string>legendreA</string>
+				<string>limit</string>
+				<string>ListMatch</string>
+				<string>ln</string>
+				<string>log</string>
+				<string>LowerStr</string>
+				<string>MacroList</string>
+				<string>magsqr</string>
+				<string>MatrixDet</string>
+				<string>MatrixDot</string>
+				<string>MatrixRank</string>
+				<string>MatrixTrace</string>
+				<string>max</string>
+				<string>mean</string>
+				<string>min</string>
+				<string>mod</string>
+				<string>modDate</string>
+				<string>NameOfWave</string>
+				<string>NaN</string>
+				<string>norm</string>
+				<string>note</string>
+				<string>num2char</string>
+				<string>num2istr</string>
+				<string>num2str</string>
+				<string>NumberByKey</string>
+				<string>numpnts</string>
+				<string>numtype</string>
+				<string>NumVarOrDefault</string>
+				<string>NVAR_Exists</string>
+				<string>OperationList</string>
+				<string>p</string>
+				<string>p2rect</string>
+				<string>PadString</string>
+				<string>ParamIsDefault</string>
+				<string>ParseFilePath</string>
+				<string>PathList</string>
+				<string>pcsr</string>
+				<string>Pi</string>
+				<string>PICTInfo</string>
+				<string>PICTList</string>
+				<string>PixelFromAxisVal</string>
+				<string>pnt2x</string>
+				<string>poly</string>
+				<string>poly2D</string>
+				<string>PolygonArea</string>
+				<string>PossiblyQuoteName</string>
+				<string>ProcedureText</string>
+				<string>q</string>
+				<string>qcsr</string>
+				<string>r</string>
+				<string>r2polar</string>
+				<string>real</string>
+				<string>RemoveByKey</string>
+				<string>RemoveEnding</string>
+				<string>RemoveFromList</string>
+				<string>RemoveListItem</string>
+				<string>ReplaceNumberByKey</string>
+				<string>ReplaceString</string>
+				<string>ReplaceStringByKey</string>
+				<string>rightx</string>
+				<string>round</string>
+				<string>s</string>
+				<string>sawtooth</string>
+				<string>ScreenResolution</string>
+				<string>Secs2Date</string>
+				<string>Secs2Time</string>
+				<string>SelectNumber</string>
+				<string>SelectString</string>
+				<string>sign</string>
+				<string>sin</string>
+				<string>sinc</string>
+				<string>sinh</string>
+				<string>SortList</string>
+				<string>SpecialDirPath</string>
+				<string>sphericalBessJ</string>
+				<string>sphericalBessJD</string>
+				<string>sphericalBessY</string>
+				<string>sphericalBessYD</string>
+				<string>sqrt</string>
+				<string>startMSTimer</string>
+				<string>stopMSTimer</string>
+				<string>str2num</string>
+				<string>StringByKey</string>
+				<string>stringCRC</string>
+				<string>StringFromList</string>
+				<string>StringList</string>
+				<string>stringmatch</string>
+				<string>strlen</string>
+				<string>strsearch</string>
+				<string>StrVarOrDefault</string>
+				<string>StudentA</string>
+				<string>StudentizedRangeP</string>
+				<string>StudentizedRangeQ</string>
+				<string>StudentT</string>
+				<string>sum</string>
+				<string>SVAR_Exists</string>
+				<string>t</string>
+				<string>TableInfo</string>
+				<string>TagVal</string>
+				<string>TagWaveRef</string>
+				<string>tan</string>
+				<string>tanh</string>
+				<string>TextFile</string>
+				<string>ticks</string>
+				<string>time</string>
+				<string>TraceFromPixel</string>
+				<string>TraceInfo</string>
+				<string>TraceNameList</string>
+				<string>TraceNameToWaveRef</string>
+				<string>trunc</string>
+				<string>UniqueName</string>
+				<string>UpperStr</string>
+				<string>VariableList</string>
+				<string>vcsr</string>
+				<string>WaveDims</string>
+				<string>WaveExists</string>
+				<string>WaveInfo</string>
+				<string>WaveList</string>
+				<string>WaveName</string>
+				<string>WaveRefIndexed</string>
+				<string>WaveType</string>
+				<string>WaveUnits</string>
+				<string>WhichListItem</string>
+				<string>WinList</string>
+				<string>WinName</string>
+				<string>WinRecreation</string>
+				<string>WinType</string>
+				<string>x</string>
+				<string>x2pnt</string>
+				<string>xcsr</string>
+				<string>XWaveName</string>
+				<string>XWaveRefFromTrace</string>
+				<string>y</string>
+				<string>z</string>
+				<string>zcsr</string>
+				<string>ZernikeR</string>
+            </keywords>
+            <keywords id="Operations" color="#007575" casesensitive="no" useforautocomplete="yes">
+				<string>Abort</string>
+				<string>AddFIFOData</string>
+				<string>AddFIFOVectData</string>
+				<string>AddMovieAudio</string>
+				<string>AddMovieFrame</string>
+				<string>APMath</string>
+				<string>Append</string>
+				<string>AppendImage</string>
+				<string>AppendLayoutObject</string>
+				<string>AppendMatrixContour</string>
+				<string>AppendText</string>
+				<string>AppendToGizmo</string>
+				<string>AppendToGraph</string>
+				<string>AppendToLayout</string>
+				<string>AppendToTable</string>
+				<string>AppendXYZContour</string>
+				<string>AutoPositionWindow</string>
+				<string>BackgroundInfo</string>
+				<string>Beep</string>
+				<string>boundingBall</string>
+				<string>BoxSmooth</string>
+				<string>BrowseURL</string>
+				<string>BuildMenu</string>
+				<string>Button</string>
+				<string>Chart</string>
+				<string>CheckBox</string>
+				<string>CheckDisplayed</string>
+				<string>ChooseColor</string>
+				<string>Close</string>
+				<string>CloseMovie</string>
+				<string>ColorScale</string>
+				<string>ColorTab2Wave</string>
+				<string>Concatenate</string>
+				<string>ControlBar</string>
+				<string>ControlInfo</string>
+				<string>ControlUpdate</string>
+				<string>ConvexHull</string>
+				<string>Convolve</string>
+				<string>CopyFile</string>
+				<string>CopyFolder</string>
+				<string>CopyScales</string>
+				<string>Correlate</string>
+				<string>CreateAliasShortcut</string>
+				<string>CreateBrowser</string>
+				<string>CreateSurfer</string>
+				<string>Cross</string>
+				<string>CtrlBackground</string>
+				<string>CtrlFIFO</string>
+				<string>Cursor</string>
+				<string>CurveFit</string>
+				<string>CustomControl</string>
+				<string>CWT</string>
+				<string>DefaultFont</string>
+				<string>DefaultGuiFont</string>
+				<string>DefineGuide</string>
+				<string>DelayUpdate</string>
+				<string>DeleteFile</string>
+				<string>DeleteFolder</string>
+				<string>DeletePoints</string>
+				<string>DEMLoadWave</string>
+				<string>DEMSDTSLoadWave</string>
+				<string>Differentiate</string>
+				<string>Dir</string>
+				<string>Display</string>
+				<string>DisplayHelpTopic</string>
+				<string>DisplayProcedure</string>
+				<string>DLGOLoadWave</string>
+				<string>DLGSDTSLoadWave</string>
+				<string>DoAlert</string>
+				<string>DoIgorMenu</string>
+				<string>DoSurferWindow</string>
+				<string>DoUpdate</string>
+				<string>DoWindow</string>
+				<string>DoXOPIdle</string>
+				<string>DrawArc</string>
+				<string>DrawBezier</string>
+				<string>DrawLine</string>
+				<string>DrawOval</string>
+				<string>DrawPICT</string>
+				<string>DrawPoly</string>
+				<string>DrawRect</string>
+				<string>DrawRRect</string>
+				<string>DrawText</string>
+				<string>DSPDetrend</string>
+				<string>DSPPeriodogram</string>
+				<string>Duplicate</string>
+				<string>DuplicateDataFolder</string>
+				<string>DWT</string>
+				<string>EdgeStats</string>
+				<string>Edit</string>
+				<string>ErrorBars</string>
+				<string>EstimatePeakSizes</string>
+				<string>Execute</string>
+				<string>ExecuteScriptText</string>
+				<string>ExportGizmo</string>
+				<string>ExportSurfer</string>
+				<string>Extract</string>
+				<string>FastOp</string>
+				<string>FBinRead</string>
+				<string>FBinWrite</string>
+				<string>FFT</string>
+				<string>FIFO2Wave</string>
+				<string>FIFOStatus</string>
+				<string>FindAPeak</string>
+				<string>FindLevel</string>
+				<string>FindLevels</string>
+				<string>FindPeak</string>
+				<string>FindPointsInPoly</string>
+				<string>FindRoots</string>
+				<string>FindSequence</string>
+				<string>FindValue</string>
+				<string>fprintf</string>
+				<string>FReadLine</string>
+				<string>FSetPos</string>
+				<string>FStatus</string>
+				<string>FTPDownload</string>
+				<string>FTPUpload</string>
+				<string>FuncFit</string>
+				<string>FuncFitMD</string>
+				<string>GBLoadWave</string>
+				<string>GetAxis</string>
+				<string>GetFileFolderInfo</string>
+				<string>GetGizmo</string>
+				<string>GetMarquee</string>
+				<string>GetSelection</string>
+				<string>GetSurfer</string>
+				<string>GetWindow</string>
+				<string>GizmoMenu</string>
+				<string>GraphNormal</string>
+				<string>GraphWaveDraw</string>
+				<string>GraphWaveEdit</string>
+				<string>GroupBox</string>
+				<string>Hanning</string>
+				<string>HideInfo</string>
+				<string>HideProcedures</string>
+				<string>HideTools</string>
+				<string>HilbertTransform</string>
+				<string>Histogram</string>
+				<string>IFFT</string>
+				<string>ImageAnalyzeParticles</string>
+				<string>ImageBlend</string>
+				<string>ImageBoundaryToMask</string>
+				<string>ImageEdgeDetection</string>
+				<string>ImageFileInfo</string>
+				<string>ImageFilter</string>
+				<string>ImageGenerateROIMask</string>
+				<string>ImageHistModification</string>
+				<string>ImageHistogram</string>
+				<string>ImageInterpolate</string>
+				<string>ImageLineProfile</string>
+				<string>ImageLoad</string>
+				<string>ImageMorphology</string>
+				<string>ImageRegistration</string>
+				<string>ImageRemoveBackground</string>
+				<string>ImageRotate</string>
+				<string>ImageSave</string>
+				<string>ImageSeedFill</string>
+				<string>ImageSnake</string>
+				<string>ImageStats</string>
+				<string>ImageThreshold</string>
+				<string>ImageTransform</string>
+				<string>ImageUnwrapPhase</string>
+				<string>ImageWindow</string>
+				<string>IndexSort</string>
+				<string>InsertPoints</string>
+				<string>Integrate</string>
+				<string>IntegrateODE</string>
+				<string>Interp3DPath</string>
+				<string>Interpolate</string>
+				<string>Interpolate2</string>
+				<string>Interpolate3D</string>
+				<string>KillBackground</string>
+				<string>KillControl</string>
+				<string>KillDataFolder</string>
+				<string>KillFIFO</string>
+				<string>KillFreeAxis</string>
+				<string>KillPath</string>
+				<string>KillPICTs</string>
+				<string>KillStrings</string>
+				<string>KillVariables</string>
+				<string>KillWaves</string>
+				<string>KillWindow</string>
+				<string>KMeans</string>
+				<string>Label</string>
+				<string>Layout</string>
+				<string>Legend</string>
+				<string>ListBox</string>
+				<string>LoadData</string>
+				<string>LoadPackagePreferences</string>
+				<string>LoadPICT</string>
+				<string>LoadWave</string>
+				<string>Make</string>
+				<string>MakeIndex</string>
+				<string>MarkPerfTestTime</string>
+				<string>MatrixConvolve</string>
+				<string>MatrixCorr</string>
+				<string>MatrixEigenV</string>
+				<string>MatrixFilter</string>
+				<string>MatrixGaussJ</string>
+				<string>MatrixInverse</string>
+				<string>MatrixLinearSolve</string>
+				<string>MatrixLLS</string>
+				<string>MatrixLUBkSub</string>
+				<string>MatrixLUD</string>
+				<string>MatrixMultiply</string>
+				<string>MatrixOP</string>
+				<string>MatrixSchur</string>
+				<string>MatrixSolve</string>
+				<string>MatrixSVBkSub</string>
+				<string>MatrixSVD</string>
+				<string>MatrixTranspose</string>
+				<string>Modify</string>
+				<string>ModifyBrowser</string>
+				<string>ModifyContour</string>
+				<string>ModifyControl</string>
+				<string>ModifyControlList</string>
+				<string>ModifyFreeAxis</string>
+				<string>ModifyGizmo</string>
+				<string>ModifyGraph</string>
+				<string>ModifyImage</string>
+				<string>ModifyLayout</string>
+				<string>ModifyPanel</string>
+				<string>ModifySurfer</string>
+				<string>ModifyTable</string>
+				<string>ModifyWaterfall</string>
+				<string>MoveDataFolder</string>
+				<string>MoveFile</string>
+				<string>MoveFolder</string>
+				<string>MoveString</string>
+				<string>MoveSubwindow</string>
+				<string>MoveVariable</string>
+				<string>MoveWave</string>
+				<string>MoveWindow</string>
+				<string>NewDataFolder</string>
+				<string>NewFIFO</string>
+				<string>NewFIFOChan</string>
+				<string>NewFreeAxis</string>
+				<string>NewGizmo</string>
+				<string>NewImage</string>
+				<string>NewLayout</string>
+				<string>NewMovie</string>
+				<string>NewNotebook</string>
+				<string>NewPanel</string>
+				<string>NewPath</string>
+				<string>NewWaterfall</string>
+				<string>Note</string>
+				<string>Notebook</string>
+				<string>Open</string>
+				<string>OpenNotebook</string>
+				<string>OpenProc</string>
+				<string>Optimize</string>
+				<string>ParseOperationTemplate</string>
+				<string>PathInfo</string>
+				<string>PauseForUser</string>
+				<string>PauseUpdate</string>
+				<string>PCA</string>
+				<string>PlayMovie</string>
+				<string>PlayMovieAction</string>
+				<string>PlaySnd</string>
+				<string>PlaySound</string>
+				<string>PopupContextualMenu</string>
+				<string>PopupMenu</string>
+				<string>Preferences</string>
+				<string>PrimeFactors</string>
+				<string>Print</string>
+				<string>printf</string>
+				<string>PrintGraphs</string>
+				<string>PrintLayout</string>
+				<string>PrintNotebook</string>
+				<string>PrintSettings</string>
+				<string>PrintSurfer</string>
+				<string>PrintTable</string>
+				<string>Project</string>
+				<string>PulseStats</string>
+				<string>PutScrapText</string>
+				<string>Quit</string>
+				<string>ReadVariables</string>
+				<string>Redimension</string>
+				<string>Remove</string>
+				<string>RemoveContour</string>
+				<string>RemoveFromGizmo</string>
+				<string>RemoveFromGraph</string>
+				<string>RemoveFromLayout</string>
+				<string>RemoveFromTable</string>
+				<string>RemoveImage</string>
+				<string>RemoveLayoutObjects</string>
+				<string>RemovePath</string>
+				<string>Rename</string>
+				<string>RenameDataFolder</string>
+				<string>RenamePath</string>
+				<string>RenamePICT</string>
+				<string>RenameWindow</string>
+				<string>ReorderTraces</string>
+				<string>ReplaceText</string>
+				<string>ReplaceWave</string>
+				<string>ResumeUpdate</string>
+				<string>Reverse</string>
+				<string>Rotate</string>
+				<string>Save</string>
+				<string>SaveData</string>
+				<string>SaveExperiment</string>
+				<string>SaveGraphCopy</string>
+				<string>SaveNotebook</string>
+				<string>SavePackagePreferences</string>
+				<string>SavePICT</string>
+				<string>SaveTableCopy</string>
+				<string>SetActiveSubwindow</string>
+				<string>SetAxis</string>
+				<string>SetBackground</string>
+				<string>SetDashPattern</string>
+				<string>SetDataFolder</string>
+				<string>SetDimLabel</string>
+				<string>SetDrawEnv</string>
+				<string>SetDrawLayer</string>
+				<string>SetFileFolderInfo</string>
+				<string>SetFormula</string>
+				<string>SetIgorHook</string>
+				<string>SetIgorMenuMode</string>
+				<string>SetIgorOption</string>
+				<string>SetMarquee</string>
+				<string>SetProcessSleep</string>
+				<string>SetRandomSeed</string>
+				<string>SetScale</string>
+				<string>SetVariable</string>
+				<string>SetWaveLock</string>
+				<string>SetWindow</string>
+				<string>ShowInfo</string>
+				<string>ShowTools</string>
+				<string>Silent</string>
+				<string>Sleep</string>
+				<string>Slider</string>
+				<string>Slow</string>
+				<string>Smooth</string>
+				<string>SmoothCustom</string>
+				<string>Sort</string>
+				<string>SoundInRecord</string>
+				<string>SoundInSet</string>
+				<string>SoundInStartChart</string>
+				<string>SoundInStatus</string>
+				<string>SoundInStopChart</string>
+				<string>SphericalInterpolate</string>
+				<string>SphericalTriangulate</string>
+				<string>sprintf</string>
+				<string>sscanf</string>
+				<string>Stack</string>
+				<string>StackWindows</string>
+				<string>String</string>
+				<string>StructGet</string>
+				<string>StructPut</string>
+				<string>TabControl</string>
+				<string>Tag</string>
+				<string>TextBox</string>
+				<string>Tile</string>
+				<string>TileWindows</string>
+				<string>TitleBox</string>
+				<string>Triangulate3d</string>
+				<string>Unwrap</string>
+				<string>ValDisplay</string>
+				<string>Variable</string>
+				<string>WaveMeanStdv</string>
+				<string>WaveStats</string>
+				<string>WaveTransform</string>
+				<string>wfprintf</string>
+				<string>WignerTransform</string>
+				<string>XLLoadWave</string>
+            </keywords>
+
+        </default>
+        
+        <!-- 
+            The <state> tag specifies a state other than the default state.
+            It features the same attributes as <default>.
+            It has to contain a <begin> and a <end> tag which in turn have to 
+            contain a <regex> tag. They can contain <keywords> tags like specified above.
+            
+            For example here a states for C blockcomments, C++ singleline comments and strings.
+            The strings state handles escaped quotes with a lookbehind regular expression 
+            (see a regex tutorial) and colors "foobar" with strings.
+        -->    
+
+
+        <state id="Comment" color="#ff0000" font-style="italic">
+            <begin><regex>//</regex></begin>
+            <end><regex>[\n\r]</regex></end>
+        </state>
+        
+        <state id="String" color="#007500">
+            <begin><regex>"</regex></begin>
+            <end><regex>(((?&lt;!\\)(\\\\)*)|^)"</regex></end>
+        </state>
+
+    </states>
+
+</syntax>

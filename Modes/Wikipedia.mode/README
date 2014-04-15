@@ -1,0 +1,17 @@
+Wikipedia mode (1.0) for SubEthaEdit
+=====================================
+by Matt Haffner (haffner at astro.wisc.edu)
+
+Please feel free to e-mail me with suggestions, comments, or better color schemes.
+
+Notes:
+
+* No Autocomplete yet. Mostly because I haven't thought of it (and don't use it much myself...).
+
+* There is a lot of detailed 'sub-highlighting' of link text. However, this detail will not show up when links appear in lists, emphasized stretches of text, etc. SEE will need to allow nested states or a bit more complicated keyword highlighting (multiple groups?) before I can implement identical behavior inside such structured elements.
+
+* There is a feature of the parser that I haven't been able to get around fully that may cause incorrect highlighting. If a state match is followed by a space, semicolon, or colon (Wikipedia beginning-of-line style markers), the rest of the line will be colored incorrectly. I've put a hack in that prevents this from happening after links (Wiki or external). But you can still hit it if you follow  emphasized text ('', etc.) with a semicolon or colon. 
+
+* For a similar reason, pre-formatted lines (those that start with a space) do not highlight reliably. I use a look-behind expression that just doesn't seem to 'catch' all the time. I'm still looking for better RE's for these issues. Suggestions welcome!
+
+mh

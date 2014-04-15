@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>
+
+    <head>
+        <name>XML</name> <!-- The definitions title -->
+        <charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@]]></charsintokens> <!-- Valid Characters for Variables -->
+        <!-- <charsdelimitingtokens></charsdelimitingtokens> -->
+    </head>
+
+    <states>
+    
+        <default id="Base" color="#000" background-color="#fff" font-style="normal">
+        
+            <keywords id="Tags" color="#881280" useforautocomplete="no">
+                <regex>(&lt;[^&gt;]*&gt;)</regex>
+            </keywords>
+            
+            <keywords id="Strings in Tags" color="#1A1AA6" useforautocomplete="no">
+                <regex>("[^"&gt;&lt;]*")(?=[^&lt;]*&gt;)</regex>
+            </keywords>
+
+            <keywords id="Single Strings in Tags" color="#1A1AA6" useforautocomplete="no">
+                <regex>('[^'&gt;&lt;]*')(?=[^&lt;]*&gt;)</regex>
+            </keywords>
+            
+            <keywords id="Attributes in Tags" color="#994500" useforautocomplete="no">
+                <regex>([\w-]*)[ \t]*=[ \t]*"[^"&gt;&lt;]*"(?=[^&lt;]*&gt;)</regex>
+            </keywords>
+
+            <keywords id="Entities" color="#881280" useforautocomplete="no">
+                <regex>(&amp;\w{1,8};)</regex>
+            </keywords>
+
+        </default>
+
+        <state id="Comment" color="#236E25" font-style="italic">
+            <begin><regex>&lt;!--</regex></begin>
+            <end><regex>--&gt;</regex></end>
+        </state>
+
+        <state id="CDATA" color="#f00" font-style="italic">
+            <begin><regex>&lt;!\s*\[CDATA\s*\[</regex></begin>
+            <end><regex>\]\s*\]\s*&gt;</regex></end>
+        </state>
+        
+        <state id="Doctype" color="#236E25" font-style="italic">
+            <begin><regex>&lt;!</regex></begin>
+            <end><regex>&gt;</regex></end>
+        </state>
+
+        <state id="Escape" color="#236E25" font-style="italic">
+            <begin><regex>&lt;\?</regex></begin>
+            <end><regex>\?&gt;</regex></end>
+        </state>
+
+    </states>
+
+</syntax>

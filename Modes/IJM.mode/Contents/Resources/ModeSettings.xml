@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "settings.dtd">
+<settings>
+    <recognition>
+        <extension>txt</extension>                 <!-- Add file extensions -->
+        <extension>ijm</extension>
+        <regex>(ImageJ Macro)</regex>
+    </recognition>
+</settings>

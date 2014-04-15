@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "symbol.dtd">
+<symbols>
+
+    <symbol id="Defs" image="SymbolF()" indentation="0">
+        <regex>(\(def[^() ]+ +[^() ]+ *\(([^()]|\([^()]\))*\))</regex>
+        <postprocess>
+            <find>\(defpackage .*</find>
+            <replace></replace>
+            <find>^\(</find>
+            <replace> </replace>
+            <find></find>
+            <replace> </replace>
+        </postprocess>
+    </symbol>
+
+</symbols>

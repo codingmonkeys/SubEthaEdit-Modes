@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<opml version="1.0">
+<opml>
+</opml>
+<head>
+<title>
+<dateCreated>
+<dateModified>
+<ownerName>
+<ownerEmail>
+<expansionState>
+<vertScrollState>
+<windowTop>
+<windowLeft>
+<windowBottom>
+<windowRight>
+<body>
+<outline>
+<outline text="">
+</head>
+</title>
+</dateCreated>
+</dateModified>
+</ownerName>
+</ownerEmail>
+</expansionState>
+</vertScrollState>
+</windowTop>
+</windowLeft>
+</windowBottom>
+</windowRight>
+</body>
+</outline>
+text
+type
+isComment
+isBreakpoint
+true
+false
+opml
+head
+title
+dateCreated
+dateModified
+ownerName
+ownerEmail
+expansionState
+vertScrollState
+windowTop
+windowLeft
+windowBottom
+windowRight
+body
+outline
+Dave Winer

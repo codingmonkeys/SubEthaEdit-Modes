@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "settings.dtd">
+<settings>
+    <recognition>
+        <extension>lc</extension>
+        <extension>irev</extension>
+        <regex>\A&lt;\?[Ll]c</regex>
+        <regex>\A&lt;\?[Rr]ev</regex>
+    </recognition>
+</settings>

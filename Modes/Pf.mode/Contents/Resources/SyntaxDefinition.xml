@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>
+
+
+    <!-- 
+    The <head> tag encloses some global information about the mode.
+    This tag is required.
+    -->    
+
+    <head>
+
+        <!-- 
+        The <name> specifies the modes name. It is currently not used in the application,
+        as the mode name is loaded from Info.plist, however it is a good idea to specify
+        this tag to don't get confused if the definitions is outside a bundle during
+        development.
+        This tag is optional.
+        -->    
+
+        <name>Pf Syntax</name>
+
+        <!-- 
+        The <charsintokens> and the <charsdelimitingtokens> instruct the syntax highlighter
+        where to tokenize the text for fast finding of plain strings.
+        The <charsintokens> tag specifies the characters that can occur in strings,
+        the <charsdelimitingtokens> tag specifies the tags that cannot occur in strings.
+        One of these tags has to be specified.
+        Tip: Use CDATA here.
+        -->    
+
+        <!--
+        <charsintokens>
+            <![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@]]>
+        </charsintokens> 
+        -->
+        <charsintokens>
+            <![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@$]]>
+        </charsintokens> 
+        <!-- <charsdelimitingtokens>[CDATA[ -]]></charsdelimitingtokens> -->
+    </head>
+
+
+    <!-- 
+    The <states> tag encloses all syntax states.
+    States are areas of the test that begin and end with an regex like comments or strings,
+    with exception of the default state, that exists anywhere where no other state exists.
+    This tag is required.
+    -->    
+
+    <states>
+    
+        <!-- 
+        The <default> tag specifies what is colored within the default state (see above).
+        It features the following attributes, all optional if not noted otherwise:
+            id
+                Has to be a unique string. Has to be specified.
+            color
+                a html comptible color in three or six letter hexadecimal format.
+                Used for text on bright document background colors.
+            inverted-color
+                a html comptible color in three or six letter hexadecimal format.
+                Used for text if a dark document background color is set.
+            font-weight
+                normal  Normal font-weight (default)
+                bold    Bold text in popup
+            font-style
+                normal  Normal font-weight (default)
+                italic  Bold text in popup
+                
+        -->    
+    
+        <default id="Base" color="#000" inverted-color="#fff">
+
+            <!-- 
+            The <keywords> tag specifies keyword groups within the current state.
+            It features the following attributes, all optional if not noted otherwise:
+                id
+                    Has to be a unique string. Has to be specified.
+                color
+                    a html comptible color in three or six letter hexadecimal format.
+                    Used for text on bright document background colors.
+                inverted-color
+                    a html comptible color in three or six letter hexadecimal format.
+                    Used for text if a dark document background color is set.
+                font-weight
+                    normal  Normal font-weight (default)
+                    bold    Bold text in popup
+                font-style
+                    normal  Normal font-weight (default)
+                    italic  Bold text in popup
+                casesensitive
+                    yes     This group is case sensitive (default)
+                    no      Ignore case for the group
+                useforautocomplete
+                    yes     Add this group's strings to the autocomplete dictionary (default)
+                    no      Don't add to autocomplete dictionary
+            -->    
+
+            <keywords id="Commands" color="#aa0540" casesensitive="yes" useforautocomplete="yes" font-weight="bold">
+            
+                <!-- 
+                    <string> tags specify plain text to be colored. If your tag does not
+                    get colored, check in <charsintokens> if you are tokenizing correctly.             
+                -->    
+            
+				<!--
+				    These are COMMANDS in the Pf syntax
+				-->
+				<string>altq</string>
+                <string>anchor</string>
+                <string>antispoof</string>
+                <string>binat</string>
+                <string>nat</string>
+                <string>pass</string>
+                <string>queue</string>
+                <string>rdr</string>
+                <string>scrub</string>
+                <string>table</string>
+                <string>set</string>
+                <string>block</string>
+
+                <!-- 
+                    <regex> tags specify regular expression to be colored. 
+                    Only the first group will be colored, so enclose the part to color
+                    with parens.
+                    
+                    The example colors digits prefixed by foo. (only the digits)             
+                -->    
+
+				<!-- <regex>foo([0-9])</regex> -->
+
+            </keywords>
+
+            <!-- 
+                            <keywords id="Services" color="#400080" casesensitive="yes" useforautocomplete="yes" font-weight="bold" font-style="italic">
+            -->
+            <keywords id="Services" color="#400080" casesensitive="yes" useforautocomplete="yes">
+				<string>auth</string>
+                <string>bgp</string>
+                <string>domain</string>
+                <string>finger</string>
+                <string>ftp</string>
+                <string>http</string>
+                <string>https</string>
+                <string>ident</string>
+                <string>imap</string>
+                <string>irc</string>
+                <string>isakmp</string>
+                <string>kerberos</string>
+                <string>mail</string>
+                <string>nameserver</string>
+                <string>nfs</string>
+                <string>nntp</string>
+                <string>ntp</string>
+                <string>pop3</string>
+                <string>portmap</string>
+                <string>pptp</string>
+                <string>rpcbind</string>
+                <string>rsync</string>
+                <string>smtp</string>
+                <string>snmp</string>
+                <string>snmptrap</string>
+                <string>socks</string>
+                <string>ssh</string>
+                <string>sunrpc</string>
+                <string>syslog</string>
+                <string>telnet</string>
+                <string>tftp</string>
+                <string>www</string>
+            </keywords>
+
+            <keywords id="Wildcards" color="#f00000" casesensitive="yes" useforautocomplete="yes" font-weight="bold" font-style="italic">
+                <string>any</string>
+                <string>all</string>
+            </keywords>
+            
+
+            <keywords id="Variables" color="#804000" font-style="italic">
+                <regex>(\$[a-zA-Z0-9_]+)</regex>
+            </keywords>
+
+
+            <keywords id="IPv4" color="#0033CC">
+                <regex>(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(/\d{1,2})*)</regex>
+            </keywords>
+            
+            <keywords id="Other Modifiers" color="#9900cc" casesensitive="yes">
+                <string>quick</string>
+                <regex>(keep\s+state)</regex>
+            </keywords>
+
+        </default>
+        
+        <!-- 
+            The <state> tag specifies a state other than the default state.
+            It features the same attributes as <default>.
+            It has to contain a <begin> and a <end> tag which in turn have to 
+            contain a <regex> tag. They can contain <keywords> tags like specified above.
+            
+            For example here a states for C blockcomments, C++ singleline comments and strings.
+            The strings state handles escaped quotes with a lookbehind regular expression 
+            (see a regex tutorial) and colors "foobar" with strings.
+        -->    
+
+        <!--
+        <state id="Comment" color="#236E25" font-style="italic">
+            <begin><regex>/\*</regex></begin>
+            <end><regex>\*/</regex></end>
+        </state>
+        -->
+        
+
+        <state id="SingleComment" color="#236E25" font-style="italic">
+            <begin><regex>\s*\#</regex></begin>
+            <end><regex>[\n\r]</regex></end>
+        </state>
+
+        
+        <state id="String" color="#150f76">
+            <begin><regex>"</regex></begin>
+            <end><regex>(((?&lt;!\\)(\\\\)*)|^)"</regex></end>
+        </state>
+
+        
+        <!--
+        <state id="Table" color="#040302" font-style="italic">
+            <begin><regex>&lt;</regex></begin>
+            <end><regex>(((?&lt;!\\)(\\\\)*)|^)&rt;</regex></end>
+        </state>
+        -->
+
+    </states>
+
+</syntax>

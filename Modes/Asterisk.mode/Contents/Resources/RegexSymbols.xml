@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "symbol.dtd">
+<symbols>
+    <symbol id="Section Heading" image="SymbolS" indentation="0">
+        <regex>^\[\w+\][\n\r]</regex>
+        <postprocess>
+            <find>^\[\w+\][\n\r]</find>
+            <replace>\0</replace>
+        </postprocess>
+    </symbol>
+</symbols>

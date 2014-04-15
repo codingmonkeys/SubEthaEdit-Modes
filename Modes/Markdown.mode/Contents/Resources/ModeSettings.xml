@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<settings>
+  <template>mytemplate.txt</template>   <!-- Provide a template for File->new -->
+  <recognition>
+    <extension>md</extension>     <!-- Add file extensions -->
+    <extension>markdown</extension>     <!-- Add file extensions -->
+  </recognition>
+</settings>

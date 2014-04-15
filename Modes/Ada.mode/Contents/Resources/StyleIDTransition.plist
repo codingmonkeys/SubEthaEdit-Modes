@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>/Ada/Characters</key>
+	<string>Characters</string>
+	<key>/Ada/Classes</key>
+	<string>/Ada/Classes</string>
+	<key>/Ada/Comment</key>
+	<string>Comment</string>
+	<key>/Ada/FunctionRegex</key>
+	<string>_Default.FunctionRegex</string>
+	<key>/Ada/Keywords</key>
+	<string>_Default.Keywords</string>
+	<key>/Ada/Numbers</key>
+	<string>_Default.Numbers</string>
+	<key>/Ada/Preprocessor</key>
+	<string>_Default.Preprocessor</string>
+	<key>/Ada/SingleComment</key>
+	<string>SingleComment</string>
+	<key>/Ada/Strings</key>
+	<string>Strings</string>
+	<key>_Default</key>
+	<string>_Default</string>
+</dict>
+</plist>

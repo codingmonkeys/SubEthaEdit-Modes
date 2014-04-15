@@ -1,0 +1,17 @@
+h1. YAML.mode
+
+YAML.mode is a YAML syntax definition for SubEthaEdit & Coda. This is a work in progress so please be patient ;)
+
+h2. Usage
+
+h3. Installation
+
+Simply check out this repo into either <code>~/Library/Application Support/Coda/Modes</code> or <code>~/Library/Application Support/SubEthaEdit/Modes</code>, be sure to name the directory <code>YAML.mode</code>.
+
+h2. Author
+
+Written by StuFF mc - "Pomcast.biz":http://pomcast.biz/
+
+h3. Credits
+
+Thanks to "Panic":http://www.panic.com/ for creating a kick-ass IDE! But also to "The Coding Monkeys":http://codingmonkeys.de for previously doing a kick-ass text editor! Finally, thanks to "the HAML.mode creator":http://github.com/gf3/haml.mode for being the inspiration of this README :-)

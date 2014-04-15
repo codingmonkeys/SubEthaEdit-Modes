@@ -1,0 +1,6 @@
+Initial release Version 1.0
+
+	*) Created MooTools mode by tweaking original JavaScript mode.
+	*) Added keywords to CodaCompletion.xml file.
+	*) Modified SyntaxDefinition.xml to support $ symbol.
+	*) Modified RegexSymbols.xml to include Classes.

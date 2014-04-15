@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<syntax>
+    <head>
+        <name>ToDo</name>
+        <autocompleteoptions use-spelling-dictionary="yes" />
+
+        <charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@]]></charsintokens> 
+        
+        <charsincompletion><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@]]></charsincompletion>
+    </head>
+
+
+    <states>
+    
+        <default id="Base" color="#000" inverted-color="#fff">
+            <keywords id="Projects" color="#000" inverted-color="#fff" font-weight="bold" useforautocomplete="no">
+				<regex>^[ 	]*([^-+\s].*:)\s*$</regex>
+            </keywords>
+
+            <keywords id="Open Tasks" color="#000" inverted-color="#fff" useforautocomplete="no">
+				<regex>^[ 	]*(-.*)$</regex>
+            </keywords>
+
+            <keywords id="Completed Tasks" color="#a6a6a6" inverted-color="#404040" useforautocomplete="no">
+				<regex>^[ 	]*(\+.*|-.*@done\b.*)$</regex>
+            </keywords>
+
+        </default>
+        
+    </states>
+
+</syntax>

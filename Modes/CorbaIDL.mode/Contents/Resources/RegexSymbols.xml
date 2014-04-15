@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "symbol.dtd">
+<symbols>
+    
+    <symbol id="Interfaces" image="SymbolF" indentation="0">
+        <regex>interface\s+([\w\d_\*]+)\s*[^\{;/]*\{</regex>
+    </symbol>
+
+    <symbol id="Modules" image="SymbolM" indentation="0">
+        <regex>module\s+([\w\d_\*]+)\s*\{</regex>
+    </symbol>
+
+    <symbol id="Structs" image="SymbolS" indentation="1">
+        <regex>struct\s+([\w\d_\*]+)\s*\{</regex>
+    </symbol>
+
+    <symbol id="Defines" image="Symbol#" indentation="0">
+        <regex>#define\s+([\w\d_\*]+)</regex>
+    </symbol>
+
+    <symbol id="Typedef" image="SymbolT" indentation="1">
+        <regex>typedef\s+(?:&lt;?[\w\d_\*]+&gt;?\s*)+\s+([\w\d_\*]+)\s*;</regex>
+    </symbol>
+
+    <symbol id="Enum" image="SymbolE" indentation="1">
+        <regex>enum\s+([\w\d_\*]+)\s*\{[^\}]*}\s*;</regex>
+    </symbol>
+
+    <symbol id="Function" image="SymbolF()" indentation="1">
+        <regex>(?:&lt;?[\w\d_\*]+&gt;?\s+)+([\w\d_\*]+\s*\([^\)]*\))\s*(?:raises\s*\([^\)]*\)\s*)?;</regex>
+        <postprocess>
+            <find>\([^\)]*\)</find>
+            <replace>()</replace>
+        </postprocess>
+    </symbol>
+
+
+    <symbol id="CVS/SVN conflict" font-weight="bold" image="SymbolWarn" indentation="0" ignoreblocks="no">
+        <regex>^&lt;&lt;&lt;&lt;&lt;&lt;&lt;[^=]*======[^&gt;]*&gt;&gt;&gt;&gt;&gt;&gt;&gt;</regex>
+        <postprocess>
+            <find>.*</find>
+            <replace>Versioning conflict!</replace>
+        </postprocess>
+    </symbol>
+
+</symbols>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "symbol.dtd">
+<symbols>
+    <symbol id="Let Binding" image="SymbolL" indentation="1">
+        <regex>let +(?:rec +)?([a-z][a-zA-Z0-9_]*) +( *[a-z\(][a-zA-Z0-9_\)]*)+</regex>
+    </symbol>
+    <symbol id="Module" image="SymbolM" indentation="1">
+        <regex>module +([A-Z][A-Za-z0-9_]*) +</regex>
+    </symbol>
+</symbols>

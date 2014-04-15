@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+  <template>freshtemplate.txt</template>
+  <recognition>
+    <extension>dtd</extension>
+  </recognition>
+</settings>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+<syntax>
+
+    <head>
+        <name>dtrace</name> <!-- The definitions title -->
+        <charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@]]></charsintokens> <!-- Valid Characters for Variables -->
+        <!-- <charsdelimitingtokens></charsdelimitingtokens> -->
+    </head>
+
+    <states>
+    
+        <default id="Base" color="#000" background-color="#fff" font-weight="normal" font-style="normal">
+
+
+            <keywords id="dtraceFunctions" color="#003366" useforautocomplete="yes">
+                <!-- output -->
+                <string>trace</string>
+                <string>printf</string>
+                <string>printa</string>
+                <string>stack</string>
+                <string>ustack</string>
+                
+                <!-- copy -->
+                <string>copyinstr</string>
+                <string>copyin</string>
+                                
+                <!-- aggregate stuff -->
+                <string>count</string>
+                <string>sum</string>
+                <string>avg</string>
+                <string>min</string>
+                <string>max</string>
+                <string>quantize</string>
+                <string>lquantize</string>
+                <string>trunc</string>
+                <string>clear</string>
+                <string>normalize</string>
+
+                <!-- neat stuff -->
+                <string>copyout</string>
+                <string>stop</string>
+                <string>raise</string>
+                <string>chill</string>
+                <string>exit</string>
+                <string>system</string>
+                
+            </keywords>
+
+
+            <keywords id="dtraceVariables" color="#881350" useforautocomplete="yes">
+                <string>self</string>
+                <string>this</string>
+                
+                <string>probefunc</string>
+                <string>probename</string>
+
+                <string>execname</string>
+                <string>pid</string>
+
+                <string>curthread</string>
+                <string>curpsinfo</string>
+
+                <string>timestamp</string>
+                <string>walltimestamp</string>
+
+                <string>arg0</string>
+                <string>arg1</string>
+                <string>arg2</string>
+                <string>arg3</string>
+                <string>arg4</string>
+                <string>arg5</string>
+                <string>arg6</string>
+                <string>arg7</string>
+                <string>arg8</string>
+                <string>arg9</string>
+
+            </keywords>
+
+            <keywords id="Numbers" color="#888888" useforautocomplete="no">
+				<regex>(?&lt;=[^\w\d]|^)(((([0-9]+\.[0-9]*)|(\.[0-9]+))([eE][+\-]?[0-9]+)?[fFlL]?)|((([1-9][0-9]*)|0[0-7]*|(0[xX][0-9a-fA-F]+))(([uU][lL]?)|([lL][uU]?))?))(?=[^\w\d]|$)</regex>
+            </keywords>
+
+        </default>
+
+
+
+        <state id="Comment" color="#236E25" background-color="none" font-weight="normal" font-style="italic">
+            <begin><regex>/\*</regex></begin>
+            <end><regex>\*/</regex></end>
+        </state>
+        
+        
+        <state id="String" color="#888888" background-color="none" font-weight="normal" font-style="normal">
+            <begin><regex>"</regex></begin>
+            <end><regex>(((?&lt;!\\)(\\\\)*)|^)"</regex></end>
+        </state>
+
+        <state id="Probe" color="#0000FF" >
+            <begin><regex>^dtrace:|^lockstat:|^profile:|^fbt:|^machtrap:|^syscall:|^io:|^vminfo:|^proc:|^mds32:|^plockstat\d*:|^CoreData\d*:|^dslockstat\d*:|^FinderSpotlight\d*:</regex></begin>
+            <end><regex>\n|[ 	]</regex></end>
+        </state>
+
+        <state id="Predicate" color="#FF0000" >
+            <begin><regex>/[^*]</regex></begin>
+            <end><regex>/</regex></end>
+        </state>
+ 
+         <state id="Interpreter" color="#683821" background-color="none">
+            <begin><regex>^[ 	]*#</regex></begin>
+            <end><regex>\n</regex></end>
+        </state>
+       
+        
+    </states>
+
+</syntax>

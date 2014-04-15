@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "symbol.dtd">
+
+<!-- Mathematica mode symbol definition file "RegexSymbols.xml" for SubEthaEdit.
+	Boris Horvat (boris at carrotz dot com), 25th October 2007
+		
+		Change Log:
+
+	-->
+
+<symbols>
+	<!-- Find Mathematica function definitions with an included "=" sign. -->
+	<symbol id="Matlab Functions with Assignment" font-weight="normal" font-style="normal" image="SymbolF" indentation="0" ignoreblocks="yes">
+		<regex>(([a-zA-Z0-9$]+\[(\s*|([a-zA-Z0-9$]*[^\[\]]*))\])|([a-zA-Z0-9$]+::usage)|BeginPackage\[(\w)*\]|EndPackage\[\]|Begin\["`Private`"\])</regex>
+    </symbol>
+</symbols>

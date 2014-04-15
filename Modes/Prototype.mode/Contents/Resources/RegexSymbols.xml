@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "symbol.dtd">
+<symbols>
+
+    <blocks>
+        <beginregex>{</beginregex>
+        <endregex>}</endregex>
+    </blocks>
+
+	<symbol id="Classes" image="SymbolC" indentation="0" font-weight="bold">
+		<regex>([A-Za-z_\$][\w\$\.]*)\s*=\s*new\s*Class\s*\(</regex>
+        <postprocess>
+            <find>(.*)</find>
+            <replace>\1</replace>
+        </postprocess>
+	</symbol>
+
+    <symbol id="Methods" image="SymbolM" indentation="2">
+      <regex>(\w+\s*:\s*(?i)function[ ]*\([^)]*\))\s*{</regex> <!--STUDIO added space support after function and insenstive lookup-->
+    </symbol>
+    
+    <symbol id="Funtions" image="SymbolF()" indentation="0" ignoreblocks="yes">
+        <!--<regex>(?&lt;=[\n\r]|^)\s*(?i)function\s+([^{]*)(?=\s*\{)</regex>-->
+        <regex>^\s*(?i)function\s+([a-zA-Z_0-9-]+\s*\(.*\))</regex>
+        <postprocess>
+            <find>\([^\)]*\)</find>
+            <replace>()</replace>
+            <find>[\n\r]</find>
+            <replace> </replace>
+            <find>[ \t]+</find>
+            <replace> </replace>
+        </postprocess>
+    </symbol>
+
+    <symbol id="Inline Funtions" image="SymbolF()" indentation="0" ignoreblocks="yes">
+        <regex>(\w+)\s*=\s*(?i)function\s*\([^\)]*\)(?=\s*\{)</regex>
+        <postprocess>
+            <find>(.*)</find>
+            <replace>\1()</replace>
+        </postprocess>
+    </symbol>
+
+    <symbol id="CVS/SVN conflict" font-weight="bold" image="SymbolWarn" indentation="0" ignoreblocks="no">
+        <regex>^&lt;&lt;&lt;&lt;&lt;&lt;&lt;[^=]*======[^&gt;]*&gt;&gt;&gt;&gt;&gt;&gt;&gt;</regex>
+        <postprocess>
+            <find>.*</find>
+            <replace>Versioning conflict!</replace>
+        </postprocess>
+    </symbol>
+    
+    <!-- STUDIO -->
+    <symbol id="Pragma marks" font-weight="normal" font-style="normal" image="SymbolMark" indentation="0" ignoreblocks="no" show-in-comments="yes">
+        <regex>/\*\s*!(.+) \*/</regex>
+    </symbol>
+    
+    <symbol id="Pragma marks" font-weight="normal" font-style="normal" image="SymbolMark" indentation="0" ignoreblocks="no" show-in-comments="yes">
+        <regex>// !([^\n\r]+)</regex>
+    </symbol>
+	<!-- END -->
+	
+</symbols>
