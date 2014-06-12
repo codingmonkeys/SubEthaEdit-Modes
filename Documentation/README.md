@@ -14,13 +14,11 @@ As with SubEthaEdit up to 4 you can create custom modes to support your language
 * Toolbar items and names for scripts are deprecated now
 * To support indenting `states` in `SyntaxDefinition.xml` now have the attribute `indent` - if set to `"yes"` SubEthaEdit can infer indetaion on return and re-indent
 * State `begin` now can have a `autoend` which will be used on "Close current Tag/Block (option-cmd-.). this can either be a plain string, or reference a named group in the begin regex. e.g. `<autoend>@end</autoend>` or `<autoend>&lt;/\g&lt;xmltagstatename&gt;&gt;</autoend>`
-* This is an incomplete list - for reference the old mode documentation can be found in the [Attic](../Attic/SubEthaEdit3/Documentation/mode.html)
+* This is an incomplete list - for reference the old mode documentation can be found in the [Attic](https://github.com/codingmonkeys/SubEthaEdit/blob/master/Attic/SubEthaEdit3/Documentation/mode.html)
 
 # Styles
 
-Description forthcoming. [SEEScopeDoc.html](Styles/SEEScopeDoc.html)
+Description forthcoming. [SEEScopeDoc.html](http://htmlpreview.github.io?https://github.com/codingmonkeys/SubEthaEdit/blob/master/Documentation/Styles/SEEScopeDoc.html)
 
 ### Links
-[SubEthaEdit](http://subethaedit.net/) 
-
-[TheCodingMonkeys](http://codingmonkeys.de/)
+[SubEthaEdit GitHub Repo](https://github.com/codingmonkeys/SubEthaEdit) 
