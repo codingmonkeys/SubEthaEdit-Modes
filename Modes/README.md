@@ -3,7 +3,7 @@
 
 Language | Version | Update Date | Comment 
 ---------|---------|-------------|--------
- c# ([zip](../../../../raw/master/Modes/C%23.seemode.zip))     | 1.0     | 2014-06-12  | Quick simple c# mode 
+ c# ([zip](../../../raw/master/Modes/C%23.seemode.zip))     | 1.0     | 2014-06-12  | Quick simple c# mode 
 
 
 ### Links
