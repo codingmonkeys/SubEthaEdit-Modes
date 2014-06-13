@@ -1,0 +1,30 @@
+############################################################# NB
+
+This is the Example Mode for SubEthaEdit 4.0.1
+Created 2014/06/13
+In part based on the old SEE tutorial for creating new modes.
+
+#############################################################
+
+
+Changes with Version 1.0 (SEE 4.0)
+	*) added Info.plist
+	*) added AutocompleteAdditions.txt
+	*) added ChangeLog.txt
+	*) added ExampleSyntax.txt
+	*) added ModeSettings.xml
+	*) added custom template "NewTemplate.txt"
+	*) added RegexSymbols.xml
+	*) added SyntaxDefinition.xml (preliminary)
+	*) added custom images "CustomImage"
+	*) added Documentation folder containing readmes explaining the files
+	
+	
+
+#############################################################
+TODO / Known Issues:
+ * missing localization example
+ * missing additional settings documentation
+ * missing deprecations list for .mode to .seemode updates
+ * missing scope documentation including scope changes list 
+ * incomplete Info.plist documentation
