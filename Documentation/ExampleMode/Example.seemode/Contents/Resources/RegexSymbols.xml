@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "symbol.dtd">
+
+<symbols>
+	<symbol id="Todos" symbol="do_#2B50E8_11.0_LucidaGrande" indentation="1" show-in-comments="yes">
+		<regex>(^%TODO:[^\n\r]*)</regex>
+		<postprocess>
+			<find>^%(TODO:[^\n\r]*)</find>
+			<replace>\1</replace>
+		</postprocess>
+	</symbol>
+
+	<symbol id="Warnings" image="SymbolWarn">
+		<regex>(^%Warning:[^\n\r]*)</regex>
+		<postprocess>
+			<find>^%(Warning:[^\n\r]*)</find>
+			<replace>!!! \1</replace>
+			<find>[ \t]+$</find>
+			<replace></replace>
+		</postprocess>
+	</symbol>
+
+	<symbol id="Foobar" image="CustomImage">
+		<regex>foobar</regex>
+	</symbol>
+</symbols>

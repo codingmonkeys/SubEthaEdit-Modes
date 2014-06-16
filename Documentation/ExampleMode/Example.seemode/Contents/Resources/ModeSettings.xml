@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<settings>
+	<template>NewTemplate.txt</template>
+	<recognition>
+		<extension>example</extension>
+		<extension casesensitive="yes">exmpl</extension>
+		<filename>Example</filename>
+		<regex>\A#!This is my Example Shebang</regex>
+	</recognition>
+</settings>
