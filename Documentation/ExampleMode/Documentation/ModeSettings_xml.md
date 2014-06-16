@@ -99,7 +99,7 @@ Mode triggers defined in the `<recognition>` tags can additonally be influenced 
 
 
 
-###  <a name="ModeTriggerExamples"></a>Mode Recognition Trigger: Example files
+####  <a name="ModeTriggerExamples"></a>Mode Recognition Trigger: Example files
 
 [`TestFiles/`][TestFiles] contains files showing which of them are recognized as `Example.seemode` files and which are not. 
 
