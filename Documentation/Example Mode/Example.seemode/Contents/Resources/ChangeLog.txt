@@ -9,22 +9,13 @@ In part based on the old SEE tutorial for creating new modes.
 
 Changes with Version 1.0 (SEE 4.0)
 	*) added Info.plist
-	*) added AutocompleteAdditions.txt
-	*) added ChangeLog.txt
-	*) added ExampleSyntax.txt
+	*) added SyntaxDefinition.xml
 	*) added ModeSettings.xml
-	*) added custom template "NewTemplate.txt"
 	*) added RegexSymbols.xml
-	*) added SyntaxDefinition.xml (preliminary)
 	*) added custom images "CustomImage"
-	*) added Documentation folder containing readmes explaining the files
-	
-	
+	*) added AutocompleteAdditions.txt
+	*) added ExampleSyntax.txt
+	*) added custom template "NewTemplate.txt"
+	*) added custom example script HelloThere.scpt
+	*) added ChangeLog.txt
 
-#############################################################
-TODO / Known Issues:
- * missing localization example
- * missing additional settings documentation
- * missing deprecations list for .mode to .seemode updates
- * missing scope documentation including scope changes list 
- * incomplete Info.plist documentation
