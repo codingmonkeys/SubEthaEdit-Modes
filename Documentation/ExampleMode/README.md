@@ -73,7 +73,7 @@ Files that are used for symbol icons in the function popup are also referenced b
 
 ### [File recognition trigger test files][TestFiles]
 
-`Test Files/` contains example "Example" files showing which of them are recognized as "Example" files and which aren't. 
+`TestFiles/` contains example "Example" files showing which of them are recognized as "Example" files and which aren't. 
 
 * `Example` is recognized based on the filename
 * `ExampleModeFile_NoShebang.EXAMPLE` is recognized based on the file extension
@@ -81,7 +81,6 @@ Files that are used for symbol icons in the function popup are also referenced b
 * `ExampleModeFile_Shebang` - is recognized based on the shebang
 * `ExampleModeFile_Shebang.txt` - is recognized based on the shebang (though precedence for recognizing based on txt extension wins in the default setup)
 * `NoExampleModeFile_NoShebang.EXMPL`
-
 
 
 <!-- Referenced Files -->
@@ -92,5 +91,5 @@ Files that are used for symbol icons in the function popup are also referenced b
 [RegexSymbols_xml]: Documentation/RegexSymbols_xml.md "RegexSymbols_xml.md"
 [SyntaxDefinition_xml]: Documentation/SyntaxDefinition_xml.md "SyntaxDefinition_xml.md"
 
-<!-- Referenced Path -->
-[TestFiles]: Test Files/ "Test Files/"
+<!-- Referenced Paths -->
+[TestFiles]: TestFiles "TestFiles/"
