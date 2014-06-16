@@ -8,6 +8,9 @@ Without this file the mode cannot work.
 1. [Shortened Example File](#ExampleFile)
 2. [File structure - Tags and Attributes](#FileStructure)
 3. [Example File](#ExtendedExample)
+4. [Additional Information](#AdditionalInformation)
+	* [No longer supported `<default>`-, `<states>`-, `<keywords>`-attributes](#UnsupportedAttributes)
+
 
 
 ### <a name="ExampleFile"></a>Shortened Example File:
@@ -192,7 +195,7 @@ This tag is required.
 	* _yes_
 
 * <a name="attribute_scope"></a>`scope` _(optional)_ - a string description of the scope, used for style sheets - possible values: 
-	* see: _Style Sheet Strings Reference_ (**TODO**)
+	* see: _Style Sheet Scopes Reference_ (**TODO**)
 
 
 ---
@@ -348,6 +351,23 @@ This tag is optional.
 	</states>
 </syntax>
 ```
+
+
+---
+### <a name="AdditionalInformation"></a>Additional Information:
+
+#### <a name="UnsupportedAttributes"></a>No longer supported `<default>`-, `<states>`-, `<keywords>`-attributes
+
+The following attributes, that where part of the `<default>`, `<states>` and `<keywords>` tags are no longer supported by SubEthaEdit 4.0 and up: 
+
+* color
+* inverted-color
+* font-weight
+* font-style
+
+They are replaced by the `scope` attribute and the use of style sheets (see: _Style Sheet Scopes Reference_ (**TODO**)).
+
+
 
 <!-- Referenced Paths -->
 [ModeExample]: .. "SubEthaEdit 4 Example Mode Documentation"
