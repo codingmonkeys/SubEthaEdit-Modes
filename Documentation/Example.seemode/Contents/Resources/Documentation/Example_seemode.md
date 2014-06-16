@@ -18,7 +18,7 @@ _SEEMode Tips_
 
 * hold option and click in the Menu "Mode → Show In Finder" to reveal modes that are already in SubEthaEdit
 * open a mode bundle with SubEthaEdit to be prompted if you want to install it or rather show the package contents
-* control click a mode bundle and choose "Show Package Contents" to see inside
+* you can also control click a mode bundle and choose "Show Package Contents" to see inside
 
 
 ### Example Bundle:
@@ -31,7 +31,6 @@ _SEEMode Tips_
 	|	|	|	* ChangeLog.txt
 	|	|	|	* CustomImage.png
 	|	|	|	* CustomImage@2x.png
-	|	|	|	* License.txt
 	|	|	|	* ModeSettings.xml
 	|	|	|	* NewTemplate.txt
 	|	|	|	* RegexSymbols.xml
