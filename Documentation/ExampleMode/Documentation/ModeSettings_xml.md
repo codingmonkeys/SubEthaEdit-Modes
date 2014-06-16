@@ -12,21 +12,23 @@ It also contains information for a template for new files of that mode.
 	* More about Mode Triggers
 	* More about Template Files
 
-### [Example File:](id:ExampleFile)
+### <a name="ExampleFile"></a>Example File:
 
-	<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-	<settings>
-		<template>NewTemplate.txt</template>
-		<recognition>
-			<extension>example</extension>
-			<extension casesensitive="yes">exmpl</extension>
-			<filename>Example</filename>
-			<regex>\A#!This is my Example Shebang</regex>
-		</recognition>
-	</settings>
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<settings>
+	<template>NewTemplate.txt</template>
+	<recognition>
+		<extension>example</extension>
+		<extension casesensitive="yes">exmpl</extension>
+		<filename>Example</filename>
+		<regex>\A#!This is my Example Shebang</regex>
+	</recognition>
+</settings>
+```
 
-
-### [File structure - Tags and Attributes](id:FileStructure)
+---
+### <a name="FileStructure"></a>File structure - Tags and Attributes
 
 * [**&lt;settings&gt;**](#tag_settings)
 	* [**&lt;template&gt;**](#tag_template) (_optional_)
@@ -40,51 +42,51 @@ It also contains information for a template for new files of that mode.
 
 
 ---
-#### [`<settings>`](id:tag_settings)
+#### <a name="tag_settings"></a>`<settings>`
 The `<settings>` tag is the root tag for this document.  
 It can contain a `<template>` tag and a `<recognition>` tag.  
 This tag is required.  
 
 ---
-#### [`<template>`](id:tag_template) _(optional)_
+#### <a name="tag_template"></a>`<template>` _(optional)_
 The `<template>` tag specifies the filename of the mode's template file. The referenced file will provide the initial content of a new file that is created with this mode set as its mode.  
 The referenced file has to be in the bundle's Recources folder.  
 This tag is optional.  
 
 
 ---
-#### [`<recognition>`](id:tag_recognition) _(optional)_
+#### <a name="tag_recognition"></a>`<recognition>` _(optional)_
 The `<recognition>` tag contains potentially multiple `<extension>`, `<filename>` and `<regex>`tags. It defines the mode's triggers, i.e. what marks are used to recognize a file as being of that mode's kind.  
 This tag is optional.  
 
 
 ---
-#### [`<extension>`](id:tag_extension) _(optional)_
+#### <a name="tag_extension"></a>`<extension>` _(optional)_
 The `<extension>` tag specifies a file extension the mode recognizes.  
 This tag is optional.
 
 ##### Attributes
 
-* [`casesensitive` _(optional)_](id:attribute_casesensitive) - will take case into account when checking for matches - possible values:
+* <a name="attribute_casesensitive"></a>`casesensitive` _(optional)_ - will take case into account when checking for matches - possible values:
 	* _no_ (default)
 	* _yes_
 	
 
 ---
-#### [`<filename>`](id:tag_filename) _(optional)_
+#### <a name="tag_filename"></a>`<filename>` _(optional)_
 The `<filename>` tag specifies a file name the mode recognizes.  
 This tag is optional.
 
 
 ---
-#### [`<regex>`](id:tag_regex) _(optional)_
+#### <a name="tag_regex"></a>`<regex>` _(optional)_
 The `<regex>` tag specifies the regular expression that is used to search for content matches that the mode recognizes.  
 Content (like a shebang) can be configured via the regular expression and will be compared to the first 4MB of a file.  
 This tag is optional.
 
 
 ---
-### [Additional Information:](id:AdditionalInformation)
+### <a name="AdditionalInformation"></a>Additional Information:
 
 #### Mode Triggers: Disable or Re-order in Preferences
 

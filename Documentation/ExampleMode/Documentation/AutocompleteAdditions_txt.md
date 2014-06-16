@@ -6,7 +6,7 @@ It contains one completion at a line.
 Here is the place for strings you want to show up in the autocomplete function, that are not a keyword in the syntax definition. 
 If you don't want or need additional autocomplete strings: this file is optional and can be removed.
 
-### [Example File:](id:ExampleFile)
+### <a name="ExampleFile"></a>Example File:
 
 	AbcdefghijklmnopqrstuÄÖÜß
 	ExampleAutocompletionString

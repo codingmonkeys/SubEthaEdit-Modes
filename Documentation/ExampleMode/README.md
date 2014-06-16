@@ -66,7 +66,7 @@ Files in _italics_ are optional custom files without special rules for their nam
 				* _customscript.script_ -- see: [Scripts][ModeScripts]
 			* …
 
-### [Additional Files](id:AdditionalFiles)
+### <a name="AdditionalFiles"></a>Additional Files
 Additionally to the mode format specific files the mode bundle can contain custom files like Release notes or a Read me.   
 The file that is used for template content has a custom name by which it is referenced in the [ModeSettings.xml][ModeSettings_xml].  
 Files that are used for symbol icons in the function popup are also referenced by name in [RegexSymbols.xml][RegexSymbols_xml]. 

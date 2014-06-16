@@ -8,26 +8,30 @@ It can contain mode specific apple scripts to enhance the mode experience in som
 2. [Script Settings](#ScriptSettings)
 
 
-### [Example File:](id:ExampleFile)
-	-- see settings
-	on seescriptsettings()
-		return {displayName:"Say Hello", inContextMenu:"yes", keyboardShortcut:"^@h"}
-	end seescriptsettings
+### <a name="ExampleFile"></a>Example File:
+
+```AppleScript
+-- see settings
+on seescriptsettings()
+	return {displayName:"Say Hello", inContextMenu:"yes", keyboardShortcut:"^@h"}
+end seescriptsettings
 
 
-	-- the actual script
-	display alert "Sorry!" message "We are closed." giving up after 1
-	say "We are closed." using "Zarvox"
+-- the actual script
+display alert "Sorry!" message "We are closed." giving up after 1
+say "We are closed." using "Zarvox"
+```
 
-### [Script Settings](id:ScriptSettings)
+### <a name="ScriptSettings"></a>Script Settings
 
 
 You can add 
 
-	on seescriptsettings()
-		return {displayName:"Say Hello", inContextMenu:"yes", keyboardShortcut:"^@h"}
-	end seescriptsettings
-
+```AppleScript
+on seescriptsettings()
+	return {displayName:"Say Hello", inContextMenu:"yes", keyboardShortcut:"^@h"}
+end seescriptsettings
+```
 
 to your custom Apple script to costumize the appearance of the script in the script submenus.
 
