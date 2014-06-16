@@ -9,8 +9,6 @@
 	<key>NSHumanReadableCopyright</key>
 	<string>© 2014 TheCodingMonkeys
 http://www.codingmonkeys.de</string>
-	<key>CFBundleGetInfoString</key>
-	<string>1.0, Copyright TheCodingMonkeys 2014</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
