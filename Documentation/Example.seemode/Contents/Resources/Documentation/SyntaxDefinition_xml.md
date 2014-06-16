@@ -74,7 +74,7 @@ Without this file the mode cannot work.
 			@ [id](#attribute_id_keyword)  
 			@ [casesensitive](#attribute_casesensitive) (_optional_)  
 			@ [useforautocomplete](#attribute_useforautocomplete) (_optional_)  
-			@ [scope](#attribute_scope_keyword) (_optional_)  
+			@ [scope](#attribute_scope_keyword)  
 				* [**&lt;string&gt;**](#tag_string)* (_optional_)
 				* [**&lt;regex&gt;**](#tag_regex)* (_optional_)
 		
@@ -210,8 +210,8 @@ This tag is required.
 	* _yes_ (default) - group's strings are added to the autocomplete dictionary
 	* _no_
 
-* [`scope` _(optional)_](id:attribute_scope_keyword) - a string description of the scope, used for style sheets - possible values: 
-	* see: _Style Sheet Strings Reference_
+* [`scope`](id:attribute_scope_keyword) - a string description of the scope, used for style sheets - possible values: 
+	* see: _Style Sheet Scopes Reference_ (**TODO**)
 	
 ---
 #### [`<string>`](id:tag_string) _(optional)_
