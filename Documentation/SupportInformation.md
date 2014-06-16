@@ -1,30 +1,30 @@
 # Mode Developer Support Information
 
 
-* [Mode Settings: Template and Trigger: ModeSettings.xml](#ModeSettings_xml)
-	* Fallback for supported file extensions: `TCMModeExtensions`-array in the `Info.plist`
-	* Mode Triggers: Disable or Re-order in Preferences
-	* Template files: When are they used
+* Mode Settings: Template and Trigger: ModeSettings.xml
+	* [Fallback for supported file extensions: `TCMModeExtensions`-array in the `Info.plist`](#TCMModeExtensions)
+	* [Mode Triggers: Disable or Re-order in Preferences](#ModeTriggers)
+	* [Template files: When are they used](#TemplateFile)
 
-* [Symbol Definitions: Function Popup: _RegexSymbols.xml_](#RegexSymbols_xml)
-	* Unused: `<blocks>`, `<beginregex>`, `<endregex>` and &lt;symbol&gt;-attribute `ignoreblocks`
-	* No longer supported `image`-attribute values
-	* Unknown behavior if the `symbol`-attribute is an empty string
-	* BUG in SEE 4.0.1: resolution specific images are ignored even if available
+* Symbol Definitions: Function Popup: _RegexSymbols.xml_
+	* [Unused: `<blocks>`, `<beginregex>`, `<endregex>` and &lt;symbol&gt;-attribute `ignoreblocks`](#BlockTag)
+	* [No longer supported `image`-attribute values](#DeprecatedImageValues)
+	* [Unknown behavior if the `symbol`-attribute is an empty string](#EmptySymbolString)
+	* [BUG in SEE 4.0.1: resolution specific images are ignored even if available](#ResolutionBug)
 
-* [Syntax Definition: _SyntaxDefinition.xml_](#SyntaxDefinition_xml)
-	* Style Related `<default>`, `<states>`, `<keywords>` attribute values: Deprecation
-
-
-* [Mode Scripts: _Scripts/_](#ModeScripts)
-	* Toolbar related `seescriptsettings()` keys: No longer supported
+* Syntax Definition: _SyntaxDefinition.xml_
+	* [Style Related `<default>`, `<states>`, `<keywords>` attribute values: Deprecation](#DeprecatedStyleAttributes)
 
 
+* Mode Scripts: _Scripts/_
+	* [Toolbar related `seescriptsettings()` keys: No longer supported](#DeprecatedScriptSettings)
 
-## [Mode Settings: _ModeSettings.xml_](id:ModeSettings_xml)
 
 
-### Fallback for supported file extensions: `TCMModeExtensions` array in the `Info.plist`
+## <a name ="ModeSettings_xml"></a>Mode Settings: _ModeSettings.xml_
+
+
+### <a name="TCMModeExtensions"></a>Fallback for supported file extensions: `TCMModeExtensions` array in the `Info.plist`
 
 This is used as a fallback for the `<recognition>` tags of the `ModeSettings.xml` if there is an issue with the file.  
 
@@ -33,16 +33,18 @@ expects a string array containing file extensions that mode feels responsible fo
 
 Example:
 
-	<key>TCMModeExtensions</key>
-	<array>
-		<string>example</string>
-		<string>exmpl</string>
-	</array>
+```xml
+<key>TCMModeExtensions</key>
+<array>
+	<string>example</string>
+	<string>exmpl</string>
+</array>
+```
 
 _It is kind of deprecated, though still supported._
 
 
-### Mode Triggers: Disable or Re-order in Preferences
+### <a name="ModeTriggers"></a>Mode Triggers: Disable or Re-order in Preferences
 
 Mode triggers defined in the `<recognition>` tags of the `ModeSettings.xml` can be influenced via the "**Triggers**"-_Preference Pane_:
 
@@ -50,7 +52,7 @@ Mode triggers defined in the `<recognition>` tags of the `ModeSettings.xml` can 
 * precedence can be set by rearranging the mode order  
 
 
-### Template files: When are they used
+### <a name="TemplateFile"></a>Template files: When are they used
 
 There are multiple ways to generate a file that has its mode already set and gets the template content:
 
@@ -66,10 +68,10 @@ The following cases however do not fill in the template content:
 * creating a file via the command line tool with the mode set
 
 
-## [Symbol Definitions: _RegexSymbols.xml_](id:RegexSymbols_xml)
+## <a name ="RegexSymbols_xml"></a>Symbol Definitions: _RegexSymbols.xml_
 
 
-### Unused: `<blocks>`, `<beginregex>`, `<endregex>` and &lt;symbol&gt; attribute `ignoreblocks`
+### <a name="BlockTag"></a>Unused: `<blocks>`, `<beginregex>`, `<endregex>` and &lt;symbol&gt; attribute `ignoreblocks`
 
 **! Has no effect**
 
@@ -77,14 +79,15 @@ The following cases however do not fill in the template content:
 
 Example:
 
-	<blocks>
-		<beginregex>{</beginregex>
-		<endregex>}</endregex>
-	</blocks>
-	<symbol id="id3" ignoreblocks="yes">[…]</symbo#l>
+```xml
+<blocks>
+	<beginregex>{</beginregex>
+	<endregex>}</endregex>
+</blocks>
+<symbol id="id3" ignoreblocks="yes">[…]</symbol>
+```
 
-
-### No longer supported `image`-attribute values
+### <a name="DeprecatedImageValues"></a>No longer supported `image`-attribute values
 * Symbol#
 * SymbolC
 * SymbolE
@@ -100,17 +103,17 @@ Example:
 * Symbol#V
 	
 
-### Unknown behavior if the `symbol`-attribute is an empty string
+### <a name="EmptySymbolString"></a>Unknown behavior if the `symbol`-attribute is an empty string
 To be tested.
 
 
-### BUG in SEE 4.0.1: resolution specific images are ignored even if available
+### <a name="ResolutionBug"></a>BUG in SEE 4.0.1: resolution specific images are ignored even if available
 Is fixed in SEE 4.0.2.
 
 
-## [Syntax Definition: _SyntaxDefinition.xml_](id:SyntaxDefinition_xml)
+## <a name ="SyntaxDefinition_xml"></a>Syntax Definition: _SyntaxDefinition.xml_
 
-### Style Related `<default>`, `<states>`, `<keywords>` attribute values: Deprecation
+### <a name="DeprecatedStyleAttributes"></a>Style Related `<default>`, `<states>`, `<keywords>` attribute values: Deprecation
 
 The following attributes, that where part of the `<default>`, `<states>`, `<keywords>` tags, are now replaced with the `scope` attribute and the use of Style Sheets.
 
@@ -121,11 +124,12 @@ The following attributes, that where part of the `<default>`, `<states>`, `<keyw
 
 
 
-## [Mode Scripts: _Scripts/_](id:ModeScripts)
+## <a name ="ModeScripts"></a>Mode Scripts: _Scripts/_
 
-### Toolbar related `seescriptsettings()` keys: No longer supported
+### <a name="DeprecatedScriptSettings"></a>Toolbar related `seescriptsettings()` keys: No longer supported
 
-The following keys are no longer supported by SubEthaEdit 4.0 and up: 
+The following keys are no longer supported by SubEthaEdit 4.0 and up: 
+
 * shortdisplayname
 * toolbartooltip
 * toolbaricon
