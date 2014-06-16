@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<syntax>
+	<head>
+		<name>Example</name>
+		<autocompleteoptions use-spelling-dictionary="yes" />
+		<folding toplevel="2" />
+	
+		<charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@]]></charsintokens> 
+		<!-- <charsdelimitingtokens><![CDATA[ -]]></charsdelimitingtokens> -->
+		<!-- <charsincompletion><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-@$</=>!]]></charsincompletion> -->
+	</head>
+	<states>
+		<default id="Base" scope="meta.default">
+		
+			<keywords id="Keywords" scope="support.constant" casesensitive="yes" useforautocomplete="yes">
+				<string>COLOR</string>
+				<string>TEXT</string>
+				<regex>foo([0-9])</regex> <!-- This example colors digits prefixed by foo and only the digits)  -->
+			</keywords>
+
+			<!-- For example here a states for C blockcomments, C++ singleline comments and strings.
+			The strings state handles escaped quotes with a lookbehind regular expression (see a regex tutorial) and colors "foobar" in strings. --> 
+			<state id="Comment" scope="comment.block">
+				<begin><regex>/\*</regex></begin>
+				<end><regex>\*/</regex></end>
+			</state>
+
+			<state id="SingleComment" scope="comment.single">
+				<begin><regex>#</regex></begin>
+				<end><regex>[\n\r]</regex></end>
+			</state>
+
+			<state id="String" scope="string.double">
+				<begin><regex>"</regex></begin>
+				<end><regex>(((?&lt;!\\)(\\\\)*)|^)"</regex></end>
+				<keywords id="Foobar in string" scope="meta.important">
+					<string>foobar</string>
+				</keywords>
+			</state>
+			
+			<state id="Inline Javascript" usesymbolsfrommode="Javascript" useautocompletefrommode="Javascript" scope="meta.block">
+				<begin><regex>&lt;(?=script)</regex></begin>
+				<end><regex>/script&gt;</regex></end>			
+				<import mode="Javascript" />
+			</state>
+			
+            <import mode="Base" state="EmailAndURLContainerState" keywords-only="yes"/>
+
+            <keywords id="Numbers" useforautocomplete="no" scope="language.constant.numeric">
+				<regex>(?&lt;=[^[A-Za-z0-9]]|^)((?:(?:[0-9]+\.[0-9]*)|(?:\.[0-9]+)([eE][+\-]?[0-9]+)?[fFlL]?)|(?:(?:(?:[1-9][0-9]*)|0[0-7]*|(?:0[xX][0-9a-fA-F]))(?:(?:[uU][lL]?)|(?:[lL][uU]?))?))(?=[^[A-Za-z0-9]]|$)</regex>
+            </keywords>
+            
+			<keywords id="Warnings" scope="meta.important" casesensitive="yes" useforautocomplete="no">
+				<regex>(^%Warning:[^\n\r]*)</regex>
+			</keywords>
+
+			<keywords id="TODOs" scope="meta.important" useforautocomplete="no">
+				<regex>(^%TODO:[^\n\r]*)</regex>
+			</keywords>
+
+		</default>
+	</states>
+</syntax>
