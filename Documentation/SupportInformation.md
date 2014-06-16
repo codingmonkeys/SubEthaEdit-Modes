@@ -1,12 +1,6 @@
 [Documentation][ModeExample]:
 # Mode Developer Support Information
 
-* Symbol Definitions: Function Popup: _RegexSymbols.xml_
-	* [Unused: `<blocks>`, `<beginregex>`, `<endregex>` and &lt;symbol&gt;-attribute `ignoreblocks`](#BlockTag)
-	* [No longer supported `image`-attribute values](#DeprecatedImageValues)
-	* [Unknown behavior if the `symbol`-attribute is an empty string](#EmptySymbolString)
-	* [BUG in SEE 4.0.1: resolution specific images are ignored even if available](#ResolutionBug)
-
 * Syntax Definition: _SyntaxDefinition.xml_
 	* [Style Related `<default>`, `<states>`, `<keywords>` attribute values: Deprecation](#DeprecatedStyleAttributes)
 
@@ -14,49 +8,6 @@
 * Mode Scripts: _Scripts/_
 	* [Toolbar related `seescriptsettings()` keys: No longer supported](#DeprecatedScriptSettings)
 
-
-
-## <a name ="RegexSymbols_xml"></a>Symbol Definitions: _RegexSymbols.xml_
-
-
-### <a name="BlockTag"></a>Unused: `<blocks>`, `<beginregex>`, `<endregex>` and &lt;symbol&gt; attribute `ignoreblocks`
-
-**! Has no effect**
-
-`ignoreblocks` : possible values `yes` and `no` _(no default behavior, is ignored)_
-
-Example:
-
-```xml
-<blocks>
-	<beginregex>{</beginregex>
-	<endregex>}</endregex>
-</blocks>
-<symbol id="id3" ignoreblocks="yes">[…]</symbol>
-```
-
-### <a name="DeprecatedImageValues"></a>No longer supported `image`-attribute values
-* Symbol#
-* SymbolC
-* SymbolE
-* SymbolF
-* SymbolF()
-* SymbolG
-* SymbolK
-* SymbolL
-* SymbolM
-* SymbolP
-* SymbolS
-* SymbolT
-* Symbol#V
-	
-
-### <a name="EmptySymbolString"></a>Unknown behavior if the `symbol`-attribute is an empty string
-To be tested.
-
-
-### <a name="ResolutionBug"></a>BUG in SEE 4.0.1: resolution specific images are ignored even if available
-Is fixed in SEE 4.0.2.
 
 
 ## <a name ="SyntaxDefinition_xml"></a>Syntax Definition: _SyntaxDefinition.xml_
