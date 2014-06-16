@@ -1,5 +1,5 @@
+[Documentation][ModeExample]:
 ## The SubEthaEdit Mode File Format - an Example: _Example.seemode_
-
 
 `Example.seemode` is a fully functional SubEthatEdit 4 mode. It can be uses as a starting point into how modes work and where to look for specific information. 
 
@@ -7,6 +7,7 @@ It contains files that define the properties of a language that should be recogn
 
 
 SubEthaEdit's mode files are bundles, like e.g. Keynote presentations or rich text with images (rtfd). This enables you to include custom images, a license or other files you want to within the mode. It also ensures extensibility for further mode specific features, like plugins and the like.
+
 
 _RegEx Tips_
 
@@ -20,25 +21,26 @@ _SEEMode Tips_
 * hold option and click in the Menu "Mode → Show In Finder" to reveal modes that are already in SubEthaEdit
 * open a mode bundle with SubEthaEdit to be prompted if you want to install it or rather show the package contents (you can also control click a mode bundle and choose "Show Package Contents")
 
-### Example Bundle
+### Example Bundle:
 This is the folder structure of `Example.seemode` and all the included files:
 
-	* Example.seemode/
-	|	* Contents/
-	|	|	* Info.plist
-	|	|	* Resources/
-	|	|	|	* AutocompleteAdditions.txt
-	|	|	|	* ChangeLog.txt
-	|	|	|	* CustomImage.png
-	|	|	|	* CustomImage@2x.png
-	|	|	|	* ExampleSyntax.txt
-	|	|	|	* ModeSettings.xml
-	|	|	|	* NewTemplate.txt
-	|	|	|	* RegexSymbols.xml
-	|	|	|	* Scripts/
-	|	|	|	|	* HelloThere.scpt
-	|	|	|	* SyntaxDefinition.xml
-	
+```
+* Example.seemode/
+|	* Contents/
+|	|	* Info.plist
+|	|	* Resources/
+|	|	|	* AutocompleteAdditions.txt
+|	|	|	* ChangeLog.txt
+|	|	|	* CustomImage.png
+|	|	|	* CustomImage@2x.png
+|	|	|	* ExampleSyntax.txt
+|	|	|	* ModeSettings.xml
+|	|	|	* NewTemplate.txt
+|	|	|	* RegexSymbols.xml
+|	|	|	* Scripts/
+|	|	|	|	* HelloThere.scpt
+|	|	|	* SyntaxDefinition.xml
+```	
 	
 
 ### Bundle Structure
@@ -66,10 +68,12 @@ Files in _italics_ are optional custom files without special rules for their nam
 				* _customscript.script_ -- see: [Scripts][ModeScripts]
 			* …
 
+
 ### <a name="AdditionalFiles"></a>Additional Files
 Additionally to the mode format specific files the mode bundle can contain custom files like Release notes or a Read me.   
 The file that is used for template content has a custom name by which it is referenced in the [ModeSettings.xml][ModeSettings_xml].  
 Files that are used for symbol icons in the function popup are also referenced by name in [RegexSymbols.xml][RegexSymbols_xml]. 
+
 
 ### [File recognition trigger test files][TestFiles]
 
@@ -93,3 +97,4 @@ Files that are used for symbol icons in the function popup are also referenced b
 
 <!-- Referenced Paths -->
 [TestFiles]: TestFiles "TestFiles/"
+[ModeExample]: . "SubEthaEdit 4 Example Mode Documentation"

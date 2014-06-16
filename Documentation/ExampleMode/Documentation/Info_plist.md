@@ -1,5 +1,5 @@
+[Documentation][ModeExample]:
 ## Info.plist: _Info.plist_
-
 
 The file called `Info.plist` is located in the mode's Contents folder.  
 It contains a collection of keys and values (dictionaries, arrays, strings…) that descripes your mode. 
@@ -33,3 +33,7 @@ It contains a collection of keys and values (dictionaries, arrays, strings…) t
 </dict>
 </plist>
 ```
+
+
+<!-- Referenced Paths -->
+[ModeExample]: .. "SubEthaEdit 4 Example Mode Documentation"

@@ -1,10 +1,9 @@
+[Documentation][ModeExample]:
 ## Syntax Definitions: _SyntaxDefinition.xml_
-
 
 The file called `SyntaxDefinition.xml` is located in the modes Resources folder.  
 It contains the information that is needed to recognize language or file type specific sections and keywords. It contains additional information about the mode.  
 Without this file the mode cannot work.
-
 
 1. [Shortened Example File](#ExampleFile)
 2. [File structure - Tags and Attributes](#FileStructure)
@@ -150,6 +149,7 @@ One of these tags has to be specified.
 
 _Tip_: Use CDATA here.
 
+
 ---
 #### <a name="tag_charsincompletion"></a>`<charsincompletion>` _(optional)_
 The `<charsincompletion>` tag defines characters used for autocompletion.  
@@ -163,6 +163,7 @@ The `<states>` tag encloses all syntax states.
 States are areas of the text that begin and end with an regex like comments or strings,  
 with exception of the default state, that exists anywhere where no other state exists.  
 This tag is required.
+
 
 ---
 #### <a name="tag_default"></a>`<default>`
@@ -191,7 +192,7 @@ This tag is required.
 	* _yes_
 
 * <a name="attribute_scope"></a>`scope` _(optional)_ - a string description of the scope, used for style sheets - possible values: 
-	* see: _Style Sheet Strings Reference_
+	* see: _Style Sheet Strings Reference_ (**TODO**)
 
 
 ---
@@ -347,3 +348,6 @@ This tag is optional.
 	</states>
 </syntax>
 ```
+
+<!-- Referenced Paths -->
+[ModeExample]: .. "SubEthaEdit 4 Example Mode Documentation"

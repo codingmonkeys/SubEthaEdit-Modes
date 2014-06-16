@@ -1,3 +1,4 @@
+[Documentation][ModeExample]:
 # Mode Developer Support Information
 
 
@@ -135,3 +136,7 @@ The following keys are no longer supported by SubEthaEdit 4.0 and up:
 * toolbaricon
 * indefaulttoolbar
 * incontextmenu
+
+
+<!-- Referenced Paths -->
+[ModeExample]: . "SubEthaEdit 4 Example Mode Documentation"

@@ -1,16 +1,16 @@
+[Documentation][ModeExample]:
 ## Mode Settings: _ModeSettings.xml_
-
 
 The file called `ModeSettings.xml` is located in the modes Resources folder.  
 It bundles the information that is needed to recognize a file as being suitable for this mode, when for example opening it or saving it as a new file.
 It also contains information for a template for new files of that mode.
-
 
 1. [Example File](#ExampleFile)
 2. [File structure - Tags and Attributes](#FileStructure)
 3. [Additional Information](#AdditionalInformation)
 	* More about Mode Triggers
 	* More about Template Files
+
 
 ### <a name="ExampleFile"></a>Example File:
 
@@ -27,7 +27,7 @@ It also contains information for a template for new files of that mode.
 </settings>
 ```
 
----
+
 ### <a name="FileStructure"></a>File structure - Tags and Attributes
 
 * [**&lt;settings&gt;**](#tag_settings)
@@ -46,6 +46,7 @@ It also contains information for a template for new files of that mode.
 The `<settings>` tag is the root tag for this document.  
 It can contain a `<template>` tag and a `<recognition>` tag.  
 This tag is required.  
+
 
 ---
 #### <a name="tag_template"></a>`<template>` _(optional)_
@@ -111,3 +112,6 @@ The following cases however do not fill in the template content:
 * changing the mode on a file that already exists
 * creating a file via the command line tool with the mode set
 
+
+<!-- Referenced Paths -->
+[ModeExample]: .. "SubEthaEdit 4 Example Mode Documentation"

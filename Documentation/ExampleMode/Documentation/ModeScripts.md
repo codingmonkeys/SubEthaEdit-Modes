@@ -1,5 +1,5 @@
+[Documentation][ModeExample]:
 ## Mode Scripts: _Scripts/_
-
 
 The folder called `Scripts` is located in the modes Resources folder.  
 It can contain mode specific apple scripts to enhance the mode experience in some way or another.
@@ -16,14 +16,13 @@ on seescriptsettings()
 	return {displayName:"Say Hello", inContextMenu:"yes", keyboardShortcut:"^@h"}
 end seescriptsettings
 
-
 -- the actual script
 display alert "Sorry!" message "We are closed." giving up after 1
 say "We are closed." using "Zarvox"
 ```
 
-### <a name="ScriptSettings"></a>Script Settings
 
+### <a name="ScriptSettings"></a>Script Settings
 
 You can add 
 
@@ -40,8 +39,8 @@ The possible keys are
 * `displayName` _(optional)_ - string that is used as the name of your script in the mode menu
 
 * `inContextMenu` _(optional)_ - wheter or not your script appears in the right click menu
-	* "yes"
-	* "no" (default)
+	* _yes_
+	* _no_ (default)
 	
 * `keyboardShortcut` _(optional)_
 	* no shortcut (default) 
@@ -50,3 +49,7 @@ The possible keys are
 		* **^** is control
 		* **$** is shift
 		* **@** would be commmand but is mandatory
+
+
+<!-- Referenced Paths -->
+[ModeExample]: .. "SubEthaEdit 4 Example Mode Documentation"

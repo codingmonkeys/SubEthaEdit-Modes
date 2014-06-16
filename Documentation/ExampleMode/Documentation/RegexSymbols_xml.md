@@ -1,9 +1,8 @@
+[Documentation][ModeExample]:
 ## Symbol Definitions: _RegexSymbols.xml_
-
 
 The file called `RegexSymbols.xml` is located in the modes Resources folder.  
 It defines regexes to parse the document for elements to show in the function popup - for example pragma marks, todos, method declarations. 
-
 
 1. [Example File](#ExampleFile)
 2. [File structure - Tags and Attributes](#FileStructure)
@@ -39,7 +38,8 @@ It defines regexes to parse the document for elements to show in the function po
 	</symbol>
 </symbols>
 ```	
-	
+
+
 ### <a name="FileStructure"></a>File structure - Tags and Attributes
 
 * [**&lt;symbols&gt;**](#tag_symbols)
@@ -64,6 +64,7 @@ The `<symbols>` tag is the root tag for this document.
 It can contain multiple `<symbol>` tags.  
 This tag is required.  
 
+
 ---
 #### <a name="tag_symbol"></a>`<symbol>`
 The `<symbol>` tag specifies what is being shown in the function popup. The result of regex and optional postprocessing are used to generate the symbol title. If the result for the title is an empty string the symbol shows up as an separator in the function popup.  
@@ -84,7 +85,6 @@ This tag is optional.
 * <a name="attribute_image"></a>`image` _(optional)_ - icon image for the symbol - if this is specified the symbol attribute will be ignored - possible values:
 	* image included in the application - SubEthaEdit currently supports: _SymbolWarn_
 	* image in the Resources directory of the mode by name - Apple’s naming conventions for high-resolution versions of the image apply (file extension is optional) (**Note: there is a bug in SEE 4.0.1 and lower that ignores the resolution specific images**)  
-
 
 * <a name="attribute_indentation"></a>`indentation` _(optional)_ - level of indentation in the function popup - possible values:
 	* _0_ (default) 
@@ -125,3 +125,7 @@ This tag is optional.
 #### <a name="tag_findreplace"></a>`<find>` and `<replace>`
 Contained in the `<postprocess>` tag `<find>` and `<replace>` specify the find and replace operations that should be executed on the found string. They each contain a Ruby-flavored regular expression. You can use groups like \1 and the like.    
 These tags are required and need to be added in pairs.
+
+
+<!-- Referenced Paths -->
+[ModeExample]: .. "SubEthaEdit 4 Example Mode Documentation"
