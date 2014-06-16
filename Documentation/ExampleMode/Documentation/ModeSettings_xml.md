@@ -2,15 +2,15 @@
 ## Mode Settings: _ModeSettings.xml_
 
 The file called `ModeSettings.xml` is located in the modes Resources folder.  
-It bundles the information that is needed to recognize a file as being suitable for this mode, when for example opening it or saving it as a new file.
+It bundles the information that is needed to recognize a file as being supported by this mode, when for example opening it, saving an untitled document or pasting code into a new document.  
 It also contains information for a template for new files of that mode.
 
 1. [Example File](#ExampleFile)
 2. [File structure - Tags and Attributes](#FileStructure)
 3. [Additional Information](#AdditionalInformation)
-	* More about Mode Triggers
-	* More about Template Files
-
+	* [Mode Recognition Triggers: Adjust recognition in Preferences](#ModeTrigger)
+	* [Mode Recognition Triggers: Example files](#ModeTriggerExamples)
+	* [Template Files: When are they used](#TemplateFile)
 
 ### <a name="ExampleFile"></a>Example File:
 
@@ -69,8 +69,8 @@ This tag is optional.
 ##### Attributes
 
 * <a name="attribute_casesensitive"></a>`casesensitive` _(optional)_ - will take case into account when checking for matches - possible values:
-	* _no_ (default)
-	* _yes_
+	* _no_ (default) - ignoring case
+	* _yes_ - matching case
 	
 
 ---
@@ -89,23 +89,38 @@ This tag is optional.
 ---
 ### <a name="AdditionalInformation"></a>Additional Information:
 
-#### Mode Triggers: Disable or Re-order in Preferences
+#### <a name="ModeTrigger"></a>Mode Recognition Triggers: Adjust recognition in Preferences
 
-Mode triggers defined in the `<recognition>` tags can be influenced via the "**Triggers**"-_Preference Pane_:
+Mode triggers defined in the `<recognition>` tags can additonally be influenced via the _"**Triggers**"-Preference Pane_:
 
-* can be turned on or off  
-* precedence can be set by rearranging the mode order 
+* each trigger can be turned on or off  
+* precedence which mode should recognize a certain file type can be set by rearranging the mode order 
+* additional triggers can be added by hand
 
 
-#### Template files: When are they used
+
+###  <a name="ModeTriggerExamples"></a>Mode Recognition Trigger: Example files
+
+[`TestFiles/`][TestFiles] contains files showing which of them are recognized as `Example.seemode` files and which are not. 
+
+* `Example` is recognized based on the filename
+* `ExampleModeFile_NoShebang.EXAMPLE` is recognized based on the file extension
+* `ExampleModeFile_NoShebang.exmpl` is recognized based on the file extension
+* `ExampleModeFile_Shebang` - is recognized based on the shebang
+* `ExampleModeFile_Shebang.txt` - is recognized based on the shebang (though precedence for recognizing based on txt extension wins in the default setup)
+* `NoExampleModeFile_NoShebang.EXMPL` - is not recognized because no known trigger matches - the `.exmpl` file extension is case sensitive
+
+
+
+#### <a name="TemplateFile"></a>Template files: When are they used
 
 There are multiple ways to generate a file that has its mode already set and gets the template content:
 
-* Menu:File->New->_Example_
-* Menu:File->New Tab->_Example_
-* Document Hub:File->New->_Example_ _(right click)_
-* Document Hub:File->New->_Example_ _(right alt click)_
-* Document Hub:File->New _(if the mode is set as the default mode for new files in the Preferences)_
+* `Menu: File →  New →  Example`
+* `Menu: File → New Tab → Example`
+* `Document Hub: File → New → Example` _(right click)_
+* `Document Hub: File → New → Example` _(alt right click)_
+* `Document Hub: File → New` _(if the mode is set as the default mode for new files in the Preferences)_
 
 The following cases however do not fill in the template content:
 
@@ -113,5 +128,7 @@ The following cases however do not fill in the template content:
 * creating a file via the command line tool with the mode set
 
 
+
 <!-- Referenced Paths -->
 [ModeExample]: .. "SubEthaEdit 4 Example Mode Documentation"
+[TestFiles]: ../TestFiles "Test files for mode recognition"

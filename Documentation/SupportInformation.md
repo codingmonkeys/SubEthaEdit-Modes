@@ -1,12 +1,6 @@
 [Documentation][ModeExample]:
 # Mode Developer Support Information
 
-
-* Mode Settings: Template and Trigger: ModeSettings.xml
-	* [Fallback for supported file extensions: `TCMModeExtensions`-array in the `Info.plist`](#TCMModeExtensions)
-	* [Mode Triggers: Disable or Re-order in Preferences](#ModeTriggers)
-	* [Template files: When are they used](#TemplateFile)
-
 * Symbol Definitions: Function Popup: _RegexSymbols.xml_
 	* [Unused: `<blocks>`, `<beginregex>`, `<endregex>` and &lt;symbol&gt;-attribute `ignoreblocks`](#BlockTag)
 	* [No longer supported `image`-attribute values](#DeprecatedImageValues)
@@ -20,53 +14,6 @@
 * Mode Scripts: _Scripts/_
 	* [Toolbar related `seescriptsettings()` keys: No longer supported](#DeprecatedScriptSettings)
 
-
-
-## <a name ="ModeSettings_xml"></a>Mode Settings: _ModeSettings.xml_
-
-
-### <a name="TCMModeExtensions"></a>Fallback for supported file extensions: `TCMModeExtensions` array in the `Info.plist`
-
-This is used as a fallback for the `<recognition>` tags of the `ModeSettings.xml` if there is an issue with the file.  
-
-Entry in the mode's `Info.plist` -   
-expects a string array containing file extensions that mode feels responsible for.
-
-Example:
-
-```xml
-<key>TCMModeExtensions</key>
-<array>
-	<string>example</string>
-	<string>exmpl</string>
-</array>
-```
-
-_It is kind of deprecated, though still supported._
-
-
-### <a name="ModeTriggers"></a>Mode Triggers: Disable or Re-order in Preferences
-
-Mode triggers defined in the `<recognition>` tags of the `ModeSettings.xml` can be influenced via the "**Triggers**"-_Preference Pane_:
-
-* can be turned on or off  
-* precedence can be set by rearranging the mode order  
-
-
-### <a name="TemplateFile"></a>Template files: When are they used
-
-There are multiple ways to generate a file that has its mode already set and gets the template content:
-
-* Menu:File->New->_Example_
-* Menu:File->New Tab->_Example_
-* Document Hub:File->New->_Example_ _(right click)_
-* Document Hub:File->New->_Example_ _(right alt click)_
-* Document Hub:File->New _(if the mode is set as the default mode for new files in the Preferences)_
-
-The following cases however do not fill in the template content:
-
-* changing the mode on a file that already exists
-* creating a file via the command line tool with the mode set
 
 
 ## <a name ="RegexSymbols_xml"></a>Symbol Definitions: _RegexSymbols.xml_
