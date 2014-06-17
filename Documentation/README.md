@@ -10,7 +10,7 @@ Take a look at the comprehensive [Mode Documentation][ModeExample].
 ### Incomplete unordered list of Changes from 3.x
 
 * Check the [Notes on How to Update a mode from 3.x to 4][ModeUpdate]
-* For reference the old mode documentation can be found in the [Attic][ModeDocu3].
+* For reference the old mode documentation can be found in the [Attic][ModeDocu3]
   
   Description forthcoming.
 
