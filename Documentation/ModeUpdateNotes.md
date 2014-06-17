@@ -6,6 +6,7 @@
 3. [Changes in `RegexSymbols.xml`](#RegexSymbols)
 4. [Changes in `Info.plist`](#InfoPlist)
 5. [Changes in Mode Scripts](#ModeScripts)
+6. [Minimalist Update](#Minimalist)
 
 ---
 #### <a name="General"></a>General Changes
@@ -71,6 +72,16 @@ Most of the AppleScripts need to be ajusted. Some of the Properties on the docum
 ▶️ _Remove keys `shortdisplayname`, `toolbartooltip`, `toolbaricon`, `indefaulttoolbar` from `seescriptsettings()` of your scripts._  
 ▶️ _Remove custom `toolbaricon` files._
 
+
+---
+#### <a name="Minimalist"></a>Minimalist Update
+
+Updating a mode partially can be a quick solution in times of need but is not recommended.  
+This is the bare minimum:
+
+▶️ _Rename your mode bundle from name.bundle to name.seebundle._  
+▶️ _Update `<default>`, `<state>`, `<keywords>` tags for  mode independent style sheets by adding a `scope` attribute_  
+▶️ _Update `SEEMinimumEngineVersion` to 4.0._  
 
 
 <!-- Referenced Files -->
