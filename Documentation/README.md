@@ -7,7 +7,7 @@ As with SubEthaEdit up to 4 you can create custom modes to support your language
 Take a look at the comprehensive [Mode Documentation][ModeExample].
 
 
-For changes and general advice look into the [Mode Developer Support Documentation][SupportInfo].
+<!-- For changes and general advice look into the [Mode Developer Support Documentation][SupportInfo].-->
 
 ### Incomplete unordered list of Changes from 3.x
 
@@ -34,7 +34,7 @@ Description forthcoming. [SEEScopeDoc.html][ScopeDoc]
 
 
 <!-- Referenced Files -->
-[SupportInfo]: SupportInformation.md "Additional Mode Changes Information"
+<!-- [SupportInfo]: SupportInformation.md "Additional Mode Changes Information" -->
 
 [ScopeDoc]: http://htmlpreview.github.io?https://github.com/codingmonkeys/SubEthaEdit/blob/master/Documentation/Styles/SEEScopeDoc.html "Scope Documentation"
 [ModeDocu3]: http://htmlpreview.github.io?https://github.com/codingmonkeys/SubEthaEdit/blob/master/Attic/SubEthaEdit3/Documentation/mode.html "SubEthaEdit 3.x Mode Documentation"
