@@ -7,8 +7,6 @@ As with SubEthaEdit up to 4 you can create custom modes to support your language
 Take a look at the comprehensive [Mode Documentation][ModeExample].
 
 
-<!-- For changes and general advice look into the [Mode Developer Support Documentation][SupportInfo].-->
-
 ### Incomplete unordered list of Changes from 3.x
 
 * since modes changed quite a bit, we also changed the file-extension from `.mode` to `.seemode` so they don't get confused, and don't mess up with modes made for Panic's excellent Coda.
@@ -21,21 +19,23 @@ Take a look at the comprehensive [Mode Documentation][ModeExample].
 * State `begin` now can have a `autoend` which will be used on "Close current Tag/Block (option-cmd-.). this can either be a plain string, or reference a named group in the begin regex. e.g. `<autoend>@end</autoend>` or `<autoend>&lt;/\g&lt;xmltagstatename&gt;&gt;</autoend>`.
 * This is an incomplete list - for reference the old mode documentation can be found in the [Attic][ModeDocu3].
 
+
 # Scripting
 
 Description forthcoming.
+
 
 # Styles
 
 Description forthcoming. [SEEScopeDoc.html][ScopeDoc]
 
+
 ### Links
 [SubEthaEdit GitHub Repo][see_github]  
 
 
-<!-- Referenced Files -->
-<!-- [SupportInfo]: SupportInformation.md "Additional Mode Changes Information" -->
 
+<!-- Referenced Files -->
 [ScopeDoc]: http://htmlpreview.github.io?https://github.com/codingmonkeys/SubEthaEdit/blob/master/Documentation/Styles/SEEScopeDoc.html "Scope Documentation"
 [ModeDocu3]: http://htmlpreview.github.io?https://github.com/codingmonkeys/SubEthaEdit/blob/master/Attic/SubEthaEdit3/Documentation/mode.html "SubEthaEdit 3.x Mode Documentation"
 
