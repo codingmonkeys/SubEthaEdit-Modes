@@ -12,7 +12,11 @@
 ℹ️ [SubEthaEdit 4 Mode Documentation][ExampleMode]
 
 ▶️ _Rename your mode bundle from name.bundle to name.seebundle._
- 
+
+On the inside modes have changed quite a bit, so we changed the file-extension from `.mode` to `.seemode` so they don't get confused, and don't mess up with modes made for Panic's excellent Coda.
+
+The basic file layout inside the `.seemode` bundles however has stayed the same, so you can just rename the `.mode` bundles and then go on to update the contained files from there.
+
 
 ---
 #### <a name="SyntaxDefinition"></a>Changes in [`SyntaxDefinition.xml`][SyntaxDefinition_xml]  
@@ -60,9 +64,11 @@ Of the _built in images_ only `SymbolWarn`is still supported. With the others it
 * _Insert Hex Color_ is now a built in script available for all modes
 * _Close tag/block_ scripts can now be replaced by [`<autoend>` information][RegexSymbols_xml_tag_symbol] in [`RegexSymbols.xml`][RegexSymbols_xml] - support for closing a state is now built into the mode states
 
-▶️ _Check mode scripts with the AppleScript Editor and the current SubEthaEdit._  
+▶️ _Check mode scripts with the AppleScript Editor and the current SubEthaEdit._ 
 
-▶️ _Remove keys `shortdisplayname`, `toolbartooltip`, `toolbaricon`, `indefaulttoolbar` from `seescriptsettings()` of your scripts._
+Most of the AppleScripts need to be ajusted. Some of the Properties on the document now work slightly different, and sandboxing might prevent you from doing something that worked before.
+
+▶️ _Remove keys `shortdisplayname`, `toolbartooltip`, `toolbaricon`, `indefaulttoolbar` from `seescriptsettings()` of your scripts._  
 ▶️ _Remove custom `toolbaricon` files._
 
 
