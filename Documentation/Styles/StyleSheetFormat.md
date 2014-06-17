@@ -135,10 +135,5 @@ CSS highlighting is not perfect in all cases.
 
 
 
-<!-- Referenced Files -->
-<!-- [SyntaxDefinition_xml]: ../ExampleMode/Documentation/SyntaxDefinition_xml.md "SyntaxDefinition_xml.md"
-[SyntaxDefinition.xml][SyntaxDefinition_xml]
--->
-
 <!-- Referenced Paths -->
 [StyleExample]: . "SubEthaEdit 4 Style Documentation"
