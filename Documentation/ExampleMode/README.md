@@ -58,6 +58,7 @@ Files in _italics_ are optional custom files without special rules for their nam
 			* **en.lproj/** _(optional)_ -- it is possible to localize modes
 				* InfoPlist.strings	
 				* …
+			* [ExampleSyntax.txt](#ExampleSyntax_txt) _(optional)_ 
 			* [ModeSettings.xml][ModeSettings_xml] _(optional)_
 			* [RegexSymbols.xml][RegexSymbols_xml] _(optional)_
 			* [SyntaxDefinition.xml][SyntaxDefinition_xml]
@@ -69,7 +70,12 @@ Files in _italics_ are optional custom files without special rules for their nam
 			* …
 
 
-### <a name="AdditionalFiles"></a>Additional Files
+### <a name="ExampleSyntax_txt"></a> ExampleSyntax.txt
+When selecting the style sheet for this mode in `Preferences: Styles` the content of this file is used to fill the preview.  
+This file is optional.
+
+
+### <a name="AdditionalFiles"></a> Additional Files
 Additionally to the mode format specific files the mode bundle can contain custom files like Release notes or a Read me.   
 The file that is used for template content has a custom name by which it is referenced in the [ModeSettings.xml][ModeSettings_xml].  
 Files that are used for symbol icons in the function popup are also referenced by name in [RegexSymbols.xml][RegexSymbols_xml]. 
