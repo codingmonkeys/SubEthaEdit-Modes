@@ -10,7 +10,10 @@
 
 ---
 #### <a name="General"></a>General Changes
+Be sure to check out the Mode Documentation for all the changes and additional features that are part of the SEE4 mode:
+
 ℹ️ [SubEthaEdit 4 Mode Documentation][ExampleMode]
+
 
 ▶️ _Rename your mode bundle from name.bundle to name.seebundle._
 
