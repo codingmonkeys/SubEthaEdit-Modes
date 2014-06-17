@@ -10,7 +10,7 @@ Without this file the mode cannot work.
 3. [Example File](#ExtendedExample)
 4. [Additional Information](#AdditionalInformation)
 	* [No longer supported `<default>`-, `<states>`-, `<keywords>`-attributes](#UnsupportedAttributes)
-
+	* [All states are inside of the default state](#DefaultState)
 
 
 ### <a name="ExampleFile"></a>Shortened Example File:
@@ -81,13 +81,14 @@ Without this file the mode cannot work.
 				* [**&lt;string&gt;**](#tag_string)* (_optional_)
 				* [**&lt;regex&gt;**](#tag_regex)* (_optional_)
 		
-			* [**&lt;state&gt;**](#tag_state)* (_optional_)  -- can also contain state, import, state-link, keywords
+			* [**&lt;state&gt;**](#tag_state)* (_optional_)  -- can also contain &lt;state&gt;, &lt;import&gt;, &lt;state-link&gt;, &lt;keywords&gt; tags  
 			@ [Attributes](#tag_default) -- the same attributes as &lt;default&gt;  
+			@ [indent](#attribute_indent) (_optional_)  
 				*  [**&lt;begin&gt;**](#tag_begin_end)
-					* [**&lt;regex&gt;**](#tag_regex) -- the same as &lt;regex&gt;
-				*  [**&lt;end&gt;**](#tag_begin_end)
-					* [**&lt;regex&gt;**](#tag_regex) -- the same as &lt;regex&gt;
-
+					* [**&lt;regex&gt;**](#tag_regex_string) | [**&lt;string&gt;**](#tag_regex_string)
+					* [**&lt;autoend&gt;**](#tag_autoend) (_optional_)
+				* [**&lt;end&gt;**](#tag_begin_end)
+					* [**&lt;regex&gt;**](#tag_regex_string) | [**&lt;string&gt;**](#tag_regex_string)
 			* [**&lt;import&gt;**](#tag_import)*  
 			@ [mode](#attribute_mode) (_optional_)  
 			@ [state](#attribute_state) (_optional_)  
@@ -100,27 +101,27 @@ Without this file the mode cannot work.
 ---
 #### <a name="tag_syntax"></a>`<syntax>`
 The `<syntax>` tag is the root tag for this document.  
-It contains a `<head>` tag and a `<???>` tag.  
+It contains a `<head>` tag and a `<states>` tag.  
 This tag is required.  
 
 
 ---
 #### <a name="tag_head"></a>`<head>`
 The `<head>` tag encloses some global information about the mode.  
-It contains a `<name>` tag and a `<???>` tag.  
+It contains a `<name>` tag and either `<charsintokens>` or `<charsdelimitingtokens>` or both. It can also contain `<autocompleteoptions>`, `<folding>` and `<charsincompletion>`.  
 This tag is required.  
 
 
 ---
 #### <a name="tag_name"></a>`<name>`
 The `<name>` tag specifies the mode name.  
-It must match with the name in the plist after the "_SEEMode._".  
+It must match the name in the plist after the "_SEEMode._".  
 This tag is required. 
 
 
 ---
 #### <a name="tag_autocompleteoptions"></a>`<autocompleteoptions>` _(optional)_
-The `<extension>` tag adds spelling-dicitionary autocomplete words.  
+The `<autocompleteoptions>` tag adds spelling-dictionary autocomplete words.  
 This tag is optional.
 
 ##### Attributes
@@ -163,14 +164,16 @@ This tag is optional.
 ---
 #### <a name="tag_states"></a>`<states>`
 The `<states>` tag encloses all syntax states.  
-States are areas of the text that begin and end with an regex like comments or strings,  
-with exception of the default state, that exists anywhere where no other state exists.  
+States are areas of the text that begin and end with an regex like comments or strings, with exception of the default state, that exists anywhere where no other state exists.  
+It contains the `<default>` tag.  
 This tag is required.
 
 
 ---
 #### <a name="tag_default"></a>`<default>`
-The `<default>` tag specifies what is colored within the default state (see `<states>`).  
+The `<default>` tag specifies what is colored (, indented,…) within the default state (see `<states>`).  
+It can contain multiple `<keywords>`, `<state>`, `<import>` and `<state-link>` tags.  
+It encloses everything that it not matched by another state.  
 This tag is required.
 
 ##### Attributes
@@ -201,6 +204,7 @@ This tag is required.
 ---
 #### <a name="tag_keywords"></a>`<keywords>`
 The `<keywords>` tag specifies keyword groups within the current state.  
+It can contain multiple `<string>` and `<regex>` tags.  
 This tag is required.
 
 ##### Attributes
@@ -215,7 +219,7 @@ This tag is required.
 	* _yes_ (default) - group's strings are added to the autocomplete dictionary
 	* _no_
 
-* <a name="attribute_scope_keyword"></a>`scope` - a string description of the scope, used for style sheets - possible values: 
+* <a name="attribute_scope_keyword"></a>`scope` _(optional)_ - a string description of the scope, used for style sheets - possible values: 
 	* see: _Style Sheet Scopes Reference_ (**TODO**)
 	
 ---
@@ -236,18 +240,40 @@ This tag is optional.
 ---
 #### <a name="tag_state"></a>`<state>` _(optional)_
 The `<state>` tag specifies a state other than the default state.  
-It features the same attributes as `<default>`.  
-It has to contain a `<begin>` and a `<end>` tag. It can contain `<keywords>` tags like specified above.  
+It has to contain a `<begin>` and an `<end>` tag. It can contain `<keywords>`, `<state>`, `<import>` and `<state-link>` tags. It features the same attributes as the `<default>` tag.  
 This tag is optional.  
+
+##### Attributes
+* see [`<default>`](#tag_default)
+* <a name="attribute_indent"></a>`indent` _(optional)_ - state causes further indentation - possible values:
+	* _no_ (default)
+	* _yes_ - state increases indentation level on return and re-indent
 
 
 ---
 #### <a name="tag_begin_end"></a>`<begin>` and `<end>`
 The `<begin>` tag specifies the begin of a state other than the default state.  
 The `<end>` tag specifies the end of a state other than the default state.  
-Both have to contain a `<regex>` tag.
+Both have to contain a `<regex>` tag or a `<string>` tag containg a descriptor for the begin/end of the state.  
+The `<begin>` tag can additionally contain an `<autoend>` tag.  
 These tags are required. 
- 
+
+
+---
+#### <a name="tag_regex_string"></a>`<regex>` or `<string>`
+The `<begin>` and `<end>` tags contain either a `<regex>` tag or a `<string>` tag.  
+The `<regex>` tag contains a regular expression string.  
+The `<string>` tag contains a string.  
+One of these tags is required. 
+
+
+---
+#### <a name="tag_autoend"></a>`<autoend>` _(optional)_
+The `<autoend>` tag contains either a plain string or references a named group in the begin regex, for example 
+`<autoend>@end</autoend>` or `<autoend>&lt;/\g&lt;xmltagstatename&gt;&gt;</autoend>`.  
+It is used for closing the current state via `Menu: Format → Close Current Tag/Block` _(option-cmd-.)_.  
+This tag is optional.  
+
 
 ---
 #### <a name="tag_import"></a>`<import>` _(optional)_
@@ -271,7 +297,7 @@ This tag is optional.
 
 ---
 #### <a name="tag_state-link"></a>`<state-link>` _(optional)_
-The `<state-link>` tag lets you reuse complete states including the begin and end regex as well as the attributes on the linked.
+The `<state-link>` tag lets you reuse complete states including the begin and end regex as well as the attributes of the linked state.  
 This tag is optional.  
 
 ##### Attributes
@@ -360,12 +386,19 @@ This tag is optional.
 
 The following attributes, that where part of the `<default>`, `<states>` and `<keywords>` tags are no longer supported by SubEthaEdit 4.0 and up: 
 
+* background-color
 * color
-* inverted-color
-* font-weight
 * font-style
+* font-weight
+* inverted-background-color
+* inverted-color
+
 
 They are replaced by the `scope` attribute and the use of style sheets (see: _Style Sheet Scopes Reference_ (**TODO**)).
+
+
+#### <a name="DefaultState"></a>All states are inside of the default state
+`<state>` tags only occur inside of the `<default>` tag.
 
 
 
