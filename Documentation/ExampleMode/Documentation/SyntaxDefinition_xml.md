@@ -9,7 +9,7 @@ Without this file the mode cannot work.
 2. [File structure - Tags and Attributes](#FileStructure)
 3. [Example File](#ExtendedExample)
 4. [Additional Information](#AdditionalInformation)
-	* [No longer supported `<default>`-, `<states>`-, `<keywords>`-attributes](#UnsupportedAttributes)
+	* [No longer supported `<default>`-, `<state>`-, `<keywords>`-attributes](#UnsupportedAttributes)
 	* [All states are inside of the default state](#DefaultState)
 
 
@@ -59,7 +59,7 @@ Without this file the mode cannot work.
 		@ [use-spelling-dictionary](#attribute_use-spelling-dictionary) (_optional_)
 		* [**&lt;folding&gt;**](#tag_folding) (_optional_)  
 		@ [toplevel](#attribute_toplevel) (_optional_)
-		
+
 		* [**&lt;charsintokens&gt;**](#tag_charsintokens_delimiting) _(optional if &lt;charsdelimitingtokens&gt; is set)_
 		* [**&lt;charsdelimitingtokens&gt;**](#tag_charsintokens_delimiting) _(optional if &lt;charsintokens&gt; is set)_
 		* [**&lt;charsincompletion&gt;**](#tag_charsincompletion) _(optional)_
@@ -140,6 +140,7 @@ This tag is optional.
 * <a name="attribute_toplevel"></a>`toplevel` _(optional)_ - folding level for ctrl-command-up - possible values:
 	* _1_ (default)
 	* _2-9_
+
 
 ---
 #### <a name="tag_charsintokens_delimiting"></a>`<charsintokens>` and `<charsdelimitingtokens>` _(optional if the other one is specified)_
@@ -382,9 +383,9 @@ This tag is optional.
 ---
 ### <a name="AdditionalInformation"></a>Additional Information:
 
-#### <a name="UnsupportedAttributes"></a>No longer supported `<default>`-, `<states>`-, `<keywords>`-attributes
+#### <a name="UnsupportedAttributes"></a>No longer supported `<default>`-, `<state>`-, `<keywords>`-attributes
 
-The following attributes, that where part of the `<default>`, `<states>` and `<keywords>` tags are no longer supported by SubEthaEdit 4.0 and up: 
+The following attributes, that where part of the `<default>`, `<state>` and `<keywords>` tags are no longer supported by SubEthaEdit 4.0 and up: 
 
 * background-color
 * color
