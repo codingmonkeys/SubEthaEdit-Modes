@@ -394,13 +394,13 @@ The following attributes, that where part of the `<default>`, `<state>` and `<ke
 * inverted-background-color
 * inverted-color
 
-
 They are replaced by the `scope` attribute and the use of style sheets (see: _Style Sheet Scopes Reference_ (**TODO**)).
+
+Having  a `scope` attribute instead of the direct color and font attributes gives you CSS like abstraction so there can be one `.sss` file to style all the modes. 
 
 
 #### <a name="DefaultState"></a>All states are inside of the default state
 `<state>` tags only occur inside of the `<default>` tag.
-
 
 
 <!-- Referenced Paths -->
