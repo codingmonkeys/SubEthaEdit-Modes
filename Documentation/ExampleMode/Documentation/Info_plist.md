@@ -63,9 +63,13 @@ It contains a collection of keys and values that describes your mode.
 
 * `CFBundleGetInfoString` _(deprecated)_ - replaced by `NSHumanReadableCopyright`
 * `TCMModeExtensions` _(deprecated)_ - replaced by the [Mode Settings `extension` tag][ModeSettings_extension] - was used to specify the extensions the mode supports
+* `TCMModeNewFileTemplate` _(deprecated)_ - replaced by the [Mode Settings `template` tag][ModeSettings_template] - was used to specify the template file name
+
+
 
 <!-- Referenced Files -->
-[ModeSettings_extension]: ModeSettings_xml.md#tag_extension "ModeSettings_xml.md - Extension tag"
+[ModeSettings_extension]: ModeSettings_xml.md#tag_extension "ModeSettings - extension tag"
+[ModeSettings_template]: ModeSettings_xml.md#tag_template "ModeSettings - template tag"
 
 <!-- Referenced Paths -->
 [ModeExample]: .. "SubEthaEdit 4 Example Mode Documentation"

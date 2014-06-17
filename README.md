@@ -1,7 +1,7 @@
 # SubEthaEdit - Modes and Styles
 
 ### Purpose
-* Public repository for user contributed and additional [modes][SEEModes4] and styles for SubEthaEdit 4
+* Public repository for user contributed and additional [modes][SEE4Modes] and styles for SubEthaEdit 4
 * Attic for old [SubEthaEdit 3.x modes][SEE3Modes] for use with old versions and/or Coda
 * Source of [Documentation][Docu] of SubEthaEdit Modes, Scripts and Styles
 
