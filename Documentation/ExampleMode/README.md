@@ -75,17 +75,6 @@ The file that is used for template content has a custom name by which it is refe
 Files that are used for symbol icons in the function popup are also referenced by name in [RegexSymbols.xml][RegexSymbols_xml]. 
 
 
-### [File recognition trigger test files][TestFiles]
-
-`TestFiles/` contains example "Example" files showing which of them are recognized as "Example" files and which aren't. 
-
-* `Example` is recognized based on the filename
-* `ExampleModeFile_NoShebang.EXAMPLE` is recognized based on the file extension
-* `ExampleModeFile_NoShebang.exmpl` is recognized based on the file extension
-* `ExampleModeFile_Shebang` - is recognized based on the shebang
-* `ExampleModeFile_Shebang.txt` - is recognized based on the shebang (though precedence for recognizing based on txt extension wins in the default setup)
-* `NoExampleModeFile_NoShebang.EXMPL`
-
 
 <!-- Referenced Files -->
 [ModeScripts]: Documentation/ModeScripts.md "ModeScripts.md"
@@ -96,5 +85,4 @@ Files that are used for symbol icons in the function popup are also referenced b
 [SyntaxDefinition_xml]: Documentation/SyntaxDefinition_xml.md "SyntaxDefinition_xml.md"
 
 <!-- Referenced Paths -->
-[TestFiles]: TestFiles "TestFiles/"
 [ModeExample]: . "SubEthaEdit 4 Example Mode Documentation"

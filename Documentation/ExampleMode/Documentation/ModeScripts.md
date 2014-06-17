@@ -2,10 +2,13 @@
 ## Mode Scripts: _Scripts/_
 
 The folder called `Scripts` is located in the modes Resources folder.  
-It can contain mode specific apple scripts to enhance the mode experience in some way or another.
+It can contain mode specific apple scripts to enhance the mode experience in some way or another.  
+Hidden files (prefixed with a .) in this folder are ignored.
 
 1. [Example File](#ExampleFile)
 2. [Script Settings](#ScriptSettings)
+3. [Additional Information](#AdditionalInformation)
+	* [No longer supported `seescriptsettings()`-keys](#UnsupportedScriptSettings)
 
 
 ### <a name="ExampleFile"></a>Example File:
@@ -17,8 +20,8 @@ on seescriptsettings()
 end seescriptsettings
 
 -- the actual script
-display alert "Sorry!" message "We are closed." giving up after 1
-say "We are closed." using "Zarvox"
+display alert "Hello!" message "This is a test script." giving up after 1
+say "Hello." using "Zarvox"
 ```
 
 
@@ -49,6 +52,20 @@ The possible keys are
 		* **^** is control
 		* **$** is shift
 		* **@** would be commmand but is mandatory
+
+
+---
+### <a name="AdditionalInformation"></a>Additional Information:
+
+#### <a name="UnsupportedScriptSettings"></a>No longer supported `seescriptsettings()`-keys: 
+
+The following keys are no longer supported by SubEthaEdit 4.0 and up: 
+
+* shortdisplayname
+* toolbartooltip
+* toolbaricon
+* indefaulttoolbar
+
 
 
 <!-- Referenced Paths -->

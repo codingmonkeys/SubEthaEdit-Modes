@@ -6,6 +6,11 @@ It defines regexes to parse the document for elements to show in the function po
 
 1. [Example File](#ExampleFile)
 2. [File structure - Tags and Attributes](#FileStructure)
+3. [Additional Information](#AdditionalInformation)
+	* [No longer supported `image`-attribute values](#UnsupportedImageValues)
+	* [Unknown behavior if the `symbol`-attribute is an empty string](#EmptySymbolString)
+	* [Known Bug: resolution specific images are ignored even if available](#ResolutionBug)
+	* [Unused: `<blocks>`, `<beginregex>`, `<endregex>` tags and &lt;symbol&gt;-attribute `ignoreblocks`](#BlockTag)
 
 
 ### <a name="ExampleFile"></a>Example File:
@@ -68,11 +73,12 @@ This tag is required.
 ---
 #### <a name="tag_symbol"></a>`<symbol>`
 The `<symbol>` tag specifies what is being shown in the function popup. The result of regex and optional postprocessing are used to generate the symbol title. If the result for the title is an empty string the symbol shows up as an separator in the function popup.  
+It contains a `<regex>` tag and an optional `<postprocess>` tag.  
 This tag is optional.  
 
 ##### Attributes
 
-* <a name="attribute_id"></a>`id` - string identifier for an specific symbol - has to be a unique string - has to be]specified
+* <a name="attribute_id"></a>`id` - string identifier for an specific symbol - has to be a unique string - has to be specified
 
 * <a name="attribute_font-style"></a>`font-style` _(optional)_ - font style of the symbol title - possible values:
 	*  _normal_ : Normal font-style (default)
@@ -104,7 +110,7 @@ This tag is optional.
 	_name_ is the character(s) that should show up in the icon  (eg. F(), M) - defaults to empty string  
 	_color_ is a HTML color string (eg. #f84, #aa8799) - defaults to #2B50E8   
 	_fontsize_ is a font size in points - defaults to 11.0  
-	_fontfamily_ is the name of a font - defaults to LucidaGrand 
+	_fontfamily_ is the name of a font - defaults to LucidaGrande 
 
 
 ---
@@ -125,6 +131,53 @@ This tag is optional.
 #### <a name="tag_findreplace"></a>`<find>` and `<replace>`
 Contained in the `<postprocess>` tag `<find>` and `<replace>` specify the find and replace operations that should be executed on the found string. They each contain a Ruby-flavored regular expression. You can use groups like \1 and the like.    
 These tags are required and need to be added in pairs.
+
+
+---
+### <a name="AdditionalInformation"></a>Additional Information:
+
+#### <a name="UnsupportedImageValues"></a>No longer supported `image`-attribute values
+* Symbol#
+* SymbolC
+* SymbolE
+* SymbolF
+* SymbolF()
+* SymbolG
+* SymbolK
+* SymbolL
+* SymbolM
+* SymbolP
+* SymbolS
+* SymbolT
+* SymbolV
+	
+
+#### <a name="EmptySymbolString"></a>Unknown behavior if the `symbol`-attribute is an empty string
+To be tested.
+
+
+#### <a name="ResolutionBug"></a>Known Bug: resolution specific images are ignored even if available
+Affects SubEthaEdit 4.0.1 and below.
+
+
+#### <a name="BlockTag"></a>Unused: `<blocks>`, `<beginregex>`, `<endregex>` tags and &lt;symbol&gt; attribute `ignoreblocks`
+
+**! Has no effect**
+
+There are modes out there that have these tags/attributes, but they have no effect.
+
+`ignoreblocks` : possible values `yes` and `no` _(no default behavior, is ignored)_
+
+Example:
+
+```xml
+<blocks>
+	<beginregex>{</beginregex>
+	<endregex>}</endregex>
+</blocks>
+<symbol id="id3" ignoreblocks="yes">[…]</symbol>
+```
+
 
 
 <!-- Referenced Paths -->
