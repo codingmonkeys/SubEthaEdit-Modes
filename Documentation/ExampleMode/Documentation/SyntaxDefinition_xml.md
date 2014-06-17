@@ -178,7 +178,7 @@ This tag is required.
 
 ##### Attributes
 
-* <a name="attribute_id"></a>`id` - string identifier - has to be a unique string - has to bespecified
+* <a name="attribute_id"></a>`id` - string identifier - has to be a unique string - has to be specified
 
 
 * <a name="attribute_usesymbolsfrommode"></a>`usesymbolsfrommode` _(optional)_ - a mode name to use the symbol recognition from - possible values:
