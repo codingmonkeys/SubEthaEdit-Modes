@@ -8,6 +8,7 @@
 	
 	<states>
 		<default id="Base" scope="meta.default">
+			
 			<keywords id="Primitive Types" useforautocomplete="yes" scope="keyword.type">
 				<string>bool</string>
 				<string>byte</string>
@@ -100,7 +101,6 @@
 			<keywords id="Numbers" useforautocomplete="no" scope="language.constant.numeric">
 				<regex>(?&lt;=[^[A-Za-z0-9]]|^)((([0-9]+\.[0-9]*)|(\.[0-9]+)([eE][+\-]?[0-9]+)?[fFlL]?)|((([1-9][0-9]*)|0[0-7]*|(0[xX][0-9a-fA-F]))(([uU][lL]?)|([lL][uU]?))?))(?=[^[A-Za-z0-9]]|$)</regex>
 			</keywords>
-		</default>
 		
 		<state id="AutodocComment" type="comment" scope="comment.block.documentation">
 			<begin><string>/\*"</string></begin>
@@ -141,5 +141,6 @@
 			<import/>
 		</state>            
 
+		</default>
 	</states>
 </syntax>
