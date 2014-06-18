@@ -66,7 +66,7 @@ Of the _built in images_ only `SymbolWarn`is still supported. With the others it
 ▶️ _Check if custom scripts are still necessary - some scripts are now built in or funtionality directly supported by SubEthaEdit or the mode format itself._
 
 * _Insert Hex Color_ is now a built in script available for all modes
-* _Close tag/block_ scripts can now be replaced by [`<autoend>` information][RegexSymbols_xml_tag_symbol] in [`RegexSymbols.xml`][RegexSymbols_xml] - support for closing a state is now built into the mode states
+* _Close tag/block_ scripts can now be replaced by [`<autoend>` information][SyntaxDefinition_xml_tag_autoend] in [`SyntaxDefinition.xml`][SyntaxDefinition_xml] - support for closing a state is now built into the mode states
 
 ▶️ _Check mode scripts with the AppleScript Editor and the current SubEthaEdit._ 
 
@@ -97,6 +97,7 @@ This is the bare minimum:
 <!-- Referenced Files -->
 [RegexSymbols_xml_tag_symbol]: ExampleMode/Documentation/RegexSymbols_xml.md#tag_symbol "RegexSymbols - Documentation for <symbol>"
 [ScopesDocu]: Styles/Scopes.md "Style Sheet Scopes Documentation"
+[SyntaxDefinition_xml_tag_autoend]: ExampleMode/Documentation/SyntaxDefinition_xml.md#tag_autoend "SyntaxDefinition - Documentation for <autoend>"
 
 <!-- Referenced Paths -->
 [Docu]: . "SubEthaEdit 4 Mode Documentation"
