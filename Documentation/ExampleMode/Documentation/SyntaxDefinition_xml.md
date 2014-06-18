@@ -57,6 +57,8 @@ This file is required.
 		
 		* [**&lt;autocompleteoptions&gt;**](#tag_autocompleteoptions) (_optional_)  
 		@ [use-spelling-dictionary](#attribute_use-spelling-dictionary) (_optional_)
+		* [**&lt;bracketmatching&gt;**](#tag_bracketmatching) (_optional_)  
+		@ [brackets](#attribute_brackets) (_optional_)
 		* [**&lt;folding&gt;**](#tag_folding) (_optional_)  
 		@ [toplevel](#attribute_toplevel) (_optional_)
 
@@ -108,7 +110,7 @@ This tag is required.
 ---
 #### <a name="tag_head"></a>`<head>`
 The `<head>` tag encloses some global information about the mode.  
-It contains a `<name>` tag and either `<charsintokens>` or `<charsdelimitingtokens>` or both. It can also contain `<autocompleteoptions>`, `<folding>` and `<charsincompletion>`.  
+It contains a `<name>` tag and either `<charsintokens>` or `<charsdelimitingtokens>` or both. It can also contain `<autocompleteoptions>`, `<bracketmatching>`, `<folding>` and `<charsincompletion>`.  
 This tag is required.  
 
 
@@ -130,6 +132,23 @@ This tag is optional.
 	* _no_ (default)
 	* _yes_
 
+---
+#### <a name="tag_bracketmatching"></a>`<bracketmatching>` _(optional)_
+The `<bracketmatching>` tag defines which characters a mode matches to pairs - the corresponding character of a pair is highlighted if the other one is passed with the cursor, _double clicking_ one of them selects both characters and everything inbetween - the default use case for that are brackets - round, square, curly, angled or otherwise.  
+This tag is optional.
+
+##### Attributes
+
+* <a name="attribute_brackets"></a>`brackets` _(optional)_ - string that defines which characters are matched to pairs - possible values:
+	* _{[()]}_ (default)
+	* string of the format _abc…CBA_
+	
+	where  
+	_a_ is the opening character,  
+	_A_ is the corresponding closing character  
+	opening and closing characters are different from each other and every other character in the string.  
+	
+	
 ---
 #### <a name="tag_folding"></a>`<folding>` _(optional)_
 The `<folding>` tag defines the default folding level for `^ control` + `⌘ command` + `↑ up` (`Menu: View → Code Folding → Fold All Level X Blocks`).  
