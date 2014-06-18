@@ -24,11 +24,11 @@ The basic file layout inside the `.seemode` bundles however has stayed the same,
 
 ---
 #### <a name="SyntaxDefinition"></a>Changes in [`SyntaxDefinition.xml`][SyntaxDefinition_xml]  
-ℹ️ Style Sheet Scopes Reference (_**TODO**_)   
+ℹ️ [Style Sheet Scopes Documentation][ScopesDocu]   
 
 ▶️ _Update `<default>`, `<state>`, `<keywords>` tags for  mode independent style sheets:_  
 
-* ▶️ _Add a `scope` attribute_ - (see Style Sheet Scopes Reference _**TODO**_)
+* ▶️ _Add a `scope` attribute_
 * ▶️ _Remove `background-color`, `color`, `font-style`, `font-weight`, `inverted-background-color`, `inverted-color` attributes._  
 
 ▶️ _Move all your states into the `<default>` state._  
@@ -94,9 +94,9 @@ This is the bare minimum:
 [RegexSymbols_xml]: ExampleMode/Documentation/RegexSymbols_xml.md "RegexSymbols Documentation"
 [SyntaxDefinition_xml]: ExampleMode/Documentation/SyntaxDefinition_xml.md "SyntaxDefinition Documentation"
 
-
 <!-- Referenced Files -->
 [RegexSymbols_xml_tag_symbol]: ExampleMode/Documentation/RegexSymbols_xml.md#tag_symbol "RegexSymbols - Documentation for <symbol>"
+[ScopesDocu]: Styles/Scopes.md "Style Sheet Scopes Documentation"
 
 <!-- Referenced Paths -->
 [Docu]: . "SubEthaEdit 4 Mode Documentation"

@@ -199,7 +199,7 @@ This tag is required.
 	* _yes_
 
 * <a name="attribute_scope"></a>`scope` _(optional)_ - a string description of the scope, used for style sheets - possible values: 
-	* see: _Style Sheet Scopes Reference_ (**TODO**)
+	* see: [Style Sheet Scopes Documentation][ScopesDocu]
 
 
 ---
@@ -221,8 +221,9 @@ This tag is required.
 	* _no_
 
 * <a name="attribute_scope_keyword"></a>`scope` _(optional)_ - a string description of the scope, used for style sheets - possible values: 
-	* see: _Style Sheet Scopes Reference_ (**TODO**)
-	
+	* see: [Style Sheet Scopes Documentation][ScopesDocu]
+
+
 ---
 #### <a name="tag_string"></a>`<string>` _(optional)_
 The `<string>` tag specifies plain text to be colored.  
@@ -394,7 +395,7 @@ The following attributes, that where part of the `<default>`, `<state>` and `<ke
 * inverted-background-color
 * inverted-color
 
-They are replaced by the `scope` attribute and the use of style sheets (see: _Style Sheet Scopes Reference_ (**TODO**)).
+They are replaced by the `scope` attribute and the use of style sheets (see: [SubEthaEdit Style Sheet Documentation][StylesDocu]).
 
 Having  a `scope` attribute instead of the direct color and font attributes gives you CSS like abstraction so there can be one `.sss` file to style all the modes. 
 
@@ -402,6 +403,9 @@ Having  a `scope` attribute instead of the direct color and font attributes give
 #### <a name="DefaultState"></a>All states are inside of the default state
 `<state>` tags only occur inside of the `<default>` tag.
 
+<!-- Referenced Files -->
+[ScopesDocu]: ../../Styles/Scopes.md "Style Sheet Scopes Documentation"
 
 <!-- Referenced Paths -->
+[StylesDocu]: ../../Styles "SubEthaEdit Style Sheet Documentation"
 [ModeExample]: .. "SubEthaEdit 4 Example Mode Documentation"
