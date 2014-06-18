@@ -97,7 +97,7 @@ This tag is optional.
 	* _0_ (default) 
 	* _1-15_ 
 
-* <a name="attribute_show-in-comments"></a>`show-in-comments` _(optional)_ - will ignore this symbol definition if it occours in a comment - possible values:
+* <a name="attribute_show-in-comments"></a>`show-in-comments` _(optional)_ - will also look for this symbol if it occours in a comment - possible values:
 	* _no_ (default)
 	* _yes_
 	
