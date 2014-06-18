@@ -24,7 +24,7 @@
 				<string>ulong</string>
 				<string>ushort</string>
 			</keywords>
-
+			
 			<keywords id="Predefined Types" useforautocomplete="yes" scope="keyword.type">
 				<string>string</string>
 			</keywords>
@@ -101,46 +101,46 @@
 			<keywords id="Numbers" useforautocomplete="no" scope="language.constant.numeric">
 				<regex>(?&lt;=[^[A-Za-z0-9]]|^)((([0-9]+\.[0-9]*)|(\.[0-9]+)([eE][+\-]?[0-9]+)?[fFlL]?)|((([1-9][0-9]*)|0[0-7]*|(0[xX][0-9a-fA-F]))(([uU][lL]?)|([lL][uU]?))?))(?=[^[A-Za-z0-9]]|$)</regex>
 			</keywords>
-		
-		<state id="AutodocComment" type="comment" scope="comment.block.documentation">
-			<begin><string>/\*"</string></begin>
-			<end><regex>"\*/</regex></end>
-		</state>
-		
-		<state id="Comment" type="comment" scope="comment.block">
-			<begin><string>/\*</string></begin>
-			<end><regex>\*/</regex></end>
-		</state>
-		
-		<state id="SingleComment" type="comment" scope="comment.line.double-slash">
-			<begin><string>//</string></begin>
-			<end><regex>[\n\r]</regex></end>
-		</state>
-		
-		<state id="Preprocessor" foldable="yes" indent="yes" scope="language.preprocessor">
-			<begin><string>#</string></begin>
-			<end><regex>[\n\r]</regex></end>
+			
+			<state id="AutodocComment" type="comment" scope="comment.block.documentation">
+				<begin><string>/\*"</string></begin>
+				<end><regex>"\*/</regex></end>
+			</state>
+			
+			<state id="Comment" type="comment" scope="comment.block">
+				<begin><string>/\*</string></begin>
+				<end><regex>\*/</regex></end>
+			</state>
+			
+			<state id="SingleComment" type="comment" scope="comment.line.double-slash">
+				<begin><string>//</string></begin>
+				<end><regex>[\n\r]</regex></end>
+			</state>
+			
+			<state id="Preprocessor" foldable="yes" indent="yes" scope="language.preprocessor">
+				<begin><string>#</string></begin>
+				<end><regex>[\n\r]</regex></end>
 			<import mode="/" keywords-only="yes"/>
 			<import/>
-		</state>
-		
-		<state id="String" type="string" foldable="no" scope="string.double">
-			<begin><string>"</string></begin>
-			<end><regex>(((?&lt;!\\)(\\\\)*)|^)"</regex></end>
-		</state>
-		
-		<state id="Block" type="block" foldable="yes" indent="yes" scope="meta.block">
-			<begin>
-				<regex>{</regex>
-				<autoend>}</autoend>
-			</begin>
-			<end>
-				<regex>}</regex>
-			</end>
+			</state>
+			
+			<state id="String" type="string" foldable="no" scope="string.double">
+				<begin><string>"</string></begin>
+				<end><regex>(((?&lt;!\\)(\\\\)*)|^)"</regex></end>
+			</state>
+			
+			<state id="Block" type="block" foldable="yes" indent="yes" scope="meta.block">
+				<begin>
+					<regex>{</regex>
+					<autoend>}</autoend>
+				</begin>
+				<end>
+					<regex>}</regex>
+				</end>
 			<import mode="/" keywords-only="yes"/>
-			<import/>
-		</state>            
-
+				<import/>
+			</state>            
+			
 		</default>
 	</states>
 </syntax>
