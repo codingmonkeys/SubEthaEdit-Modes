@@ -24,6 +24,11 @@ Watch the master branch of this repository to stay up to date with our efforts.
 <!-- Referenced Files -->
 [ModeUpdate]: Documentation/ModeUpdateNotes.md "Notes on updating modes from SubEthaEdit 3 to 4"
 
+<!--
+[Scopes]: Documentation/Styles/Scopes.md "Style Sheet Scopes Documentation"
+[Style Sheet Scopes Documentation][Scopes]
+-->
+
 <!-- Referenced Paths -->
 [Docu]: Documentation "Mode, Script and Style Documentation for SubEthaEdit 4"
 [ModeExample]: Documentation/ExampleMode/ "SubEthaEdit 4 Example Mode"
