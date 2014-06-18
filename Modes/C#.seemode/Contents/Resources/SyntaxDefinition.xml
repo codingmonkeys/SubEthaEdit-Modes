@@ -27,7 +27,26 @@
 			
 			<keywords id="Predefined Types" useforautocomplete="yes" scope="keyword.type">
 				<string>string</string>
+				<string>object</string>
 			</keywords>
+			
+			<keywords id="Framework Types" useforautocomplete="yes" scope="support.type">
+				<string>System.Boolean</string>
+				<string>System.Byte</string>
+				<string>System.SByte</string>
+				<string>System.Char</string>
+				<string>System.Decimal</string>
+				<string>System.Double</string>
+				<string>System.Single</string>
+				<string>System.Int32</string>
+				<string>System.UInt32</string>
+				<string>System.Int64</string>
+				<string>System.UInt64</string>
+				<string>System.Object</string>
+				<string>System.Int16</string>
+				<string>System.UInt16</string>
+				<string>System.String</string>
+			</keywords>							
 			
 			<keywords id="Constant Keywords" useforautocomplete="yes" scope="keyword.constant">
 				<string>false</string>
@@ -68,7 +87,6 @@
 				<string>lock</string>
 				<string>namespace</string>
 				<string>new</string>
-				<string>object</string>
 				<string>operator</string>
 				<string>out</string>
 				<string>override</string>
@@ -97,7 +115,7 @@
 				<string>volatile</string>
 				<string>while</string>
 			</keywords>
-			
+
 			<keywords id="Numbers" useforautocomplete="no" scope="language.constant.numeric">
 				<regex>(?&lt;=[^[A-Za-z0-9]]|^)((([0-9]+\.[0-9]*)|(\.[0-9]+)([eE][+\-]?[0-9]+)?[fFlL]?)|((([1-9][0-9]*)|0[0-7]*|(0[xX][0-9a-fA-F]))(([uU][lL]?)|([lL][uU]?))?))(?=[^[A-Za-z0-9]]|$)</regex>
 			</keywords>
