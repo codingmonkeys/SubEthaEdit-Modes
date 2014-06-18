@@ -120,8 +120,6 @@
 			<state id="Preprocessor" foldable="yes" indent="yes" scope="language.preprocessor">
 				<begin><string>#</string></begin>
 				<end><regex>[\n\r]</regex></end>
-			<import mode="/" keywords-only="yes"/>
-			<import/>
 			</state>
 			
 			<state id="String" type="string" foldable="no" scope="string.double">
@@ -137,7 +135,6 @@
 				<end>
 					<regex>}</regex>
 				</end>
-			<import mode="/" keywords-only="yes"/>
 				<import/>
 			</state>            
 			
