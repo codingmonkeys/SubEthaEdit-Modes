@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIdentifier</key>
-	<string>SEEMode.C#</string>
+    <string>SEEMode.CSharp</string>
 	<key>CFBundleName</key>
 	<string>C#</string>
     <key>CFBundleShortVersionString</key>
