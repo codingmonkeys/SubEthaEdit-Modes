@@ -1,0 +1,9 @@
+############################################## NB
+Hat tip to Renaud Gaudin
+for the contribution of the original Mode!
+##############################################
+
+Changes with Version 2.0 (SEE 4.0)
+	*) Updated for SEE 4
+	*) added ChangeLog.txt
+	*) added ExampleSyntax.txt
