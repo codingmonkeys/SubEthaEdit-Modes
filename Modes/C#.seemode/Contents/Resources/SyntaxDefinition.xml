@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!DOCTYPE syntax SYSTEM "syntax.dtd">
-
 <syntax>
 	<head>
 		<name>C#</name> 
@@ -8,8 +7,8 @@
 	</head>
 	
 	<states>
-		<default id="Base" color="#000" background-color="#fff" font-weight="normal" font-style="normal">
-			<keywords id="Keywords" color="#00c" useforautocomplete="yes" scope="keyword">
+		<default id="Base">
+			<keywords id="Keywords" useforautocomplete="yes" scope="keyword">
 				<string>abstract</string>
 				<string>event</string>
 				<string>new</string>
@@ -88,7 +87,7 @@
 				<string>namespace</string>
 				<string>string</string>
 			</keywords>
-			<keywords id="Numbers" color="#004CCC" useforautocomplete="no" scope="language.constant.numeric">
+			<keywords id="Numbers" useforautocomplete="no" scope="language.constant.numeric">
 				<regex>(?&lt;=[^[A-Za-z0-9]]|^)((([0-9]+\.[0-9]*)|(\.[0-9]+)([eE][+\-]?[0-9]+)?[fFlL]?)|((([1-9][0-9]*)|0[0-7]*|(0[xX][0-9a-fA-F]))(([uU][lL]?)|([lL][uU]?))?))(?=[^[A-Za-z0-9]]|$)</regex>
 			</keywords>
 		</default>
@@ -98,7 +97,7 @@
 			<end><regex>"\*/</regex></end>
 		</state>
 		
-		<state id="Comment"  type="comment" scope="comment.block">
+		<state id="Comment" type="comment" scope="comment.block">
 			<begin><string>/\*</string></begin>
 			<end><regex>\*/</regex></end>
 		</state>
@@ -108,7 +107,7 @@
 			<end><regex>[\n\r]</regex></end>
 		</state>
 		
-		<state id="Region" color="#A0A014" foldable="yes" indent="yes" scope="support.region">
+		<state id="Region" foldable="yes" indent="yes" scope="support.region">
 			<begin><string>#</string></begin>
 			<end><regex>[\n\r]</regex></end>
 			<import mode="/" keywords-only="yes"/>
