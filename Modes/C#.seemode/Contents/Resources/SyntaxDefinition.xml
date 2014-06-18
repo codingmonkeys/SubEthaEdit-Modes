@@ -8,85 +8,95 @@
 	
 	<states>
 		<default id="Base" scope="meta.default">
-			<keywords id="Keywords" useforautocomplete="yes" scope="keyword">
-				<string>abstract</string>
-				<string>event</string>
-				<string>new</string>
-				<string>struct</string>
-				<string>as</string>
-				<string>explicit</string>
-				<string>null</string>
-				<string>switch</string>
-				<string>base</string>
-				<string>extern</string>
-				<string>object</string>
-				<string>this</string>
+			<keywords id="Primitive Types" useforautocomplete="yes" scope="keyword.type">
 				<string>bool</string>
-				<string>false</string>
-				<string>operator</string>
-				<string>throw</string>
-				<string>break</string>
-				<string>finally</string>
-				<string>out</string>
-				<string>true</string>
 				<string>byte</string>
-				<string>fixed</string>
-				<string>override</string>
-				<string>try</string>
-				<string>case</string>
-				<string>float</string>
-				<string>params</string>
-				<string>typeof</string>
-				<string>catch</string>
-				<string>for</string>
-				<string>private</string>
-				<string>uint</string>
 				<string>char</string>
-				<string>foreach</string>
-				<string>protected</string>
-				<string>ulong</string>
-				<string>checked</string>
-				<string>goto</string>
-				<string>public</string>
-				<string>unchecked</string>
-				<string>class</string>
-				<string>if</string>
-				<string>readonly</string>
-				<string>unsafe</string>
-				<string>const</string>
-				<string>implicit</string>
-				<string>ref</string>
-				<string>ushort</string>
-				<string>continue</string>
-				<string>in</string>
-				<string>return</string>
-				<string>using</string>
 				<string>decimal</string>
-				<string>int</string>
-				<string>sbyte</string>
-				<string>virtual</string>
-				<string>default</string>
-				<string>interface</string>
-				<string>sealed</string>
-				<string>volatile</string>
-				<string>delegate</string>
-				<string>internal</string>
-				<string>short</string>
-				<string>void</string>
-				<string>do</string>
-				<string>is</string>
-				<string>sizeof</string>
-				<string>while</string>
 				<string>double</string>
-				<string>lock</string>
-				<string>stackalloc</string>
-				<string>else</string>
+				<string>float</string>
+				<string>int</string>
 				<string>long</string>
-				<string>static</string>
-				<string>enum</string>
-				<string>namespace</string>
+				<string>sbyte</string>
+				<string>short</string>
+				<string>uint</string>
+				<string>ulong</string>
+				<string>ushort</string>
+			</keywords>
+
+			<keywords id="Predefined Types" useforautocomplete="yes" scope="keyword.type">
 				<string>string</string>
 			</keywords>
+			
+			<keywords id="Constant Keywords" useforautocomplete="yes" scope="keyword.constant">
+				<string>false</string>
+				<string>null</string>
+				<string>true</string>
+			</keywords>
+			
+			<keywords id="Keywords" useforautocomplete="yes" scope="keyword">
+				<string>abstract</string>
+				<string>as</string>
+				<string>base</string>
+				<string>break</string>
+				<string>case</string>
+				<string>catch</string>
+				<string>checked</string>
+				<string>class</string>
+				<string>const</string>
+				<string>continue</string>
+				<string>default</string>
+				<string>delegate</string>
+				<string>do</string>
+				<string>else</string>
+				<string>enum</string>
+				<string>event</string>
+				<string>explicit</string>
+				<string>extern</string>
+				<string>finally</string>
+				<string>fixed</string>
+				<string>for</string>
+				<string>foreach</string>
+				<string>goto</string>
+				<string>if</string>
+				<string>implicit</string>
+				<string>in</string>
+				<string>interface</string>
+				<string>internal</string>
+				<string>is</string>
+				<string>lock</string>
+				<string>namespace</string>
+				<string>new</string>
+				<string>object</string>
+				<string>operator</string>
+				<string>out</string>
+				<string>override</string>
+				<string>params</string>
+				<string>private</string>
+				<string>protected</string>
+				<string>public</string>
+				<string>readonly</string>
+				<string>ref</string>
+				<string>return</string>
+				<string>sealed</string>
+				<string>sizeof</string>
+				<string>stackalloc</string>
+				<string>static</string>
+				<string>struct</string>
+				<string>switch</string>
+				<string>this</string>
+				<string>throw</string>
+				<string>try</string>
+				<string>typeof</string>
+				<string>unchecked</string>
+				<string>unsafe</string>
+				<string>using</string>
+				<string>virtual</string>
+				<string>void</string>
+				<string>volatile</string>
+				<string>while</string>
+			</keywords>
+			
 			<keywords id="Numbers" useforautocomplete="no" scope="language.constant.numeric">
 				<regex>(?&lt;=[^[A-Za-z0-9]]|^)((([0-9]+\.[0-9]*)|(\.[0-9]+)([eE][+\-]?[0-9]+)?[fFlL]?)|((([1-9][0-9]*)|0[0-7]*|(0[xX][0-9a-fA-F]))(([uU][lL]?)|([lL][uU]?))?))(?=[^[A-Za-z0-9]]|$)</regex>
 			</keywords>
