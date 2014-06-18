@@ -23,7 +23,7 @@ Description forthcoming.
 
 # Styles
 
-[SubEthaEdit Style Sheet Documentation][Styles] (preliminary!)
+[SubEthaEdit Style Sheet Documentation][Styles] (preliminary!)  
 [Style Sheet Scopes Documentation][Scopes] (preliminary!)
 
 Description forthcoming.
