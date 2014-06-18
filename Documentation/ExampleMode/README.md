@@ -5,21 +5,20 @@
 
 It contains files that define the properties of a language that should be recognized for syntax highlighting, additional information for autocompletion support and symbol recognition to fill the symbol popup. It can also contain release notes, custom scripts for that mode, an example file and information on the file extensions that are relevant for the mode's language or file type.
 
-
 SubEthaEdit's mode files are bundles, like e.g. Keynote presentations or rich text with images (rtfd). This enables you to include custom images, a license or other files you want to within the mode. It also ensures extensibility for further mode specific features, like plugins and the like.
 
 
 #### RegEx Tips
 
-* test your expressions with SubEthaEdit's "Find All" command in RegEx mode  
-* case sensitivity can be set to ignore by including (?i) in your expression 
-* if you get stuck somewhere with a regular expression, have a look at the modes included with SubEthaEdit or in this repo
+* test your expressions with SubEthaEdit's `Find All` in RegEx mode  
+* case sensitivity can be set to ignore by including `(?i)` in your expression 
+* if you get stuck somewhere with a regular expression, have a look at the modes included with SubEthaEdit or in this repository
 
 
 #### SEEMode Tips
 
-* hold option and click in the Menu "Mode → Show In Finder" to reveal modes that are already in SubEthaEdit
-* open a mode bundle with SubEthaEdit to be prompted if you want to install it or rather show the package contents (you can also control click a mode bundle and choose "Show Package Contents")
+* hold `⌥ option` and click in the `Menu: Mode → Show In Finder` submenu to reveal modes that are already in SubEthaEdit in the Finder
+* open a mode bundle with SubEthaEdit to be prompted if you want to install it or rather show the package contents (you can also _right click_ a mode bundle and choose `Show Package Contents` in the context menu)
 
 #### Notes on XML Escaping
 

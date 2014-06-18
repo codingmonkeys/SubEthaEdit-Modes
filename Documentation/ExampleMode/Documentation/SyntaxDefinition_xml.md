@@ -1,9 +1,9 @@
 [Documentation][ModeExample]:
 ## Syntax Definitions: _SyntaxDefinition.xml_
 
-The file called `SyntaxDefinition.xml` is located in the modes Resources folder.  
-It contains the information that is needed to recognize language or file type specific sections and keywords. It contains additional information about the mode.  
-Without this file the mode cannot work.
+The file called `SyntaxDefinition.xml` is located in the mode's `Resources` folder.  
+It contains the information that is needed to recognize language or file type specific sections and keywords.  
+This file is required.
 
 1. [Shortened Example File](#ExampleFile)
 2. [File structure - Tags and Attributes](#FileStructure)
@@ -132,7 +132,7 @@ This tag is optional.
 
 ---
 #### <a name="tag_folding"></a>`<folding>` _(optional)_
-The `<folding>` tag defines the folding level for ctrl-command-up.  
+The `<folding>` tag defines the default folding level for `^ control` + `⌘ command` + `↑ up` (`Menu: View → Code Folding → Fold All Level X Blocks`).  
 This tag is optional.
 
 ##### Attributes
@@ -247,7 +247,7 @@ This tag is optional.
 
 ##### Attributes
 * see [`<default>`](#tag_default)
-* <a name="attribute_indent"></a>`indent` _(optional)_ - state causes further indentation - possible values:
+* <a name="attribute_indent"></a>`indent` _(optional)_ - state causes further indentation - used for automatic indentation on return and via `^ control` + `I` (`Menu: Format → Re-Indent`) - possible values:
 	* _no_ (default)
 	* _yes_ - state increases indentation level on return and re-indent
 
@@ -273,7 +273,7 @@ One of these tags is required.
 #### <a name="tag_autoend"></a>`<autoend>` _(optional)_
 The `<autoend>` tag contains either a plain string or references a named group in the begin regex, for example 
 `<autoend>@end</autoend>` or `<autoend>&lt;/\g&lt;xmltagstatename&gt;&gt;</autoend>`.  
-It is used for closing the current state via `Menu: Format → Close Current Tag/Block` _(option-cmd-.)_.  
+It is used for closing the current state via `⌥ option` + `⌘ command` + `.` (`Menu: Format → Close Current Tag/Block`) 
 This tag is optional.  
 
 

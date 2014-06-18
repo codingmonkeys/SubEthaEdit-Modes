@@ -35,7 +35,7 @@ The basic file layout inside the `.seemode` bundles however has stayed the same,
 
 ▶️ _Add `indent` attribute to your states for indentation  support._  
 
-▶️ _Add `<autoend>` to your states for "Close Current Tag/Block" support._
+▶️ _Add `<autoend>` to your states to support programmatically closing the current state._
 
 
 ---

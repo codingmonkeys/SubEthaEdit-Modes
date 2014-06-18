@@ -1,7 +1,7 @@
 [Documentation][ModeExample]:
 ## Symbol Definitions: _RegexSymbols.xml_
 
-The file called `RegexSymbols.xml` is located in the modes Resources folder.  
+The file called `RegexSymbols.xml` is located in the mode's `Resources` folder.  
 It defines regexes to parse the document for elements to show in the symbol popup - for example pragma marks, todos, method declarations. 
 
 1. [Example File](#ExampleFile)
