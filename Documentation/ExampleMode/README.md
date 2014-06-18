@@ -64,6 +64,7 @@ This is the folder structure of `Example.seemode` and all the included files:
 |	|	|	* ModeSettings.xml
 |	|	|	* NewTemplate.txt
 |	|	|	* RegexSymbols.xml
+|	|	|	* ScopeExamples.plist
 |	|	|	* Scripts/
 |	|	|	|	* HelloThere.scpt
 |	|	|	* SyntaxDefinition.xml
@@ -88,6 +89,7 @@ Files in _italics_ are optional custom files without special rules for their nam
 			* [ExampleSyntax.txt](#ExampleSyntax_txt) _(optional)_ 
 			* [ModeSettings.xml][ModeSettings_xml] _(optional)_
 			* [RegexSymbols.xml][RegexSymbols_xml] _(optional)_
+			* [ScopeExamples.plist][ScopeExamples_plist] _(optional)_
 			* [SyntaxDefinition.xml][SyntaxDefinition_xml]
 			* _NewTemplate.txt_ -- see: [ModeSettings.xml][ModeSettings_xml]
 			* _CustomImage.png_ -- see: [RegexSymbols.xml][RegexSymbols_xml]
@@ -115,6 +117,7 @@ Files that are used as symbol icons in the symbol popup are also referenced by n
 [Info_plist]: Documentation/Info_plist.md "Info_plist.md"
 [ModeSettings_xml]: Documentation/ModeSettings_xml.md "ModeSettings_xml.md"
 [RegexSymbols_xml]: Documentation/RegexSymbols_xml.md "RegexSymbols_xml.md"
+[ScopeExamples_plist]: Documentation/ScopeExamples_plist.md "ScopeExamples_plist.md"
 [SyntaxDefinition_xml]: Documentation/SyntaxDefinition_xml.md "SyntaxDefinition_xml.md"
 
 <!-- Referenced Paths -->
