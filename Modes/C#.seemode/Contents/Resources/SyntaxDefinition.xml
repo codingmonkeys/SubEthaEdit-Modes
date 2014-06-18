@@ -7,7 +7,7 @@
 	</head>
 	
 	<states>
-		<default id="Base">
+		<default id="Base" scope="meta.default">
 			<keywords id="Keywords" useforautocomplete="yes" scope="keyword">
 				<string>abstract</string>
 				<string>event</string>
@@ -107,7 +107,7 @@
 			<end><regex>[\n\r]</regex></end>
 		</state>
 		
-		<state id="Region" foldable="yes" indent="yes" scope="support.region">
+		<state id="Preprocessor" foldable="yes" indent="yes" scope="language.preprocessor">
 			<begin><string>#</string></begin>
 			<end><regex>[\n\r]</regex></end>
 			<import mode="/" keywords-only="yes"/>
