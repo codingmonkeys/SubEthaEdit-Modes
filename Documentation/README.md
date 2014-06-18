@@ -24,6 +24,7 @@ Description forthcoming.
 # Styles
 
 [SubEthaEdit Style Sheet Documentation][Styles] (preliminary!)
+[Style Sheet Scopes Documentation][Scopes] (preliminary!)
 
 Description forthcoming.
 
@@ -36,6 +37,7 @@ Description forthcoming.
 [ModeDocu3]: http://htmlpreview.github.io?https://github.com/codingmonkeys/SubEthaEdit/blob/master/Attic/SubEthaEdit3/Documentation/mode.html "SubEthaEdit 3.x Mode Documentation"
 
 [ModeUpdate]: ModeUpdateNotes.md "Notes on updating modes from SubEthaEdit 3 to 4"
+[Scopes]: Styles/Scopes.md "Style Sheet Scopes Documentation"
 
 <!-- Referenced Paths -->
 [ModeExample]: ExampleMode "SubEthaEdit 4 Example Mode"
