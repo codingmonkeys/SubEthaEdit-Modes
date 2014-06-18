@@ -13,7 +13,7 @@ SubEthaEdit 4 supports SubEthaEdit Style Sheets. They have the file extension `.
 
 Very basic style sheet:
 
-```
+```css
 /* This is the scope every other scope inherits from */
 
 meta.default {
@@ -130,7 +130,7 @@ Possible values are:
 ### <a name="AdditionalInformation"></a>Additional Information:
 
 #### <a name="NoSSSMode"></a>Style sheet files open in CSS mode
-So far there is no stand alone `.sss` mode in SubEthaEdit right now.  
+There is no stand alone `.sss` mode in SubEthaEdit right now.  
 CSS highlighting is not perfect in all cases.
 
 
