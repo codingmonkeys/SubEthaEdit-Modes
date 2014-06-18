@@ -2,7 +2,7 @@
 ## Symbol Definitions: _RegexSymbols.xml_
 
 The file called `RegexSymbols.xml` is located in the modes Resources folder.  
-It defines regexes to parse the document for elements to show in the function popup - for example pragma marks, todos, method declarations. 
+It defines regexes to parse the document for elements to show in the symbol popup - for example pragma marks, todos, method declarations. 
 
 1. [Example File](#ExampleFile)
 2. [File structure - Tags and Attributes](#FileStructure)
@@ -73,7 +73,7 @@ This tag is required.
 
 ---
 #### <a name="tag_symbol"></a>`<symbol>`
-The `<symbol>` tag specifies what is being shown in the function popup. The result of regex and optional postprocessing are used to generate the symbol title. If the result for the title is an empty string the symbol shows up as an separator in the function popup.  
+The `<symbol>` tag specifies what is being shown in the symbol popup. The result of regex and optional postprocessing are used to generate the symbol title. If the result for the title is an empty string the symbol shows up as an separator in the popup.  
 It contains a `<regex>` tag and an optional `<postprocess>` tag.  
 This tag is optional.  
 
@@ -93,7 +93,7 @@ This tag is optional.
 	* image included in the application - SubEthaEdit currently supports: _SymbolWarn_
 	* image in the Resources directory of the mode by name - Apple’s naming conventions for high-resolution versions of the image apply (file extension is optional) (**Note: there is a bug in SEE 4.0.1 and lower that ignores the resolution specific images**)  
 
-* <a name="attribute_indentation"></a>`indentation` _(optional)_ - level of indentation in the function popup - possible values:
+* <a name="attribute_indentation"></a>`indentation` _(optional)_ - level of indentation in the symbol popup - possible values:
 	* _0_ (default) 
 	* _1-15_ 
 

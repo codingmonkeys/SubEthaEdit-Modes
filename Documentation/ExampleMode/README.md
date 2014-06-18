@@ -3,7 +3,7 @@
 
 `Example.seemode` is a fully functional SubEthatEdit 4 mode. It can be uses as a starting point into how modes work and where to look for specific information. 
 
-It contains files that define the properties of a language that should be recognized for syntax highlighting, additional information for autocompletion support and symbol recognition to fill the function popup. It can also contain release notes, custom scripts for that mode, an example file and information on the file extensions that are relevant for the mode's language or file type.
+It contains files that define the properties of a language that should be recognized for syntax highlighting, additional information for autocompletion support and symbol recognition to fill the symbol popup. It can also contain release notes, custom scripts for that mode, an example file and information on the file extensions that are relevant for the mode's language or file type.
 
 
 SubEthaEdit's mode files are bundles, like e.g. Keynote presentations or rich text with images (rtfd). This enables you to include custom images, a license or other files you want to within the mode. It also ensures extensibility for further mode specific features, like plugins and the like.
@@ -106,7 +106,7 @@ This file is optional.
 ### <a name="AdditionalFiles"></a> Additional Files
 Additionally to the mode format specific files the mode bundle can contain custom files like Release notes or a Read me.   
 The file that is used for template content has a custom name by which it is referenced in the [ModeSettings.xml][ModeSettings_xml].  
-Files that are used for symbol icons in the function popup are also referenced by name in [RegexSymbols.xml][RegexSymbols_xml]. 
+Files that are used as symbol icons in the symbol popup are also referenced by name in [RegexSymbols.xml][RegexSymbols_xml]. 
 
 
 
