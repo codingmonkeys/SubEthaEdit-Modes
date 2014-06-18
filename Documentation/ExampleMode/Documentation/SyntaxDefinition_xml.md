@@ -9,7 +9,7 @@ Without this file the mode cannot work.
 2. [File structure - Tags and Attributes](#FileStructure)
 3. [Example File](#ExtendedExample)
 4. [Additional Information](#AdditionalInformation)
-	* [No longer supported `<default>`-, `<states>`-, `<keywords>`-attributes](#UnsupportedAttributes)
+	* [No longer supported `<default>`-, `<state>`-, `<keywords>`-attributes](#UnsupportedAttributes)
 	* [All states are inside of the default state](#DefaultState)
 
 
@@ -59,7 +59,7 @@ Without this file the mode cannot work.
 		@ [use-spelling-dictionary](#attribute_use-spelling-dictionary) (_optional_)
 		* [**&lt;folding&gt;**](#tag_folding) (_optional_)  
 		@ [toplevel](#attribute_toplevel) (_optional_)
-		
+
 		* [**&lt;charsintokens&gt;**](#tag_charsintokens_delimiting) _(optional if &lt;charsdelimitingtokens&gt; is set)_
 		* [**&lt;charsdelimitingtokens&gt;**](#tag_charsintokens_delimiting) _(optional if &lt;charsintokens&gt; is set)_
 		* [**&lt;charsincompletion&gt;**](#tag_charsincompletion) _(optional)_
@@ -141,6 +141,7 @@ This tag is optional.
 	* _1_ (default)
 	* _2-9_
 
+
 ---
 #### <a name="tag_charsintokens_delimiting"></a>`<charsintokens>` and `<charsdelimitingtokens>` _(optional if the other one is specified)_
 
@@ -198,7 +199,7 @@ This tag is required.
 	* _yes_
 
 * <a name="attribute_scope"></a>`scope` _(optional)_ - a string description of the scope, used for style sheets - possible values: 
-	* see: _Style Sheet Scopes Reference_ (**TODO**)
+	* see: [Style Sheet Scopes Documentation][ScopesDocu]
 
 
 ---
@@ -220,8 +221,9 @@ This tag is required.
 	* _no_
 
 * <a name="attribute_scope_keyword"></a>`scope` _(optional)_ - a string description of the scope, used for style sheets - possible values: 
-	* see: _Style Sheet Scopes Reference_ (**TODO**)
-	
+	* see: [Style Sheet Scopes Documentation][ScopesDocu]
+
+
 ---
 #### <a name="tag_string"></a>`<string>` _(optional)_
 The `<string>` tag specifies plain text to be colored.  
@@ -382,9 +384,9 @@ This tag is optional.
 ---
 ### <a name="AdditionalInformation"></a>Additional Information:
 
-#### <a name="UnsupportedAttributes"></a>No longer supported `<default>`-, `<states>`-, `<keywords>`-attributes
+#### <a name="UnsupportedAttributes"></a>No longer supported `<default>`-, `<state>`-, `<keywords>`-attributes
 
-The following attributes, that where part of the `<default>`, `<states>` and `<keywords>` tags are no longer supported by SubEthaEdit 4.0 and up: 
+The following attributes, that where part of the `<default>`, `<state>` and `<keywords>` tags are no longer supported by SubEthaEdit 4.0 and up: 
 
 * background-color
 * color
@@ -393,14 +395,17 @@ The following attributes, that where part of the `<default>`, `<states>` and `<k
 * inverted-background-color
 * inverted-color
 
+They are replaced by the `scope` attribute and the use of style sheets (see: [SubEthaEdit Style Sheet Documentation][StylesDocu]).
 
-They are replaced by the `scope` attribute and the use of style sheets (see: _Style Sheet Scopes Reference_ (**TODO**)).
+Having  a `scope` attribute instead of the direct color and font attributes gives you CSS like abstraction so there can be one `.sss` file to style all the modes. 
 
 
 #### <a name="DefaultState"></a>All states are inside of the default state
 `<state>` tags only occur inside of the `<default>` tag.
 
-
+<!-- Referenced Files -->
+[ScopesDocu]: ../../Styles/Scopes.md "Style Sheet Scopes Documentation"
 
 <!-- Referenced Paths -->
+[StylesDocu]: ../../Styles "SubEthaEdit Style Sheet Documentation"
 [ModeExample]: .. "SubEthaEdit 4 Example Mode Documentation"
