@@ -45,6 +45,38 @@
 				<string>Double</string>
 				<string>Float</string>
 				<string>Bool</string>
+				<string>AnyClass</string>
+				<string>CBool</string>
+				<string>CChar</string>
+				<string>CChar16</string>
+				<string>CChar32</string>
+				<string>CDouble</string>
+				<string>CFloat</string>
+				<string>CInt</string>
+				<string>CLong</string>
+				<string>CLongLong</string>
+				<string>CShort</string>
+				<string>CSignedChar</string>
+				<string>CUnsignedChar</string>
+				<string>CUnsignedInt</string>
+				<string>CUnsignedLong</string>
+				<string>CUnsignedLongLong</string>
+				<string>CUnsignedShort</string>
+				<string>CWideChar</string>
+				<string>ExtendedGraphemeClusterType</string>
+				<string>Float32</string>
+				<string>Float64</string>
+				<string>FloatLiteralType</string>
+				<string>IntMax</string>
+				<string>IntegerLiteralType</string>
+				<string>MaxBuiltinFloatType</string>
+				<string>MaxBuiltinIntegerType</string>
+				<string>NilType</string>
+				<string>StringLiteralType</string>
+				<string>UIntMax</string>
+				<string>UWord</string>
+				<string>Void</string>
+				<string>Word</string>
 				<regex>(-&gt;)</regex>
 			</keywords>
 
@@ -55,12 +87,15 @@
 				<string>as</string>
 				<string>dynamicType</string>
                 <string>self</string>
+                <string>Self</string>
                 <string>super</string>
                 <string>import</string>
                 <string>__FILE__</string>
                 <string>__LINE__</string>
                 <string>__COLUMN__</string>
                 <string>__FUNCTION__</string>
+				<string>C_ARGC</string>
+				<String>C_ARGV</String>
 			</keywords>
 
 			<keywords id="Annotation Keywords" scope="keyword" casesensitive="yes" useforautocomplete="yes">
@@ -154,9 +189,9 @@
 
 
 			<keywords id="FunctionRegex" useforautocomplete="no" scope="language.subroutine.function">
-				<regex>([^-*_+#:.,\(&lt;&gt;\{\[\]}\)\s]+)\s*\(</regex>
+				<regex>([^-*+#:.,\(&lt;&gt;\{\[\]}\)\s]+)(?:&lt;[^\n&gt;]+&gt;)?\s*\(</regex>
 				
-				<regex>(?&lt;=[\(,])\s*([^-*_+#:.,\(&lt;&gt;{\[\]}\)\s]+)(?:\s*(?:[^-*_+#:.,\(&lt;&gt;{\[\]}\)\s]+))?\s*:</regex>
+				<regex>(?&lt;=[\(,])\s*([^-*+#:.,\(&lt;&gt;{\[\]}\)\s]+)(?:\s*(?:[^-*+#:.,\(&lt;&gt;{\[\]}\)\s]+))?\s*:</regex>
 			</keywords>
 
 			<state id="DoxyGen Comment" type="comment" scope="comment.block.documentation">
@@ -13581,6 +13616,130 @@
 				<string>WebViewProgressStartedNotification</string>
 				<string>kABDatabaseChangedExternallyNotification</string>
 				<string>kABDatabaseChangedNotification</string>
+			</keywords>
+
+			<keywords id="Swift Structs" useforautocomplete="yes" scope="support.type.swift">
+				<string>Array</string>
+				<string>ArrayBuffer</string>
+				<string>AutoreleasingUnsafePointer</string>
+				<string>Bool</string>
+				<string>CConstPointer</string>
+				<string>CConstVoidPointer</string>
+				<string>CMutablePointer</string>
+				<string>CMutableVoidPointer</string>
+				<string>COpaquePointer</string>
+				<string>CString</string>
+				<string>CVaListPointer</string>
+				<string>CollectionOfOne</string>
+				<string>ContiguousArray</string>
+				<string>ContiguousArrayBuffer</string>
+				<string>Dictionary</string>
+				<string>Double</string>
+				<string>EmptyCollection</string>
+				<string>EmptyGenerator</string>
+				<string>EnumerateGenerator</string>
+				<string>FilterCollectionView</string>
+				<string>FilterCollectionViewIndex</string>
+				<string>FilterGenerator</string>
+				<string>FilterSequenceView</string>
+				<string>Float</string>
+				<string>Float80</string>
+				<string>GeneratorOf</string>
+				<string>GeneratorOfOne</string>
+				<string>GeneratorSequence</string>
+				<string>HeapBuffer</string>
+				<string>ImplicitlyUnwrappedOptional</string>
+				<string>IndexingGenerator</string>
+				<string>Int</string>
+				<string>Int16</string>
+				<string>Int32</string>
+				<string>Int64</string>
+				<string>Int8</string>
+				<string>IntEncoder</string>
+				<string>Less</string>
+				<string>MapCollectionView</string>
+				<string>MapSequenceGenerator</string>
+				<string>MapSequenceView</string>
+				<string>ObjectIdentifier</string>
+				<string>OnHeap</string>
+				<string>PermutationGenerator</string>
+				<string>Range</string>
+				<string>RangeGenerator</string>
+				<string>RawByte</string>
+				<string>Repeat</string>
+				<string>ReverseIndex</string>
+				<string>ReverseRange</string>
+				<string>ReverseRangeGenerator</string>
+				<string>ReverseView</string>
+				<string>SequenceOf</string>
+				<string>SinkOf</string>
+				<string>Slice</string>
+				<string>SliceBuffer</string>
+				<string>StaticString</string>
+				<string>StridedRangeGenerator</string>
+				<string>String</string>
+				<string>UInt</string>
+				<string>UInt16</string>
+				<string>UInt32</string>
+				<string>UInt64</string>
+				<string>UInt8</string>
+				<string>UTF16</string>
+				<string>UTF32</string>
+				<string>UTF8</string>
+				<string>UnicodeScalar</string>
+				<string>Unmanaged</string>
+				<string>UnsafeArray</string>
+				<string>UnsafePointer</string>
+				<string>Zip2</string>
+				<string>ZipGenerator2</string>
+			</keywords>
+			<keywords id="Swift Protocols" useforautocomplete="yes" scope="support.protocol.swift">
+				<string>AbsoluteValuable</string>
+				<string>ArrayBound</string>
+				<string>ArrayBufferType</string>
+				<string>ArrayLiteralConvertible</string>
+				<string>ArrayType</string>
+				<string>BidirectionalIndex</string>
+				<string>BitwiseOperations</string>
+				<string>CVarArg</string>
+				<string>CharacterLiteralConvertible</string>
+				<string>Collection</string>
+				<string>Comparable</string>
+				<string>DebugPrintable</string>
+				<string>DictionaryLiteralConvertible</string>
+				<string>Equatable</string>
+				<string>ExtendedGraphemeClusterLiteralConvertible</string>
+				<string>ExtensibleCollection</string>
+				<string>FloatLiteralConvertible</string>
+				<string>FloatingPointNumber</string>
+				<string>ForwardIndex</string>
+				<string>Generator</string>
+				<string>Hashable</string>
+				<string>Integer</string>
+				<string>IntegerArithmetic</string>
+				<string>IntegerLiteralConvertible</string>
+				<string>LogicValue</string>
+				<string>Mirror</string>
+				<string>MutableCollection</string>
+				<string>MutableSliceable</string>
+				<string>OutputStream</string>
+				<string>Printable</string>
+				<string>RandomAccessIndex</string>
+				<string>RawOptionSet</string>
+				<string>RawRepresentable</string>
+				<string>Reflectable</string>
+				<string>Sequence</string>
+				<string>SignedInteger</string>
+				<string>SignedNumber</string>
+				<string>Sink</string>
+				<string>Sliceable</string>
+				<string>Streamable</string>
+				<string>StringElement</string>
+				<string>StringInterpolationConvertible</string>
+				<string>StringLiteralConvertible</string>
+				<string>UnicodeCodec</string>
+				<string>UnsignedInteger</string>
+
 			</keywords>
 
 		</default>
