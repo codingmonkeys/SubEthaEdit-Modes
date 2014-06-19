@@ -1,4 +1,4 @@
-# Swift Mode Tutorial Step 4
+# Swift Mode Tutorial Step 3
 ## Regex based Keywords
 
 So let us go to the more interesting keywords: regex based keywords. One of the most common one for every mode is the number regex. Most languages have slightly different semantics, so if you want to be correct you need to handcraft your regex. Of course you can always just grab a number keywords state from another mode to get you started. However, I like to make it nice, so let's gather all allowed numbers and the ones not allowed into a little text file first:
@@ -98,4 +98,4 @@ Sadly this still hase some issues (e.g. highlighting unnamed attributes) But sti
 
 
 
-[Step 3](../SwiftModeStep3) - [Overview](..) - [Step 5](../SwiftModeStep5)
+[Step 2](../SwiftModeStep2) - [Overview](..) - [Step 4](../SwiftModeStep4)
