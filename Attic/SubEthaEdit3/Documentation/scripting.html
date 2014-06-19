@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/2000/REC-xhtml1-20000126/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<style>
+			body {
+				font-family: HelveticaNeue;
+				font-size:10pt;
+			}
+			
+			div.code {
+				text-align:left;
+				font-size:small;
+				color:#408000;
+				font-family:monospace;
+				
+				background:#eee;
+				padding: 4px;
+			}
+			
+			span.comment      { color:#8d8d8d; font-style : italic; }
+			span.keyword      { color:#0b0bff; font-weight: bold; }			
+			span.morekeywords { color:#0b0bff; }
+			span.string       { color:#000000; }
+			span.brackets     { color:#000000; } /* and digits */
+		</style>
+		
+		<title>SubEthaEdit - Scripting</title>
+	</head>
+	
+	<body>		
+		<h1>Scripting SubEthaEdit</h1>
+		
+		<p>SubEthaEdit can be scripted using AppleScript and, by proxy, other languages. Scripts can be placed within a mode's "Resources/Scripts/" directory to appear in the mode's "Mode" menu and its toolbar. If the Script is universally useful it can also be placed in "~/Library/Application Support/SubEthaEdit/Scripts/" to appear in the AppleScript menu. Scripts can also be installed in "/Library/Application Support/SubEthaEdit/Scripts/" if all users of the machine should benefit from them. The order the scripts appear in the menu is derived from their filenames.</p>
+		
+		<p>Images for the script's toolbar icon should be placed either in the mode's "Resources" directory for mode-internal scripts or in the same directory as the script if it is a global script. Additional you can also use one of SubEthaEdit's built-in icons which include "ToolbarIconBuild", "ToolbarIconBuildAndRun", "ToolbarIconRun", "ToolbarIconRunInTerminal", "ToolbarIconTerminal", "ToolbarIconColorChooser" and "ToolbarIconOpenURL".</p>
+		
+		<p>Each script should implement a "seescriptsettings()" handler that is called by SubEthaEdit to inquiry about the script's name, keyboard shortcut and other settings. The example script below does implement a list of all settings and documents their use in a comment.</p>
+		
+		<h3>Example: Rotate13</h3>
+		
+		<p>The following script can be used as a canonical example of scripting SubEthaEdit. It shows basic interaction with selections and the clipboard and uses a call to a perl script to implement the <a href="http://en.wikipedia.org/wiki/ROT13">ROT13 algorithm</a>.</p>
+		
+		<div class="code">
+			<span class="comment">-- see settings</span><br />
+			<span class="keyword">on</span> seescriptsettings<span class="brackets">()</span><br />
+			    <br />
+			    <span class="morekeywords">return</span> {displayName:<span class="string">"Rotate13"</span>, shortDisplayName:<span class="string">"Run"</span>, keyboardShortcut:<span class="string">"^~$@r"</span>, toolbarIcon:<span class="string">"ToolbarIconRunInTerminal"</span>, inDefaultToolbar:<span class="string">"yes"</span>, toolbarTooltip:<span class="string">"Super secure encryption"</span>, inContextMenu:<span class="string">"yes"</span>}<br />
+			    <br />
+			    <span class="comment">-- Here is a overview of currently supported settings</span><br />
+			    <span class="comment">-- displayName: Name displayed in menus</span><br />
+			    <span class="comment">-- shortDisplayName: The short display name used for Toolbar</span><br />
+			    <span class="comment">-- keyboardShortcut: A keyboard shortcut. alt=~, ctrl=^, shift=$, cmd=@</span><br />
+			    <span class="comment">-- toolbarIcon: A toolbar image</span><br />
+			    <span class="comment">-- inDefaultToolbar: Should be in default toolbar?</span><br />
+			    <span class="comment">-- toolbarTooltip: Tooltip for the toolbar icon</span><br />
+			    <span class="comment">-- inContextMenu: Should it appear in the ctrl-click menu?</span><br />
+			    <br />
+			<span class="keyword">end</span> seescriptsettings<br />
+			<br />
+			<br />
+			<span class="comment">-- the actual script</span><br />
+			<br />
+			<span class="keyword">tell</span> <span class="morekeywords">application</span> <span class="string">"SubEthaEdit"</span><br />
+			    <span class="keyword">set</span> savedClipboard <span class="keyword">to</span> the clipboard<br />
+			    <span class="keyword">if</span> <span class="brackets">(</span>length <span class="keyword">of</span> selection = <span class="brackets">0)</span> <span class="keyword">then</span><br />
+			        <span class="keyword">set</span> the clipboard <span class="keyword">to</span> contents <span class="keyword">of</span> <span class="keyword">front</span> document <span class="keyword">as</span> text<br />
+			    <span class="keyword">else</span><br />
+			        <span class="keyword">set</span> the clipboard <span class="keyword">to</span> contents <span class="keyword">of</span> selection <span class="keyword">as</span> text<br />
+			    <span class="keyword">end</span> <span class="keyword">if</span><br />
+			<span class="keyword">end</span> <span class="keyword">tell</span><br />
+			<br />
+			<br />
+			<span class="comment">
+				-- the following is a command to call an external script, in this case perl<br />
+				-- notice the export preamble which is essential to make pbpaste work with<br />
+				-- utf8 content.
+			</span><br />
+			<br />
+			<span class="keyword">set</span> shellscriptString <span class="keyword">to</span> <span class="string">"export __CF_USER_TEXT_ENCODING=0x1F5:0x8000100:0x8000100; pbpaste | /usr/bin/perl -pe 'y/A-Za-z/N-ZA-Mn-za-m/'"</span><br />
+			<span class="keyword">set</span> shellresult <span class="keyword">to</span> do shell script shellscriptString without altering line endings<br />
+			<br />
+			<span class="keyword">tell</span> <span class="morekeywords">application</span> <span class="string">"SubEthaEdit"</span><br />
+			    <span class="keyword">set</span> the clipboard <span class="keyword">to</span> savedClipboard<br />
+			    <br />
+			    <span class="keyword">if</span> <span class="brackets">(</span>length <span class="keyword">of</span> selection = <span class="brackets">0)</span> <span class="keyword">then</span><br />
+			        <span class="keyword">set</span> contents <span class="keyword">of</span> <span class="keyword">front</span> document <span class="keyword">to</span> shellresult<br />
+			    <span class="keyword">else</span><br />
+			        <span class="keyword">set</span> contents <span class="keyword">of</span> selection <span class="keyword">of</span> <span class="keyword">front</span> document <span class="keyword">to</span> shellresult <span class="keyword">as</span> text<br />
+			    <span class="keyword">end</span> <span class="keyword">if</span><br />
+			<span class="keyword">end</span> <span class="keyword">tell</span><br />
+			<br />
+		</div>
+		
+		<h3>Odds and ends of scripts running inside SubEthaEdit</h3>
+		
+		<p>When your scripts are running inside SubEthaEdit there are some subtle differences:</p>
+		
+		<ul>
+			<li>In Cocoa Scripting when you do a save, e.g. "save front document", you get an immediate timeout. So if you have to save a document prior to doing something else, you have to use something like this:<p>
+					
+					<div class="code">
+						<span class="keyword">tell</span> <span class="morekeywords">application</span> <span class="string">"SubEthaEdit"</span><br />
+						  <span class="keyword">if</span> <span class="morekeywords">exists</span> path <span class="keyword">of</span> <span class="keyword">front</span> document <span class="keyword">then</span><br />
+						    <span class="keyword">try</span><br />
+						      <span class="morekeywords">save</span> <span class="keyword">front</span> document<br />
+						    <span class="keyword">end</span> <span class="keyword">try</span><br />
+						  <span class="keyword">else</span><br />
+						    <span class="morekeywords">error</span> <span class="string">"You have to save the document first"</span><br />
+						  <span class="keyword">end</span> <span class="keyword">if</span><br />
+						<span class="keyword">end</span> <span class="keyword">tell</span><br />
+					</div>
+				</p>
+				The try block around the "save front document" catches the timeout and continues. The save still takes place. The if block is needed because if the document has not been saved before a save dialog is displayed, and since the "save front document" returns immediatly without waiting for the save action to happen you'd get the wrong data.
+			</li>
+			<li>Another issue is context. The statements in your script which are not inside tell blocks run in a slightly different environment than in the Script Editor.</li>
+			<li>Currently there is a bug in Cocoa Scripting that prevents "path to resource" from working correctly and actually finding resources of SubEthaEdit when run from inside SubEthaEdit.</li>
+		</ul>
+		
+	</body>
+</html>
