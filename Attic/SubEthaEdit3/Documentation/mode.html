@@ -1,389 +1,411 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/2000/REC-xhtml1-20000126/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="css/global.css" />
-	<style>
-		body {
-			font-family: HelveticaNeue;
-			font-size:10pt;
-		}
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<style>
+			body {
+				font-family: HelveticaNeue;
+				font-size:10pt;
+			}
+			
+			div.code {
+				font-size:8pt !important;
+				font-size:small;
+				background:#eee;
+				text-align:left;
+				color:#000000;
+				font-family:monospace;
+				padding: 4px;
+			}
+			
+			span.declaration { color:#236e25; font-style : italic; }
+			span.comment     { color:#236e25; font-style : italic; }
+			span.tag         { color:#881280; font-style : italic; }
+			span.escape      { color:#227799;}
+			span.attribute   { color:#994500; }
+			span.value       { color:#1a1aa6; }			
+			span.cdata       { color:#ff0000; font-style : italic; }
+		</style>
 		
-		div.code {
-			font-size:8pt !important;
-			background:#eee;
-		}
+		<title>SubEthaEdit - Writing modes</title>
+	</head>
+	
+	<body>
+		<h2>The SubEthaEdit 3.x Mode File Format</h2>
 		
-	</style>
-	<title>SubEthaEdit - Writing modes</title></head><body<div class="NSBox"><div class="ro"><div class="lo"></div></div>
-<div class="rm"><div class="lm">
-            
-        <h2>The SubEthaEdit 3.x Mode File Format</h2>
-        
-        <h3>General</h3>
-        <p>SubEthaEdit's mode files are bundles, like e.g. Keynote presentations or rich text with images (rtfd). This enables you to include custom images, a license or other files you want to within the mode. It also ensures extensibility for further mode specific features, like plugins and the like. To show its contents ctrl-click on the mode and choose "Show Package Contents".</p>
-        <p>Download the SubEthaEdit Mode Development Kit <a href="goodies/SubEthaEdit-MDK.zip">here</a>. (Includes sample artwork for symbol images.)</p>
-        <p>If you get stuck somewhere with a regular expression, have a look at the modes included with SubEthaEdit. The easiest way to get there is to hold option and click in the Menu "Mode → Show In Finder". The quickest way to put a supplied mode it into your ~/Library/Application Support/SubEthaEdit/Modes folder for customization is as follows: <ul><li>Hold option and click in the Menu "Mode → Show In Finder → Open SubEthaEdit Modes Folder"</li><li>Double click the mode you want to customize</li><li>Choose install for this user only</li><li>Hold option and click in the Menu "Mode → Show In Finder" and click on the mode you just installed.</li></ul></p>
-
-        <h3>Scripts</h3>
-        <p>Modes can also contain Scripts in their Resources/Scripts directory that add features, toolbar icons and menu items to SubEthaEdit. For detailed instructions regarding this functionality please consult the <a href="scripting.html">scripting page</a>.</p>
-        
-        <h3>Structure</h3>
-        <p>This is the structure of a SubEthaEdit mode bundle:</p>
-        <ul>
-            <li>Contents
-                <ul>
-                    <li><a href="#infoplist">Info.plist</a></li>
-                    <li>Resources
-                        <ul>
-                            <li><a href="#autocomplete">AutocompleteAdditions.txt</a></li>
-                            <li>English.lproj
-                                    <ul>
-                                        <li><a href="#infoplist">InfoPlist.strings</a></li>
-                                    </ul>
-                            </li>
-                                <li><a href="#settings">ModeSettings.xml</a></li>
-                                <li><a href="#symbols">RegexSymbols.xml</a></li>
-                                <li><a href="#syntax">SyntaxDefinition.xml</a></li>
-                                <li>…</li>
-                                <li><em>NewFileTemplate.txt</em></li>
-                                <li><em>CustomImage.png</em></li>
-                                <li><em>License.txt</em></li>
-                                <li>Scripts</li>
-                                <li>…</li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-        
-        <p><a name="infoplist" id="infoplist"></a>Begin with setting your modes name and copyright in <em>Info.plist</em> and <em>InfoPlist.strings</em>. If in doubt just replace "Template" with you mode's name and "Author" with your name.</p>
-
-        <h3>Mode Settings<a name="settings" id="settings"></a></h3>
-        <p>ModeSettings.xml is used to configure the mode's triggers, i.e. the extensions, filenames and content it handles. Content (like a shebang) can be configure via a regular expression and will be compared to the first 4MB of a file. These Triggers can be turned on or off in the Modes Preference Pane. The Precedence can be set by rearranging the mode order in that Pane.</p>
-        <div class="code" style="text-align:left;color:#000000; font-size:small; font-family:monospace; "><em><span style="color:#236e25;">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></em><br />
-<em><span style="color:#881280;">&lt;settings&gt;</span></em><br />
-  <em><span style="color:#881280;">&lt;template&gt;</span></em>mytemplate.txt<em><span style="color:#881280;">&lt;/template&gt;</span></em>   <em><span style="color:#236e25;">&lt;!-- Provide a template for File-&gt;new --&gt;</span></em><br />
-  <em><span style="color:#881280;">&lt;recognition&gt;</span></em><br />
-    <em><span style="color:#881280;">&lt;extension&gt;</span></em>txt<em><span style="color:#881280;">&lt;/extension&gt;</span></em>                   <em><span style="color:#236e25;">&lt;!-- Add file extensions --&gt;</span></em><br />
-    <em><span style="color:#881280;">&lt;extension </span></em><span style="color:#994500;">casesensitive</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"yes"</span><em><span style="color:#881280;">&gt;</span></em>C<em><span style="color:#881280;">&lt;/extension&gt;</span></em> <em><span style="color:#236e25;">&lt;!-- Add case sensitive file extensions --&gt;</span></em><br />
-    <em><span style="color:#881280;">&lt;filename&gt;</span></em>Makefile<em><span style="color:#881280;">&lt;/filename&gt;</span></em>                <em><span style="color:#236e25;">&lt;!-- Add filenames --&gt;</span></em><br />
-    <em><span style="color:#881280;">&lt;regex&gt;</span></em>\A#!/usr/bin/(env )?perl<em><span style="color:#881280;">&lt;/regex&gt;</span></em>      <em><span style="color:#236e25;">&lt;!-- Add regex of content --&gt;</span></em><br />
-  <em><span style="color:#881280;">&lt;/recognition&gt;</span></em><br />
-<em><span style="color:#881280;">&lt;/settings&gt;</span></em><br />
-</div>
-        
-        <h3>Syntax Definitions<a name="syntax" id="syntax"></a></h3>
-        <p>Syntax definitions are xml files of the structure as shown in the following paragraph. Please read the comments to learn about the tags used.</p>
-
-<div class="code" style="text-align:left;color:#000000; font-size:small; font-family:monospace; "><em><span style="color:#236e25;">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></em><br />
-<em><span style="color:#881280;">&lt;syntax&gt;</span></em><br />
-<br />
-<br />
-    <em><span style="color:#236e25;">&lt;!-- <br />
-    The &lt;head&gt; tag encloses some global information about the mode.<br />
-    This tag is required.<br />
-    --&gt;</span></em>    <br />
-<br />
-    <em><span style="color:#881280;">&lt;head&gt;</span></em><br />
-<br />
-        <em><span style="color:#236e25;">&lt;!-- <br />
-        The &lt;name&gt; specifies the modes name.<br />
-        This tag is required and must match with the name in the plist after the SEEMode..<br />
-        --&gt;</span></em>    <br />
-<br />
-        <em><span style="color:#881280;">&lt;name&gt;</span></em>Example Syntax<em><span style="color:#881280;">&lt;/name&gt;</span></em><br />
-<br />
-        <em><span style="color:#236e25;">&lt;!-- optional to add spelling-dicitionary autocomplete words --&gt;</span></em><br />
-        <em><span style="color:#881280;">&lt;autocompleteoptions </span></em><span style="color:#994500;">use-spelling-dictionary</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"yes"</span><em><span style="color:#881280;"> /&gt;</span></em><br />
-<br />
-        <em><span style="color:#236e25;">&lt;!-- optional to define the folding level for ctrl-command-up (default is 1) --&gt;</span></em><br />
-        <em><span style="color:#881280;">&lt;folding </span></em><span style="color:#994500;">toplevel</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"2"</span><em><span style="color:#881280;"> /&gt;</span></em><br />
-<br />
-        <em><span style="color:#236e25;">&lt;!-- <br />
-        The &lt;charsintokens&gt; and the &lt;charsdelimitingtokens&gt; instruct the syntax highlighter<br />
-        where to tokenize the text for fast finding of plain strings.<br />
-        The &lt;charsintokens&gt; tag specifies the characters that can occur in strings,<br />
-        the &lt;charsdelimitingtokens&gt; tag specifies the tags that cannot occur in strings.<br />
-        One of these tags has to be specified.<br />
-        Tip: Use CDATA here.<br />
-        --&gt;</span></em>    <br />
-<br />
-        <em><span style="color:#881280;">&lt;charsintokens&gt;</span></em><em><span style="color:#ff0000;">&lt;![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@]]&gt;</span></em><em><span style="color:#881280;">&lt;/charsintokens&gt;</span></em> <br />
-        <em><span style="color:#236e25;">&lt;!-- &lt;charsdelimitingtokens&gt;&lt;![CDATA[ -]]&gt;&lt;/charsdelimitingtokens&gt; --&gt;</span></em><br />
-        <br />
-        <br />
-        <em><span style="color:#236e25;">&lt;!--<br />
-          the &lt;charsincompletion&gt; defines characters used for autocompletion. e.g. in perl<br />
-          you want this to include the $ sign to autocomplete variables.<br />
-          If left out the regular expression word boundaries are used.<br />
-        --&gt;</span></em><br />
-        <em><span style="color:#236e25;">&lt;!-- &lt;charsincompletion&gt;&lt;![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-@$&lt;/=&gt;!]]&gt;&lt;/charsincompletion&gt; --&gt;</span></em><br />
-    <em><span style="color:#881280;">&lt;/head&gt;</span></em><br />
-<br />
-<br />
-    <em><span style="color:#236e25;">&lt;!-- <br />
-    The &lt;states&gt; tag encloses all syntax states.<br />
-    States are areas of the test that begin and end with an regex like comments or strings,<br />
-    with exception of the default state, that exists anywhere where no other state exists.<br />
-    This tag is required.<br />
-    --&gt;</span></em>    <br />
-<br />
-    <em><span style="color:#881280;">&lt;states&gt;</span></em><br />
-    <br />
-        <em><span style="color:#236e25;">&lt;!-- <br />
-        The &lt;default&gt; tag specifies what is colored within the default state (see above).<br />
-        It features the following attributes, all optional if not noted otherwise:<br />
-            id<br />
-                Has to be a unique string. Has to be specified.<br />
-            color<br />
-                a html comptible color in three or six letter hexadecimal format.<br />
-                Used for text on bright document background colors.<br />
-            inverted-color<br />
-                a html comptible color in three or six letter hexadecimal format.<br />
-                Used for text if a dark document background color is set.<br />
-            font-weight<br />
-                normal  Normal font-weight (default)<br />
-                bold    Bold text in popup<br />
-            font-style<br />
-                normal  Normal font-weight (default)<br />
-                italic  Bold text in popup<br />
-            usesymbolsfrommode<br />
-                a mode name to use the symbol recognition from<br />
-                when left out the value is inherited from the parent state<br />
-            useautocompletefrommode<br />
-                a mode name to use the autocomplete from - default is this mode<br />
-                when left out the value is inherited from the parent state<br />
-            type<br />
-                a string description of the type. currently only the values<br />
-                "string" and "comment" have meaning and cause bracket matching<br />
-                and syntax highlighting to ignore these areas of text<br />
-                and code folding has special handling for comments<br />
-                <br />
-            foldable<br />
-                yes    makes this state foldable<br />
-                no     means this state does not fold (default)<br />
-        --&gt;</span></em>    <br />
-    <br />
-        <em><span style="color:#881280;">&lt;default </span></em><span style="color:#994500;">id</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"Base"</span><em><span style="color:#881280;"> </span></em><span style="color:#994500;">color</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"#000"</span><em><span style="color:#881280;"> </span></em><span style="color:#994500;">inverted-color</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"#fff"</span><em><span style="color:#881280;">&gt;</span></em><br />
-<br />
-            <em><span style="color:#236e25;">&lt;!-- <br />
-            The &lt;keywords&gt; tag specifies keyword groups within the current state.<br />
-            It features the following attributes, all optional if not noted otherwise:<br />
-                id<br />
-                    Has to be a unique string. Has to be specified.<br />
-                color<br />
-                    a html comptible color in three or six letter hexadecimal format.<br />
-                    Used for text on bright document background colors.<br />
-                inverted-color<br />
-                    a html comptible color in three or six letter hexadecimal format.<br />
-                    Used for text if a dark document background color is set.<br />
-                font-weight<br />
-                    normal  Normal font-weight (default)<br />
-                    bold    Bold text in popup<br />
-                font-style<br />
-                    normal  Normal font-weight (default)<br />
-                    italic  Bold text in popup<br />
-                casesensitive<br />
-                    yes     This group is case sensitive (default)<br />
-                    no      Ignore case for the group<br />
-                useforautocomplete<br />
-                    yes     Add this group's strings to the autocomplete dictionary (default)<br />
-                    no      Don't add to autocomplete dictionary<br />
-            --&gt;</span></em>    <br />
-<br />
-            <em><span style="color:#881280;">&lt;keywords </span></em><span style="color:#994500;">id</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"Keywords"</span><em><span style="color:#881280;"> </span></em><span style="color:#994500;">color</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"#6C0540"</span><em><span style="color:#881280;"> </span></em><span style="color:#994500;">casesensitive</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"no"</span><em><span style="color:#881280;"> </span></em><span style="color:#994500;">useforautocomplete</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"yes"</span><em><span style="color:#881280;">&gt;</span></em><br />
-            <br />
-                <em><span style="color:#236e25;">&lt;!-- <br />
-                    &lt;string&gt; tags specify plain text to be colored. If your tag does not<br />
-                    get colored, check in &lt;charsintokens&gt; if you are tokenizing correctly.             <br />
-                --&gt;</span></em>    <br />
-            <br />
-        <em><span style="color:#881280;">&lt;string&gt;</span></em>colorme<em><span style="color:#881280;">&lt;/string&gt;</span></em><br />
-        <em><span style="color:#881280;">&lt;string&gt;</span></em>andmetoo<em><span style="color:#881280;">&lt;/string&gt;</span></em><br />
-<br />
-                <em><span style="color:#236e25;">&lt;!-- <br />
-                    &lt;regex&gt; tags specify regular expression to be colored. <br />
-                    Only the first group will be colored, so enclose the part to color<br />
-                    with parens.<br />
-                    <br />
-                    The example colors digits prefixed by foo. (only the digits)             <br />
-                --&gt;</span></em>    <br />
-<br />
-        <em><span style="color:#881280;">&lt;regex&gt;</span></em>foo([0-9])<em><span style="color:#881280;">&lt;/regex&gt;</span></em><br />
-<br />
-            <em><span style="color:#881280;">&lt;/keywords&gt;</span></em><br />
-<br />
-            <em><span style="color:#881280;">&lt;keywords </span></em><span style="color:#994500;">id</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"Other keywords"</span><em><span style="color:#881280;"> </span></em><span style="color:#994500;">color</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"#400080"</span><em><span style="color:#881280;"> </span></em><span style="color:#994500;">font-weight</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"bold"</span><em><span style="color:#881280;"> </span></em><span style="color:#994500;">font-style</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"italic"</span><em><span style="color:#881280;">&gt;</span></em><br />
-              <em><span style="color:#881280;">&lt;string&gt;</span></em>foo<em><span style="color:#881280;">&lt;/string&gt;</span></em><br />
-              <em><span style="color:#881280;">&lt;string&gt;</span></em>bar<em><span style="color:#881280;">&lt;/string&gt;</span></em><br />
-            <em><span style="color:#881280;">&lt;/keywords&gt;</span></em><br />
-<br />
-<br />
-            <em><span style="color:#236e25;">&lt;!-- <br />
-                The &lt;state&gt; tag specifies a state other than the default state.<br />
-                It features the same attributes as &lt;default&gt;.<br />
-                It has to contain a &lt;begin&gt; and a &lt;end&gt; tag which in turn have to <br />
-                contain a &lt;regex&gt; tag. They can contain &lt;keywords&gt; tags like specified above.<br />
-                <br />
-                For example here a states for C blockcomments, C++ singleline comments and strings.<br />
-                The strings state handles escaped quotes with a lookbehind regular expression <br />
-                (see a regex tutorial) and colors "foobar" with strings.<br />
-            --&gt;</span></em>    <br />
-    <br />
-    <br />
-            <em><span style="color:#881280;">&lt;state </span></em><span style="color:#994500;">id</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"Comment"</span><em><span style="color:#881280;"> </span></em><span style="color:#994500;">color</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"#236E25"</span><em><span style="color:#881280;"> </span></em><span style="color:#994500;">font-style</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"italic"</span><em><span style="color:#881280;">&gt;</span></em><br />
-                <em><span style="color:#881280;">&lt;begin&gt;&lt;regex&gt;</span></em>/\*<em><span style="color:#881280;">&lt;/regex&gt;&lt;/begin&gt;</span></em><br />
-                <em><span style="color:#881280;">&lt;end&gt;&lt;regex&gt;</span></em>\*/<em><span style="color:#881280;">&lt;/regex&gt;&lt;/end&gt;</span></em><br />
-            <em><span style="color:#881280;">&lt;/state&gt;</span></em><br />
-            <br />
-            <em><span style="color:#881280;">&lt;state </span></em><span style="color:#994500;">id</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"SingleComment"</span><em><span style="color:#881280;"> </span></em><span style="color:#994500;">color</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"#236E25"</span><em><span style="color:#881280;"> </span></em><span style="color:#994500;">font-style</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"italic"</span><em><span style="color:#881280;">&gt;</span></em><br />
-                <em><span style="color:#881280;">&lt;begin&gt;&lt;regex&gt;</span></em>//<em><span style="color:#881280;">&lt;/regex&gt;&lt;/begin&gt;</span></em><br />
-                <em><span style="color:#881280;">&lt;end&gt;&lt;regex&gt;</span></em>[\n\r]<em><span style="color:#881280;">&lt;/regex&gt;&lt;/end&gt;</span></em><br />
-            <em><span style="color:#881280;">&lt;/state&gt;</span></em><br />
-            <br />
-            <em><span style="color:#881280;">&lt;state </span></em><span style="color:#994500;">id</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"String"</span><em><span style="color:#881280;"> </span></em><span style="color:#994500;">color</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"#760f15"</span><em><span style="color:#881280;">&gt;</span></em><br />
-                <em><span style="color:#881280;">&lt;begin&gt;&lt;regex&gt;</span></em>"<em><span style="color:#881280;">&lt;/regex&gt;&lt;/begin&gt;</span></em><br />
-                <em><span style="color:#881280;">&lt;end&gt;&lt;regex&gt;</span></em>(((?<span style="color:#881280;">&amp;lt;</span>!\\)(\\\\)*)|^)"<em><span style="color:#881280;">&lt;/regex&gt;&lt;/end&gt;</span></em><br />
-                <em><span style="color:#881280;">&lt;keywords </span></em><span style="color:#994500;">id</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"Other keywords"</span><em><span style="color:#881280;"> </span></em><span style="color:#994500;">color</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"#400080"</span><em><span style="color:#881280;"> </span></em><span style="color:#994500;">font-style</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"italic"</span><em><span style="color:#881280;">&gt;</span></em><br />
-                  <em><span style="color:#881280;">&lt;string&gt;</span></em>foobar<em><span style="color:#881280;">&lt;/string&gt;</span></em><br />
-                <em><span style="color:#881280;">&lt;/keywords&gt;</span></em><br />
-            <em><span style="color:#881280;">&lt;/state&gt;</span></em><br />
-<br />
-            <em><span style="color:#236e25;">&lt;!-- <br />
-                The &lt;import&gt; tag lets you import substates and keywords from other modes.<br />
-                It features the following attributes, all optional if not noted otherwise:<br />
-<br />
-                  mode<br />
-                      the mode to import from if left out it will import from this mode<br />
-                      <br />
-                  state<br />
-                      the state to import - if left out the content of the <br />
-                      default state will be imported<br />
-                      <br />
-                  keywords-only<br />
-                      'yes' if you only want to import the keywords and not the substates<br />
-                      of that state<br />
-                  <br />
-            --&gt;</span></em>    <br />
-<br />
-            <em><span style="color:#881280;">&lt;state </span></em><span style="color:#994500;">id</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"Inline Javascript"</span><em><span style="color:#881280;"> </span></em><span style="color:#994500;">color</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"#000"</span><em><span style="color:#881280;"> </span></em><span style="color:#994500;">usesymbolsfrommode</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"Javascript"</span><br />
-                <em><span style="color:#881280;"> </span></em><span style="color:#994500;">useautocompletefrommode</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"Javascript"</span><em><span style="color:#881280;">&gt;</span></em><br />
-                <em><span style="color:#881280;">&lt;begin&gt;&lt;regex&gt;</span></em><span style="color:#881280;">&amp;lt;</span>(?=script)<em><span style="color:#881280;">&lt;/regex&gt;&lt;/begin&gt;</span></em><br />
-                <em><span style="color:#881280;">&lt;end&gt;&lt;regex&gt;</span></em>/script<span style="color:#881280;">&amp;gt;<em>&lt;/regex&gt;&lt;/end&gt;</em></span><br />
-    <br />
-                <em><span style="color:#881280;">&lt;import </span></em><span style="color:#994500;">mode</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"Javascript"</span><em><span style="color:#881280;"> /&gt;</span></em><br />
-<br />
-                <em><span style="color:#881280;">&lt;keywords </span></em><span style="color:#994500;">id</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"Script Tags"</span><em><span style="color:#881280;">  </span></em><span style="color:#994500;">color</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"#881280"</span><em><span style="color:#881280;"> </span></em><span style="color:#994500;">font-style</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"italic"</span><em><span style="color:#881280;">&gt;</span></em><br />
-                    <em><span style="color:#881280;">&lt;regex&gt;</span></em>(\A<span style="color:#881280;">&amp;lt;</span>\Z)<em><span style="color:#881280;">&lt;/regex&gt;</span></em><br />
-                    <em><span style="color:#881280;">&lt;regex&gt;</span></em>(<span style="color:#881280;">&amp;lt;</span>/script[^<span style="color:#881280;">&amp;gt;</span>]*<span style="color:#881280;">&amp;gt;</span>)<em><span style="color:#881280;">&lt;/regex&gt;</span></em><br />
-                <em><span style="color:#881280;">&lt;/keywords&gt;</span></em><br />
-<br />
-                <em><span style="color:#881280;">&lt;state </span></em><span style="color:#994500;">id</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"Opening Script Tag"</span><em><span style="color:#881280;"> </span></em><span style="color:#994500;">color</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"#881280"</span><em><span style="color:#881280;"> </span></em><span style="color:#994500;">font-style</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"italic"</span><em><span style="color:#881280;"> </span></em><br />
-                  <span style="color:#994500;">usesymbolsfrommode</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"HTML"</span><em><span style="color:#881280;"> </span></em><span style="color:#994500;">useautocompletefrommode</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"HTML"</span><em><span style="color:#881280;">&gt;</span></em><br />
-                    <em><span style="color:#881280;">&lt;begin&gt;&lt;regex&gt;</span></em>\Ascript<em><span style="color:#881280;">&lt;/regex&gt;&lt;/begin&gt;</span></em><br />
-                    <em><span style="color:#881280;">&lt;end&gt;&lt;regex&gt;</span></em><span style="color:#881280;">&amp;gt;<em>&lt;/regex&gt;&lt;/end&gt;</em></span><br />
-        <br />
-                    <em><span style="color:#881280;">&lt;import </span></em><span style="color:#994500;">mode</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"XML"</span><em><span style="color:#881280;"> </span></em><span style="color:#994500;">state</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"Tags"</span><em><span style="color:#881280;"> /&gt;</span></em><br />
-                <em><span style="color:#881280;">&lt;/state&gt;</span></em><br />
-                <br />
-            <em><span style="color:#881280;">&lt;/state&gt;</span></em><br />
-<br />
-            <em><span style="color:#236e25;">&lt;!-- <br />
-                The &lt;state-link&gt; tag lets you reuse complete states including the<br />
-                begin and end regex as well as the attributes on the linked .<br />
-                It features the following attributes, all optional if not noted otherwise:<br />
-<br />
-                  state<br />
-                      the state to link - not optional<br />
-                      <br />
-                  mode<br />
-                      the mode to import from if left out it will import from this mode<br />
-                      <br />
-                  <br />
-            --&gt;</span></em>    <br />
-            <em><span style="color:#881280;">&lt;state-link </span></em><span style="color:#994500;">state</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"PHP"</span><em><span style="color:#881280;"> </span></em><span style="color:#994500;">mode</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"PHP-HTML"</span><em><span style="color:#881280;"> /&gt;</span></em><br />
-<br />
-        <em><span style="color:#881280;">&lt;/default&gt;</span></em><br />
-        <br />
-    <em><span style="color:#881280;">&lt;/states&gt;</span></em><br />
-<br />
-<em><span style="color:#881280;">&lt;/syntax&gt;</span></em><br />
-<br />
-</div>
-        
-        <h3>Symbol Definitions<a name="symbols" id="symbols"></a></h3>
-        <p>Symbol Definitions are xml files of the structure as shown in the following paragraph. Please read the comments to learn about the tags used.</p>
-        
-<div class="code" style="text-align:left;color:#000000; font-size:small; font-family:monospace; "><em><span style="color:#236e25;">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></em><br />
-<em><span style="color:#236e25;">&lt;!DOCTYPE syntax SYSTEM "symbol.dtd"&gt;</span></em><br />
-<em><span style="color:#881280;">&lt;symbols&gt;</span></em><br />
-<br />
-    <em><span style="color:#236e25;">&lt;!-- <br />
-    The &lt;symbol&gt; tag specifies what is being shown in the function popup.<br />
-    It features the following attributes, all optional if not noted otherwise:<br />
-        id<br />
-            Has to be a unique string. Has to be specified.<br />
-        image<br />
-            Specify an image includes in the application (no extension) or<br />
-            specify an image in this modes Resources directory (with extension)<br />
-            SubEthaEdit comes with the following images:<br />
-            Symbol#, SymbolC, SymbolE, SymbolF, SymbolF(), SymbolG, SymbolK,<br />
-            SymbolL, SymbolM, SymbolP, SymbolS, SymbolT, SymbolV, SymbolWarn<br />
-        indentation<br />
-            0-15    The level of indentation<br />
-        font-weight<br />
-            normal  Normal font-weight (default)<br />
-            bold    Bold text in popup<br />
-        font-style<br />
-            normal  Normal font-style (default)<br />
-            italic  Italic text in popup<br />
-            <br />
-        The example shows an symbol name "First example" with the image SymbolM<br />
-        and an indentation of 1.<br />
-    --&gt;</span></em>    <br />
-<br />
-    <em><span style="color:#881280;">&lt;symbol </span></em><span style="color:#994500;">id</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"First Example"</span><em><span style="color:#881280;"> </span></em><span style="color:#994500;">image</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"SymbolM"</span><em><span style="color:#881280;"> </span></em><span style="color:#994500;">indentation</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"1"</span><em><span style="color:#881280;">&gt;</span></em><br />
-        <br />
-        <em><span style="color:#236e25;">&lt;!-- <br />
-            The regex tag specifies the regular expression that is search for this<br />
-            symbol. It contains a Ruby-flavored regular expression. If groups is<br />
-            specified in the regular expression the first group is used for the<br />
-            find string. Escape unwanted groups with (?:).<br />
-            This tag has to be specified.<br />
-            Tip: Test your expressions with SubEthaEdits "Find All" command.<br />
-            Tip: Case sensitivity can be set to ignore by including (?i) in your<br />
-                 expression.<br />
-        --&gt;</span></em><br />
-        <br />
-        <em><span style="color:#881280;">&lt;regex&gt;</span></em>(function[^\n\r]*)<em><span style="color:#881280;">&lt;/regex&gt;</span></em><br />
-<br />
-        <em><span style="color:#236e25;">&lt;!-- <br />
-            The postprocess tag specifies the find and replaces that should<br />
-            be executed on the found string. You can use groups like \1 and the<br />
-            like. It contains a Ruby-flavored regular expression. <br />
-            This tag is optional.<br />
-            <br />
-            The example search all strings enclosed by parens and replace them<br />
-            with a empty string. Then it searches all occurances of "foo" and<br />
-            replaces them with "bar".<br />
-        --&gt;</span></em><br />
-                <br />
-        <em><span style="color:#881280;">&lt;postprocess&gt;</span></em><br />
-            <em><span style="color:#881280;">&lt;find&gt;</span></em>\([^\)]*\)<em><span style="color:#881280;">&lt;/find&gt;</span></em><br />
-            <em><span style="color:#881280;">&lt;replace&gt;&lt;/replace&gt;</span></em><br />
-            <em><span style="color:#881280;">&lt;find&gt;</span></em>foo<em><span style="color:#881280;">&lt;/find&gt;</span></em><br />
-            <em><span style="color:#881280;">&lt;replace&gt;</span></em>bar<em><span style="color:#881280;">&lt;/replace&gt;</span></em><br />
-        <em><span style="color:#881280;">&lt;/postprocess&gt;</span></em><br />
-    <em><span style="color:#881280;">&lt;/symbol&gt;</span></em><br />
-<br />
-    <em><span style="color:#881280;">&lt;symbol </span></em><span style="color:#994500;">id</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"Second Example"</span><em><span style="color:#881280;"> </span></em><span style="color:#994500;">font-weight</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"bold"</span><em><span style="color:#881280;"> </span></em><span style="color:#994500;">image</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"SymbolF"</span><em><span style="color:#881280;"> </span></em><span style="color:#994500;">indentation</span><em><span style="color:#881280;">=</span></em><span style="color:#1a1aa6;">"0"</span><em><span style="color:#881280;">&gt;</span></em><br />
-        <em><span style="color:#881280;">&lt;regex&gt;</span></em>foobar<em><span style="color:#881280;">&lt;/regex&gt;</span></em><br />
-    <em><span style="color:#881280;">&lt;/symbol&gt;</span></em><br />
-    <br />
-<em><span style="color:#881280;">&lt;/symbols&gt;</span></em></div>
-        
-        <h3>Autocomplete Dictionaries<a name="autocomplete" id="autocomplete"></a></h3>
-        <p><em>AutocompleteAdditions.txt</em> is a text file containing one completion at a line. Here is the place for strings you want to show up in the autocomplete function, that are not a keyword in the syntax definition. If you don't want or need additional autocomplete strings just delete this file.</p>
-
-        <p></p>
-            <div class="clear"><br /></div></div></div><div class="ru"><div class="lu"></div></div></div><div class="clear"></div>
-</body></html>
+		<h3>General</h3>
+		<p>SubEthaEdit's mode files are bundles, like e.g. Keynote presentations or rich text with images (rtfd). This enables you to include custom images, a license or other files you want to within the mode. It also ensures extensibility for further mode specific features, like plugins and the like. To show its contents ctrl-click on the mode and choose "Show Package Contents".</p>
+		<p>Download the SubEthaEdit Mode Development Kit <a href="SubEthaEdit3-MDK.zip">here</a>. (Includes sample artwork for symbol images.)</p>
+		<p>If you get stuck somewhere with a regular expression, have a look at the modes included with SubEthaEdit. The easiest way to get there is to hold option and click in the Menu "Mode → Show In Finder". The quickest way to put a supplied mode it into your ~/Library/Application Support/SubEthaEdit/Modes folder for customization is as follows: <ul><li>Hold option and click in the Menu "Mode → Show In Finder → Open SubEthaEdit Modes Folder"</li><li>Double click the mode you want to customize</li><li>Choose install for this user only</li><li>Hold option and click in the Menu "Mode → Show In Finder" and click on the mode you just installed.</li></ul></p>
+		
+		<h3>Scripts</h3>
+		<p>Modes can also contain Scripts in their Resources/Scripts directory that add features, toolbar icons and menu items to SubEthaEdit. For detailed instructions regarding this functionality please consult the <a href="scripting.html">scripting page</a>.</p>
+		
+		<h3>Structure</h3>
+		<p>This is the structure of a SubEthaEdit mode bundle:</p>
+		<ul>
+			<li>Contents
+				<ul>
+					<li><a href="#infoplist">Info.plist</a></li>
+					<li>Resources
+						<ul>
+							<li><a href="#autocomplete">AutocompleteAdditions.txt</a></li>
+							<li>English.lproj
+								<ul>
+									<li><a href="#infoplist">InfoPlist.strings</a></li>
+								</ul>
+							</li>
+							<li><a href="#settings">ModeSettings.xml</a></li>
+							<li><a href="#symbols">RegexSymbols.xml</a></li>
+							<li><a href="#syntax">SyntaxDefinition.xml</a></li>
+							<li>…</li>
+							<li><em>NewFileTemplate.txt</em></li>
+							<li><em>CustomImage.png</em></li>
+							<li><em>License.txt</em></li>
+							<li>Scripts</li>
+							<li>…</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		
+		<p><a name="infoplist" id="infoplist"></a>Begin with setting your modes name and copyright in <em>Info.plist</em> and <em>InfoPlist.strings</em>. If in doubt just replace "Template" with you mode's name and "Author" with your name.</p>
+		
+		<h3>Mode Settings<a name="settings" id="settings"></a></h3>
+		
+		<p>ModeSettings.xml is used to configure the mode's triggers, i.e. the extensions, filenames and content it handles. Content (like a shebang) can be configure via a regular expression and will be compared to the first 4MB of a file. These Triggers can be turned on or off in the Modes Preference Pane. The Precedence can be set by rearranging the mode order in that Pane.</p>
+		
+		<div class="code">
+			<span class="declaration">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br />
+			<span class="tag">&lt;settings&gt;</span><br />
+			  <span class="tag">&lt;template&gt;</span>mytemplate.txt<span class="tag">&lt;/template&gt;</span>   <span class="comment">&lt;!-- Provide a template for File-&gt;new --&gt;</span><br />
+			  <span class="tag">&lt;recognition&gt;</span><br />
+			    <span class="tag">&lt;extension&gt;</span>txt<span class="tag">&lt;/extension&gt;</span>                   <span class="comment">&lt;!-- Add file extensions --&gt;</span><br />
+			    <span class="tag">&lt;extension </span><span class="attribute">casesensitive</span><span class="tag">=</span><span class="value">"yes"</span><span class="tag">&gt;</span>C<span class="tag">&lt;/extension&gt;</span> <span class="comment">&lt;!-- Add case sensitive file extensions --&gt;</span><br />
+			    <span class="tag">&lt;filename&gt;</span>Makefile<span class="tag">&lt;/filename&gt;</span>                <span class="comment">&lt;!-- Add filenames --&gt;</span><br />
+			    <span class="tag">&lt;regex&gt;</span>\A#!/usr/bin/(env )?perl<span class="tag">&lt;/regex&gt;</span>      <span class="comment">&lt;!-- Add regex of content --&gt;</span><br />
+			  <span class="tag">&lt;/recognition&gt;</span><br />
+			<span class="tag">&lt;/settings&gt;</span><br />
+		</div>
+		
+		<h3>Syntax Definitions<a name="syntax" id="syntax"></a></h3>
+		
+		<p>Syntax definitions are xml files of the structure as shown in the following paragraph. Please read the comments to learn about the tags used.</p>
+		
+		<div class="code">
+			<span class="declaration">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br />
+			<span class="tag">&lt;syntax&gt;</span><br />
+			<br />
+			<br />
+			    <span class="comment">&lt;!-- <br />
+					    The &lt;head&gt; tag encloses some global information about the mode.<br />
+					    This tag is required.<br />
+			    --&gt;</span>    <br />
+			<br />
+			    <span class="tag">&lt;head&gt;</span><br />
+			<br />
+			        <span class="comment">&lt;!-- <br />
+					        The &lt;name&gt; specifies the modes name.<br />
+					        This tag is required and must match with the name in the plist after the SEEMode..<br />
+			        --&gt;</span>    <br />
+			<br />
+			        <span class="tag">&lt;name&gt;</span>Example Syntax<span class="tag">&lt;/name&gt;</span><br />
+			<br />
+			        <span class="comment">&lt;!-- optional to add spelling-dicitionary autocomplete words --&gt;</span><br />
+			        <span class="tag">&lt;autocompleteoptions </span><span class="attribute">use-spelling-dictionary</span><span class="tag">=</span><span class="value">"yes"</span><span class="tag"> /&gt;</span><br />
+			<br />
+			        <span class="comment">&lt;!-- optional to define the folding level for ctrl-command-up (default is 1) --&gt;</span><br />
+			        <span class="tag">&lt;folding </span><span class="attribute">toplevel</span><span class="tag">=</span><span class="value">"2"</span><span class="tag"> /&gt;</span><br />
+			<br />
+			        <span class="comment">&lt;!-- <br />
+					        The &lt;charsintokens&gt; and the &lt;charsdelimitingtokens&gt; instruct the syntax highlighter<br />
+					        where to tokenize the text for fast finding of plain strings.<br />
+					        The &lt;charsintokens&gt; tag specifies the characters that can occur in strings,<br />
+					        the &lt;charsdelimitingtokens&gt; tag specifies the tags that cannot occur in strings.<br />
+					        One of these tags has to be specified.<br />
+					        Tip: Use CDATA here.<br />
+			        --&gt;</span>    <br />
+			<br />
+			        <span class="tag">&lt;charsintokens&gt;</span><span class="cdata">&lt;![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@]]&gt;</span><span class="tag">&lt;/charsintokens&gt;</span> <br />
+			        <span class="comment">&lt;!-- &lt;charsdelimitingtokens&gt;&lt;![CDATA[ -]]&gt;&lt;/charsdelimitingtokens&gt; --&gt;</span><br />
+			        <br />
+			        <br />
+			        <span class="comment">&lt;!--<br />
+					          the &lt;charsincompletion&gt; defines characters used for autocompletion. e.g. in perl<br />
+					          you want this to include the $ sign to autocomplete variables.<br />
+					          If left out the regular expression word boundaries are used.<br />
+			        --&gt;</span><br />
+			        <span class="comment">&lt;!-- &lt;charsincompletion&gt;&lt;![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-@$&lt;/=&gt;!]]&gt;&lt;/charsincompletion&gt; --&gt;</span><br />
+			    <span class="tag">&lt;/head&gt;</span><br />
+			<br />
+			<br />
+			    <span class="comment">&lt;!-- <br />
+					    The &lt;states&gt; tag encloses all syntax states.<br />
+					    States are areas of the test that begin and end with an regex like comments or strings,<br />
+					    with exception of the default state, that exists anywhere where no other state exists.<br />
+					    This tag is required.<br />
+			    --&gt;</span>    <br />
+			<br />
+			    <span class="tag">&lt;states&gt;</span><br />
+			    <br />
+			        <span class="comment">&lt;!-- <br />
+					        The &lt;default&gt; tag specifies what is colored within the default state (see above).<br />
+					        It features the following attributes, all optional if not noted otherwise:<br />
+					            id<br />
+					                Has to be a unique string. Has to be specified.<br />
+					            color<br />
+					                a html comptible color in three or six letter hexadecimal format.<br />
+					                Used for text on bright document background colors.<br />
+					            inverted-color<br />
+					                a html comptible color in three or six letter hexadecimal format.<br />
+					                Used for text if a dark document background color is set.<br />
+					            font-weight<br />
+					                normal  Normal font-weight (default)<br />
+					                bold    Bold text in popup<br />
+					            font-style<br />
+					                normal  Normal font-weight (default)<br />
+					                italic  Bold text in popup<br />
+					            usesymbolsfrommode<br />
+					                a mode name to use the symbol recognition from<br />
+					                when left out the value is inherited from the parent state<br />
+					            useautocompletefrommode<br />
+					                a mode name to use the autocomplete from - default is this mode<br />
+					                when left out the value is inherited from the parent state<br />
+					            type<br />
+					                a string description of the type. currently only the values<br />
+					                "string" and "comment" have meaning and cause bracket matching<br />
+					                and syntax highlighting to ignore these areas of text<br />
+					                and code folding has special handling for comments<br />
+					                <br />
+					            foldable<br />
+					                yes    makes this state foldable<br />
+					                no     means this state does not fold (default)<br />
+			        --&gt;</span>    <br />
+			    <br />
+			        <span class="tag">&lt;default </span><span class="attribute">id</span><span class="tag">=</span><span class="value">"Base"</span><span class="tag"> </span><span class="attribute">color</span><span class="tag">=</span><span class="value">"#000"</span><span class="tag"> </span><span class="attribute">inverted-color</span><span class="tag">=</span><span class="value">"#fff"</span><span class="tag">&gt;</span><br />
+			<br />
+			            <span class="comment">&lt;!-- <br />
+					            The &lt;keywords&gt; tag specifies keyword groups within the current state.<br />
+					            It features the following attributes, all optional if not noted otherwise:<br />
+					                id<br />
+					                    Has to be a unique string. Has to be specified.<br />
+					                color<br />
+					                    a html comptible color in three or six letter hexadecimal format.<br />
+					                    Used for text on bright document background colors.<br />
+					                inverted-color<br />
+					                    a html comptible color in three or six letter hexadecimal format.<br />
+					                    Used for text if a dark document background color is set.<br />
+					                font-weight<br />
+					                    normal  Normal font-weight (default)<br />
+					                    bold    Bold text in popup<br />
+					                font-style<br />
+					                    normal  Normal font-weight (default)<br />
+					                    italic  Bold text in popup<br />
+					                casesensitive<br />
+					                    yes     This group is case sensitive (default)<br />
+					                    no      Ignore case for the group<br />
+					                useforautocomplete<br />
+					                    yes     Add this group's strings to the autocomplete dictionary (default)<br />
+					                    no      Don't add to autocomplete dictionary<br />
+			            --&gt;</span>    <br />
+			<br />
+			            <span class="tag">&lt;keywords </span><span class="attribute">id</span><span class="tag">=</span><span class="value">"Keywords"</span><span class="tag"> </span><span class="attribute">color</span><span class="tag">=</span><span class="value">"#6C0540"</span><span class="tag"> </span><span class="attribute">casesensitive</span><span class="tag">=</span><span class="value">"no"</span><span class="tag"> </span><span class="attribute">useforautocomplete</span><span class="tag">=</span><span class="value">"yes"</span><span class="tag">&gt;</span><br />
+			            <br />
+			                <span class="comment">&lt;!-- <br />
+					                    &lt;string&gt; tags specify plain text to be colored. If your tag does not<br />
+					                    get colored, check in &lt;charsintokens&gt; if you are tokenizing correctly.             <br />
+			                --&gt;</span>    <br />
+			            <br />
+			        <span class="tag">&lt;string&gt;</span>colorme<span class="tag">&lt;/string&gt;</span><br />
+			        <span class="tag">&lt;string&gt;</span>andmetoo<span class="tag">&lt;/string&gt;</span><br />
+			<br />
+			                <span class="comment">&lt;!-- <br />
+					                    &lt;regex&gt; tags specify regular expression to be colored. <br />
+					                    Only the first group will be colored, so enclose the part to color<br />
+					                    with parens.<br />
+					                    <br />
+					                    The example colors digits prefixed by foo. (only the digits)             <br />
+			                --&gt;</span>    <br />
+			<br />
+			        <span class="tag">&lt;regex&gt;</span>foo([0-9])<span class="tag">&lt;/regex&gt;</span><br />
+			<br />
+			            <span class="tag">&lt;/keywords&gt;</span><br />
+			<br />
+			            <span class="tag">&lt;keywords </span><span class="attribute">id</span><span class="tag">=</span><span class="value">"Other keywords"</span><span class="tag"> </span><span class="attribute">color</span><span class="tag">=</span><span class="value">"#400080"</span><span class="tag"> </span><span class="attribute">font-weight</span><span class="tag">=</span><span class="value">"bold"</span><span class="tag"> </span><span class="attribute">font-style</span><span class="tag">=</span><span class="value">"italic"</span><span class="tag">&gt;</span><br />
+			              <span class="tag">&lt;string&gt;</span>foo<span class="tag">&lt;/string&gt;</span><br />
+			              <span class="tag">&lt;string&gt;</span>bar<span class="tag">&lt;/string&gt;</span><br />
+			            <span class="tag">&lt;/keywords&gt;</span><br />
+			<br />
+			<br />
+			            <span class="comment">&lt;!-- <br />
+					                The &lt;state&gt; tag specifies a state other than the default state.<br />
+					                It features the same attributes as &lt;default&gt;.<br />
+					                It has to contain a &lt;begin&gt; and a &lt;end&gt; tag which in turn have to <br />
+					                contain a &lt;regex&gt; tag. They can contain &lt;keywords&gt; tags like specified above.<br />
+					                <br />
+					                For example here a states for C blockcomments, C++ singleline comments and strings.<br />
+					                The strings state handles escaped quotes with a lookbehind regular expression <br />
+					                (see a regex tutorial) and colors "foobar" with strings.<br />
+			            --&gt;</span>    <br />
+			    <br />
+			    <br />
+			            <span class="tag">&lt;state </span><span class="attribute">id</span><span class="tag">=</span><span class="value">"Comment"</span><span class="tag"> </span><span class="attribute">color</span><span class="tag">=</span><span class="value">"#236E25"</span><span class="tag"> </span><span class="attribute">font-style</span><span class="tag">=</span><span class="value">"italic"</span><span class="tag">&gt;</span><br />
+			                <span class="tag">&lt;begin&gt;&lt;regex&gt;</span>/\*<span class="tag">&lt;/regex&gt;&lt;/begin&gt;</span><br />
+			                <span class="tag">&lt;end&gt;&lt;regex&gt;</span>\*/<span class="tag">&lt;/regex&gt;&lt;/end&gt;</span><br />
+			            <span class="tag">&lt;/state&gt;</span><br />
+			            <br />
+			            <span class="tag">&lt;state </span><span class="attribute">id</span><span class="tag">=</span><span class="value">"SingleComment"</span><span class="tag"> </span><span class="attribute">color</span><span class="tag">=</span><span class="value">"#236E25"</span><span class="tag"> </span><span class="attribute">font-style</span><span class="tag">=</span><span class="value">"italic"</span><span class="tag">&gt;</span><br />
+			                <span class="tag">&lt;begin&gt;&lt;regex&gt;</span>//<span class="tag">&lt;/regex&gt;&lt;/begin&gt;</span><br />
+			                <span class="tag">&lt;end&gt;&lt;regex&gt;</span>[\n\r]<span class="tag">&lt;/regex&gt;&lt;/end&gt;</span><br />
+			            <span class="tag">&lt;/state&gt;</span><br />
+			            <br />
+			            <span class="tag">&lt;state </span><span class="attribute">id</span><span class="tag">=</span><span class="value">"String"</span><span class="tag"> </span><span class="attribute">color</span><span class="tag">=</span><span class="value">"#760f15"</span><span class="tag">&gt;</span><br />
+			                <span class="tag">&lt;begin&gt;&lt;regex&gt;</span>"<span class="tag">&lt;/regex&gt;&lt;/begin&gt;</span><br />
+			                <span class="tag">&lt;end&gt;&lt;regex&gt;</span>(((?<span class="escape">&amp;lt;</span>!\\)(\\\\)*)|^)"<span class="tag">&lt;/regex&gt;&lt;/end&gt;</span><br />
+			                <span class="tag">&lt;keywords </span><span class="attribute">id</span><span class="tag">=</span><span class="value">"Other keywords"</span><span class="tag"> </span><span class="attribute">color</span><span class="tag">=</span><span class="value">"#400080"</span><span class="tag"> </span><span class="attribute">font-style</span><span class="tag">=</span><span class="value">"italic"</span><span class="tag">&gt;</span><br />
+			                  <span class="tag">&lt;string&gt;</span>foobar<span class="tag">&lt;/string&gt;</span><br />
+			                <span class="tag">&lt;/keywords&gt;</span><br />
+			            <span class="tag">&lt;/state&gt;</span><br />
+			<br />
+			            <span class="comment">&lt;!-- <br />
+					                The &lt;import&gt; tag lets you import substates and keywords from other modes.<br />
+					                It features the following attributes, all optional if not noted otherwise:<br />
+					<br />
+					                  mode<br />
+					                      the mode to import from if left out it will import from this mode<br />
+					                      <br />
+					                  state<br />
+					                      the state to import - if left out the content of the <br />
+					                      default state will be imported<br />
+					                      <br />
+					                  keywords-only<br />
+					                      'yes' if you only want to import the keywords and not the substates<br />
+					                      of that state<br />
+					                  <br />
+			            --&gt;</span>    <br />
+			<br />
+			            <span class="tag">&lt;state </span><span class="attribute">id</span><span class="tag">=</span><span class="value">"Inline Javascript"</span><span class="tag"> </span><span class="attribute">color</span><span class="tag">=</span><span class="value">"#000"</span><span class="tag"> </span><span class="attribute">usesymbolsfrommode</span><span class="tag">=</span><span class="value">"Javascript"</span><br />
+			                <span class="tag"> </span><span class="attribute">useautocompletefrommode</span><span class="tag">=</span><span class="value">"Javascript"</span><span class="tag">&gt;</span><br />
+			                <span class="tag">&lt;begin&gt;&lt;regex&gt;</span><span class="escape">&amp;lt;</span>(?=script)<span class="tag">&lt;/regex&gt;&lt;/begin&gt;</span><br />
+			                <span class="tag">&lt;end&gt;&lt;regex&gt;</span>/script<span class="escape">&amp;gt;</span><span class="tag">&lt;/regex&gt;&lt;/end&gt;</em></span><br />
+			    <br />
+			                <span class="tag">&lt;import </span><span class="attribute">mode</span><span class="tag">=</span><span class="value">"Javascript"</span><span class="tag"> /&gt;</span><br />
+			<br />
+			                <span class="tag">&lt;keywords </span><span class="attribute">id</span><span class="tag">=</span><span class="value">"Script Tags"</span><span class="tag">  </span><span class="attribute">color</span><span class="tag">=</span><span class="value">"#881280"</span><span class="tag"> </span><span class="attribute">font-style</span><span class="tag">=</span><span class="value">"italic"</span><span class="tag">&gt;</span><br />
+			                    <span class="tag">&lt;regex&gt;</span>(\A<span class="escape">&amp;lt;</span>\Z)<span class="tag">&lt;/regex&gt;</span><br />
+			                    <span class="tag">&lt;regex&gt;</span>(<span class="escape">&amp;lt;</span>/script[^<span class="escape">&amp;gt;</span>]*<span class="escape">&amp;gt;</span>)<span class="tag">&lt;/regex&gt;</span><br />
+			                <span class="tag">&lt;/keywords&gt;</span><br />
+			<br />
+			                <span class="tag">&lt;state </span><span class="attribute">id</span><span class="tag">=</span><span class="value">"Opening Script Tag"</span><span class="tag"> </span><span class="attribute">color</span><span class="tag">=</span><span class="value">"#881280"</span><span class="tag"> </span><span class="attribute">font-style</span><span class="tag">=</span><span class="value">"italic"</span><span class="tag"> </span><br />
+			                  <span class="attribute">usesymbolsfrommode</span><span class="tag">=</span><span class="value">"HTML"</span><span class="tag"> </span><span class="attribute">useautocompletefrommode</span><span class="tag">=</span><span class="value">"HTML"</span><span class="tag">&gt;</span><br />
+			                    <span class="tag">&lt;begin&gt;&lt;regex&gt;</span>\Ascript<span class="tag">&lt;/regex&gt;&lt;/begin&gt;</span><br />
+			                    <span class="tag">&lt;end&gt;&lt;regex&gt;</span><span class="escape">&amp;gt;</span><span class="tag">&lt;/regex&gt;&lt;/end&gt;</em></span><br />
+			        <br />
+			                    <span class="tag">&lt;import </span><span class="attribute">mode</span><span class="tag">=</span><span class="value">"XML"</span><span class="tag"> </span><span class="attribute">state</span><span class="tag">=</span><span class="value">"Tags"</span><span class="tag"> /&gt;</span><br />
+			                <span class="tag">&lt;/state&gt;</span><br />
+			                <br />
+			            <span class="tag">&lt;/state&gt;</span><br />
+			<br />
+			            <span class="comment">&lt;!-- <br />
+					                The &lt;state-link&gt; tag lets you reuse complete states including the<br />
+					                begin and end regex as well as the attributes on the linked .<br />
+					                It features the following attributes, all optional if not noted otherwise:<br />
+					<br />
+					                  state<br />
+					                      the state to link - not optional<br />
+					                      <br />
+					                  mode<br />
+					                      the mode to import from if left out it will import from this mode<br />
+					                      <br />
+					                  <br />
+			            --&gt;</span>    <br />
+			            <span class="tag">&lt;state-link </span><span class="attribute">state</span><span class="tag">=</span><span class="value">"PHP"</span><span class="tag"> </span><span class="attribute">mode</span><span class="tag">=</span><span class="value">"PHP-HTML"</span><span class="tag"> /&gt;</span><br />
+			<br />
+			        <span class="tag">&lt;/default&gt;</span><br />
+			        <br />
+			    <span class="tag">&lt;/states&gt;</span><br />
+			<br />
+			<span class="tag">&lt;/syntax&gt;</span><br />
+			<br />
+		</div>
+		
+		<h3>Symbol Definitions<a name="symbols" id="symbols"></a></h3>
+		
+		<p>Symbol Definitions are xml files of the structure as shown in the following paragraph. Please read the comments to learn about the tags used.</p>
+		
+		<div class="code">
+			<span class="declaration">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br />
+			<span class="declaration">&lt;!DOCTYPE syntax SYSTEM "symbol.dtd"&gt;</span><br />
+			<span class="tag">&lt;symbols&gt;</span><br />
+			<br />
+			    <span class="comment">&lt;!-- <br />
+					    The &lt;symbol&gt; tag specifies what is being shown in the function popup.<br />
+					    It features the following attributes, all optional if not noted otherwise:<br />
+					        id<br />
+					            Has to be a unique string. Has to be specified.<br />
+					        image<br />
+					            Specify an image includes in the application (no extension) or<br />
+					            specify an image in this modes Resources directory (with extension)<br />
+					            SubEthaEdit comes with the following images:<br />
+					            Symbol#, SymbolC, SymbolE, SymbolF, SymbolF(), SymbolG, SymbolK,<br />
+					            SymbolL, SymbolM, SymbolP, SymbolS, SymbolT, SymbolV, SymbolWarn<br />
+					        indentation<br />
+					            0-15    The level of indentation<br />
+					        font-weight<br />
+					            normal  Normal font-weight (default)<br />
+					            bold    Bold text in popup<br />
+					        font-style<br />
+					            normal  Normal font-style (default)<br />
+					            italic  Italic text in popup<br />
+					            <br />
+					        The example shows an symbol name "First example" with the image SymbolM<br />
+					        and an indentation of 1.<br />
+			    --&gt;</span>    <br />
+			<br />
+			    <span class="tag">&lt;symbol </span><span class="attribute">id</span><span class="tag">=</span><span class="value">"First Example"</span><span class="tag"> </span><span class="attribute">image</span><span class="tag">=</span><span class="value">"SymbolM"</span><span class="tag"> </span><span class="attribute">indentation</span><span class="tag">=</span><span class="value">"1"</span><span class="tag">&gt;</span><br />
+			        <br />
+			        <span class="comment">&lt;!-- <br />
+					            The regex tag specifies the regular expression that is search for this<br />
+					            symbol. It contains a Ruby-flavored regular expression. If groups is<br />
+					            specified in the regular expression the first group is used for the<br />
+					            find string. Escape unwanted groups with (?:).<br />
+					            This tag has to be specified.<br />
+					            Tip: Test your expressions with SubEthaEdits "Find All" command.<br />
+					            Tip: Case sensitivity can be set to ignore by including (?i) in your<br />
+					                 expression.<br />
+			        --&gt;</span><br />
+			        <br />
+			        <span class="tag">&lt;regex&gt;</span>(function[^\n\r]*)<span class="tag">&lt;/regex&gt;</span><br />
+			<br />
+			        <span class="comment">&lt;!-- <br />
+					            The postprocess tag specifies the find and replaces that should<br />
+					            be executed on the found string. You can use groups like \1 and the<br />
+					            like. It contains a Ruby-flavored regular expression. <br />
+					            This tag is optional.<br />
+					            <br />
+					            The example search all strings enclosed by parens and replace them<br />
+					            with a empty string. Then it searches all occurances of "foo" and<br />
+					            replaces them with "bar".<br />
+			        --&gt;</span><br />
+			                <br />
+			        <span class="tag">&lt;postprocess&gt;</span><br />
+			            <span class="tag">&lt;find&gt;</span>\([^\)]*\)<span class="tag">&lt;/find&gt;</span><br />
+			            <span class="tag">&lt;replace&gt;&lt;/replace&gt;</span><br />
+			            <span class="tag">&lt;find&gt;</span>foo<span class="tag">&lt;/find&gt;</span><br />
+			            <span class="tag">&lt;replace&gt;</span>bar<span class="tag">&lt;/replace&gt;</span><br />
+			        <span class="tag">&lt;/postprocess&gt;</span><br />
+			    <span class="tag">&lt;/symbol&gt;</span><br />
+			<br />
+			    <span class="tag">&lt;symbol </span><span class="attribute">id</span><span class="tag">=</span><span class="value">"Second Example"</span><span class="tag"> </span><span class="attribute">font-weight</span><span class="tag">=</span><span class="value">"bold"</span><span class="tag"> </span><span class="attribute">image</span><span class="tag">=</span><span class="value">"SymbolF"</span><span class="tag"> </span><span class="attribute">indentation</span><span class="tag">=</span><span class="value">"0"</span><span class="tag">&gt;</span><br />
+			        <span class="tag">&lt;regex&gt;</span>foobar<span class="tag">&lt;/regex&gt;</span><br />
+			    <span class="tag">&lt;/symbol&gt;</span><br />
+			    <br />
+		<span class="tag">&lt;/symbols&gt;</span></div>
+		
+		<h3>Autocomplete Dictionaries<a name="autocomplete" id="autocomplete"></a></h3>
+		
+		<p><em>AutocompleteAdditions.txt</em> is a text file containing one completion at a line. Here is the place for strings you want to show up in the autocomplete function, that are not a keyword in the syntax definition. If you don't want or need additional autocomplete strings just delete this file.</p>
+		
+	</body>
+</html>

@@ -1,138 +1,161 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!DOCTYPE syntax SYSTEM "syntax.dtd">
 <syntax>
+	<head>
+		<name>CSharp</name> 
+		<charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@$]]></charsintokens>
+	</head>
+	
+	<states>
+		<default id="Base" scope="meta.default">
+			
+			<keywords id="Primitive Types" useforautocomplete="yes" scope="keyword.type">
+				<string>bool</string>
+				<string>byte</string>
+				<string>char</string>
+				<string>decimal</string>
+				<string>double</string>
+				<string>float</string>
+				<string>int</string>
+				<string>long</string>
+				<string>sbyte</string>
+				<string>short</string>
+				<string>uint</string>
+				<string>ulong</string>
+				<string>ushort</string>
+			</keywords>
+			
+			<keywords id="Predefined Types" useforautocomplete="yes" scope="keyword.type">
+				<string>string</string>
+				<string>object</string>
+			</keywords>
+			
+			<keywords id="Framework Types" useforautocomplete="yes" scope="support.type">
+				<string>System.Boolean</string>
+				<string>System.Byte</string>
+				<string>System.SByte</string>
+				<string>System.Char</string>
+				<string>System.Decimal</string>
+				<string>System.Double</string>
+				<string>System.Single</string>
+				<string>System.Int32</string>
+				<string>System.UInt32</string>
+				<string>System.Int64</string>
+				<string>System.UInt64</string>
+				<string>System.Object</string>
+				<string>System.Int16</string>
+				<string>System.UInt16</string>
+				<string>System.String</string>
+			</keywords>							
+			
+			<keywords id="Constant Keywords" useforautocomplete="yes" scope="keyword.constant">
+				<string>false</string>
+				<string>null</string>
+				<string>true</string>
+			</keywords>
+			
+			<keywords id="Keywords" useforautocomplete="yes" scope="keyword">
+				<string>abstract</string>
+				<string>as</string>
+				<string>base</string>
+				<string>break</string>
+				<string>case</string>
+				<string>catch</string>
+				<string>checked</string>
+				<string>class</string>
+				<string>const</string>
+				<string>continue</string>
+				<string>default</string>
+				<string>delegate</string>
+				<string>do</string>
+				<string>else</string>
+				<string>enum</string>
+				<string>event</string>
+				<string>explicit</string>
+				<string>extern</string>
+				<string>finally</string>
+				<string>fixed</string>
+				<string>for</string>
+				<string>foreach</string>
+				<string>goto</string>
+				<string>if</string>
+				<string>implicit</string>
+				<string>in</string>
+				<string>interface</string>
+				<string>internal</string>
+				<string>is</string>
+				<string>lock</string>
+				<string>namespace</string>
+				<string>new</string>
+				<string>operator</string>
+				<string>out</string>
+				<string>override</string>
+				<string>params</string>
+				<string>private</string>
+				<string>protected</string>
+				<string>public</string>
+				<string>readonly</string>
+				<string>ref</string>
+				<string>return</string>
+				<string>sealed</string>
+				<string>sizeof</string>
+				<string>stackalloc</string>
+				<string>static</string>
+				<string>struct</string>
+				<string>switch</string>
+				<string>this</string>
+				<string>throw</string>
+				<string>try</string>
+				<string>typeof</string>
+				<string>unchecked</string>
+				<string>unsafe</string>
+				<string>using</string>
+				<string>virtual</string>
+				<string>void</string>
+				<string>volatile</string>
+				<string>while</string>
+			</keywords>
 
-    <head>
-        <name>C#</name> 
-        <charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@$]]></charsintokens>
-    </head>
-
-    <states>
-    
-        <default id="Base" color="#000" background-color="#fff" font-weight="normal" font-style="normal">
-            <keywords id="Keywords" color="#00c" useforautocomplete="yes" scope="keyword">
-                <string>abstract</string>
-                <string>event</string>
-                <string>new</string>
-                <string>struct</string>
-                <string>as</string>
-                <string>explicit</string>
-                <string>null</string>
-                <string>switch</string>
-                <string>base</string>
-                <string>extern</string>
-                <string>object</string>
-                <string>this</string>
-                <string>bool</string>
-                <string>false</string>
-                <string>operator</string>
-                <string>throw</string>
-                <string>break</string>
-                <string>finally</string>
-                <string>out</string>
-                <string>true</string>
-                <string>byte</string>
-                <string>fixed</string>
-                <string>override</string>
-                <string>try</string>
-                <string>case</string>
-                <string>float</string>
-                <string>params</string>
-                <string>typeof</string>
-                <string>catch</string>
-                <string>for</string>
-                <string>private</string>
-                <string>uint</string>
-                <string>char</string>
-                <string>foreach</string>
-                <string>protected</string>
-                <string>ulong</string>
-                <string>checked</string>
-                <string>goto</string>
-                <string>public</string>
-                <string>unchecked</string>
-                <string>class</string>
-                <string>if</string>
-                <string>readonly</string>
-                <string>unsafe</string>
-                <string>const</string>
-                <string>implicit</string>
-                <string>ref</string>
-                <string>ushort</string>
-                <string>continue</string>
-                <string>in</string>
-                <string>return</string>
-                <string>using</string>
-                <string>decimal</string>
-                <string>int</string>
-                <string>sbyte</string>
-                <string>virtual</string>
-                <string>default</string>
-                <string>interface</string>
-                <string>sealed</string>
-                <string>volatile</string>
-                <string>delegate</string>
-                <string>internal</string>
-                <string>short</string>
-                <string>void</string>
-                <string>do</string>
-                <string>is</string>
-                <string>sizeof</string>
-                <string>while</string>
-                <string>double</string>
-                <string>lock</string>
-                <string>stackalloc</string>
-                <string>else</string>
-                <string>long</string>
-                <string>static</string>
-                <string>enum</string>
-                <string>namespace</string>
-                <string>string</string>
-            </keywords>
-            <keywords id="Numbers" color="#004CCC" useforautocomplete="no" scope="language.constant.numeric">
+			<keywords id="Numbers" useforautocomplete="no" scope="language.constant.numeric">
 				<regex>(?&lt;=[^[A-Za-z0-9]]|^)((([0-9]+\.[0-9]*)|(\.[0-9]+)([eE][+\-]?[0-9]+)?[fFlL]?)|((([1-9][0-9]*)|0[0-7]*|(0[xX][0-9a-fA-F]))(([uU][lL]?)|([lL][uU]?))?))(?=[^[A-Za-z0-9]]|$)</regex>
-            </keywords>
-        </default>
-        
-        <state id="AutodocComment" type="comment" scope="comment.block.documentation">
-            <begin><string>/\*"</string></begin>
-            <end><regex>"\*/</regex></end>
-        </state>
-
-        <state id="Comment"  type="comment" scope="comment.block">
-            <begin><string>/\*</string></begin>
-            <end><regex>\*/</regex></end>
-        </state>
-        
-            <state id="SingleComment" type="comment" scope="comment.line.double-slash">
-            <begin><string>//</string></begin>
-            <end><regex>[\n\r]</regex></end>
-        </state>
-        
-        <state id="Region" color="#A0A014" foldable="yes" indent="yes" scope="support.region">
-            <begin><string>#</string></begin>
-            <end><regex>[\n\r]</regex></end>
-			<import mode="/" keywords-only="yes"/>
-			<import/>
-        </state>
-        
-        <state id="String" type="string" foldable="no" scope="string.double">
-            <begin><string>"</string></begin>
-            <end><regex>(((?&lt;!\\)(\\\\)*)|^)"</regex></end>
-        </state>
-
-		<state id="Block" type="block" foldable="yes" indent="yes" scope="meta.block">
-			<begin>
-				<regex>{</regex>
-				<autoend>}</autoend>
-			</begin>
-			<end>
-				<regex>}</regex>
-			</end>
-			<import mode="/" keywords-only="yes"/>
-			<import/>
-		</state>            
-    </states>
-
-
+			</keywords>
+			
+			<state id="AutodocComment" type="comment" scope="comment.block.documentation">
+				<begin><string>/\*"</string></begin>
+				<end><regex>"\*/</regex></end>
+			</state>
+			
+			<state id="Comment" type="comment" scope="comment.block">
+				<begin><string>/\*</string></begin>
+				<end><regex>\*/</regex></end>
+			</state>
+			
+			<state id="SingleComment" type="comment" scope="comment.line.double-slash">
+				<begin><string>//</string></begin>
+				<end><regex>[\n\r]</regex></end>
+			</state>
+			
+			<state id="Preprocessor" foldable="yes" indent="yes" scope="language.preprocessor">
+				<begin><string>#</string></begin>
+				<end><regex>[\n\r]</regex></end>
+			</state>
+			
+			<state id="String" type="string" foldable="no" scope="string.double">
+				<begin><string>"</string></begin>
+				<end><regex>(((?&lt;!\\)(\\\\)*)|^)"</regex></end>
+			</state>
+			
+			<state id="Block" type="block" foldable="yes" indent="yes" scope="meta.block">
+				<begin>
+					<regex>{</regex>
+					<autoend>}</autoend>
+				</begin>
+				<end>
+					<regex>}</regex>
+				</end>
+				<import/>
+			</state>            
+			
+		</default>
+	</states>
 </syntax>

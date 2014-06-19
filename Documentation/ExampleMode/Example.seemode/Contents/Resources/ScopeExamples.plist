@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+
+<plist version="1.0">
+	<dict>
+		<key>support.constant</key>
+		<string>COLOR TEXT</string>
+		<key>comment.block</key>
+		<string>/* a block comment */</string>
+		<key>comment.single</key>
+		<string># a single line comment</string>
+		<key>string.double</key>
+		<string>"This is a string in double quotes"</string>
+		<key>meta.important</key>
+		<string>foobar %Warning: This is a warning %TODO: and this a TODO</string>
+		<key>language.constant.numeric</key>
+		<string>9.0 6942</string>
+	</dict>
+</plist>

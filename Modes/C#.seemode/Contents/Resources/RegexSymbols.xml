@@ -7,11 +7,11 @@
         <endregex>}</endregex>
     </blocks>
     
-    <symbol id="Methods" image="SymbolM" indentation="1" ignoreblocks="yes">
+    <symbol id="Methods" symbol="M" indentation="1" ignoreblocks="yes">
         <regex>(((public|private|protected|static|internal)\s+)+(\w+\s+)?\w+\s*\([^\)^;]*\))</regex>
     </symbol>
 
-    <symbol id="Classes" image="SymbolC" indentation="0" ignoreblocks="yes">
+    <symbol id="Classes" symbol="C" indentation="0" ignoreblocks="yes">
         <regex>(((public|private|protected|static|internal)\s+)*(class|interface)\s+\w+)</regex>
     </symbol>
 

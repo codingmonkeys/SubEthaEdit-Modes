@@ -1,15 +1,12 @@
 [Documentation][ModeExample]:
 ## Info.plist: _Info.plist_
 
-The file called `Info.plist` is located in the mode's Contents folder.  
+The file called `Info.plist` is located in the mode's `Contents` folder.  
 It contains a collection of keys and values that describes your mode. 
 
 1. [Example File](#ExampleFile)
 2. [Supported Keys](#SupportedKeys)
 3. [Deprecated Keys](#DeprecatedKeys)
-
-
-
 
 
 ### <a name="ExampleFile"></a>Example File:
@@ -55,8 +52,6 @@ It contains a collection of keys and values that describes your mode.
 
 * `CFBundlePackageType` - Bundle OS Type code - use _BNDL_
 * `CFBundleInfoDictionaryVersion` - InfoDictionary version - use _6.0_
-
-
 
 
 ### <a name="DeprecatedKeys"></a>Deprecated Keys

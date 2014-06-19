@@ -1,9 +1,11 @@
 [Documentation][ModeExample]:
 ## Mode Scripts: _Scripts/_
 
-The folder called `Scripts` is located in the modes Resources folder.  
+The folder called `Scripts` is located in the mode's `Resources` folder.  
 It can contain mode specific apple scripts to enhance the mode experience in some way or another.  
 Hidden files (prefixed with a .) in this folder are ignored.
+
+Mode scripts are accessible via `Menu: Mode` and `Context Menu: Scripts`.
 
 1. [Example File](#ExampleFile)
 2. [Script Settings](#ScriptSettings)
@@ -39,19 +41,19 @@ to your custom Apple script to costumize the appearance of the script in the scr
 
 The possible keys are
 
-* `displayName` _(optional)_ - string that is used as the name of your script in the mode menu
+* `displayName` _(optional)_ - string that is used as the display name of your script
 
-* `inContextMenu` _(optional)_ - wheter or not your script appears in the right click menu
+* `inContextMenu` _(optional)_ - wheter or not your script appears in the `Context Menu` - the menu accessible via _right click_ when editing text
 	* _yes_
 	* _no_ (default)
 	
 * `keyboardShortcut` _(optional)_
 	* no shortcut (default) 
 	* a shortcut string - modifier key(s) plus character
-		* **~** is option
-		* **^** is control
-		* **$** is shift
-		* **@** would be commmand but is mandatory
+		* **~** is `⌥ option`
+		* **^** is `^ control`
+		* **$** is `⇧ shift`
+		* **@** would be `⌘ command` but is mandatory
 
 
 ---

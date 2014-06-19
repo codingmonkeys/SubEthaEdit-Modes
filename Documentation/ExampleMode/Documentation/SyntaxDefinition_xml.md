@@ -1,9 +1,9 @@
 [Documentation][ModeExample]:
 ## Syntax Definitions: _SyntaxDefinition.xml_
 
-The file called `SyntaxDefinition.xml` is located in the modes Resources folder.  
-It contains the information that is needed to recognize language or file type specific sections and keywords. It contains additional information about the mode.  
-Without this file the mode cannot work.
+The file called `SyntaxDefinition.xml` is located in the mode's `Resources` folder.  
+It contains the information that is needed to recognize language or file type specific sections and keywords.  
+This file is required.
 
 1. [Shortened Example File](#ExampleFile)
 2. [File structure - Tags and Attributes](#FileStructure)
@@ -57,6 +57,8 @@ Without this file the mode cannot work.
 		
 		* [**&lt;autocompleteoptions&gt;**](#tag_autocompleteoptions) (_optional_)  
 		@ [use-spelling-dictionary](#attribute_use-spelling-dictionary) (_optional_)
+		* [**&lt;bracketmatching&gt;**](#tag_bracketmatching) (_optional_)  
+		@ [brackets](#attribute_brackets) (_optional_)
 		* [**&lt;folding&gt;**](#tag_folding) (_optional_)  
 		@ [toplevel](#attribute_toplevel) (_optional_)
 
@@ -108,7 +110,7 @@ This tag is required.
 ---
 #### <a name="tag_head"></a>`<head>`
 The `<head>` tag encloses some global information about the mode.  
-It contains a `<name>` tag and either `<charsintokens>` or `<charsdelimitingtokens>` or both. It can also contain `<autocompleteoptions>`, `<folding>` and `<charsincompletion>`.  
+It contains a `<name>` tag and either `<charsintokens>` or `<charsdelimitingtokens>` or both. It can also contain `<autocompleteoptions>`, `<bracketmatching>`, `<folding>` and `<charsincompletion>`.  
 This tag is required.  
 
 
@@ -131,8 +133,25 @@ This tag is optional.
 	* _yes_
 
 ---
+#### <a name="tag_bracketmatching"></a>`<bracketmatching>` _(optional)_
+The `<bracketmatching>` tag defines which characters a mode matches to pairs - the corresponding character of a pair is highlighted if the other one is passed with the cursor, _double clicking_ one of them selects both characters and everything inbetween - the default use case for that are brackets - round, square, curly, angled or otherwise.  
+This tag is optional.
+
+##### Attributes
+
+* <a name="attribute_brackets"></a>`brackets` _(optional)_ - string that defines which characters are matched to pairs - possible values:
+	* _{[()]}_ (default)
+	* string of the format _abc…CBA_
+	
+	where  
+	_a_ is the opening character,  
+	_A_ is the corresponding closing character  
+	opening and closing characters are different from each other and every other character in the string.  
+	
+	
+---
 #### <a name="tag_folding"></a>`<folding>` _(optional)_
-The `<folding>` tag defines the folding level for ctrl-command-up.  
+The `<folding>` tag defines the default folding level for `^ control` + `⌘ command` + `↑ up` (`Menu: View → Code Folding → Fold All Level X Blocks`).  
 This tag is optional.
 
 ##### Attributes
@@ -247,7 +266,7 @@ This tag is optional.
 
 ##### Attributes
 * see [`<default>`](#tag_default)
-* <a name="attribute_indent"></a>`indent` _(optional)_ - state causes further indentation - possible values:
+* <a name="attribute_indent"></a>`indent` _(optional)_ - state causes further indentation - used for automatic indentation on return and via `^ control` + `I` (`Menu: Format → Re-Indent`) - possible values:
 	* _no_ (default)
 	* _yes_ - state increases indentation level on return and re-indent
 
@@ -273,7 +292,7 @@ One of these tags is required.
 #### <a name="tag_autoend"></a>`<autoend>` _(optional)_
 The `<autoend>` tag contains either a plain string or references a named group in the begin regex, for example 
 `<autoend>@end</autoend>` or `<autoend>&lt;/\g&lt;xmltagstatename&gt;&gt;</autoend>`.  
-It is used for closing the current state via `Menu: Format → Close Current Tag/Block` _(option-cmd-.)_.  
+It is used for closing the current state via `⌥ option` + `⌘ command` + `.` (`Menu: Format → Close Current Tag/Block`) 
 This tag is optional.  
 
 

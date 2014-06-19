@@ -1,7 +1,7 @@
 [Documentation][ModeExample]:
 ## Mode Settings: _ModeSettings.xml_
 
-The file called `ModeSettings.xml` is located in the modes Resources folder.  
+The file called `ModeSettings.xml` is located in the mode's `Resources` folder.  
 It bundles the information that is needed to recognize a file as being supported by this mode, when for example opening it, saving an untitled document or pasting code into a new document.  
 It also contains information for a template for new files of that mode.
 
@@ -51,7 +51,7 @@ This tag is required.
 ---
 #### <a name="tag_template"></a>`<template>` _(optional)_
 The `<template>` tag specifies the filename of the mode's template file. The referenced file will provide the initial content of a new file that is created with this mode set as its mode.  
-The referenced file has to be in the bundle's Recources folder.  
+The referenced file has to be in the bundle's `Recources` folder.  
 This tag is optional.  
 
 
@@ -91,7 +91,7 @@ This tag is optional.
 
 #### <a name="ModeTrigger"></a>Mode Recognition Triggers: Adjust recognition in Preferences
 
-Mode triggers defined in the `<recognition>` tags can additonally be influenced via the _"**Triggers**"-Preference Pane_:
+Mode triggers defined in the `<recognition>` tags can additonally be influenced via **`Preferences: Triggers`**:
 
 * each trigger can be turned on or off  
 * precedence which mode should recognize a certain file type can be set by rearranging the mode order 
@@ -106,9 +106,9 @@ Mode triggers defined in the `<recognition>` tags can additonally be influenced 
 * `Example` is recognized based on the filename
 * `ExampleModeFile_NoShebang.EXAMPLE` is recognized based on the file extension
 * `ExampleModeFile_NoShebang.exmpl` is recognized based on the file extension
-* `ExampleModeFile_Shebang` - is recognized based on the shebang
-* `ExampleModeFile_Shebang.txt` - is recognized based on the shebang (though precedence for recognizing based on txt extension wins in the default setup)
-* `NoExampleModeFile_NoShebang.EXMPL` - is not recognized because no known trigger matches - the `.exmpl` file extension is case sensitive
+* `ExampleModeFile_Shebang` is recognized based on the shebang
+* `ExampleModeFile_Shebang.txt` is recognized based on the shebang (though precedence for recognizing based on txt extension wins in the default setup)
+* `NoExampleModeFile_NoShebang.EXMPL` is not recognized because no known trigger matches - the `.exmpl` file extension is case sensitive
 
 
 
@@ -116,10 +116,10 @@ Mode triggers defined in the `<recognition>` tags can additonally be influenced 
 
 There are multiple ways to generate a file that has its mode already set and gets the template content:
 
-* `Menu: File →  New →  Example`
+* `Menu: File → New →  Example`
 * `Menu: File → New Tab → Example`
 * `Document Hub: File → New → Example` _(right click)_
-* `Document Hub: File → New → Example` _(alt right click)_
+* `Document Hub: File → New → Example` _(right click + `⌥ option`)_
 * `Document Hub: File → New` _(if the mode is set as the default mode for new files in the Preferences)_
 
 The following cases however do not fill in the template content:
