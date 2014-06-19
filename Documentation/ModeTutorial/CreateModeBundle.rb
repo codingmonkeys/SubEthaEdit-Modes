@@ -21,7 +21,7 @@ target_directory = File.expand_path(target_directory)
 
 
 
-print "Mode: #{mode_name} - extensions:#{mode_extensions} target-directory:#{target_directory}\n"
+print "Generating Sekelton Mode Bundle: #{mode_name}.seemode\n  extensions:#{mode_extensions}\n  in directory:#{target_directory}\n"
 
 
 bundle_name = mode_name + ".seemode"
@@ -30,6 +30,12 @@ bundle_resources_path = File.join(bundle_contents_path, "Resources")
 bundle_scripts_path = File.join(bundle_resources_path, "Scripts")
 bundle_shell_path = File.join(bundle_scripts_path, "shell")
 bundle_english_path = File.join(bundle_resources_path, "English.lproj")
+
+if File.exists? bundle_contents_path then
+	print "\nAlready a Mode at #{bundle_contents_path}\n -- aborted --\n"
+	exit -1
+end
+
 FileUtils.mkdir_p bundle_shell_path
 FileUtils.mkdir_p bundle_english_path
 
@@ -95,7 +101,7 @@ HERE
 #mark RegexSymbols.xml
 
 File.open(File.join(bundle_resources_path,"RegexSymbols.xml"), "w") {|file| 
-	file.write <<HERE
+	file.write <<'HERE'
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE syntax SYSTEM "symbol.dtd">
 
@@ -144,7 +150,9 @@ File.open(File.join(bundle_resources_path,"SyntaxDefinition.xml"), "w") {|file|
 		<name>#{mode_name}</name>
 		<autocompleteoptions use-spelling-dictionary="no" />
 		<folding toplevel="1" />
-	
+HERE
+
+	file.write <<'HERE'	
 		<!-- <charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@]]></charsintokens> --> 
 		<charsdelimitingtokens><![CDATA[ +-/=#?!*
 ]]></charsdelimitingtokens>
@@ -232,7 +240,7 @@ HERE
 #mark localized
 
 File.open(File.join(bundle_english_path,"ScopeExamples.plist"), "w") {|file| 
-	file.write <<HERE
+	file.write <<'HERE'
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
