@@ -56,9 +56,9 @@ Quite the beast!
 The whole number keyword group looks like this then:
 
 ```xml
-			<keywords id="Numbers" useforautocomplete="no" scope="language.constant.numeric">
-				<regex>(?&lt;![\w\d_])((?:[-+]?(?:[0-9][0-9_]*(?:\.[0-9][0-9_]*)?(?:[eE][-+]?[0-9][0-9_]*)?)|(?:0x[0-9a-fA-F][0-9a-fA-F_]*(?:\.[0-9a-fA-F][0-9a-fA-F_]*(?:[pP][-+]?[0-9a-fA-F][0-9a-fA-F_]*))?)|(?:0b[01][01_]*?)|(?:0o[0-7][0-7_]*?)))(?![\w\d_])</regex>
-			</keywords>
+<keywords id="Numbers" useforautocomplete="no" scope="language.constant.numeric">
+	<regex>(?&lt;![\w\d_])((?:[-+]?(?:[0-9][0-9_]*(?:\.[0-9][0-9_]*)?(?:[eE][-+]?[0-9][0-9_]*)?)|(?:0x[0-9a-fA-F][0-9a-fA-F_]*(?:\.[0-9a-fA-F][0-9a-fA-F_]*(?:[pP][-+]?[0-9a-fA-F][0-9a-fA-F_]*))?)|(?:0b[01][01_]*?)|(?:0o[0-7][0-7_]*?)))(?![\w\d_])</regex>
+</keywords>
 ```
 
 With the addition of having to escape the `<` with an `&lt;` - yihhaaaa.
@@ -76,9 +76,9 @@ which can be neat if the language is this open. However, in general it is prefer
 Another use case for regex based keywords is the function and or method highlighting in SubEthaEdit. (E.g. used in the Objective-C mode and most c based modes)
 
 ```xml
-			<keywords id="FunctionRegex" useforautocomplete="no" scope="language.subroutine.function">
-				<regex>([A-Za-z0-9_]+ *)\(</regex>
-			</keywords>
+<keywords id="FunctionRegex" useforautocomplete="no" scope="language.subroutine.function">
+	<regex>([A-Za-z0-9_]+ *)\(</regex>
+</keywords>
 ```
 
 For swift this doesn't look right enough though. For once: functions in swift can consist of amost any character, not only ascii, and there are also the named parameter parts which should be highlighted the same. So let's have a try at this.
@@ -87,11 +87,15 @@ Sadly the identifier can be almost everything. So lets just do an approximation 
 
 
 ```xml
-			<keywords id="FunctionRegex" useforautocomplete="no" scope="language.subroutine.function">
-				<regex>([^*-_+#:.,\(<{[]}>)\s]+)\s*\(</regex>
-			</keywords>
+<keywords id="FunctionRegex" useforautocomplete="no" scope="language.subroutine.function">
+	<regex>([^-*_+#:.,\(&lt;&gt;\{\[\]}\)\s]+)\s*\(</regex>
+	
+	<regex>(?&lt;=[\(,])\s*([^-*_+#:.,\(&lt;&gt;{\[\]}\)\s]+)(?:\s*(?:[^-*_+#:.,\(&lt;&gt;{\[\]}\)\s]+))?\s*:</regex>
+</keywords>
 ```
 
+Sadly this still hase some issues (e.g. highlighting unnamed attributes) But still is an improvement. The Character class string is quite the abomination too, but at least it is as closely representing the everything is allowed variant as possible.
 
 
-[Step 2 - Basic Language Features](../SwiftModeStep2) - [Overview](..) - [Step 4](../SwiftModeStep4)
+
+[Step 3](../SwiftModeStep3) - [Overview](..) - [Step 5](../SwiftModeStep5)

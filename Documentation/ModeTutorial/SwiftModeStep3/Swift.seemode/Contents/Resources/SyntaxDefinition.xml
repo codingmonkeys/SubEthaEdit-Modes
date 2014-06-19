@@ -154,7 +154,9 @@
 
 
 			<keywords id="FunctionRegex" useforautocomplete="no" scope="language.subroutine.function">
-				<regex>([^-_+#:.,\(<{[]}>)\s]+)\s*\(</regex>
+				<regex>([^-*_+#:.,\(&lt;&gt;\{\[\]}\)\s]+)\s*\(</regex>
+				
+				<regex>(?&lt;=[\(,])\s*([^-*_+#:.,\(&lt;&gt;{\[\]}\)\s]+)(?:\s*(?:[^-*_+#:.,\(&lt;&gt;{\[\]}\)\s]+))?\s*:</regex>
 			</keywords>
 
 			<state id="DoxyGen Comment" type="comment" scope="comment.block.documentation">
