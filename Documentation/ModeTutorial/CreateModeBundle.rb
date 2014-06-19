@@ -154,7 +154,7 @@ HERE
 
 	file.write <<'HERE'	
 		<!-- <charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@]]></charsintokens> --> 
-		<charsdelimitingtokens><![CDATA[ .:()[]{}<>+-/=#?!*
+		<charsdelimitingtokens><![CDATA[ .,;:()[]{}<>+-/=#?!*
 ]]></charsdelimitingtokens>
 		<!-- <charsincompletion><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-@$</=>!]]></charsincompletion> -->
 	</head>
