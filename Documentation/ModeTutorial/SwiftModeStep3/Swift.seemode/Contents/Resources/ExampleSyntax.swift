@@ -302,3 +302,36 @@ class Character: ParallaxSprite {
         requestedAnimation = .Walk
     }
 }
+
+
+
+
+// allowed number literals
+1e+1_0
+1.1
+1_000.1
+
+0xabc
+0xa01b.cdp-a
+0xABf
+
+0x001
+0b00_100
+
+0o0123457_123
+
+
+
+// non allowed number literals
+0x
+0o
+0b
+0b100.11
+0.
+.1
+0x0.01p
+0xf.0f
+
+
+
+
