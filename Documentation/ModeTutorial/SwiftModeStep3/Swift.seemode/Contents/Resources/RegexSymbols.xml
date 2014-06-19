@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "symbol.dtd">
+
+<symbols>
+
+	<!-- TODO: exchange function with your mode specific functions -->
+	<symbol id="Functions" symbol="f()_#6AB18D" indentation="0" ignoreblocks="yes">
+		<regex>(?&lt;=[\n\r]|^)(?:[\w0-9_*]+\s+){1,3}[\w0-9_*]+[ \t]*\([\]\[\w0-9_,\s*&amp;&lt;&gt;/]*\)(?=\s*\{)</regex>
+		<postprocess>
+			<find>\([^\)]*\)</find>
+			<replace>()</replace>
+			<find>[\n\r]</find>
+			<replace> </replace>
+			<find>[ \t]+</find>
+			<replace> </replace>
+		</postprocess>
+	</symbol>
+
+
+	<!-- TODO: exchange Pragma Marks recognition with whatever the language has to show labels and separators -->
+	<symbol id="Pragma Marks" font-weight="bold" indentation="0" ignoreblocks="yes" show-in-comments="yes">
+		<regex>(#pragma mark[	 -]*[^\n]*)\n</regex>
+		<postprocess>
+			<find>#pragma mark[-	 \n]*</find> <!-- An empty string places a separator -->
+			<replace></replace>
+		</postprocess>
+	</symbol>
+
+	<symbol id="Versioning Conflict" font-weight="bold" image="SymbolWarn" indentation="0" ignoreblocks="no">
+		<regex>^&lt;&lt;&lt;&lt;&lt;&lt;&lt;([\n\r]|.)*?======([\n\r]|.)*?&gt;&gt;&gt;&gt;&gt;&gt;&gt;</regex>
+		<postprocess>
+			<find>.*</find>
+			<replace>Versioning conflict!</replace>
+		</postprocess>
+	</symbol>
+</symbols>
