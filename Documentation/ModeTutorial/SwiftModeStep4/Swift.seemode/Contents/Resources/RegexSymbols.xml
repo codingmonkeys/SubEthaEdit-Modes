@@ -3,9 +3,74 @@
 
 <symbols>
 
-	<!-- TODO: exchange function with your mode specific functions -->
-	<symbol id="Functions" symbol="f()_#6AB18D" indentation="0" ignoreblocks="yes">
-		<regex>(?&lt;=[\n\r]|^)(?:[\w0-9_*]+\s+){1,3}[\w0-9_*]+[ \t]*\([\]\[\w0-9_,\s*&amp;&lt;&gt;/]*\)(?=\s*\{)</regex>
+	<symbol id="enum" symbol="e_#a51c9b" indentation="0" ignoreblocks="yes">
+		<regex>^[^\S\n]*enum\s+([^-*+#:.,\(&lt;&gt;\{\[\]}\)\s]+(?:&lt;[^&gt;\n]+&gt;)?\s*(?:(?::\s*[^-*+#:.,\(&lt;&gt;\{\[\]}\)\s]+\s*)(?:,\s*[^-*+#:.,\(&lt;&gt;\{\[\]}\)\s]+\s*)*)?)\{</regex>
+		<find>[ \t]+</find>
+		<replace> </replace>
+	</symbol>
+
+	<symbol id="struct" symbol="C" indentation="0" ignoreblocks="yes">
+		<regex>^[^\S\n]*class\s+([^-*+#:.,\(&lt;&gt;\{\[\]}\)\s]+(?:&lt;[^&gt;\n]+&gt;)?\s*(?:(?::\s*[^-*+#:.,\(&lt;&gt;\{\[\]}\)\s]+\s*)(?:,\s*[^-*+#:.,\(&lt;&gt;\{\[\]}\)\s]+\s*)*)?)\{</regex>
+		<find>[ \t]+</find>
+		<replace> </replace>
+	</symbol>
+
+	<symbol id="struct" symbol="S_#a51c9b" indentation="0" ignoreblocks="yes">
+		<regex>^[^\S\n]*struct\s+([^-*+#:.,\(&lt;&gt;\{\[\]}\)\s]+(?:&lt;[^&gt;\n]+&gt;)?\s*(?:(?::\s*[^-*+#:.,\(&lt;&gt;\{\[\]}\)\s]+\s*)(?:,\s*[^-*+#:.,\(&lt;&gt;\{\[\]}\)\s]+\s*)*)?)\{</regex>
+		<find>[ \t]+</find>
+		<replace> </replace>
+	</symbol>
+
+	<symbol id="extension" symbol="S_#a51c9b" indentation="0" ignoreblocks="yes">
+		<regex>^[^\S\n]*extension\s+([^-*+#:.,\(&lt;&gt;\{\[\]}\)\s]+(?:&lt;[^&gt;\n]+&gt;)?\s*(?:(?::\s*[^-*+#:.,\(&lt;&gt;\{\[\]}\)\s]+\s*)(?:,\s*[^-*+#:.,\(&lt;&gt;\{\[\]}\)\s]+\s*)*)?)\{</regex>
+		<find>[ \t]+</find>
+		<replace> </replace>
+	</symbol>
+
+	<symbol id="Init" symbol="i()_#a51c9b" indentation="1" ignoreblocks="yes">
+		<regex>^[^\S\n]*(init\s*(?:&lt;[^&gt;\n]+&gt;)?\([^\)\n]+\))</regex>
+		<postprocess>
+			<find>\([^\)]*\)</find>
+			<replace>()</replace>
+			<find>[\n\r]</find>
+			<replace> </replace>
+			<find>[ \t]+</find>
+			<replace> </replace>
+		</postprocess>
+	</symbol>
+
+	<symbol id="protocol" symbol="P_#a51c9b" indentation="0" ignoreblocks="yes">
+		<regex>^[^\S\n]*protocol\s+([^-*+#:.,\(&lt;&gt;\{\[\]}\)\s]+(?:&lt;[^&gt;\n]+&gt;)?\s*(?:(?::\s*[^-*+#:.,\(&lt;&gt;\{\[\]}\)\s]+\s*)(?:,\s*[^-*+#:.,\(&lt;&gt;\{\[\]}\)\s]+\s*)*))\{</regex>
+		<find>[ \t]+</find>
+		<replace> </replace>
+	</symbol>
+
+	<symbol id="Init" symbol="i()_#a51c9b" indentation="1" ignoreblocks="yes">
+		<regex>^[^\S\n]*((?:de)?init\s*(?:&lt;[^&gt;\n]+&gt;)?\([^\)\n]+\))</regex>
+		<postprocess>
+			<find>\([^\)]*\)</find>
+			<replace>()</replace>
+			<find>[\n\r]</find>
+			<replace> </replace>
+			<find>[ \t]+</find>
+			<replace> </replace>
+		</postprocess>
+	</symbol>
+
+	<symbol id="Functions" symbol="f()_#6AB18D" indentation="1" ignoreblocks="yes">
+		<regex>^(?:[^\S\n]*override)?[^\S\n]*func\s+([^-*+#:.,\(&lt;&gt;\{\[\]}\)\s]+(?:&lt;[^&gt;\n]+&gt;)?\([^\)\n]*\))</regex>
+		<postprocess>
+			<find>\([^\)]*\)</find>
+			<replace>()</replace>
+			<find>[\n\r]</find>
+			<replace> </replace>
+			<find>[ \t]+</find>
+			<replace> </replace>
+		</postprocess>
+	</symbol>
+
+	<symbol id="Class Functions" symbol="c()" indentation="1" ignoreblocks="yes">
+		<regex>^(?:[^\S\n]*override)?[^\S\n]*class[^\S\n]*func\s+([^-*+#:.,\(&lt;&gt;\{\[\]}\)\s]+(?:&lt;[^&gt;\n]+&gt;)?\([^\)\n]*\))</regex>
 		<postprocess>
 			<find>\([^\)]*\)</find>
 			<replace>()</replace>

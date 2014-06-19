@@ -13619,10 +13619,8 @@
 			</keywords>
 
 			<keywords id="Swift Structs" useforautocomplete="yes" scope="support.type.swift">
-				<string>Array</string>
 				<string>ArrayBuffer</string>
 				<string>AutoreleasingUnsafePointer</string>
-				<string>Bool</string>
 				<string>CConstPointer</string>
 				<string>CConstVoidPointer</string>
 				<string>CMutablePointer</string>
@@ -13633,8 +13631,6 @@
 				<string>CollectionOfOne</string>
 				<string>ContiguousArray</string>
 				<string>ContiguousArrayBuffer</string>
-				<string>Dictionary</string>
-				<string>Double</string>
 				<string>EmptyCollection</string>
 				<string>EmptyGenerator</string>
 				<string>EnumerateGenerator</string>
@@ -13650,7 +13646,6 @@
 				<string>HeapBuffer</string>
 				<string>ImplicitlyUnwrappedOptional</string>
 				<string>IndexingGenerator</string>
-				<string>Int</string>
 				<string>Int16</string>
 				<string>Int32</string>
 				<string>Int64</string>
@@ -13663,7 +13658,6 @@
 				<string>ObjectIdentifier</string>
 				<string>OnHeap</string>
 				<string>PermutationGenerator</string>
-				<string>Range</string>
 				<string>RangeGenerator</string>
 				<string>RawByte</string>
 				<string>Repeat</string>
@@ -13677,7 +13671,6 @@
 				<string>SliceBuffer</string>
 				<string>StaticString</string>
 				<string>StridedRangeGenerator</string>
-				<string>String</string>
 				<string>UInt</string>
 				<string>UInt16</string>
 				<string>UInt32</string>
