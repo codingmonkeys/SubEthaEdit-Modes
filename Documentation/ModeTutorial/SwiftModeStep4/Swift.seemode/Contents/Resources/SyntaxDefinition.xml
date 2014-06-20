@@ -95,7 +95,7 @@
                 <string>__COLUMN__</string>
                 <string>__FUNCTION__</string>
 				<string>C_ARGC</string>
-				<String>C_ARGV</String>
+				<string>C_ARGV</string>
 			</keywords>
 
 			<keywords id="Annotation Keywords" scope="keyword" casesensitive="yes" useforautocomplete="yes">
@@ -114,6 +114,8 @@
                 <string>convenience</string>
                 <string>inout</string>
                 <string>@assignment</string>
+                <string>@postfix</string>
+                <string>@auto_closure</string>
                 <string>@class_protocol</string>
                 <string>@exported</string>
                 <string>@final</string>
@@ -170,9 +172,11 @@
                 <string>none</string>
 			</keywords>
 
-			<keywords id="Objects" useforautocomplete="yes" scope="support.class.standard">
-				<string>Object</string>
-				<string>String</string>
+			<keywords id="Classes" useforautocomplete="yes" casesensitive="yes" scope="support.class.standard">
+				<string>Character</string>
+				<string>Class</string>
+				<string>Encoding</string>
+				<string>Enum</string>
 			</keywords>
 
 			<keywords id="Number Literals" useforautocomplete="yes" scope="keyword.constant">
