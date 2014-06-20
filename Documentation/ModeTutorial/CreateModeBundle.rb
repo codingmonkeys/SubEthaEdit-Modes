@@ -123,9 +123,9 @@ File.open(File.join(bundle_resources_path,"RegexSymbols.xml"), "w") {|file|
 
 	<!-- TODO: exchange Pragma Marks recognition with whatever the language has to show labels and separators -->
 	<symbol id="Pragma Marks" font-weight="bold" indentation="0" ignoreblocks="yes" show-in-comments="yes">
-		<regex>(#pragma mark[	 -]*[^\n]*)\n</regex>
+		<regex>^([^\S\n]*// (?i)mark:(?:[^\S\n]|-)*[^\n]*)$</regex>
 		<postprocess>
-			<find>#pragma mark[-	 \n]*</find> <!-- An empty string places a separator -->
+			<find>^([^\S\n]*// (?i)mark:(?:[^\S\n]|-)*)</find> <!-- An empty string places a separator -->
 			<replace></replace>
 		</postprocess>
 	</symbol>
