@@ -1,0 +1,6 @@
+<settings>
+	<template>NewTemplate.swift</template>
+	<recognition>
+		<extension>swift</extension>
+	</recognition>
+</settings>
