@@ -161,7 +161,7 @@ HERE
 	<states>
 		<default id="Base" scope="meta.default">
 		
-			<state id="Block" type="block" foldable="yes" intend="yes" scope="meta.block.curly">
+			<state id="Block" type="block" foldable="yes" indent="yes" scope="meta.block.curly">
 				<begin><regex>{</regex><autoend>}</autoend></begin>
 				<end><regex>}</regex></end>
 				<import/>
@@ -249,19 +249,17 @@ File.open(File.join(bundle_english_path,"ScopeExamples.plist"), "w") {|file|
 	<string># comment</string>
 	<key>keyword.function</key>
 	<string>puts scan defined?</string>
-	<key>keyword.class</key>
+	<key>keyword.control</key>
 	<string>if class do while begin</string>
 	<key>keyword.type</key>
 	<string>public</string>
 	<key>language.variable.instance</key>
 	<string>@my_var</string>
-	<key>constant.numeric</key>
+	<key>language.constant.numeric</key>
 	<string>0 0x4a 0713 1.2e-3 0b01011</string>
-	<key>constant.numeric.character</key>
-	<string>?\n ?d \x4a</string>
-	<key>constant.numeric.keyword</key>
+	<key>keyword.constant</key>
 	<string>true false nil</string>
-	<key>string</key>
+	<key>string.double</key>
 	<string>"lorem ipsum"</string>
   </dict>
 </plist>
@@ -270,7 +268,7 @@ HERE
 
 File.open(File.join(bundle_english_path,"Localizable.strings"), "w") {|file| 
 	file.write <<HERE
-CFBundleName = "#{mode_name}";
+CFBundleName = "#{mode_name.gsub(/"/,'\"')}";
 HERE
 }
 
