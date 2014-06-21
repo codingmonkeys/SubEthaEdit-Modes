@@ -20,8 +20,7 @@ end
 target_directory = File.expand_path(target_directory)
 
 
-
-print "Generating Sekelton Mode Bundle: #{mode_name}.seemode\n  extensions:#{mode_extensions}\n  in directory:#{target_directory}\n"
+print "Generating Skeleton Mode Bundle: #{mode_name}.seemode\n  extensions:#{mode_extensions}\n  in directory:#{target_directory}\n"
 
 
 mode_name_xml = mode_name.gsub(/&/,"&amp;").gsub(/</,"&lt;").gsub(/>/,"&gt;")
