@@ -24,12 +24,14 @@ target_directory = File.expand_path(target_directory)
 print "Generating Sekelton Mode Bundle: #{mode_name}.seemode\n  extensions:#{mode_extensions}\n  in directory:#{target_directory}\n"
 
 
+mode_name_xml = mode_name.gsub(/&/,"&amp;").gsub(/</,"&lt;").gsub(/>/,"&gt;")
 bundle_name = mode_name + ".seemode"
+bundle_identifier = "SEEMode."+ mode_name.gsub(/[^-a-zA-Z0-9_.:]/, "_")
 bundle_contents_path = File.join(target_directory, bundle_name, "Contents")
 bundle_resources_path = File.join(bundle_contents_path, "Resources")
 bundle_scripts_path = File.join(bundle_resources_path, "Scripts")
 bundle_shell_path = File.join(bundle_scripts_path, "shell")
-bundle_english_path = File.join(bundle_resources_path, "English.lproj")
+bundle_english_path = File.join(bundle_resources_path, "en.lproj")
 
 if File.exists? bundle_contents_path then
 	print "\nAlready a Mode at #{bundle_contents_path}\n -- aborted --\n"
@@ -47,19 +49,15 @@ File.open(File.join(bundle_contents_path,"Info.plist"), "w") { |file|
 <plist version="1.0">
 <dict>
 	<key>CFBundleIdentifier</key>
-	<string>SEEMode.#{mode_name}</string>
+	<string>#{bundle_identifier}</string>
 	<key>CFBundleName</key>
-	<string>#{mode_name}</string>
-	<key>NSHumanReadableCopyright</key>
-	<string></string>
+	<string>#{mode_name_xml}</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>SEEMinimumEngineVersion</key>
 	<string>4.0</string>
-	<key>CFBundlePackageType</key>
-	<string>BNDL</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 </dict>
@@ -147,7 +145,7 @@ File.open(File.join(bundle_resources_path,"SyntaxDefinition.xml"), "w") {|file|
 <?xml version="1.0" encoding="UTF-8"?>
 <syntax>
 	<head>
-		<name>#{mode_name}</name>
+		<name>#{mode_name_xml}</name>
 		<autocompleteoptions use-spelling-dictionary="no" />
 		<folding toplevel="1" />
 HERE
