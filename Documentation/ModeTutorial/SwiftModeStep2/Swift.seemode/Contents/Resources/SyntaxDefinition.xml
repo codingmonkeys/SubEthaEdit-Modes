@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<syntax>
+	<head>
+		<name>Swift</name>
+		<autocompleteoptions use-spelling-dictionary="no" />
+		<folding toplevel="1" />
+		<!-- <charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@]]></charsintokens> --> 
+		<charsdelimitingtokens><![CDATA[ ()[]{}<>.:+-/=#?!*
+]]></charsdelimitingtokens>
+		<!-- <charsincompletion><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-@$</=>!]]></charsincompletion> -->
+	</head>
+	<states>
+		<default id="Base" scope="meta.default">
+		
+			<state id="Block" type="block" foldable="yes" intend="yes" scope="meta.block.curly">
+				<begin><regex>{</regex><autoend>}</autoend></begin>
+				<end><regex>}</regex></end>
+				<import/>
+			</state>
+
+			<keywords id="Keywords" scope="keyword" casesensitive="yes" useforautocomplete="yes">
+				<string>var</string>
+				<string>let</string>
+				<string>is</string>
+				<string>as</string>
+				<string>dynamicType</string>
+                <string>self</string>
+                <string>super</string>
+                <string>import</string>
+                <string>__FILE__</string>
+                <string>__LINE__</string>
+                <string>__COLUMN__</string>
+                <string>__FUNCTION__</string>
+			</keywords>
+
+			<keywords id="Annotation Keywords" scope="keyword" casesensitive="yes" useforautocomplete="yes">
+				<string>mutating</string>
+				<string>nonmutating</string>
+				<string>override</string>
+				<string>static</string>
+				<string>unowned</string>
+				<string>unowned(safe)</string>
+				<string>unowned(unsafe)</string>
+				<string>weak</string>
+				<string>typealias</string>
+                <string>prefix</string>
+                <string>postfix</string>
+                <string>infix</string>
+                <string>convenience</string>
+                <string>inout</string>
+                <string>@assignment</string>
+                <string>@class_protocol</string>
+                <string>@exported</string>
+                <string>@final</string>
+                <string>@lazy</string>
+                <string>@noreturn</string>
+                <string>@NSCopying</string>
+                <string>@NSManaged</string>
+                <string>@objc</string>
+                <string>@optional</string>
+                <string>@required</string>
+                <string>@IBAction</string>
+                <string>@IBDesignable</string>
+                <string>@IBInspectable</string>
+                <string>@IBOutlet</string>
+			</keywords>
+			
+			
+			<keywords id="Control Flow Keywords" scope="keyword.control" casesensitive="yes" useforautocomplete="yes">
+				<string>for</string>
+				<string>in</string>
+				<string>do</string>
+				<string>while</string>
+				<string>if</string>
+				<string>else</string>
+				<string>switch</string>
+				<string>case</string>
+				<string>default</string>
+				<string>where</string>
+				<string>break</string>
+				<string>continue</string>
+				<string>fallthrough</string>
+				<string>return</string>
+				<string>where</string>
+				<string>class</string>
+				<string>struct</string>
+				<string>class</string>
+				<string>enum</string>
+				<string>protocol</string>
+				<string>func</string>
+				<string>get</string>
+				<string>set</string>
+				<string>willSet</string>
+                <string>didSet</string>
+                <string>protocol</string>
+                <string>init</string>
+                <string>deinit</string>
+                <string>extension</string>
+                <string>subscript</string>
+                <string>operator</string>
+                <string>precedence</string>
+                <string>associativity</string>
+                <string>left</string>
+                <string>right</string>
+                <string>none</string>
+			</keywords>
+
+			<keywords id="Objects" useforautocomplete="yes" scope="support.class.standard">
+				<string>Object</string>
+				<string>String</string>
+			</keywords>
+
+			<keywords id="Number Literals" useforautocomplete="YES" scope="keyword.constant">
+				<string>true</string>
+				<string>false</string>
+				<string>nil</string>
+			</keywords>
+
+			<keywords id="Types" useforautocomplete="yes" scope="keyword.type">
+				<string>boolean</string>
+				<string>float</string>
+				<string>int</string>
+			</keywords>
+
+
+			<keywords id="FunctionRegex" useforautocomplete="no" scope="language.subroutine.function">
+				<regex>([A-Za-z0-9_]+ *)\(</regex>
+			</keywords>
+
+			<state id="DoxyGen Comment" type="comment" scope="comment.block.documentation">
+				<begin><regex>/\*[\*\!]</regex><autoend>\*/</autoend></begin>
+				<end><regex>\*/</regex></end>
+				<keywords id="DoxyGen Tags" useforautocomplete="no" scope="comment.block.documentation.tag">
+					<regex>(?&lt;=[^\w\d]|^)([@\\]\w+)</regex>
+				</keywords>
+				<import mode="Base" state="EmailAndURLContainerState" keywords-only="yes"/>
+				<state-link state="Comment" />
+			</state>
+
+			<!-- For example here a states for C blockcomments, C++ singleline comments and strings.
+			The strings state handles escaped quotes with a lookbehind regular expression (see a regex tutorial) and colors "foobar" in strings. --> 
+			<state id="Comment" type="comment" scope="comment.block">
+				<begin><regex>/\*</regex><autoend>\*/</autoend></begin>
+				<end><regex>\*/</regex></end>
+				<import mode="Base" state="EmailAndURLContainerState" keywords-only="yes"/>
+				<state-link state="Comment" />
+			</state>
+
+			<state id="SingleComment" type="comment" scope="comment.line">
+				<begin><regex>//</regex></begin>
+				<end><regex>[\n\r]</regex></end>
+				<import mode="Base" state="EmailAndURLContainerState" keywords-only="yes"/>
+			</state>
+
+			<state id="String" type="string" scope="string.double">
+				<begin><regex>"</regex><autoend>"</autoend></begin>
+				<end><regex>(((?&lt;!\\)(\\\\)*)|^)"</regex></end>
+				<keywords id="Foobar in string" scope="meta.important">
+					<string>foobar</string>
+				</keywords>
+			</state>
+			
+
+			<keywords id="Numbers" useforautocomplete="no" scope="language.constant.numeric">
+				<regex>(?&lt;=[^[A-Za-z0-9]]|^)((?:(?:[0-9]+\.[0-9]*)|(?:\.[0-9]+)([eE][+\-]?[0-9]+)?[fFlL]?)|(?:(?:(?:[1-9][0-9]*)|0[0-7]*|(?:0[xX][0-9a-fA-F]))(?:(?:[uU][lL]?)|(?:[lL][uU]?))?))(?=[^[A-Za-z0-9]]|$)</regex>
+			</keywords>
+
+		</default>
+	</states>
+</syntax>
