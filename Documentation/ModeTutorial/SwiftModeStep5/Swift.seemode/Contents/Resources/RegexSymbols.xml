@@ -21,7 +21,7 @@
 		<replace> </replace>
 	</symbol>
 
-	<symbol id="extension" symbol="S_#a51c9b" indentation="0" ignoreblocks="yes">
+	<symbol id="extension" symbol="ex_#a51c9b" indentation="0" ignoreblocks="yes">
 		<regex>^[^\S\n]*extension\s+([^-*+#:.,\(&lt;&gt;\{\[\]}\)\s]+(?:&lt;[^&gt;\n]+&gt;)?\s*(?:(?::\s*[^-*+#:.,\(&lt;&gt;\{\[\]}\)\s]+\s*)(?:,\s*[^-*+#:.,\(&lt;&gt;\{\[\]}\)\s]+\s*)*)?)\{</regex>
 		<find>[ \t]+</find>
 		<replace> </replace>

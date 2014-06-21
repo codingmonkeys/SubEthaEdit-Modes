@@ -13,12 +13,12 @@
 		<default id="Base" scope="meta.default">
 		
 			<!-- shebang - swift actually ignores the first line if it starts with #! - no way to do this here though -->
-			<state id="Firstline Unix Comment" type="comment" scope="comment.line">
+			<state id="Firstline Unix Comment" type="comment" scope="comment.line.shebang">
 				<begin><regex>\A#!/</regex></begin>
 				<end><regex>[\n\r]</regex></end>
 			</state>
 
-			<state id="Block" type="block" foldable="yes" intend="yes" scope="meta.block.curly">
+			<state id="Block" type="block" foldable="yes" indent="yes" scope="meta.block.curly">
 				<begin><regex>{</regex><autoend>}</autoend></begin>
 				<end><regex>}</regex></end>
 				<import/>
@@ -184,13 +184,7 @@
 				<string>false</string>
 				<string>nil</string>
 			</keywords>
-
-			<keywords id="Types" useforautocomplete="yes" scope="keyword.type">
-				<string>boolean</string>
-				<string>float</string>
-				<string>int</string>
-			</keywords>
-
+			
 
 			<keywords id="FunctionRegex" useforautocomplete="no" scope="language.subroutine.function">
 				<regex>([^-*+#:.,\(&lt;&gt;\{\[\]}\)\s]+)(?:&lt;[^\n&gt;]+&gt;)?\s*\(</regex>
@@ -236,7 +230,10 @@
 				<regex>(?&lt;![\w\d_])((?:[-+]?(?:[0-9][0-9_]*(?:\.[0-9][0-9_]*)?(?:[eE][-+]?[0-9][0-9_]*)?)|(?:0x[0-9a-fA-F][0-9a-fA-F_]*(?:\.[0-9a-fA-F][0-9a-fA-F_]*(?:[pP][-+]?[0-9a-fA-F][0-9a-fA-F_]*))?)|(?:0b[01][01_]*?)|(?:0o[0-7][0-7_]*?)))(?![\w\d_])</regex>
 			</keywords>
 
-
+			<!-- order does matter - if above numbers numbers get colored over it -->
+			<keywords id="Properties" scope="language.variable" casesensitive="no">
+				<regex>(\$\d+)</regex>
+			</keywords>
 
 			<keywords id="Cocoa Classes" casesensitive="yes" useforautocomplete="yes" scope="support.class.standard.cocoa">
 				<string>ABActionDelegate</string>
