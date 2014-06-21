@@ -14,9 +14,10 @@ The quickest way to get to that directory is via the mode menu of __SubEthaEdit_
 This opens your User Modes folder in the finder. If not already open, open your __Terminal.app__ and drag the little folder icon in the finder's window title onto the __Terminal.app__ icon in the Dock. This conveniently opens up this directory in a new Terminal window.
 
 Now you can go ahead and use our little helper script to generate the `.seemode` Bundle
-	
-	#<todo: provide the execute from our repo part in here>
-	CreateModeBundle.rb Swift swift
+
+```bash
+ruby -e "$(curl -fsSL https://raw.github.com/codingmonkeys/SubEthaEdit/master/bin/CreateModeBundle.rb)" Swift swift
+```
 
 This creates your Mode Skeleton for our new `Swift.seemode` and also conveniently opens it's contents in a new finder window.
 
