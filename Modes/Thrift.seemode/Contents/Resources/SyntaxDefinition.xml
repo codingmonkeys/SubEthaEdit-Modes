@@ -45,6 +45,7 @@
 				<string>namespace</string>
 				<string>service</string>
 				<string>typedef</string>
+				<string>exception</string>
 			</keywords>
 
 			<keywords id="ArgumentIndex" useforautocomplete="no" scope="keyword.directive">
