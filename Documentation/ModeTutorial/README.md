@@ -8,5 +8,6 @@
 * [Step 4](SwiftModeStep4) - All the nice things
 * [Step 5](SwiftModeStep5) - Mode recognition and Scripts
 
-[Back](..)
 
+<!-- Tutorial Navigation -->
+[Back](..)

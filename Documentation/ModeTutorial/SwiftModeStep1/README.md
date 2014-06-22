@@ -36,4 +36,6 @@ As the skeleton already imports some basic states from other languages as exampl
 In the next step we will add the basic language keywords and constructs to the `SyntaxDefinition.xml` file. However, to do that we actually need to know the exact definition of all of these. Luckily for us Swift has quite a nice iBook which also has a nice HTML variant that describes all this in detail. For other languages you'll need to get prepared and find a good resource for it. It's often astounding what you can learn about a language when making a mode for it.
 
 
-[Back](..) - [Step 2 - Basic Language Features](../SwiftModeStep2)
+
+<!-- Tutorial Navigation -->
+[Overview](..) - [Step 2 - Basic Language Features](../SwiftModeStep2)

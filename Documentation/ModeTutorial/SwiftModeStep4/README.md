@@ -48,4 +48,6 @@ just to illustrated: put that in the search field with regexes on in SubEthaEdit
 However, I did choose another approach: remove all the comments, punctuation and other noise from the document and put it all in a long file. I did this mainly with regexes directly in SubEthaEdit with the occasional pipe through the `sort` and `uniq` command line tools using the script menu.
  
 
-[Step 3](../SwiftModeStep3) - [Overview](..) - [Step 5](../SwiftModeStep5)
+
+<!-- Tutorial Navigation -->
+[Step 3: Regex based Keywords](../SwiftModeStep3) - [Overview](..) - [Step 5: Mode recognition and Scripts](../SwiftModeStep5)

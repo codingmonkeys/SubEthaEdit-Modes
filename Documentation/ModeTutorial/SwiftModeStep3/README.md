@@ -98,4 +98,5 @@ Sadly this still hase some issues (e.g. highlighting unnamed attributes) But sti
 
 
 
-[Step 2](../SwiftModeStep2) - [Overview](..) - [Step 4](../SwiftModeStep4)
+<!-- Tutorial Navigation -->
+[Step 2: Basic Language Features](../SwiftModeStep2) - [Overview](..) - [Step 4: All the nice things](../SwiftModeStep4)

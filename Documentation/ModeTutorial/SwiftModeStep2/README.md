@@ -76,4 +76,6 @@ Also note that this state has the `type="comment"` attribute. You should always 
 Okay great. So now we have comments and basic keywords going on. Next up: Regex based keywords for numbers, functions and other neat things.
 
 
+
+<!-- Tutorial Navigation -->
 [Step 1 - Getting Started](../SwiftModeStep1) - [Overview](..) - [Step 3 - Regex based keywords](../SwiftModeStep3)

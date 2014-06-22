@@ -49,4 +49,7 @@ So our users have to resort to switching to Terminal (shift-cmd-T) and running t
 
 Not so quickly - `xcode-select -p` seems to work in the sandbox. That also means we depend on the paths not changing below the developer directory, but for now that seems sane enough.
 
-[Step 4](../SwiftModeStep4) - [Overview](..) - [Step 6](../SwiftModeStep6)
+
+
+<!-- Tutorial Navigation -->
+[Step 4: All the nice things](../SwiftModeStep4) - [Overview](..)
