@@ -29,6 +29,9 @@
 				<string>string</string>
 				<string>void</string>
 				<string>oneway void</string>
+				<string>list</string>
+				<string>set</string>
+				<string>map</string>
 			</keywords>
 			
 			<keywords id="Keywords" useforautocomplete="yes" scope="keyword">
