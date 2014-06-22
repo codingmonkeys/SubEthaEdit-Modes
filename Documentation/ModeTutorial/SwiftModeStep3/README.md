@@ -1,7 +1,7 @@
 # Swift Mode Tutorial Step 3
 ## Regex based Keywords
 
-So let us go to the more interesting keywords: regex based keywords. One of the most common one for every mode is the number regex. Most languages have slightly different semantics, so if you want to be correct you need to handcraft your regex. Of course you can always just grab a number keywords state from another mode to get you started. However, I like to make it nice, so let's gather all allowed numbers and the ones not allowed into a little text file first:
+So let us go to the more interesting keywords: regex based keywords. One of the most common ones for every mode is the number regex. Most languages have slightly different semantics, so if you want to be correct you need to handcraft your regex. Of course you can always just grab a number keywords state from another mode to get you started. However, I like to make it nice, so let's gather all allowed numbers and the ones not allowed into a little text file first:
 
 
 	// allowed number literals
@@ -73,7 +73,7 @@ which can be neat if the language is this open. However, in general it is prefer
 
 ### Functions
 
-Another use case for regex based keywords is the function and or method highlighting in SubEthaEdit. (E.g. used in the Objective-C mode and most c based modes)
+Another use case for regex based keywords is the function and/or method highlighting in SubEthaEdit. (E.g. used in the Objective-C mode and most C based modes):
 
 ```xml
 <keywords id="FunctionRegex" useforautocomplete="no" scope="language.subroutine.function">
@@ -81,7 +81,7 @@ Another use case for regex based keywords is the function and or method highligh
 </keywords>
 ```
 
-For swift this doesn't look right enough though. For once: functions in swift can consist of amost any character, not only ascii, and there are also the named parameter parts which should be highlighted the same. So let's have a try at this.
+For swift this doesn't look right enough though. For once: functions in swift can consist of almost any character, not only ascii, and there are also the named parameter parts which should be highlighted the same. So let's have a try at this.
 
 Sadly the identifier can be almost everything. So lets just do an approximation that is better than the current one. 
 
@@ -94,7 +94,7 @@ Sadly the identifier can be almost everything. So lets just do an approximation 
 </keywords>
 ```
 
-Sadly this still hase some issues (e.g. highlighting unnamed attributes) But still is an improvement. The Character class string is quite the abomination too, but at least it is as closely representing the everything is allowed variant as possible.
+Sadly this still has some issues (e.g. highlighting unnamed attributes) but it is an improvement. The Character class string is quite the abomination too, but at least it is as closely representing the everything is allowed variant as possible.
 
 
 

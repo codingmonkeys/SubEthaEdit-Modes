@@ -1,7 +1,7 @@
 # Swift Mode Tutorial Step 5
 ## Recognition and Scripts
 
-Now since the swift mode is in a good shape, let's make sure it is fired up whenever a swift file is opened up. So far only the `swift` extension is recognized. Which is good, so the mode is always triggered when we open a file ending in `.swift`. However, __SubEthaEdit__ is capable of more. It can recognize a mode on content to, you may have used or noticed that in the __Triggers__ preference pane. The content recognition is especially nice since it also triggers when you paste some text into an empty document, or when dragging text onto the __SubEthaEdit__ Dock icon to temporarily show it.
+Now since the swift mode is in a good shape, let's make sure it is fired up whenever a swift file is opened up. So far only the `swift` extension is recognized. Which is good, so the mode is always triggered when we open a file ending in `.swift`. However, __SubEthaEdit__ is capable of more. It can recognize a mode on content too, you may have used or noticed that in the __Triggers__ preference pane. The content recognition is especially nice since it also triggers when you paste some text into an empty document, or when dragging text onto the __SubEthaEdit__ Dock icon to temporarily show it.
 
 Swift can also be used as a scripting language if you put a so called __hashbang__ or __shebang__ in the first line. The one that is recommended is the following:
 
@@ -35,7 +35,7 @@ on seescriptsettings()	return {displayName:"Insert Shebang"}end seescriptsetti
 "end tell
 ```
 
-The Numbers in front of the script are just there to give the Mode menu some order. The name is tken from the `seescriptsettings()`  method.
+The Numbers in front of the script are just there to give the Mode menu some order. The name is taken from the `seescriptsettings()`  method.
 
 And of course we'd like to have a build check. Let's have a look at the swift command line tool if it supports it. And it turns out it does. To be most helpful, we need to add the macosx sdk as well, which is this command line:
 
@@ -53,3 +53,4 @@ Not so quickly - `xcode-select -p` seems to work in the sandbox. That also means
 
 <!-- Tutorial Navigation -->
 [Step 4: All the nice things](../SwiftModeStep4) - [Overview](..)
+[Step 4: All the nice things](../SwiftModeStep4) - [Overview](..) - [Step 6: Cleanup and Sharing](../SwiftModeStep6)

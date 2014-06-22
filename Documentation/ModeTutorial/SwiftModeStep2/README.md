@@ -5,9 +5,9 @@ Now that we have our basic `Swift.seemode` bundle in place, let's add some langu
 
 ### Keywords and States
 
-Let's have a look at the `SyntaxDefinition.xml`. (For a complete Reference you can look in the [Mode Documentation](https://github.com/codingmonkeys/SubEthaEdit/blob/master/Documentation/ExampleMode/Documentation/SyntaxDefinition_xml.md) ).
+Let's have a look at the `SyntaxDefinition.xml` (for a complete Reference you can look in the [Mode Documentation](https://github.com/codingmonkeys/SubEthaEdit/blob/master/Documentation/ExampleMode/Documentation/SyntaxDefinition_xml.md) ).
 
-The basic building blocks of a SyntaxDefinition are hierachical `state`s and `keywords` living in that hierachical `state`s. A `state` is something that has a defined `begin` and `ending`, let's say for example a `{` `}` block. For `state`s are utilised for code folding and indenting.
+The basic building blocks of a SyntaxDefinition are hierachical `state`s and `keywords` living in that hierachical `state`s. A `state` is something that has a defined `begin` and `end`, let's say for example a `{` `}` block. `state`s are utilised for code folding and indenting.
 
 `keywords` on the other hand are used for the actual highlighting. You can use simple strings like: if, else, class, import. For more complex constructs like number literals, or recognizing a function call you can also use regex to describe them. The `scope` attribute defines which type of keyword it is, and this scope is used in the `.sss` style sheet files to assign them a specific color.
 
@@ -30,7 +30,7 @@ After these we add additional keywords, which are not managing control flow with
 
 With the keywords in place, we already can see some progress in terms of highlighting:
 
-<div style="text-align:left;color:#000000; background-color:#ffffff; border:solid black 1px; padding:0.5em 1em 0.5em 1em; overflow:auto;font-size:small; font-family:monospace; ">&nbsp;&nbsp;&nbsp;&nbsp;// ANIMATION<br />
+<div style="text-align:left;color:#000000; background-color:#ffffff; border:solid black 1px; padding:0.5em 1em 0.5em 1em; overflow:auto;font-size:small; font-family:monospace;">&nbsp;&nbsp;&nbsp;&nbsp;// ANIMATION<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#a71790;"><strong>func</strong></span> <span style="color:#003668;">resolveRequestedAnimation</span>() {<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#a71790;">var</span><span style="color:#003668;"> </span>(frames, key) = <span style="color:#003668;">animationFramesAndKeyForState</span>(requestedAnimation)<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
@@ -42,7 +42,7 @@ With the keywords in place, we already can see some progress in terms of highlig
 
 ### States
 
-Next up, let's add a `state`. A typical state is the comments. In swift we have single and multine comments almost the same way as in C - But there is a slight twist: multiline comments can now be nested. So to get a good head start, let us just grab the Comment state from the C mode, by finding and copying them into our top level `default` state. That is always something to keep in mind: if you know that a built-in mode already has a similiar feature, you can just look into the `.seemode` bundle and look up how it is done.
+Next up, let's add a `state`. A typical state is the comments. In swift we have single and multiline comments almost the same way as in C - But there is a slight twist: multiline comments can now be nested. So to get a good head start, let us just grab the Comment state from the C mode, by finding and copying them into our top level `default` state. That is always something to keep in mind: if you know that a built-in mode already has a similiar feature, you can just look into the `.seemode` bundle and look up how it is done.
 
 			<state id="Comment" type="comment" scope="comment.block">
 				<begin><regex>/\*</regex><autoend>\*/</autoend></begin>
@@ -71,7 +71,7 @@ However, in the current form we don't support the correct way of highlighting th
 
 To achieve that we use the `state-link` tag. The `state-link` tag places the referenced state at this position. In contrast, the `import` tag places all the contents of the referenced state.
 
-Also note that this state has the `type="comment"` attribute. You should always add this to comment states. there is a second variant `type="string"` which you also should use for all your String states. This can later be used by the SymbolParser to skip comment and string regions when recognizing items that should appear in the symbol popup in the top bar of SubEthaEdit.
+Also note that this state has the `type="comment"` attribute. You should always add this to comment states. There is a second variant - `type="string"` - which you also should use for all your String states. This can later be used by the SymbolParser to skip comment and string regions when recognizing items that should appear in the symbol popup in the top bar of SubEthaEdit.
 
 Okay great. So now we have comments and basic keywords going on. Next up: Regex based keywords for numbers, functions and other neat things.
 
