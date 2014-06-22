@@ -11,4 +11,12 @@
 	<symbol id="services" symbol="S()_#ff2042" ignoreblocks="yes">
 		<regex>^[ ]*service[ ]+([^ ]+)[^\{]+</regex>
 	</symbol>
+	
+	<symbol id="exceptions" symbol="E()_#1142c8" ignoreblocks="yes">
+		<regex>^[ ]*exception[ ]+([^ ]+)[^\{]+</regex>
+	</symbol>
+	
+	<symbol id="struct" symbol="S()_#179b2d" ignoreblocks="yes">
+		<regex>^[ ]*struct[ ]+([^ ]+)[^\{]+</regex>
+	</symbol>
 </symbols>
