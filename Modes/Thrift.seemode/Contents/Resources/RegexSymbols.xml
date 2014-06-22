@@ -5,7 +5,7 @@
 
 	<!-- TODO: exchange function with your mode specific functions -->
 	<symbol id="Functions" symbol="f()_#6AB18D" indentation="2" ignoreblocks="yes">
-		<regex>^[ \t]*(?:[^ \t]*|oneway void)+[ ]+([^ \t]+[ ]*\([^\)]*\))(?:[ ]+throws[ ]\([^\)]*\))?[ ]?,?</regex>
+		<regex>^[ \t]*(?:[^ \t]*|oneway void)+[ ]+([^ \t]+)[ ]*\([^\)]*\)(?:[ ]+throws[ ]\([^\)]*\))?[ ]?,?</regex>
 	</symbol>
 	
 	<symbol id="services" symbol="S()_#ff2042" ignoreblocks="yes">
