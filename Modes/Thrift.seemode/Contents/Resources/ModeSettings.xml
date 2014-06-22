@@ -1,0 +1,6 @@
+<settings>
+	<template>NewTemplate.thrift</template>
+	<recognition>
+		<extension>thrift</extension>
+	</recognition>
+</settings>
