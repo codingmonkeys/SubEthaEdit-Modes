@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<syntax>
+	<head>
+		<name>Thrift</name>
+		<autocompleteoptions use-spelling-dictionary="no" />
+		<folding toplevel="1" />
+		<!-- <charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@]]></charsintokens> --> 
+		<charsdelimitingtokens><![CDATA[ .,;:()[]{}<>+-/=#?!*
+]]></charsdelimitingtokens>
+		<!-- <charsincompletion><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-@$</=>!]]></charsincompletion> -->
+	</head>
+	<states>
+		<default id="Base" scope="meta.default">
+		
+			<state id="Block" type="block" foldable="yes" indent="yes" scope="meta.block.curly">
+				<begin><regex>{</regex><autoend>}</autoend></begin>
+				<end><regex>}</regex></end>
+				<import/>
+			</state>
+
+
+			<keywords id="Types" useforautocomplete="yes" scope="keyword.type">
+				<string>bool</string>
+				<string>byte</string>
+				<string>i16</string>
+				<string>i32</string>
+				<string>i64</string>
+				<string>double</string>
+				<string>string</string>
+				<string>void</string>
+				<string>oneway void</string>
+				<string>list</string>
+				<string>set</string>
+				<string>map</string>
+			</keywords>
+			
+			<keywords id="Keywords" useforautocomplete="yes" scope="keyword">
+				<string>const</string>
+				<string>throws</string>
+				<string>required</string>
+				<string>optional</string>
+				<string>include</string>
+				<string>enum</string>
+				<string>struct</string>
+				<string>namespace</string>
+				<string>service</string>
+				<string>typedef</string>
+				<string>exception</string>
+			</keywords>
+
+			<keywords id="ArgumentIndex" useforautocomplete="no" scope="keyword.directive">
+				<regex>[0-9]+:</regex>
+			</keywords>
+
+
+			<keywords id="StructServiceDeclaration" useforautocomplete="no" scope="language.subroutine.function">
+				<begin><regex>(struct|enum|service) [^{]*{</regex><autoend>}</autoend></begin>
+				<end><regex>}</regex></end>
+			</keywords>
+			
+			<keywords id="StructServiceAnnotation" useforautocomplete="no" scope="language.subroutine.function">
+				<begin><regex>(struct|enum|service) [^{]*{[^}]*}[^\(]*(</regex><autoend>)</autoend></begin>
+				<end><regex>)</regex></end>
+			</keywords>
+
+			<keywords id="FunctionRegex" useforautocomplete="no" scope="language.subroutine.function">
+				<regex>([A-Za-z0-9_]+ *)\(</regex>
+			</keywords>
+
+			<state id="Comment" scope="comment.block">
+				<begin><regex>/\*</regex><autoend>\*/</autoend></begin>
+				<end><regex>\*/</regex></end>
+				<import mode="Base" state="EmailAndURLContainerState" keywords-only="yes"/>
+			</state>
+
+			<state id="SingleComment" scope="comment.line">
+				<begin><regex>#</regex></begin>
+				<end><regex>[\n\r]</regex></end>
+			</state>
+
+			<state id="String" scope="string.double">
+				<begin><regex>"</regex><autoend>"</autoend></begin>
+				<end><regex>(((?&lt;!\\)(\\\\)*)|^)"</regex></end>
+				<keywords id="Foobar in string" scope="meta.important">
+					<string>foobar</string>
+				</keywords>
+			</state>
+			
+		</default>
+	</states>
+</syntax>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "symbol.dtd">
+
+<symbols>
+
+	<!-- TODO: exchange function with your mode specific functions -->
+	<symbol id="Functions" symbol="f()_#6AB18D" indentation="2" ignoreblocks="yes">
+		<regex>^[ \t]*(?:[^ \t]*|oneway void)+[ ]+([^ \t]+)[ ]*\([^\)]*\)(?:[ ]+throws[ ]\([^\)]*\))?[ ]?,?</regex>
+	</symbol>
+	
+	<symbol id="services" symbol="S()_#ff2042" ignoreblocks="yes">
+		<regex>^[ ]*service[ ]+([^ ]+)[^\{]+</regex>
+	</symbol>
+	
+	<symbol id="exceptions" symbol="E()_#1142c8" ignoreblocks="yes">
+		<regex>^[ ]*exception[ ]+([^ ]+)[^\{]+</regex>
+	</symbol>
+	
+	<symbol id="struct" symbol="S()_#179b2d" ignoreblocks="yes">
+		<regex>^[ ]*struct[ ]+([^ ]+)[^\{]+</regex>
+	</symbol>
+</symbols>
