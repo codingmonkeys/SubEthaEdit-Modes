@@ -72,8 +72,6 @@ This file is required.
 		@ [id](#attribute_id)  
 		@ [usesymbolsfrommode](#attribute_usesymbolsfrommode) (_optional_)  
 		@ [useautocompletefrommode](#attribute_useautocompletefrommode) (_optional_)  
-		@ [type](#attribute_type) (_optional_)  
-		@ [foldable](#attribute_foldable) (_optional_)  
 		@ [scope](#attribute_scope) (_optional_)
 			* [**&lt;keywords&gt;**](#tag_keywords)*  
 			@ [id](#attribute_id_keyword)  
@@ -85,7 +83,9 @@ This file is required.
 		
 			* [**&lt;state&gt;**](#tag_state)* (_optional_)  -- can also contain &lt;state&gt;, &lt;import&gt;, &lt;state-link&gt;, &lt;keywords&gt; tags  
 			@ [Attributes](#tag_default) -- the same attributes as &lt;default&gt;  
+			@ [foldable](#attribute_foldable) (_optional_)  
 			@ [indent](#attribute_indent) (_optional_)  
+			@ [type](#attribute_type) (_optional_)  
 				*  [**&lt;begin&gt;**](#tag_begin_end)
 					* [**&lt;regex&gt;**](#tag_regex_string) | [**&lt;string&gt;**](#tag_regex_string)
 					* [**&lt;autoend&gt;**](#tag_autoend) (_optional_)
@@ -209,14 +209,6 @@ This tag is required.
 	* this mode - inherited from the parent state (default)
 	* a mode name
 
-* <a name="attribute_type"></a>`type` _(optional)_ - a string description of the type - currently only the values "string" and "comment" have meaning and cause bracket matching and syntax highlighting to ignore these areas of text, additionally code folding has special handling for comments - possible values:
-	* _string_
-	* _comment_
-
-* <a name="attribute_foldable"></a>`foldable` _(optional)_ - makes this state foldable - possible values:
-	* _no_ (default)
-	* _yes_
-
 * <a name="attribute_scope"></a>`scope` _(optional)_ - a string description of the scope, used for style sheets - possible values: 
 	* see: [Style Sheet Scopes Documentation][ScopesDocu]
 
@@ -266,9 +258,17 @@ This tag is optional.
 
 ##### Attributes
 * see [`<default>`](#tag_default)
+* <a name="attribute_foldable"></a>`foldable` _(optional)_ - makes this state foldable - possible values:
+	* _no_ (default)
+	* _yes_
+
 * <a name="attribute_indent"></a>`indent` _(optional)_ - state causes further indentation - used for automatic indentation on return and via `^ control` + `I` (`Menu: Format → Re-Indent`) - possible values:
 	* _no_ (default)
 	* _yes_ - state increases indentation level on return and re-indent
+
+* <a name="attribute_type"></a>`type` _(optional)_ - a string description of the type - currently only the values _string_ and _comment_ have meaning and cause bracket matching and symbol recognition to ignore these areas of text, additionally code folding has special handling for comments - possible values:
+	* _string_: symbol recognition ignores this state
+	* _comment_: symbol recognition ignores this state if not marked otherwise via [`show-in-comments`][SymbolRegex_showincomments]
 
 
 ---
@@ -424,6 +424,7 @@ Having  a `scope` attribute instead of the direct color and font attributes give
 
 <!-- Referenced Files -->
 [ScopesDocu]: ../../Styles/Scopes.md "Style Sheet Scopes Documentation"
+[SymbolRegex_showincomments]: RegexSymbols_xml.md#attribute_show-in-comments "Symbol Recognition Documentation - symbol tag atrribute show-in-comments"
 
 <!-- Referenced Paths -->
 [StylesDocu]: ../../Styles "SubEthaEdit Style Sheet Documentation"
