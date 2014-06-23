@@ -7,6 +7,8 @@
 * [Step 3](SwiftModeStep3) - Regex based Keywords
 * [Step 4](SwiftModeStep4) - All the nice things
 * [Step 5](SwiftModeStep5) - Mode recognition and Scripts
+* [Step 6](SwiftModeStep6) - Cleanup and Sharing
+
 
 
 <!-- Tutorial Navigation -->
