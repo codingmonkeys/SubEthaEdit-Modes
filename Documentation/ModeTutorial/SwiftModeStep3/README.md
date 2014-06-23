@@ -1,8 +1,7 @@
 # Swift Mode Tutorial Step 3
 ## Regex based Keywords
 
-So let us go to the more interesting keywords: regex based keywords. One of the most common one for every mode is the number regex. Most languages have slightly different semantics, so if you want to be correct you need to handcraft your regex. Of course you can always just grab a number keywords state from another mode to get you started. However, I like to make it nice, so let's gather all allowed numbers and the ones not allowed into a little text file first:
-
+So let us go to the more interesting keywords: regex based keywords. One of the most common ones for every mode is the number regex. Most languages have slightly different semantics, so if you want to be correct you need to handcraft your regex. Of course you can always just grab a number keywords state from another mode to get you started. However, I like to make it nice, so let's gather all allowed numbers and the ones not allowed into a little text file first:
 
 	// allowed number literals
 	1e+1_0
@@ -33,23 +32,33 @@ And then build the parts of our regex:
 
 Decimal, including fractions and underscores:
 
-	(?:[0-9][0-9_]*(?:\.[0-9][0-9_]*)?(?:[eE][-+]?[0-9][0-9_]*)?)
+```Ruby
+(?:[0-9][0-9_]*(?:\.[0-9][0-9_]*)?(?:[eE][-+]?[0-9][0-9_]*)?)
+```
 
 Hexadecimal, including fractions and underscores:
 
-	(?:0x[0-9a-fA-F][0-9a-fA-F_]*(?:\.[0-9a-fA-F][0-9a-fA-F_]*(?:[pP][-+]?[0-9a-fA-F][0-9a-fA-F_]*))?)
+```Ruby
+(?:0x[0-9a-fA-F][0-9a-fA-F_]*(?:\.[0-9a-fA-F][0-9a-fA-F_]*(?:[pP][-+]?[0-9a-fA-F][0-9a-fA-F_]*))?)
+```
 
 Binary, no fractions allowed
 
-	(?:0b[01][01_]*?)
+```Ruby
+(?:0b[01][01_]*?)
+```
 
 Octal, no fractions allowed
 
-	(?:0o[0-7][0-7_]*?)
+```Ruby
+(?:0o[0-7][0-7_]*?)
+```
 
 Or it together, add an optional -+ in front, and make sure with a look ahead and look behind that there are only non-digits/non-word characters around
 	
-	(?<![\w\d_])((?:[-+]?(?:[0-9][0-9_]*(?:\.[0-9][0-9_]*)?(?:[eE][-+]?[0-9][0-9_]*)?)|(?:0x[0-9a-fA-F][0-9a-fA-F_]*(?:\.[0-9a-fA-F][0-9a-fA-F_]*(?:[pP][-+]?[0-9a-fA-F][0-9a-fA-F_]*))?)|(?:0b[01][01_]*?)|(?:0o[0-7][0-7_]*?)))(?![\w\d_])
+```Ruby
+(?<![\w\d_])((?:[-+]?(?:[0-9][0-9_]*(?:\.[0-9][0-9_]*)?(?:[eE][-+]?[0-9][0-9_]*)?)|(?:0x[0-9a-fA-F][0-9a-fA-F_]*(?:\.[0-9a-fA-F][0-9a-fA-F_]*(?:[pP][-+]?[0-9a-fA-F][0-9a-fA-F_]*))?)|(?:0b[01][01_]*?)|(?:0o[0-7][0-7_]*?)))(?![\w\d_])
+```
 	
 Quite the beast!
 
@@ -63,17 +72,19 @@ The whole number keyword group looks like this then:
 
 With the addition of having to escape the `<` with an `&lt;` - yihhaaaa.
 
-But let's go one step back: so instead of using the `string` tag you can also use `regex` tags. The regexes in a `regex` tag must have at least one captured group (e.g. something in normal brackets `(` `)` as this is the part that gets highlighted. No group, no highlight. To avoid opening this group to early, you use non-capture-groups a lot, hence the multitude of `(?:` `)`.
+But let's go one step back: so instead of using the `string` tag you can also use `regex` tags. The regexes in a `regex` tag must have at least one captured group (e.g. something in normal brackets `(` `)` as this is the part that gets highlighted. No group, no highlight. To avoid opening this group to early, you use non-capture-groups a lot, hence the multitude of `(?:…)`.
 
-So the literal number regex is probably the most important use case for regex based keywords. However, you can also just e.g. highlight everything that starts with an @ by specifing 
+So the literal number regex is probably the most important use case for regex based keywords. However, you can also just e.g. highlight everything that starts with an @ by specifying 
 
-	<regex>(@\w+)</regex>
+```xml
+<regex>(@\w+)</regex>
+```
 
 which can be neat if the language is this open. However, in general it is prefered you provide all the possible variants, so the highlighting also pre-validates the code written. And of course, by adding all the possible strings and have the `useforautocomplete="yes"` attribute you also get autocomplete for free.
 
 ### Functions
 
-Another use case for regex based keywords is the function and or method highlighting in SubEthaEdit. (E.g. used in the Objective-C mode and most c based modes)
+Another use case for regex based keywords is the function and/or method highlighting in SubEthaEdit. (E.g. used in the Objective-C mode and most C based modes):
 
 ```xml
 <keywords id="FunctionRegex" useforautocomplete="no" scope="language.subroutine.function">
@@ -81,7 +92,7 @@ Another use case for regex based keywords is the function and or method highligh
 </keywords>
 ```
 
-For swift this doesn't look right enough though. For once: functions in swift can consist of amost any character, not only ascii, and there are also the named parameter parts which should be highlighted the same. So let's have a try at this.
+For Swift this doesn't look right enough though. For once: functions in Swift can consist of almost any character, not only ascii, and there are also the named parameter parts which should be highlighted the same. So let's have a try at this.
 
 Sadly the identifier can be almost everything. So lets just do an approximation that is better than the current one. 
 
@@ -94,8 +105,9 @@ Sadly the identifier can be almost everything. So lets just do an approximation 
 </keywords>
 ```
 
-Sadly this still hase some issues (e.g. highlighting unnamed attributes) But still is an improvement. The Character class string is quite the abomination too, but at least it is as closely representing the everything is allowed variant as possible.
+Sadly this still has some issues (e.g. highlighting unnamed attributes) but it is an improvement. The Character class string is quite the abomination too, but at least it is as closely representing the everything is allowed variant as possible.
 
 
 
-[Step 2](../SwiftModeStep2) - [Overview](..) - [Step 4](../SwiftModeStep4)
+<!-- Tutorial Navigation -->
+[Step 2: Basic Language Features](../SwiftModeStep2) - [Overview](..) - [Step 4: All the nice things](../SwiftModeStep4)
