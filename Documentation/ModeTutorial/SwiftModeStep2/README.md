@@ -30,15 +30,8 @@ After these we add additional keywords, which are not managing control flow with
 
 With the keywords in place, we already can see some progress in terms of highlighting:
 
-<div style="text-align:left;color:#000000; background-color:#ffffff; border:solid black 1px; padding:0.5em 1em 0.5em 1em; overflow:auto;font-size:small; font-family:monospace;">&nbsp;&nbsp;&nbsp;&nbsp;// ANIMATION<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#a71790;"><strong>func</strong></span> <span style="color:#003668;">resolveRequestedAnimation</span>() {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#a71790;">var</span><span style="color:#003668;"> </span>(frames, key) = <span style="color:#003668;">animationFramesAndKeyForState</span>(requestedAnimation)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#003668;">fireAnimationForState</span>(requestedAnimation, usingTextures: frames, withKey: key)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;requestedAnimation = dying ? .Death : .Idle<br />
-&nbsp;&nbsp;&nbsp;&nbsp;}<br />
-</div>
+![](highlighting_example.png "Current State of Highlighting")
+
 
 ### States
 
