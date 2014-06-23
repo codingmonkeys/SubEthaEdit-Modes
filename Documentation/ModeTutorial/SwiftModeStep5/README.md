@@ -9,7 +9,9 @@ Swift can also be used as a scripting language if you put a so called __hashbang
  
 However, people will stick in there probably anything that might start Swift, so it's probably safe to just search for `#!` at the start of the file, followed by `swift` somwhere before the line break. The Regex for this looks like this:
 
+```Ruby
 \A#![^\n]+swift
+```
 
 To make this work, we edit the `ModeSettings.xml` file and add a regex line
 
@@ -46,11 +48,15 @@ The Numbers in front of the script are just there to give the Mode menu some ord
 
 And of course we'd like to have a build check. Let's have a look at the swift command line tool if it supports it. And it turns out it does. To be most helpful, we need to add the macosx sdk as well, which is this command line:
 
+```Shell
 xcrun swift -parse -sdk $(xcrun --show-sdk-path --sdk macosx) <filename> 
+```
 
 Since in the script we pipe in the content of the file we need to use `-` as the parameter for the filename, as with most command line tools. Sadly after adding it we have to learn that
 
+```Shell
 xcrun: error: cannot be used within an App Sandbox.
+```
 
 So our users have to resort to switching to Terminal (shift-cmd-T) and running the script there on their own for now. 
 

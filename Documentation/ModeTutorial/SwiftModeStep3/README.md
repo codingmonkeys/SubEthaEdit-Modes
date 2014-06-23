@@ -32,23 +32,33 @@ And then build the parts of our regex:
 
 Decimal, including fractions and underscores:
 
-	(?:[0-9][0-9_]*(?:\.[0-9][0-9_]*)?(?:[eE][-+]?[0-9][0-9_]*)?)
+```Ruby
+(?:[0-9][0-9_]*(?:\.[0-9][0-9_]*)?(?:[eE][-+]?[0-9][0-9_]*)?)
+```
 
 Hexadecimal, including fractions and underscores:
 
-	(?:0x[0-9a-fA-F][0-9a-fA-F_]*(?:\.[0-9a-fA-F][0-9a-fA-F_]*(?:[pP][-+]?[0-9a-fA-F][0-9a-fA-F_]*))?)
+```Ruby
+(?:0x[0-9a-fA-F][0-9a-fA-F_]*(?:\.[0-9a-fA-F][0-9a-fA-F_]*(?:[pP][-+]?[0-9a-fA-F][0-9a-fA-F_]*))?)
+```
 
 Binary, no fractions allowed
 
-	(?:0b[01][01_]*?)
+```Ruby
+(?:0b[01][01_]*?)
+```
 
 Octal, no fractions allowed
 
-	(?:0o[0-7][0-7_]*?)
+```Ruby
+(?:0o[0-7][0-7_]*?)
+```
 
 Or it together, add an optional -+ in front, and make sure with a look ahead and look behind that there are only non-digits/non-word characters around
 	
-	(?<![\w\d_])((?:[-+]?(?:[0-9][0-9_]*(?:\.[0-9][0-9_]*)?(?:[eE][-+]?[0-9][0-9_]*)?)|(?:0x[0-9a-fA-F][0-9a-fA-F_]*(?:\.[0-9a-fA-F][0-9a-fA-F_]*(?:[pP][-+]?[0-9a-fA-F][0-9a-fA-F_]*))?)|(?:0b[01][01_]*?)|(?:0o[0-7][0-7_]*?)))(?![\w\d_])
+```Ruby
+(?<![\w\d_])((?:[-+]?(?:[0-9][0-9_]*(?:\.[0-9][0-9_]*)?(?:[eE][-+]?[0-9][0-9_]*)?)|(?:0x[0-9a-fA-F][0-9a-fA-F_]*(?:\.[0-9a-fA-F][0-9a-fA-F_]*(?:[pP][-+]?[0-9a-fA-F][0-9a-fA-F_]*))?)|(?:0b[01][01_]*?)|(?:0o[0-7][0-7_]*?)))(?![\w\d_])
+```
 	
 Quite the beast!
 
@@ -67,7 +77,7 @@ But let's go one step back: so instead of using the `string` tag you can also us
 So the literal number regex is probably the most important use case for regex based keywords. However, you can also just e.g. highlight everything that starts with an @ by specifying 
 
 ```xml
-	<regex>(@\w+)</regex>
+<regex>(@\w+)</regex>
 ```
 
 which can be neat if the language is this open. However, in general it is prefered you provide all the possible variants, so the highlighting also pre-validates the code written. And of course, by adding all the possible strings and have the `useforautocomplete="yes"` attribute you also get autocomplete for free.
