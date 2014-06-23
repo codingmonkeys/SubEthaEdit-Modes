@@ -198,18 +198,18 @@ This tag is required.
 
 ##### Attributes
 
-* <a name="attribute_id"></a>`id` - string identifier - has to be a unique string - has to be specified
+* <a name="attribute_id"></a>`id`: string identifier - has to be a unique string - has to be specified
 
 
-* <a name="attribute_usesymbolsfrommode"></a>`usesymbolsfrommode` _(optional)_ - a mode name to use the symbol recognition from - possible values:
+* <a name="attribute_usesymbolsfrommode"></a>`usesymbolsfrommode` _(optional)_: a mode name to use the symbol recognition from - possible values:
 	* inherited from the parent state (default)
 	* a mode name
 
-* <a name="attribute_useautocompletefrommode"></a>`useautocompletefrommode` _(optional)_ - a mode name to use the autocomplete from - possible values:
+* <a name="attribute_useautocompletefrommode"></a>`useautocompletefrommode` _(optional)_: a mode name to use the autocomplete from - possible values:
 	* this mode - inherited from the parent state (default)
 	* a mode name
 
-* <a name="attribute_scope"></a>`scope` _(optional)_ - a string description of the scope, used for style sheets - possible values: 
+* <a name="attribute_scope"></a>`scope` _(optional)_: a string description of the scope, used for style sheets - possible values: 
 	* see: [Style Sheet Scopes Documentation][ScopesDocu]
 
 
@@ -221,17 +221,17 @@ This tag is required.
 
 ##### Attributes
 
-* <a name="attribute_id_keyword"></a>`id` - string identifier - has to be a unique string - has to bespecified
+* <a name="attribute_id_keyword"></a>`id`: string identifier - has to be a unique string - has to bespecified
 
-* <a name="attribute_casesensitive"></a>`casesensitive` _(optional)_ - makes this group case sensitive - possible values:
+* <a name="attribute_casesensitive"></a>`casesensitive` _(optional)_: makes this group case sensitive - possible values:
 	* _yes_ (default) - group is case sensitive
 	* _no_ - ignores case for group
 
-* <a name="attribute_useforautocomplete"></a>`useforautocomplete` _(optional)_ - adds strings to autocomplete dictionary - possible values:
+* <a name="attribute_useforautocomplete"></a>`useforautocomplete` _(optional)_: adds strings to autocomplete dictionary - possible values:
 	* _yes_ (default) - group's strings are added to the autocomplete dictionary
 	* _no_
 
-* <a name="attribute_scope_keyword"></a>`scope` _(optional)_ - a string description of the scope, used for style sheets - possible values: 
+* <a name="attribute_scope_keyword"></a>`scope` _(optional)_: a string description of the scope, used for style sheets - possible values: 
 	* see: [Style Sheet Scopes Documentation][ScopesDocu]
 
 
@@ -258,15 +258,15 @@ This tag is optional.
 
 ##### Attributes
 * see [`<default>`](#tag_default)
-* <a name="attribute_foldable"></a>`foldable` _(optional)_ - makes this state foldable - possible values:
+* <a name="attribute_foldable"></a>`foldable` _(optional)_: makes this state foldable - possible values:
 	* _no_ (default)
 	* _yes_
 
-* <a name="attribute_indent"></a>`indent` _(optional)_ - state causes further indentation - used for automatic indentation on return and via `^ control` + `I` (`Menu: Format → Re-Indent`) - possible values:
+* <a name="attribute_indent"></a>`indent` _(optional)_: state causes further indentation - used for automatic indentation on return and via `^ control` + `I` (`Menu: Format → Re-Indent`) - possible values:
 	* _no_ (default)
 	* _yes_ - state increases indentation level on return and re-indent
 
-* <a name="attribute_type"></a>`type` _(optional)_ - a string description of the type - currently only the values _string_ and _comment_ have meaning and cause bracket matching and symbol recognition to ignore these areas of text, additionally code folding has special handling for comments - possible values:
+* <a name="attribute_type"></a>`type` _(optional)_: a string description of the type - currently only the values _string_ and _comment_ have meaning and cause bracket matching and symbol recognition to ignore these areas of text, additionally code folding has special handling for comments - possible values:
 	* _string_: symbol recognition ignores this state
 	* _comment_: symbol recognition ignores this state if not marked otherwise via [`show-in-comments`][SymbolRegex_showincomments]
 
@@ -277,7 +277,7 @@ The `<begin>` tag specifies the begin of a state other than the default state.
 The `<end>` tag specifies the end of a state other than the default state.  
 Both have to contain a [`<regex>`](#tag_regex_string) tag or a [`<string>`](#tag_regex_string) tag containg a descriptor for the begin/end of the state.  
 The `<begin>` tag can additionally contain an [`<autoend>`](#tag_autoend) tag.  
-These tags are required. 
+These tags are required.
 
 
 ---
@@ -285,7 +285,7 @@ These tags are required.
 The [`<begin>`](#tag_begin_end) and [`<end>`](#tag_begin_end) tags contain either a `<regex>` tag or a `<string>` tag.  
 The `<regex>` tag contains a regular expression string.  
 The `<string>` tag contains a string.  
-One of these tags is required. 
+One of these tags is required.
 
 
 ---
@@ -293,7 +293,7 @@ One of these tags is required.
 The `<autoend>` tag contains either a plain string or references a named group in the begin regex, for example 
 `<autoend>@end</autoend>` or `<autoend>&lt;/\g&lt;xmltagstatename&gt;&gt;</autoend>`.  
 It is used for closing the current state via `⌥ option` + `⌘ command` + `.` (`Menu: Format → Close Current Tag/Block`) 
-This tag is optional.  
+This tag is optional.
 
 
 ---
@@ -303,15 +303,15 @@ This tag is optional.
 
 ##### Attributes
 
-* <a name="attribute_mode"></a>`mode`_(optional)_ -  the mode to import from - possible values:
+* <a name="attribute_mode"></a>`mode`_(optional)_:  the mode to import from - possible values:
 	* this mode (default)
 	* a mode name
 
-* <a name="attribute_state"></a>`state` _(optional)_ - the state to import - possible values:
+* <a name="attribute_state"></a>`state` _(optional)_: the state to import - possible values:
 	* default state (default) - content of default state will be imported
 	* a state id -  content of state will be imported
 
-* <a name="attribute_keywords-only"></a>`keywords-only` _(optional)_ - only import keywords and not substates - possible values:
+* <a name="attribute_keywords-only"></a>`keywords-only` _(optional)_: only import keywords and not substates - possible values:
 	* _no_ (default)
 	* _yes_ - only import keywords and not substates of state
 
@@ -323,9 +323,9 @@ This tag is optional.
 
 ##### Attributes
 
-* <a name="attribute_state_state-link"></a>`state` - the state to link - a state id -  content of state will be imported
+* <a name="attribute_state_state-link"></a>`state`: the state to link - a state id -  content of state will be imported
 
-* <a name="attribute_mode_state-link"></a>`mode`_(optional)_ -  the mode to import from - possible values:
+* <a name="attribute_mode_state-link"></a>`mode`_(optional)_:  the mode to import from - possible values:
 	* this mode (default)
 	* a mode name
 
