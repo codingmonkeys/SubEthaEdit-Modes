@@ -83,9 +83,11 @@ This file is required.
 
 			* [**&lt;state&gt;**](#tag_state)* (_optional_)  -- can also contain &lt;state&gt;, &lt;import&gt;, &lt;state-link&gt;, &lt;keywords&gt; tags  
 			@ [Attributes](#tag_default) -- the same attributes as &lt;default&gt;  
+			@ [containerState](#attribute_containerState) (_optional_)  
 			@ [foldable](#attribute_foldable) (_optional_)  
 			@ [indent](#attribute_indent) (_optional_)  
 			@ [type](#attribute_type) (_optional_)  
+			@ [uri-prefix](#attribute_uri-prefix) (_optional_)  
 				*  [**&lt;begin&gt;**](#tag_begin_end)
 					* [**&lt;regex&gt;**](#tag_regex_string) | [**&lt;string&gt;**](#tag_regex_string)
 					* [**&lt;autoend&gt;**](#tag_autoend) (_optional_)
@@ -258,6 +260,10 @@ This tag is optional.
 
 ##### Attributes
 * see [`<default>`](#tag_default)
+* <a name="attribute_containerState"></a>`containerState` _(optional)_: makes this state a container state - a container state functions as a collection state for other `<keywords>` and `<state>` tags, it does not need a `<begin>`, `<end>` or `<autoend>` tag and is created solely to be imported into other states - possible values:
+	* _no_ (default)
+	* _yes_: this state is a container state
+
 * <a name="attribute_foldable"></a>`foldable` _(optional)_: makes this state foldable - possible values:
 	* _no_ (default)
 	* _yes_
