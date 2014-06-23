@@ -7,8 +7,8 @@ Now is a good moment to add some finishing touches:
 * add `NSLocalizableCopyright` in your `Info.plist` so its easier to find out who made the mode and when
 
 ```xml
-	<key>NSHumanReadableCopyright</key>
-	<string>© 2014 TheCodingMonkeys - http://www.codingmonkeys.de</string>
+<key>NSHumanReadableCopyright</key>
+<string>© 2014 TheCodingMonkeys - http://www.codingmonkeys.de</string>
 ```
 
 * fill in template code that makes sense for your mode - or delete the file and the `<template>` entry in the `ModeSettings.xml` if its empty anyway
