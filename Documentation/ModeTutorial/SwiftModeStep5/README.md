@@ -9,7 +9,7 @@ Swift can also be used as a scripting language if you put a so called __hashbang
  
 However, people will stick in there probably anything that might start Swift, so it's probably safe to just search for `#!` at the start of the file, followed by `swift` somwhere before the line break. The Regex for this looks like this:
 
-```Ruby
+```
 \A#![^\n]+swift
 ```
 
