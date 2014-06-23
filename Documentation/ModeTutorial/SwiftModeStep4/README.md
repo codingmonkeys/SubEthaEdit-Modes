@@ -14,7 +14,7 @@ Now that the basic elements of the mode are in order, lets head to the next func
 
 The Symbol Popup is governed by the `RegexSymbols.xml` file, described in great detail here: [Symbol Definitions](https://github.com/codingmonkeys/SubEthaEdit/blob/master/Documentation/ExampleMode/Documentation/RegexSymbols_xml.md).
 
-Our little helper script did already add a simple `RegexSymbols.xml` that does recognize versioning conflicts, and has 2 stubs for functions and pragma marks. Let's adjust the functions section so it recognizes basic swift functions.
+Our little helper script did already add a simple `RegexSymbols.xml` that does recognize versioning conflicts, and has 2 stubs for functions and pragma marks. Let's adjust the functions section so it recognizes basic Swift functions.
 
 We already have our little identifier recognizer due to the keyword in the function regex: `([^-*+#:.,\(&lt;&gt;\{\[\]}\)\s]+)` so let's reuse it.
 

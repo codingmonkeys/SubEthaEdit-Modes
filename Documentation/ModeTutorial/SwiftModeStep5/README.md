@@ -1,13 +1,13 @@
 # Swift Mode Tutorial Step 5
 ## Recognition and Scripts
 
-Now since the swift mode is in a good shape, let's make sure it is fired up whenever a swift file is opened up. So far only the `swift` extension is recognized. Which is good, so the mode is always triggered when we open a file ending in `.swift`. However, __SubEthaEdit__ is capable of more. It can recognize a mode on content too, you may have used or noticed that in the __Triggers__ preference pane. The content recognition is especially nice since it also triggers when you paste some text into an empty document, or when dragging text onto the __SubEthaEdit__ Dock icon to temporarily show it.
+Now since the Swift mode is in a good shape, let's make sure it is fired up whenever a Swift file is opened up. So far only the `swift` extension is recognized. Which is good, so the mode is always triggered when we open a file ending in `.swift`. However, __SubEthaEdit__ is capable of more. It can recognize a mode on content too, you may have used or noticed that in the __Triggers__ preference pane. The content recognition is especially nice since it also triggers when you paste some text into an empty document, or when dragging text onto the __SubEthaEdit__ Dock icon to temporarily show it.
 
 Swift can also be used as a scripting language if you put a so called __hashbang__ or __shebang__ in the first line. The one that is recommended is the following:
 
 	#!/usr/bin/env xcrun swift -i 
  
-However, people will stick in there probably anything that might start swift, so it's probably safe to just search for `#!` at the start of the file, followed by `swift` somwhere before the line break. The Regex for this looks like this:
+However, people will stick in there probably anything that might start Swift, so it's probably safe to just search for `#!` at the start of the file, followed by `swift` somwhere before the line break. The Regex for this looks like this:
 
 	\A#![^\n]+swift
  
@@ -23,7 +23,7 @@ To make this work, we edit the `ModeSettings.xml` file and add a regex line
 </settings>
 ```
 
-The mode recognition now triggers when the regex returns a match. So if we have some unique strings that only appear in swift files, we can add them as well (e.g. override class func or import cocoa, etc). Very nice.
+The mode recognition now triggers when the regex returns a match. So if we have some unique strings that only appear in Swift files, we can add them as well (e.g. override class func or import cocoa, etc). Very nice.
 
 
 ## Scripts
@@ -52,5 +52,4 @@ Not so quickly - `xcode-select -p` seems to work in the sandbox. That also means
 
 
 <!-- Tutorial Navigation -->
-[Step 4: All the nice things](../SwiftModeStep4) - [Overview](..)
 [Step 4: All the nice things](../SwiftModeStep4) - [Overview](..) - [Step 6: Cleanup and Sharing](../SwiftModeStep6)

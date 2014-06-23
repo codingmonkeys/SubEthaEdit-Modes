@@ -42,7 +42,7 @@ With the keywords in place, we already can see some progress in terms of highlig
 
 ### States
 
-Next up, let's add a `state`. A typical state is the comments. In swift we have single and multiline comments almost the same way as in C - But there is a slight twist: multiline comments can now be nested. So to get a good head start, let us just grab the Comment state from the C mode, by finding and copying them into our top level `default` state. That is always something to keep in mind: if you know that a built-in mode already has a similiar feature, you can just look into the `.seemode` bundle and look up how it is done.
+Next up, let's add a `state`. A typical state is the comments. In Swift we have single and multiline comments almost the same way as in C - But there is a slight twist: multiline comments can now be nested. So to get a good head start, let us just grab the Comment state from the C mode, by finding and copying them into our top level `default` state. That is always something to keep in mind: if you know that a built-in mode already has a similiar feature, you can just look into the `.seemode` bundle and look up how it is done.
 
 			<state id="Comment" type="comment" scope="comment.block">
 				<begin><regex>/\*</regex><autoend>\*/</autoend></begin>

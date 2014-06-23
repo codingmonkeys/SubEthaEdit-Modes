@@ -1,7 +1,7 @@
 # Swift Mode Tutorial Step 1
 ## Getting Started
 
-The first step in creating a custom mode for a Language or Filetype is to gather information and create your `.seemode` bundle.
+The first step in creating a custom mode for a language or filetype is to gather information and create your `.seemode` bundle.
 
 ### Creating the mode bundle
 

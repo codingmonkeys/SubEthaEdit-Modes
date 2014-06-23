@@ -3,7 +3,6 @@
 
 So let us go to the more interesting keywords: regex based keywords. One of the most common ones for every mode is the number regex. Most languages have slightly different semantics, so if you want to be correct you need to handcraft your regex. Of course you can always just grab a number keywords state from another mode to get you started. However, I like to make it nice, so let's gather all allowed numbers and the ones not allowed into a little text file first:
 
-
 	// allowed number literals
 	1e+1_0
 	1.1
@@ -63,9 +62,9 @@ The whole number keyword group looks like this then:
 
 With the addition of having to escape the `<` with an `&lt;` - yihhaaaa.
 
-But let's go one step back: so instead of using the `string` tag you can also use `regex` tags. The regexes in a `regex` tag must have at least one captured group (e.g. something in normal brackets `(` `)` as this is the part that gets highlighted. No group, no highlight. To avoid opening this group to early, you use non-capture-groups a lot, hence the multitude of `(?:` `)`.
+But let's go one step back: so instead of using the `string` tag you can also use `regex` tags. The regexes in a `regex` tag must have at least one captured group (e.g. something in normal brackets `(` `)` as this is the part that gets highlighted. No group, no highlight. To avoid opening this group to early, you use non-capture-groups a lot, hence the multitude of `(?:…)`.
 
-So the literal number regex is probably the most important use case for regex based keywords. However, you can also just e.g. highlight everything that starts with an @ by specifing 
+So the literal number regex is probably the most important use case for regex based keywords. However, you can also just e.g. highlight everything that starts with an @ by specifying 
 
 	<regex>(@\w+)</regex>
 
@@ -81,7 +80,7 @@ Another use case for regex based keywords is the function and/or method highligh
 </keywords>
 ```
 
-For swift this doesn't look right enough though. For once: functions in swift can consist of almost any character, not only ascii, and there are also the named parameter parts which should be highlighted the same. So let's have a try at this.
+For Swift this doesn't look right enough though. For once: functions in Swift can consist of almost any character, not only ascii, and there are also the named parameter parts which should be highlighted the same. So let's have a try at this.
 
 Sadly the identifier can be almost everything. So lets just do an approximation that is better than the current one. 
 
