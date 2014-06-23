@@ -35,6 +35,8 @@ So let's see: we want something at the start of the line that has whitespace but
 
 The `postprocess` tag does then remove all content between the normal brackets.
 
+![](symbol_popup.png "Filled Symbol Popup")
+
 ## Autocomplete
 
 __SubEthaEdit__ supports a manually triggered autocomplete using the Escape Key. As autocomplete source all text in all open documents for that Mode are considered. On top of that for all the `keywords` that we specified the `useforautocomplete="yes"` all the `string` entries are considered as well. To be of even more use there is also the `AutocompleteAdditions.txt` which is used for lookup as well, in that you should place all the things you don't want to highlight, or you highlighted with regexes. For Example in the Objective-C mode there are all the Cocoa selectors. The Format is simple, just one line for each possible complete in a standard text file.
