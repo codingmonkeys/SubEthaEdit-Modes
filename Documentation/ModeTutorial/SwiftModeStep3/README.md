@@ -66,7 +66,9 @@ But let's go one step back: so instead of using the `string` tag you can also us
 
 So the literal number regex is probably the most important use case for regex based keywords. However, you can also just e.g. highlight everything that starts with an @ by specifying 
 
+```xml
 	<regex>(@\w+)</regex>
+```
 
 which can be neat if the language is this open. However, in general it is prefered you provide all the possible variants, so the highlighting also pre-validates the code written. And of course, by adding all the possible strings and have the `useforautocomplete="yes"` attribute you also get autocomplete for free.
 

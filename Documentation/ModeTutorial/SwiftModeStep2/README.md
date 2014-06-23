@@ -15,16 +15,18 @@ The basic building blocks of a SyntaxDefinition are hierachical `state`s and `ke
 
 The `scope="keyword.control"` is meant to represent all basic control structure keywords. So let's lookup all of them in the Swift documentation and add the to the already existing `keywords` tag with the `id="Control Flow Keyords"`.
 
-			<keywords id="Control Flow Keywords" scope="keyword.control" casesensitive="yes" useforautocomplete="yes">
-				<string>for</string>
-				<string>in</string>
-				<string>do</string>
-				<string>while</string>
-				<string>if</string>
-				<string>else</string>
-				<string>switch</string>
-				<string>case</string>
-				…
+```xml
+<keywords id="Control Flow Keywords" scope="keyword.control" casesensitive="yes" useforautocomplete="yes">
+	<string>for</string>
+	<string>in</string>
+	<string>do</string>
+	<string>while</string>
+	<string>if</string>
+	<string>else</string>
+	<string>switch</string>
+	<string>case</string>
+	…
+```
 
 After these we add additional keywords, which are not managing control flow with `scope="keyword"`. In our default Style sheets the difference is visible so that `keyword.control` scoped keywords are shown bold, `keywords` are shown in normal weight. However, although the scope ulitmately is the deciding factor for the coloration, you should try and make the scope distinction a semantic one, not one that is based on how it is colored.
 
@@ -37,17 +39,19 @@ With the keywords in place, we already can see some progress in terms of highlig
 
 Next up, let's add a `state`. A typical state is the comments. In Swift we have single and multiline comments almost the same way as in C - But there is a slight twist: multiline comments can now be nested. So to get a good head start, let us just grab the Comment state from the C mode, by finding and copying them into our top level `default` state. That is always something to keep in mind: if you know that a built-in mode already has a similiar feature, you can just look into the `.seemode` bundle and look up how it is done.
 
-			<state id="Comment" type="comment" scope="comment.block">
-				<begin><regex>/\*</regex><autoend>\*/</autoend></begin>
-				<end><regex>\*/</regex></end>
-				<import mode="Base" state="EmailAndURLContainerState" keywords-only="yes"/>
-			</state>
+```xml
+<state id="Comment" type="comment" scope="comment.block">
+	<begin><regex>/\*</regex><autoend>\*/</autoend></begin>
+	<end><regex>\*/</regex></end>
+	<import mode="Base" state="EmailAndURLContainerState" keywords-only="yes"/>
+</state>
 
-			<state id="SingleComment" type="comment" scope="comment.line">
-				<begin><regex>//</regex></begin>
-				<end><regex>[\n\r]</regex></end>
-				<import mode="Base" state="EmailAndURLContainerState" keywords-only="yes"/>
-			</state>
+<state id="SingleComment" type="comment" scope="comment.line">
+	<begin><regex>//</regex></begin>
+	<end><regex>[\n\r]</regex></end>
+	<import mode="Base" state="EmailAndURLContainerState" keywords-only="yes"/>
+</state>
+```
 
 So here we go. The `begin` and `end` tags enclose a `regex` tag which defines the begin and ends. We don't use special regex features here, but note that we needed to escape the `*` as it would otherwise be treated as a Regex modifier. Also of interest: we added the `autoend` to the multiline so the default shortcut `option-command-.` will insert a `*/` to close the current comment. This also needs to be escaped as it is a regular expression replace expression. You can have a look at the XML mode to see how to reference something from the begin in it.
 
@@ -55,12 +59,14 @@ The `import` tag imports the `EmailAndURLContainerState` from the base mode, whi
 
 However, in the current form we don't support the correct way of highlighting the multiline comment in Swift. Swift allows nesting of /* */ comments and for us to enable it, we also need to nest the comment state in itself.
 
-			<state id="Comment" type="comment" scope="comment.block">
-				<begin><regex>/\*</regex><autoend>\*/</autoend></begin>
-				<end><regex>\*/</regex></end>
-				<import mode="Base" state="EmailAndURLContainerState" keywords-only="yes"/>
-				<state-link state="Comment" />
-			</state>
+```xml
+<state id="Comment" type="comment" scope="comment.block">
+	<begin><regex>/\*</regex><autoend>\*/</autoend></begin>
+	<end><regex>\*/</regex></end>
+	<import mode="Base" state="EmailAndURLContainerState" keywords-only="yes"/>
+	<state-link state="Comment" />
+</state>
+```
 
 To achieve that we use the `state-link` tag. The `state-link` tag places the referenced state at this position. In contrast, the `import` tag places all the contents of the referenced state.
 
