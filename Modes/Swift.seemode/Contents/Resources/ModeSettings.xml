@@ -1,5 +1,4 @@
 <settings>
-	<template>NewTemplate.swift</template>
 	<recognition>
 		<extension>swift</extension>
 		<regex>\A#![^\n]+swift</regex>
