@@ -266,10 +266,12 @@ This tag is optional.
 	* _no_ (default)
 	* _yes_ - state increases indentation level on return and re-indent
 
-* <a name="attribute_type"></a>`type` _(optional)_: a string description of the type - currently only the values _string_ and _comment_ have meaning and cause bracket matching and symbol recognition to ignore these areas of text, additionally code folding has special handling for comments - possible values:
+* <a name="attribute_type"></a>`type` _(optional)_: a string description of the type - the type _string_ and _comment_ cause bracket matching and symbol recognition to ignore these areas of text, additionally code folding has special handling for comments, type _url_ makes the state clickable - possible values:
 	* _string_: symbol recognition ignores this state
 	* _comment_: symbol recognition ignores this state if not marked otherwise via [`show-in-comments`][SymbolRegex_showincomments]
+	* _url_: the state is turned into a hyperlink, additionally using the `uri-prefix` to generate the url that is opened when clicking the link
 
+* <a name="attribute_uri-prefix"></a>`uri-prefix` _(optional)_: an uri prefix, for example _mailto:_ - is only used if the `type` is _url_
 
 ---
 #### <a name="tag_begin_end"></a>`<begin>` and `<end>`
