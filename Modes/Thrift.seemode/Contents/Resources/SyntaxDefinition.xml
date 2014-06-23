@@ -4,9 +4,9 @@
 		<name>Thrift</name>
 		<autocompleteoptions use-spelling-dictionary="no" />
 		<folding toplevel="1" />
-		<!-- <charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@]]></charsintokens> --> 
-		<charsdelimitingtokens><![CDATA[ .,;:()[]{}<>+-/=#?!*
-]]></charsdelimitingtokens>
+		<charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@]]></charsintokens> 
+		<!-- <charsdelimitingtokens><![CDATA[ .,;:()[]{}<>+-/=#?!*
+]]></charsdelimitingtokens>  -->
 		<!-- <charsincompletion><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-@$</=>!]]></charsincompletion> -->
 	</head>
 	<states>
