@@ -3,8 +3,17 @@
 
 The next step is a somewhat mundane one, but crucial for great modes: Add all the Library classes and types.
 
-We put them into the `scope="support."` hierachy. In our case `support.class.standard.cocoa`, `support.subroutine.standard.cocoa`,`support.type.cocoa`,
-`support.class.standard.swift`, `support.subroutine.standard.swift`.
+We put them into the `scope="support."` hierachy. In our case for example `support.class.standard.cocoa`, `support.subroutine.standard.cocoa`,`support.type.cocoa`,
+`support.class.standard.swift`, `support.subroutine.standard.swift`:
+
+```xml
+<keywords id="Swift Protocols" useforautocomplete="yes" scope="support.protocol.swift">
+	<string>AbsoluteValuable</string>
+	<string>ArrayBound</string>
+	<string>ArrayBufferType</string>
+	<string>ArrayLiteralConvertible</string>
+	…
+```
 
 To extract the most of Swift I used an command click on a library function in Xcode 6, copied and pasted the header into a SubEthaEdit document and used regex to extract all the structs, types, and classes.
 
