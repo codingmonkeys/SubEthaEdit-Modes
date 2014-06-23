@@ -35,4 +35,5 @@ Send us a pull request or drop us a line (and the mode!) at [subethaedit+modes@c
 
 <!-- Tutorial Navigation -->
 [Step 5: Mode recognition and Scripts](../SwiftModeStep5) - [Overview](..)
-<!-- There is no step 7 --><!-- [Step 7](../SwiftModeStep7) -->
+<!-- There is no step 7 -->
+<!-- [Step 7](../SwiftModeStep7) -->
