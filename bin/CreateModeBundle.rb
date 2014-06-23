@@ -43,7 +43,7 @@ FileUtils.mkdir_p bundle_english_path
 #mark infoplist
 File.open(File.join(bundle_contents_path,"Info.plist"), "w") { |file| 
 	file.write <<HERE
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
@@ -79,6 +79,7 @@ example_syntax_name = "ExampleSyntax.#{mode_extensions[0]}"
 
 File.open(File.join(bundle_resources_path,"ModeSettings.xml"), "w") {|file|
 	file.write <<HERE
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <settings>
 	<template>#{template_name}</template>
 	<recognition>
@@ -99,7 +100,7 @@ HERE
 
 File.open(File.join(bundle_resources_path,"RegexSymbols.xml"), "w") {|file| 
 	file.write <<'HERE'
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!DOCTYPE syntax SYSTEM "symbol.dtd">
 
 <symbols>
@@ -141,7 +142,7 @@ HERE
 #mark SyntaxDefinition.xml
 File.open(File.join(bundle_resources_path,"SyntaxDefinition.xml"), "w") {|file| 
 	file.write <<HERE
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <syntax>
 	<head>
 		<name>#{mode_name_xml}</name>
@@ -150,9 +151,9 @@ File.open(File.join(bundle_resources_path,"SyntaxDefinition.xml"), "w") {|file|
 HERE
 
 	file.write <<'HERE'	
-		<!-- <charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@]]></charsintokens> --> 
-		<charsdelimitingtokens><![CDATA[ .,;:()[]{}<>+-/=#?!*
-]]></charsdelimitingtokens>
+		<charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@]]></charsintokens>
+		<!-- <charsdelimitingtokens><![CDATA[ .,;:()[]{}<>+-/=#?!*
+]]></charsdelimitingtokens> --> 
 		<!-- <charsincompletion><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-@$</=>!]]></charsincompletion> -->
 	</head>
 	<states>

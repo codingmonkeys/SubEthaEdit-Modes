@@ -1,7 +1,7 @@
 # Swift Mode Tutorial Step 1
 ## Getting Started
 
-The first step in creating a custom mode for a Language or Filetype is to gather information and create your `.seemode` bundle.
+The first step in creating a custom mode for a language or filetype is to gather information and create your `.seemode` bundle.
 
 ### Creating the mode bundle
 
@@ -29,11 +29,13 @@ Now go back to __SubEthaEdit__ and click the __Reload Modes__ item in the __Mode
 
 Now that we have verfied the mode is in the right place and we can generate and save files of that type, it is time to collect some basic sample code and paste it into the `ExampleSyntax.swift` file so we have something to work with. This file is shown to the User in the Styles Preferences of __SubEthaEdit__. And for us it should be a meaningful collection of elements of the language that we want to highlight and recognize.
 
-As I rule of thumb I would recommend searching the net for suitable sample code, maybe even other reference code from other highlighters. Since Swift is quite a new language, let's go with some Apple Sample code for now.
+As a rule of thumb I would recommend searching the net for suitable sample code, maybe even reference code from other highlighters. Since Swift is quite a new language, let's go with some Apple Sample code for now.
 
 As the skeleton already imports some basic states from other languages as example, you can see that numbers, comments, strings and function calls already have a little bit of highlighting.
 
 In the next step we will add the basic language keywords and constructs to the `SyntaxDefinition.xml` file. However, to do that we actually need to know the exact definition of all of these. Luckily for us Swift has quite a nice iBook which also has a nice HTML variant that describes all this in detail. For other languages you'll need to get prepared and find a good resource for it. It's often astounding what you can learn about a language when making a mode for it.
 
 
-[Back](..) - [Step 2 - Basic Language Features](../SwiftModeStep2)
+
+<!-- Tutorial Navigation -->
+[Overview](..) - [Step 2 - Basic Language Features](../SwiftModeStep2)
