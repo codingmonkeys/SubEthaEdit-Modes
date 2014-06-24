@@ -4,9 +4,10 @@
 		<name>Swift</name>
 		<autocompleteoptions use-spelling-dictionary="no" />
 		<folding toplevel="1" />
-		<!-- <charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@]]></charsintokens> --> 
-		<charsdelimitingtokens><![CDATA[ ()[]{}<>.,;:+-/=#?!*
-]]></charsdelimitingtokens>
+		<charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@öäüÖÄÜ]]></charsintokens> 
+		<!-- using charsdelimitingtokens would be nicer, however, there is a bug in SEE 4.0.1 that prevents this from working correctly -->
+		<!-- <charsdelimitingtokens><![CDATA[ ()[]{}<>.,;:+-/=#?!*
+]]></charsdelimitingtokens> -->
 		<!-- <charsincompletion><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-@$</=>!]]></charsincompletion> -->
 	</head>
 	<states>
