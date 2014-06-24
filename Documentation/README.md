@@ -4,8 +4,8 @@
 
 # Modes
 As with SubEthaEdit up to 4 you can create custom modes to support your language of Choice in terms of Syntax Highlighting, Symbol Recognition and Scripts.
-Take a look at the comprehensive [Mode Documentation][ModeExample].
 
+Take a look at the comprehensive [Mode Documentation][ModeExample] and [Mode Tutorials][ModeTutorial]
 
 ### Incomplete unordered list of Changes from 3.x
 
@@ -42,6 +42,7 @@ Description forthcoming.
 <!-- Referenced Paths -->
 [ModeExample]: ExampleMode "SubEthaEdit 4 Example Mode"
 [Styles]: Styles "SubEthaEdit Style Sheet Documentation"
+[ModeTutorial]: ModeTutorial "Mode Creation Tutorials"
 
 <!-- Referenced URLs -->
 [see_github]: https://github.com/codingmonkeys/SubEthaEdit "SubEthaEdit GitHub Repo"

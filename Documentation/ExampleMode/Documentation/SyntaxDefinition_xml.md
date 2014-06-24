@@ -24,10 +24,10 @@ This file is required.
 		<folding toplevel="2" />
 		<charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@]]></charsintokens> 
 	</head>
-	
+
 	<states>
 		<default id="Base" scope="meta.default">
-		
+
 			<keywords id="Keywords" scope="support.constant" casesensitive="yes" useforautocomplete="yes">
 				<string>COLOR</string>
 				<string>TEXT</string>
@@ -41,9 +41,9 @@ This file is required.
 					<string>foobar</string>
 				</keywords>
 			</state>
-			
+
 			<import mode="Base" state="EmailAndURLContainerState" keywords-only="yes"/>
-				
+
 		</default>
 	</states>
 </syntax>
@@ -54,7 +54,7 @@ This file is required.
 * [**&lt;syntax&gt;**](#tag_syntax)
 	* [**&lt;head&gt;**](#tag_head)
 		* [**&lt;name&gt;**](#tag_name)
-		
+
 		* [**&lt;autocompleteoptions&gt;**](#tag_autocompleteoptions) (_optional_)  
 		@ [use-spelling-dictionary](#attribute_use-spelling-dictionary) (_optional_)
 		* [**&lt;bracketmatching&gt;**](#tag_bracketmatching) (_optional_)  
@@ -72,9 +72,7 @@ This file is required.
 		@ [id](#attribute_id)  
 		@ [usesymbolsfrommode](#attribute_usesymbolsfrommode) (_optional_)  
 		@ [useautocompletefrommode](#attribute_useautocompletefrommode) (_optional_)  
-		@ [type](#attribute_type) (_optional_)  
-		@ [foldable](#attribute_foldable) (_optional_)  
-		@ [scope](#attribute_scope) (_optional_)
+		@ [scope](#attribute_scope) (_optional_)  
 			* [**&lt;keywords&gt;**](#tag_keywords)*  
 			@ [id](#attribute_id_keyword)  
 			@ [casesensitive](#attribute_casesensitive) (_optional_)  
@@ -82,10 +80,14 @@ This file is required.
 			@ [scope](#attribute_scope_keyword)  
 				* [**&lt;string&gt;**](#tag_string)* (_optional_)
 				* [**&lt;regex&gt;**](#tag_regex)* (_optional_)
-		
+
 			* [**&lt;state&gt;**](#tag_state)* (_optional_)  -- can also contain &lt;state&gt;, &lt;import&gt;, &lt;state-link&gt;, &lt;keywords&gt; tags  
 			@ [Attributes](#tag_default) -- the same attributes as &lt;default&gt;  
+			@ [containerState](#attribute_containerState) (_optional_)  
+			@ [foldable](#attribute_foldable) (_optional_)  
 			@ [indent](#attribute_indent) (_optional_)  
+			@ [type](#attribute_type) (_optional_)  
+			@ [uri-prefix](#attribute_uri-prefix) (_optional_)  
 				*  [**&lt;begin&gt;**](#tag_begin_end)
 					* [**&lt;regex&gt;**](#tag_regex_string) | [**&lt;string&gt;**](#tag_regex_string)
 					* [**&lt;autoend&gt;**](#tag_autoend) (_optional_)
@@ -103,14 +105,14 @@ This file is required.
 ---
 #### <a name="tag_syntax"></a>`<syntax>`
 The `<syntax>` tag is the root tag for this document.  
-It contains a `<head>` tag and a `<states>` tag.  
+It contains a [`<head>`](#tag_head) tag and a [`<states>`](#tag_states) tag.  
 This tag is required.  
 
 
 ---
 #### <a name="tag_head"></a>`<head>`
 The `<head>` tag encloses some global information about the mode.  
-It contains a `<name>` tag and either `<charsintokens>` or `<charsdelimitingtokens>` or both. It can also contain `<autocompleteoptions>`, `<bracketmatching>`, `<folding>` and `<charsincompletion>`.  
+It contains a [`<name>`](#tag_name) tag and either [`<charsintokens>`](#tag_charsintokens_delimiting) or [`<charsdelimitingtokens>`](#tag_charsintokens_delimiting) or both. It can also contain [`<autocompleteoptions>`](#tag_autocompleteoptions), [`<bracketmatching>`](#tag_bracketmatching), [`<folding>`](#tag_folding) and [`<charsincompletion>`](#tag_charsincompletion).  
 This tag is required.  
 
 
@@ -142,13 +144,13 @@ This tag is optional.
 * <a name="attribute_brackets"></a>`brackets` _(optional)_ - string that defines which characters are matched to pairs - possible values:
 	* _{[()]}_ (default)
 	* string of the format _abc…CBA_
-	
+
 	where  
 	_a_ is the opening character,  
 	_A_ is the corresponding closing character  
 	opening and closing characters are different from each other and every other character in the string.  
-	
-	
+
+
 ---
 #### <a name="tag_folding"></a>`<folding>` _(optional)_
 The `<folding>` tag defines the default folding level for `^ control` + `⌘ command` + `↑ up` (`Menu: View → Code Folding → Fold All Level X Blocks`).  
@@ -185,61 +187,53 @@ This tag is optional.
 #### <a name="tag_states"></a>`<states>`
 The `<states>` tag encloses all syntax states.  
 States are areas of the text that begin and end with an regex like comments or strings, with exception of the default state, that exists anywhere where no other state exists.  
-It contains the `<default>` tag.  
+It contains the [`<default>`](#tag_default) tag.  
 This tag is required.
 
 
 ---
 #### <a name="tag_default"></a>`<default>`
-The `<default>` tag specifies what is colored (, indented,…) within the default state (see `<states>`).  
-It can contain multiple `<keywords>`, `<state>`, `<import>` and `<state-link>` tags.  
+The `<default>` tag specifies what is colored (, indented,…) within the default state (see [`<states>`](#tag_states)).  
+It can contain multiple [`<keywords>`](#tag_keywords), [`<state>`](#tag_state), [`<import>`](#tag_import) and [`<state-link>`](#tag_state-link) tags.  
 It encloses everything that it not matched by another state.  
 This tag is required.
 
 ##### Attributes
 
-* <a name="attribute_id"></a>`id` - string identifier - has to be a unique string - has to be specified
+* <a name="attribute_id"></a>`id`: string identifier - has to be a unique string - has to be specified
 
 
-* <a name="attribute_usesymbolsfrommode"></a>`usesymbolsfrommode` _(optional)_ - a mode name to use the symbol recognition from - possible values:
+* <a name="attribute_usesymbolsfrommode"></a>`usesymbolsfrommode` _(optional)_: a mode name to use the symbol recognition from - possible values:
 	* inherited from the parent state (default)
 	* a mode name
 
-* <a name="attribute_useautocompletefrommode"></a>`useautocompletefrommode` _(optional)_ - a mode name to use the autocomplete from - possible values:
+* <a name="attribute_useautocompletefrommode"></a>`useautocompletefrommode` _(optional)_: a mode name to use the autocomplete from - possible values:
 	* this mode - inherited from the parent state (default)
 	* a mode name
 
-* <a name="attribute_type"></a>`type` _(optional)_ - a string description of the type - currently only the values "string" and "comment" have meaning and cause bracket matching and syntax highlighting to ignore these areas of text, additionally code folding has special handling for comments - possible values:
-	* _string_
-	* _comment_
-
-* <a name="attribute_foldable"></a>`foldable` _(optional)_ - makes this state foldable - possible values:
-	* _no_ (default)
-	* _yes_
-
-* <a name="attribute_scope"></a>`scope` _(optional)_ - a string description of the scope, used for style sheets - possible values: 
+* <a name="attribute_scope"></a>`scope` _(optional)_: a string description of the scope, used for style sheets - possible values: 
 	* see: [Style Sheet Scopes Documentation][ScopesDocu]
 
 
 ---
 #### <a name="tag_keywords"></a>`<keywords>`
 The `<keywords>` tag specifies keyword groups within the current state.  
-It can contain multiple `<string>` and `<regex>` tags.  
+It can contain multiple [`<string>`](#tag_string) and [`<regex>`](#tag_regex) tags.  
 This tag is required.
 
 ##### Attributes
 
-* <a name="attribute_id_keyword"></a>`id` - string identifier - has to be a unique string - has to bespecified
+* <a name="attribute_id_keyword"></a>`id`: string identifier - has to be a unique string - has to bespecified
 
-* <a name="attribute_casesensitive"></a>`casesensitive` _(optional)_ - makes this group case sensitive - possible values:
+* <a name="attribute_casesensitive"></a>`casesensitive` _(optional)_: makes this group case sensitive - possible values:
 	* _yes_ (default) - group is case sensitive
 	* _no_ - ignores case for group
 
-* <a name="attribute_useforautocomplete"></a>`useforautocomplete` _(optional)_ - adds strings to autocomplete dictionary - possible values:
+* <a name="attribute_useforautocomplete"></a>`useforautocomplete` _(optional)_: adds strings to autocomplete dictionary - possible values:
 	* _yes_ (default) - group's strings are added to the autocomplete dictionary
 	* _no_
 
-* <a name="attribute_scope_keyword"></a>`scope` _(optional)_ - a string description of the scope, used for style sheets - possible values: 
+* <a name="attribute_scope_keyword"></a>`scope` _(optional)_: a string description of the scope, used for style sheets - possible values: 
 	* see: [Style Sheet Scopes Documentation][ScopesDocu]
 
 
@@ -248,7 +242,7 @@ This tag is required.
 The `<string>` tag specifies plain text to be colored.  
 This tag is optional.
 
-_Tip_: If your tag does not get colored, check in `<charsintokens>` if you are tokenizing correctly. 
+_Tip_: If your tag does not get colored, check in [`<charsintokens>`](#tag_charsintokens_delimiting) if you are tokenizing correctly. 
 
 
 ---
@@ -261,31 +255,45 @@ This tag is optional.
 ---
 #### <a name="tag_state"></a>`<state>` _(optional)_
 The `<state>` tag specifies a state other than the default state.  
-It has to contain a `<begin>` and an `<end>` tag. It can contain `<keywords>`, `<state>`, `<import>` and `<state-link>` tags. It features the same attributes as the `<default>` tag.  
+It has to contain a `<begin>` and an `<end>` tag. It can contain [`<keywords>`](#tag_keywords), `<state>`, [`<import>`](#tag_import) and [`<state-link>`](#tag_state-link) tags. It features the same attributes as the [`<default>`](#tag_default) tag.  
 This tag is optional.  
 
 ##### Attributes
 * see [`<default>`](#tag_default)
-* <a name="attribute_indent"></a>`indent` _(optional)_ - state causes further indentation - used for automatic indentation on return and via `^ control` + `I` (`Menu: Format → Re-Indent`) - possible values:
+* <a name="attribute_containerState"></a>`containerState` _(optional)_: makes this state a container state - a container state functions as a collection state for other `<keywords>` and `<state>` tags, it does not need a `<begin>`, `<end>` or `<autoend>` tag and is created solely to be imported into other states - possible values:
+	* _no_ (default)
+	* _yes_: this state is a container state
+
+* <a name="attribute_foldable"></a>`foldable` _(optional)_: makes this state foldable - possible values:
+	* _no_ (default)
+	* _yes_
+
+* <a name="attribute_indent"></a>`indent` _(optional)_: state causes further indentation - used for automatic indentation on return and via `^ control` + `I` (`Menu: Format → Re-Indent`) - possible values:
 	* _no_ (default)
 	* _yes_ - state increases indentation level on return and re-indent
 
+* <a name="attribute_type"></a>`type` _(optional)_: a string description of the type - the type _string_ and _comment_ cause bracket matching and symbol recognition to ignore these areas of text, additionally code folding has special handling for comments, type _url_ makes the state clickable - possible values:
+	* _string_: symbol recognition ignores this state
+	* _comment_: symbol recognition ignores this state if not marked otherwise via [`show-in-comments`][SymbolRegex_showincomments]
+	* _url_: the state is turned into a hyperlink, additionally using the `uri-prefix` to generate the url that is opened when clicking the link
+
+* <a name="attribute_uri-prefix"></a>`uri-prefix` _(optional)_: an uri prefix, for example _mailto:_ - is only used if the `type` is _url_
 
 ---
 #### <a name="tag_begin_end"></a>`<begin>` and `<end>`
 The `<begin>` tag specifies the begin of a state other than the default state.  
 The `<end>` tag specifies the end of a state other than the default state.  
-Both have to contain a `<regex>` tag or a `<string>` tag containg a descriptor for the begin/end of the state.  
-The `<begin>` tag can additionally contain an `<autoend>` tag.  
-These tags are required. 
+Both have to contain a [`<regex>`](#tag_regex_string) tag or a [`<string>`](#tag_regex_string) tag containg a descriptor for the begin/end of the state.  
+The `<begin>` tag can additionally contain an [`<autoend>`](#tag_autoend) tag.  
+These tags are required.
 
 
 ---
 #### <a name="tag_regex_string"></a>`<regex>` or `<string>`
-The `<begin>` and `<end>` tags contain either a `<regex>` tag or a `<string>` tag.  
+The [`<begin>`](#tag_begin_end) and [`<end>`](#tag_begin_end) tags contain either a `<regex>` tag or a `<string>` tag.  
 The `<regex>` tag contains a regular expression string.  
 The `<string>` tag contains a string.  
-One of these tags is required. 
+One of these tags is required.
 
 
 ---
@@ -293,7 +301,7 @@ One of these tags is required.
 The `<autoend>` tag contains either a plain string or references a named group in the begin regex, for example 
 `<autoend>@end</autoend>` or `<autoend>&lt;/\g&lt;xmltagstatename&gt;&gt;</autoend>`.  
 It is used for closing the current state via `⌥ option` + `⌘ command` + `.` (`Menu: Format → Close Current Tag/Block`) 
-This tag is optional.  
+This tag is optional.
 
 
 ---
@@ -303,15 +311,15 @@ This tag is optional.
 
 ##### Attributes
 
-* <a name="attribute_mode"></a>`mode`_(optional)_ -  the mode to import from - possible values:
+* <a name="attribute_mode"></a>`mode`_(optional)_:  the mode to import from - possible values:
 	* this mode (default)
 	* a mode name
 
-* <a name="attribute_state"></a>`state` _(optional)_ - the state to import - possible values:
+* <a name="attribute_state"></a>`state` _(optional)_: the state to import - possible values:
 	* default state (default) - content of default state will be imported
 	* a state id -  content of state will be imported
 
-* <a name="attribute_keywords-only"></a>`keywords-only` _(optional)_ - only import keywords and not substates - possible values:
+* <a name="attribute_keywords-only"></a>`keywords-only` _(optional)_: only import keywords and not substates - possible values:
 	* _no_ (default)
 	* _yes_ - only import keywords and not substates of state
 
@@ -323,9 +331,9 @@ This tag is optional.
 
 ##### Attributes
 
-* <a name="attribute_state_state-link"></a>`state` - the state to link - a state id -  content of state will be imported
+* <a name="attribute_state_state-link"></a>`state`: the state to link - a state id -  content of state will be imported
 
-* <a name="attribute_mode_state-link"></a>`mode`_(optional)_ -  the mode to import from - possible values:
+* <a name="attribute_mode_state-link"></a>`mode`_(optional)_:  the mode to import from - possible values:
 	* this mode (default)
 	* a mode name
 
@@ -340,14 +348,14 @@ This tag is optional.
 		<name>Example</name>
 		<autocompleteoptions use-spelling-dictionary="yes" />
 		<folding toplevel="2" />
-	
+
 		<charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@]]></charsintokens> 
 		<!-- <charsdelimitingtokens><![CDATA[ -]]></charsdelimitingtokens> -->
 		<!-- <charsincompletion><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-@$</=>!]]></charsincompletion> -->
 	</head>
 	<states>
 		<default id="Base" scope="meta.default">
-		
+
 			<keywords id="Keywords" scope="support.constant" casesensitive="yes" useforautocomplete="yes">
 				<string>COLOR</string>
 				<string>TEXT</string>
@@ -373,19 +381,19 @@ This tag is optional.
 					<string>foobar</string>
 				</keywords>
 			</state>
-			
+
 			<state id="Inline Javascript" usesymbolsfrommode="Javascript" useautocompletefrommode="Javascript" scope="meta.block">
 				<begin><regex>&lt;(?=script)</regex></begin>
-				<end><regex>/script&gt;</regex></end>			
+				<end><regex>/script&gt;</regex></end>
 				<import mode="Javascript" />
 			</state>
-			
+
 			<import mode="Base" state="EmailAndURLContainerState" keywords-only="yes"/>
 
 			<keywords id="Numbers" useforautocomplete="no" scope="language.constant.numeric">
 				<regex>(?&lt;=[^[A-Za-z0-9]]|^)((?:(?:[0-9]+\.[0-9]*)|(?:\.[0-9]+)([eE][+\-]?[0-9]+)?[fFlL]?)|(?:(?:(?:[1-9][0-9]*)|0[0-7]*|(?:0[xX][0-9a-fA-F]))(?:(?:[uU][lL]?)|(?:[lL][uU]?))?))(?=[^[A-Za-z0-9]]|$)</regex>
 			</keywords>
-			
+
 			<keywords id="Warnings" scope="meta.important" casesensitive="yes" useforautocomplete="no">
 				<regex>(^%Warning:[^\n\r]*)</regex>
 			</keywords>
@@ -403,9 +411,9 @@ This tag is optional.
 ---
 ### <a name="AdditionalInformation"></a>Additional Information:
 
-#### <a name="UnsupportedAttributes"></a>No longer supported `<default>`-, `<state>`-, `<keywords>`-attributes
+#### <a name="UnsupportedAttributes"></a>No longer supported [`<default>`](#tag_default)-, [`<state>`](#tag_state)-, [`<keywords>`](#tag_keywords)-attributes
 
-The following attributes, that where part of the `<default>`, `<state>` and `<keywords>` tags are no longer supported by SubEthaEdit 4.0 and up: 
+The following attributes, that where part of the [`<default>`](#tag_default), [`<state>`](#tag_state) and [`<keywords>`](#tag_keywords) tags are no longer supported by SubEthaEdit 4.0 and up: 
 
 * background-color
 * color
@@ -414,16 +422,19 @@ The following attributes, that where part of the `<default>`, `<state>` and `<ke
 * inverted-background-color
 * inverted-color
 
-They are replaced by the `scope` attribute and the use of style sheets (see: [SubEthaEdit Style Sheet Documentation][StylesDocu]).
+They are replaced by the [`scope`](#attribute_scope) attribute and the use of style sheets (see: [SubEthaEdit Style Sheet Documentation][StylesDocu]).
 
-Having  a `scope` attribute instead of the direct color and font attributes gives you CSS like abstraction so there can be one `.sss` file to style all the modes. 
+Having  a [`scope`](#attribute_scope) attribute instead of the direct color and font attributes gives you CSS like abstraction so there can be one `.sss` file to style all the modes. 
 
 
 #### <a name="DefaultState"></a>All states are inside of the default state
-`<state>` tags only occur inside of the `<default>` tag.
+[`<state>`](#tag_state) tags only occur inside of the [`<default>`](#tag_default) tag.
+
+
 
 <!-- Referenced Files -->
 [ScopesDocu]: ../../Styles/Scopes.md "Style Sheet Scopes Documentation"
+[SymbolRegex_showincomments]: RegexSymbols_xml.md#attribute_show-in-comments "Symbol Recognition Documentation - symbol tag atrribute show-in-comments"
 
 <!-- Referenced Paths -->
 [StylesDocu]: ../../Styles "SubEthaEdit Style Sheet Documentation"
