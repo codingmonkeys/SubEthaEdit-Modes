@@ -69,6 +69,10 @@ HERE
 #mark NewTemplate.<extension>
 template_name = "NewTemplate.#{mode_extensions[0]}"
 example_syntax_name = "ExampleSyntax.#{mode_extensions[0]}"
+
+#just for now until SEE 4.0.2 is released
+example_syntax_name = "ExampleSyntax.txt"
+
 #mark Create Empty File Templates
 [template_name, "AutocompleteAdditions.txt", example_syntax_name, "ChangeLog.txt"].each { |resources_subpath|
 	File.open(File.join(bundle_resources_path,resources_subpath), "w") {|file| file.write "" }
