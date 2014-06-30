@@ -3,5 +3,6 @@
 	<template>NewTemplate.d</template>
 	<recognition>
 		<extension>d</extension>
+		<regex>\A#![^\n]+dtrace</regex>
 	</recognition>
 </settings>
