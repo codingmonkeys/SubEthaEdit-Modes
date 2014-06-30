@@ -7,9 +7,9 @@
 	<key>CFBundleName</key>
 	<string>DTrace</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.0.1</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>1.0.1</string>
 	<key>SEEMinimumEngineVersion</key>
 	<string>4.0</string>
 	<key>CFBundleInfoDictionaryVersion</key>
