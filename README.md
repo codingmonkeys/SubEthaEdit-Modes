@@ -15,6 +15,7 @@ Watch the master branch of this repository to stay up to date with our efforts.
 * added [Mode Documentation][ModeExample] with example Mode
 * added [Transition Guide][ModeUpdate]: _Notes on how to update a mode from 3.x to 4_
 * added [Mode creation tutorial][ModeTutorial]
+* added [Styles][SEE4Styles] Directory containing the built-in SEE4 styles
 
 ### Links
 [SubEthaEdit][subethaedit_net]  
@@ -35,6 +36,7 @@ Watch the master branch of this repository to stay up to date with our efforts.
 [ModeExample]: Documentation/ExampleMode/ "SubEthaEdit 4 Example Mode"
 [SEE3Modes]: Attic/SubEthaEdit3/Modes "SubEthaEdit 3.x Modes"
 [SEE4Modes]: Modes "SubEthaEdit 4 Modes"
+[SEE4Styles]: Styles "SubEthaEdit 4 Styles"
 [ModeTutorial]: Documentation/ModeTutorial "Mode Creation Tutorials"
 
 <!-- Referenced URLs -->
