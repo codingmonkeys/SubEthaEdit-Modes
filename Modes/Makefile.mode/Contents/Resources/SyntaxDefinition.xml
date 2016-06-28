@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE syntax SYSTEM "syntax.dtd">
+
+<syntax>
+    <head>
+        <name>Makefile Syntax</name>
+        <charsintokens><![CDATA[_0987654321abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@-.]]></charsintokens>
+        <!-- <charsdelimitingtokens>[CDATA[ -]]></charsdelimitingtokens> -->
+    </head>
+    <states>
+        <default id="Base" color="#000" inverted-color="#fff">
+            <keywords id="Keywords" color="#6C0540" casesensitive="yes" useforautocomplete="yes">
+                <string>ifdef</string>
+                <string>ifndef</string>
+                <string>ifeq</string>
+                <string>ifneq</string>
+                <string>define</string>
+                <string>else</string>
+                <string>endif</string>
+                <string>include</string>
+                <string>sinclude</string>
+                <string>-include</string>
+                <string>override</string>
+                <string>endef</string>
+                <string>unexport</string>
+                <string>vpath</string>
+                <string>subst</string>
+                <string>patsubst</string>
+                <string>strip</string>
+                <string>filter</string>
+                <string>sort</string>
+                <string>dir</string>
+                <string>notdir</string>
+                <string>suffix</string>
+                <string>basename</string>
+                <string>addsuffix</string>
+                <string>addprefix</string>
+                <string>join</string>
+                <string>word</string>
+                <string>words</string>
+                <string>wordlist</string>
+                <string>firstword</string>
+                <string>wildcard</string>
+                <string>error</string>
+                <string>warning</string>
+                <string>shell</string>
+                <string>origin</string>
+                <string>foreach</string>
+                <string>call</string>
+                <string>MAKEFILES</string>
+                <string>VPATH</string>
+                <string>SHELL</string>
+                <string>MAKESHELL</string>
+                <string>MAKE</string>
+                <string>MAKELEVEL</string>
+                <string>MAKEFLAGS</string>
+                <string>MAKECMDGOALS</string>
+                <string>CURDIR</string>
+                <string>SUFFIXES</string>
+                <string>.LIBPATTERNS</string>
+            </keywords>
+            <state id="SingleComment" color="#236E25" font-style="italic">
+                <begin>
+                    <regex>#</regex>
+                </begin>
+                <end>
+                    <regex>.(?=[\n\r])</regex>
+                </end>
+            </state>
+            <state id="String" color="#760f15">
+                <begin>
+                    <regex>"</regex>
+                </begin>
+                <end>
+                    <regex>(((?&lt;!\\)(\\\\)*)|^)"</regex>
+                </end>
+            </state>
+            <state id="Command" type="block" foldable="yes">
+                <begin>
+                    <regex>(?:^\t)</regex>
+                </begin>
+                <end>
+                    <regex>[\n\r](?=[^\t])</regex>
+                </end>
+                <import keywords-only="yes"/>
+                <state-link state="SingleComment"/>
+                <state-link state="String"/>
+            </state>
+        </default>
+    </states>
+</syntax>
